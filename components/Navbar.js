@@ -16,9 +16,9 @@ function Navbar() {
                         </svg>
                         <span className="capitalize text-white ml-2">All Categories</span>
 
-                        <div className="absolute left-0 top-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed">
+                        {/* <div className="absolute left-0 top-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed">
 
-                        {/* single category  */}
+                       
                             <a href="" className='flex items-center px-6 py-3 hover:bg-white transition'>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 object-contain" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -44,7 +44,7 @@ function Navbar() {
                                 <span className="ml-6 text-gray-600 text-sm">Bedroom</span>
                             </a>
 
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* nav menu */}
