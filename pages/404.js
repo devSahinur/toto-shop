@@ -6,7 +6,7 @@ function Custom404() {
         <div>
             <Header />
             <Navbar />
-            <img src="https://i.ibb.co/hL8DPZP/loader.gif" alt="Error" />
+            <img className="mx-auto w-[800px]" src="https://i.ibb.co/LY5LJd7/d4.jpg" alt="Error" />
         </div>
     )
 }
