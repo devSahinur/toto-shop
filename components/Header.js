@@ -25,7 +25,7 @@ function Header() {
                   <i className="fas fa-search"></i>
               </span>
               <input type="text"
-                  className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:border-primary"
+                  className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md outline-primary focus:border-primary"
                   placeholder="search"/>
               <button type="submit"
                   className="bg-primary border border-primary text-white px-8 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition">
