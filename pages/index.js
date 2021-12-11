@@ -1,5 +1,8 @@
 import Head from 'next/head'
+import Copyright from '../components/Copyright'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
@@ -10,10 +13,12 @@ export default function Home() {
       </Head>
 
       <main>
-      <Header/>
-      
+      <Header />
+      <Navbar />
       </main>
-    
+
+      <Footer />
+      <Copyright />
     </div>
   )
 }
