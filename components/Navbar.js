@@ -1,10 +1,12 @@
 import { useRouter} from 'next/router';
+import MobileMenubar from './MobileMenubar';
 
 
 
 function Navbar() {
     const router = useRouter();
     return (
+        <>
         <nav className="bg-gray-800 hidden lg:block">
             <div className="container">
                 <div className="flex">
@@ -62,6 +64,8 @@ function Navbar() {
                 </div>
             </div>
         </nav>
+        <MobileMenubar />
+    </>
     )
 }
 
