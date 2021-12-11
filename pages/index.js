@@ -1,11 +1,19 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Header from '../components/Header'
 
 export default function Home() {
   return (
-    <>
-    <h1 className=''>Faysal toto</h1>
+    <div>
+      <Head>
+        <title>ToTo Shop</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main>
+      <Header/>
+      
+      </main>
     
-    </>
+    </div>
   )
 }
