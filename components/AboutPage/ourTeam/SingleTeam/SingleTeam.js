@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 function SingleTeam({id,image,name,status,fbLink,insLink,twiLink}) {
     return (
-        <div key={id} className='px-2 py-4 pb-0 border shadow hover:shadow-md mr-3'>
+        <div className='px-2 py-4 pb-0 border shadow hover:shadow-md mr-3'>
 
             {/* for fontawesome icon in Head */}
             <Head>

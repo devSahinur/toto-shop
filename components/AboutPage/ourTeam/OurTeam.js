@@ -42,7 +42,7 @@ function OurTeam() {
 
                 <Slider {...settings} className='pt-8 flex items-center max-w-6xl overflow-x-scroll' id='scrollBarHide'>
                     {data?.map(({id,image,name,status,fbLink,insLink,twiLink})=>(
-                      <SingleTeam id={id} image={image} name={name} status={status} fbLink={fbLink} insLink={insLink} twiLink={twiLink}/>
+                      <SingleTeam key={id} id={id} image={image} name={name} status={status} fbLink={fbLink} insLink={insLink} twiLink={twiLink}/>
                     ))}
                 </Slider>
         </section>
