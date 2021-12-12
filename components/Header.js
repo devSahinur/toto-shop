@@ -8,7 +8,7 @@ function Header() {
       <header className="py-4 shadow-sm bg-pink-100 lg:bg-white">
       <div className="container flex items-center justify-between">
           {/* logo */}
-          <div className="block w-32">
+          <div onClick={() => router.push('/')} className="cursor-pointer block w-32">
 
             
                     <svg width="156" height="23" viewBox="0 0 156 23" fill="none" xmlns="http://www.w3.org/2000/svg">
