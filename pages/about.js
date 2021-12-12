@@ -17,6 +17,7 @@ function about() {
 
             {/* about Banner components */}
                 <AboutBanner bg={'https://i.ibb.co/VJKRqcn/contact-banner.jpg'} Icon={HomeIcon} text='About us' />
+                {/* <AboutBanner bg={'/img/contact-banner.jpg'} Icon={HomeIcon} text='About us' /> */}
                 {/* main-Content */}
                 <main className='max-w-7xl mx-auto px-4 py-6'>
                    <OurHistory />
