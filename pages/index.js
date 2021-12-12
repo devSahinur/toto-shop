@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Banner from '../components/Banner'
 import Copyright from '../components/Copyright'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -15,6 +16,8 @@ export default function Home() {
       <main>
       <Header />
       <Navbar />
+
+      <Banner />
       </main>
 
       <Footer />
