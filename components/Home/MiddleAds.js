@@ -1,9 +1,9 @@
 export const MiddleAds = () => {
     return (
-        <div class="container pb-16">
-        <a href="#">
-            <img src="https://i.ibb.co/BqVhHrz/offer.jpg" class="w-full"/>
-        </a>
-    </div>
+        <div className="container pb-16">
+            <div className="cursor-pointer">
+                <img src="https://i.ibb.co/BqVhHrz/offer.jpg" className="w-full"/>
+            </div>
+        </div>
     )
 }
