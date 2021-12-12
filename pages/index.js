@@ -6,6 +6,7 @@ import Features from '../components/Home/Features'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import { Categories } from '../components/Home/Categories/Categories'
+import { TopNewArrival } from '../components/Home/TopNewArrival/TopNewArrival'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Banner />
       <Features />
       <Categories />
+      <TopNewArrival />
       </main>
 
       <Footer />

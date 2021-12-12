@@ -1,5 +1,5 @@
 export const SingleCategories = ({data}) => {
-    console.log(data)
+    
     return (
         <div className="relative group rounded-sm overflow-hidden" >
                 <img src={data?.image} className="w-full"/>
