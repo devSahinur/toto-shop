@@ -1,5 +1,6 @@
 import { useRouter} from 'next/router';
 import MobileMenubar from './MobileMenubar';
+import {HeartIcon} from '@heroicons/react/outline'
 
 
 
@@ -56,6 +57,8 @@ function Navbar() {
                             <div onClick={() => router.push('/shop')}  className="text-gray-200 hover:text-white transition cursor-pointer">Shop</div>
                             <div onClick={() => router.push('/about')}  className="text-gray-200 hover:text-white transition cursor-pointer">About us</div>
                             <div onClick={() => router.push('/contact')}  className="text-gray-200 hover:text-white transition cursor-pointer">Contact us</div>
+                            <div onClick={() => router.push('/faq')}  className="text-gray-200 hover:text-white transition cursor-pointer">FAQ</div>
+
                         </div>
                         <div onClick={() => router.push('login')}  className="ml-auto justify-self-end text-gray-200 hover:text-white transition cursor-pointer">
                             Login/Register
