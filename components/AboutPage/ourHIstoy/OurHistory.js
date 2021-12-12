@@ -21,7 +21,7 @@ function OurHistory() {
                 {/* preview div */}
                 <div className='grid grid-cols-3 gap-x-2 pt-6'>
                    {data?.map(({id,number,text})=>(
-                        <HistoryPreview id={id} number={number} text={text}  />
+                        <HistoryPreview key={id} id={id} number={number} text={text}  />
                    ))}
                 </div>
             </div>
