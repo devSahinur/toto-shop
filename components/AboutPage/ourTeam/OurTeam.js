@@ -4,11 +4,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function OurTeam() {
+    // const data=[
+    //   {id:1,image:'/img/team-1.jpg',name:'Jane Cooper',status:'Founder',fbLink:'#',insLink:'#',twiLink:'#'},
+    //   {id:2,image:'/img/team-2.jpg',name:'Esther Howard',status:'Team Leader',fbLink:'#',insLink:'#',twiLink:'#'},
+    //   {id:3,image:'/img/team-3.jpg',name:'Kristin Wastson',status:'Senior Officer',fbLink:'#',insLink:'#',twiLink:'#'},
+    //   {id:4,image:'/img/team-4.jpg',name:'Ariene McCoy',status:'Marketing Officer',fbLink:'#',insLink:'#',twiLink:'#'},
+    // ]
+
     const data=[
-      {id:1,image:'/img/team-1.jpg',name:'Jane Cooper',status:'Founder',fbLink:'#',insLink:'#',twiLink:'#'},
-      {id:2,image:'/img/team-2.jpg',name:'Esther Howard',status:'Team Leader',fbLink:'#',insLink:'#',twiLink:'#'},
-      {id:3,image:'/img/team-3.jpg',name:'Kristin Wastson',status:'Senior Officer',fbLink:'#',insLink:'#',twiLink:'#'},
-      {id:4,image:'/img/team-4.jpg',name:'Ariene McCoy',status:'Marketing Officer',fbLink:'#',insLink:'#',twiLink:'#'},
+      {id:1,image:'https://i.ibb.co/827zNs3/team-1.jpg',name:'Jane Cooper',status:'Founder',fbLink:'#',insLink:'#',twiLink:'#'},
+      {id:2,image:'https://i.ibb.co/tYQgkjT/team-2.jpg',name:'Esther Howard',status:'Team Leader',fbLink:'#',insLink:'#',twiLink:'#'},
+      {id:3,image:'https://i.ibb.co/W24xZvB/team-3.jpg',name:'Kristin Wastson',status:'Senior Officer',fbLink:'#',insLink:'#',twiLink:'#'},
+      {id:4,image:'https://i.ibb.co/Bzy1w0F/team-4.jpg',name:'Ariene McCoy',status:'Marketing Officer',fbLink:'#',insLink:'#',twiLink:'#'},
     ]
 
       const settings = {

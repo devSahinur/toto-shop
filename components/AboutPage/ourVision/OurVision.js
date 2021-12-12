@@ -8,8 +8,9 @@ function OurVision() {
         <section className="grid grid-cols-1 xl:grid-cols-2 px-3 md:px-1 pb-10">
             {/* vision section left image */}
             <div className='w-full max-w-fit mx-auto'>
-                <Image src="/img/about-img-2.jpg" width={700} height={500} className="object-contain mx-auto md:mx-0 w-full h-full" />
-                {/* <Image src="/img/about-img-2.jpg" width={500} height={400} className="object-contain" /> */}
+                {/* <Image src="/img/about-img-2.jpg" width={700} height={500} className="object-contain mx-auto md:mx-0 w-full h-full" /> */}
+                <Image src="https://i.ibb.co/cyzVF61/about-img-2.jpg" width={700} height={500} className="object-contain mx-auto md:mx-0 w-full h-full" />
+
             </div>
 
             {/* vision section right */}

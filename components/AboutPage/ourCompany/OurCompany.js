@@ -5,11 +5,11 @@ import Image from 'next/image'
 
 function OurCompany() {
     const data=[
-        {id:1,image:'/img/brand1.png'},
-        {id:1,image:'/img/brand2.png'},
-        {id:1,image:'/img/brand3.png'},
-        {id:1,image:'/img/brand4.png'},
-        {id:1,image:'/img/brand1.png'}
+        {id:1,image:'https://i.ibb.co/6Y2SqSD/brand1.png'},
+        {id:2,image:'https://i.ibb.co/zsNYfy7/brand2.png'},
+        {id:3,image:'https://i.ibb.co/KmHLk11/brand3.png'},
+        {id:4,image:'https://i.ibb.co/QFyrJ7Y/brand4.png'},
+        {id:5,image:'https://i.ibb.co/6Y2SqSD/brand1.png'}
     ];
 
       const settings = {

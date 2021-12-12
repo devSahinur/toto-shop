@@ -28,8 +28,9 @@ function OurHistory() {
 
             {/* history right */}
             <div className='w-full'>
-                <Image src='/img/about-img.jpg' className='w-full h-full object-contain' height={450} width={700} />
-                {/* <Image src='/img/about-img.jpg' /> */}
+                {/* <Image src='/img/about-img.jpg' className='w-full h-full object-contain' height={450} width={700} /> */}
+                <Image src='https://i.ibb.co/zH3WS4d/about-img.jpg' className='w-full h-full object-contain' height={450} width={700} />
+                
             </div>
 
         </section>
