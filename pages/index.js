@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar'
 import { Categories } from '../components/Home/Categories/Categories'
 import { TopNewArrival } from '../components/Home/TopNewArrival/TopNewArrival'
 import { MiddleAds } from '../components/Home/MiddleAds'
+import { RecomendedProduct } from '../components/Home/RecomendedProduct/RecomendedProduct'
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <Categories />
       <TopNewArrival />
       <MiddleAds />
+      <RecomendedProduct />
       </main>
 
       <Footer />
