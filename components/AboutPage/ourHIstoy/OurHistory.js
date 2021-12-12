@@ -17,7 +17,7 @@ function OurHistory() {
             <div className='md:pr-4 space-y-4'>
                 <p className='text-primary uppercase font-poppins'>our History</p>
                 <h1 className='text-3xl sm:text-4xl uppercase font-medium' style={{lineHeight: '45px'}}>Creative and new fashion trends collection</h1>
-                <p className='text-md pr-12' style={{lineHeight: '30px'}}>Fashion is a potent visual marker of our times,"says Caroilne Stevenson,head of cultural and... "Trend analysis of any given era will reveal society's values and aspirataions"... The urge to creative expression runs deep</p>
+                <p className='text-md pr-12 text-gray-800' style={{lineHeight: '30px'}}>Fashion is a potent visual marker of our times,"says Caroilne Stevenson,head of cultural and... "Trend analysis of any given era will reveal society's values and aspirataions"... The urge to creative expression runs deep</p>
                 {/* preview div */}
                 <div className='grid grid-cols-3 gap-x-2 pt-6'>
                    {data?.map(({id,number,text})=>(

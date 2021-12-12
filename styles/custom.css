@@ -1,0 +1,6 @@
+#scrollBarHide::-webkit-scrollbar {
+  width: 0;
+}
+.slick-slider::-webkit-scrollbar {
+  width: 0;
+}
