@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import Banner from '../components/Banner'
 import Copyright from '../components/Copyright'
-import Features from '../components/Features'
 import Footer from '../components/Footer'
+import Banner from '../components/Home/Banner'
+import Features from '../components/Home/Features'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
+import { Categories } from '../components/Home/Categories/Categories'
 
 export default function Home() {
   return (
@@ -13,13 +14,13 @@ export default function Home() {
         <title>ToTo Shop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
       <Header />
       <Navbar />
 
+      <main>
       <Banner />
       <Features />
+      <Categories />
       </main>
 
       <Footer />

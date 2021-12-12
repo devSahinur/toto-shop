@@ -14,16 +14,16 @@ function Footer() {
                     </p>
                     <div className="flex space-x-6">
                         <a href="#" className="text-gray-400 cursor-pointer hover:text-gray-500">
-                            <i class="fab fa-facebook"></i>
+                            <i className="fab fa-facebook"></i>
                         </a>
                         <a href="#" className="text-gray-400 cursor-pointer hover:text-gray-500">
-                            <i class="fab fa-twitter"></i>
+                            <i className="fab fa-twitter"></i>
                         </a>
                         <a href="#" className="text-gray-400 cursor-pointer hover:text-gray-500">
-                            <i class="fab fa-instagram"></i>
+                            <i className="fab fa-instagram"></i>
                         </a>
                         <a href="#" className="text-gray-400 cursor-pointer hover:text-gray-500">
-                            <i class="fab fa-youtube"></i>
+                            <i className="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
