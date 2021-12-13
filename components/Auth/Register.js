@@ -3,12 +3,11 @@ import { useState } from "react";
 export const Register = () => {
   const [isClick, setIsClick] = useState(true);
 
-
   return (
     <div className="container py-16">
       <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
         {isClick ? (
-          <h2 class="text-2xl uppercase font-medium mb-1">LOGIN</h2>
+          <h2 className="text-2xl uppercase font-medium mb-1">LOGIN</h2>
         ) : (
           <h2 className="text-2xl uppercase font-medium mb-1">
             create an acocunt
@@ -16,7 +15,7 @@ export const Register = () => {
         )}
 
         {isClick ? (
-          <p class="text-gray-600 mb-6 text-sm">
+          <p className="text-gray-600 mb-6 text-sm">
             Login if you are a returing customer
           </p>
         ) : (
@@ -58,10 +57,7 @@ export const Register = () => {
                   id="agreement"
                   className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                 />
-                <label
-                  for="agreement"
-                  className="text-gray-600 ml-3 cursor-pointer"
-                >
+                <label className="text-gray-600 ml-3 cursor-pointer">
                   Remember Me
                 </label>
               </div>
@@ -129,10 +125,7 @@ export const Register = () => {
                 id="agreement"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
               />
-              <label
-                for="agreement"
-                className="text-gray-600 ml-3 cursor-pointer"
-              >
+              <label className="text-gray-600 ml-3 cursor-pointer">
                 I have read and agree to the
                 <a href="#" className="ml-1 text-primary">
                   terms & conditions
@@ -177,11 +170,17 @@ export const Register = () => {
         <p className="mt-4 text-gray-600 text-center">
           Already have an account?{" "}
           {isClick ? (
-            <div onClick={() => setIsClick(false)} className="cursor-pointer text-primary">
+            <div
+              onClick={() => setIsClick(false)}
+              className="cursor-pointer text-primary"
+            >
               Login Now
             </div>
           ) : (
-            <div onClick={() => setIsClick(true)} className="cursor-pointer text-primary">
+            <div
+              onClick={() => setIsClick(true)}
+              className="cursor-pointer text-primary"
+            >
               Register Now
             </div>
           )}
