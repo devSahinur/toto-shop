@@ -32,7 +32,7 @@
     @apply border px-2 py-3 text-black focus-within:ring-1 focus-within:ring-primary outline-none rounded-md focus-within:shadow;
   }
   .cinputTi {
-    @apply text-gray-700 pb-4 text-lg;
+    @apply text-gray-800 pb-4 text-lg;
   }
   .btn {
     @apply text-white px-4 py-3 rounded-md bg-primary hover:bg-transparent hover:border hover:border-primary transition-all ease-out hover:text-black;

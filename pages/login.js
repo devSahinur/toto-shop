@@ -1,4 +1,3 @@
-
 import { Register } from "../components/Auth/Register";
 import Copyright from "../components/Copyright";
 import Footer from "../components/Footer";

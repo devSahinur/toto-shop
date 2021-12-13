@@ -171,7 +171,10 @@ export const Register = () => {
         {isClick ? (
           <p className="mt-4 text-gray-600 text-center">
             Already have an account?{" "}
-            <div onClick={() => setIsClick(false)} className="cursor-pointer text-primary">
+            <div
+              onClick={() => setIsClick(false)}
+              className="cursor-pointer text-primary"
+            >
               {" "}
               Login Now
             </div>
@@ -179,7 +182,10 @@ export const Register = () => {
         ) : (
           <p className="mt-4 text-gray-600 text-center">
             Don't have an account?{" "}
-            <div onClick={() => setIsClick(true)} className="cursor-pointer text-primary">
+            <div
+              onClick={() => setIsClick(true)}
+              className="cursor-pointer text-primary"
+            >
               Register Now
             </div>
           </p>
