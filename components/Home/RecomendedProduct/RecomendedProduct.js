@@ -32,7 +32,7 @@ const products = [
         image: "https://i.ibb.co/9rn0tSy/product4.jpg"
     },
     {
-        id: 1,
+        id: 5,
         title: "Guyer chair",
         price: 45.00,
         rating: 150,
@@ -40,21 +40,21 @@ const products = [
         
     },
     {
-        id: 2,
+        id: 6,
         title: "Guyer chair",
         price: 45.00,
         rating: 150,
         image: "https://i.ibb.co/2nfH6ZX/product6.jpg"
     },
     {
-        id: 3,
+        id: 7,
         title: "Guyer chair",
         price: 45.00,
         rating: 150,
         image: "https://i.ibb.co/xg8fwz4/product7.jpg"
     },
     {
-        id: 4,
+        id: 8,
         title: "Guyer chair",
         price: 45.00,
         rating: 150,
