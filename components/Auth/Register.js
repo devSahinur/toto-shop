@@ -1,78 +1,157 @@
+import { useState } from "react";
+
 export const Register = () => {
+  const [isClick, setIsClick] = useState(true);
+
+
   return (
     <div className="container py-16">
       <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-        <h2 className="text-2xl uppercase font-medium mb-1">
-          create an acocunt
-        </h2>
-        <p className="text-gray-600 mb-6 text-sm">
-          Register here if you don't have account
-        </p>
-        <form action="">
-          <div className="space-y-4">
-            <div>
-              <label className="text-gray-600 mb-2 block">
-                Full Name <span className="text-primary">*</span>
-              </label>
-              <input type="text" className="input-box" placeholder="John Doe" />
+        {isClick ? (
+          <h2 class="text-2xl uppercase font-medium mb-1">LOGIN</h2>
+        ) : (
+          <h2 className="text-2xl uppercase font-medium mb-1">
+            create an acocunt
+          </h2>
+        )}
+
+        {isClick ? (
+          <p class="text-gray-600 mb-6 text-sm">
+            Login if you are a returing customer
+          </p>
+        ) : (
+          <p className="text-gray-600 mb-6 text-sm">
+            Register here if you don't have account
+          </p>
+        )}
+
+        {/* Register from start */}
+
+        {isClick ? (
+          <form action="">
+            <div className="space-y-4">
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Email Address <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="email"
+                  className="input-box"
+                  placeholder="example@mail.com"
+                />
+              </div>
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Password <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="password"
+                  className="input-box"
+                  placeholder="type password"
+                />
+              </div>
             </div>
-            <div>
-              <label className="text-gray-600 mb-2 block">
-                Email Address <span className="text-primary">*</span>
-              </label>
-              <input
-                type="email"
-                className="input-box"
-                placeholder="example@mail.com"
-              />
-            </div>
-            <div>
-              <label className="text-gray-600 mb-2 block">
-                Password <span className="text-primary">*</span>
-              </label>
-              <input
-                type="password"
-                className="input-box"
-                placeholder="type password"
-              />
-            </div>
-            <div>
-              <label className="text-gray-600 mb-2 block">
-                Confirm Password
-                <span className="text-primary">*</span>
-              </label>
-              <input
-                type="password"
-                className="input-box"
-                placeholder="confirm your password"
-              />
-            </div>
-          </div>
-          <div className="flex items-center mt-6">
-            <input
-              type="checkbox"
-              id="agreement"
-              className="text-primary focus:ring-0 rounded-sm cursor-pointer"
-            />
-            <label
-              for="agreement"
-              className="text-gray-600 ml-3 cursor-pointer"
-            >
-              I have read and agree to the 
-              <a href="#" className="ml-1 text-primary">
-                terms & conditions
+            <div className="flex items-center justify-between mt-6">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="agreement"
+                  className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                />
+                <label
+                  for="agreement"
+                  className="text-gray-600 ml-3 cursor-pointer"
+                >
+                  Remember Me
+                </label>
+              </div>
+              <a href="#" className="text-primary">
+                Forgot Password?
               </a>
-            </label>
-          </div>
-          <div className="mt-4">
-            <button
-              type="submit"
-              className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-            >
-              create account
-            </button>
-          </div>
-        </form>
+            </div>
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        ) : (
+          <form action="" className="">
+            <div className="space-y-4">
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Full Name <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="input-box"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Email Address <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="email"
+                  className="input-box"
+                  placeholder="example@mail.com"
+                />
+              </div>
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Password <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="password"
+                  className="input-box"
+                  placeholder="type password"
+                />
+              </div>
+              <div>
+                <label className="text-gray-600 mb-2 block">
+                  Confirm Password
+                  <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="password"
+                  className="input-box"
+                  placeholder="confirm your password"
+                />
+              </div>
+            </div>
+            <div className="flex items-center mt-6">
+              <input
+                type="checkbox"
+                id="agreement"
+                className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+              />
+              <label
+                for="agreement"
+                className="text-gray-600 ml-3 cursor-pointer"
+              >
+                I have read and agree to the
+                <a href="#" className="ml-1 text-primary">
+                  terms & conditions
+                </a>
+              </label>
+            </div>
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+              >
+                create account
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* Login from emd */}
+
         {/* <!-- login with social --> */}
         <div className="mt-6 flex justify-center relative">
           <div className="absolute left-0 top-3 w-full border-b-2 border-gray-200"></div>
@@ -97,9 +176,15 @@ export const Register = () => {
         {/* <!-- login with social end --> */}
         <p className="mt-4 text-gray-600 text-center">
           Already have an account?{" "}
-          <a href="#" className="text-primary">
-            Login Now
-          </a>
+          {isClick ? (
+            <div onClick={() => setIsClick(false)} className="cursor-pointer text-primary">
+              Login Now
+            </div>
+          ) : (
+            <div onClick={() => setIsClick(true)} className="cursor-pointer text-primary">
+              Register Now
+            </div>
+          )}
         </p>
       </div>
     </div>
