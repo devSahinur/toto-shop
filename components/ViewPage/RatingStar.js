@@ -1,9 +1,13 @@
-export const RatingStar = ({ product }) => {
+export const RatingStar = ({ star }) => {
+  const starArray = Array.from(Array(star).keys());
+
   return (
     <>
-      <span>
-        <i className="fas fa-star"></i>
-      </span>
+      {starArray.map((star) => (
+        <span key={star}>
+          <i className="fas fa-star"></i>
+        </span>
+      ))}
     </>
   );
 };

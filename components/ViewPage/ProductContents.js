@@ -1,6 +1,7 @@
 import { RatingStar } from "./RatingStar";
 
 export const ProductContents = ({ product }) => {
+  
   return (
     <div>
       <h2 className="md:text-3xl text-2xl font-medium uppercase mb-2">
@@ -8,11 +9,7 @@ export const ProductContents = ({ product }) => {
       </h2>
       <div className="flex items-center mb-4">
         <div className="flex gap-1 text-sm text-yellow-400">
-          <RatingStar />
-          <RatingStar />
-          <RatingStar />
-          <RatingStar />
-          <RatingStar />
+          <RatingStar star={product.rating} />
         </div>
         <div className="text-xs text-gray-500 ml-3">
           ({product.totalReviews} Reviews)
