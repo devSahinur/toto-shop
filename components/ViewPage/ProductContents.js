@@ -1,7 +1,6 @@
 import { RatingStar } from "./RatingStar";
 
 export const ProductContents = ({ product }) => {
-  
   return (
     <div>
       <h2 className="md:text-3xl text-2xl font-medium uppercase mb-2">
@@ -26,25 +25,24 @@ export const ProductContents = ({ product }) => {
         </p>
         <p className="space-x-2">
           <span className="text-gray-800 font-semibold">Brand: </span>
-          <span className="text-gray-600">Apex</span>
+          <span className="text-gray-600">{product.brand}</span>
         </p>
         <p className="space-x-2">
           <span className="text-gray-800 font-semibold">Category: </span>
-          <span className="text-gray-600">Sofa</span>
+          <span className="text-gray-600">{product.category}</span>
         </p>
         <p className="space-x-2">
           <span className="text-gray-800 font-semibold">SKU: </span>
-          <span className="text-gray-600">BE45VGRT</span>
+          <span className="text-gray-600">{product.sku}</span>
         </p>
       </div>
       <div className="mt-4 flex items-baseline gap-3">
-        <span className="text-primary font-semibold text-xl">$450.00</span>
+        <span className="text-primary font-semibold text-xl">
+          ${product.price}
+        </span>
         <span className="text-gray-500 text-base line-through">$500.00</span>
       </div>
-      <p className="mt-4 text-gray-600">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-        exercitationem quaerat excepturi labore blanditiis
-      </p>
+      <p className="mt-4 text-gray-600">{product.shortDescription}</p>
       {/* <!-- size --> */}
       <div className="mt-4">
         <h3 className="text-base text-gray-800 mb-1">Size</h3>
@@ -67,13 +65,7 @@ export const ProductContents = ({ product }) => {
           {/* <!-- single size end --> */}
           {/* <!-- single size --> */}
           <div className="size-selector">
-            <input
-              type="radio"
-              name="size"
-              className="hidden"
-              id="size-m"
-              checked
-            />
+            <input type="radio" name="size" className="hidden" id="size-m" />
             <label className="text-xs border border-gray-200 rounded-sm h-6 w-6 flex items-center justify-center cursor-pointer shadow-sm text-gray-600">
               M
             </label>

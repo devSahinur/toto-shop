@@ -10,7 +10,7 @@ const product = {
   id: 1,
   title: "Italian L Shape Sofa",
   totalReviews: 150,
-  rating:3,
+  rating:5,
   availability: true,
   totalQuantity: 56,
   image: [
