@@ -35,6 +35,9 @@
     @apply text-gray-800 pb-4 text-lg;
   }
   .btn {
-    @apply text-white px-4 py-3 rounded-md bg-primary hover:bg-transparent hover:border hover:border-primary transition-all ease-out hover:text-black;
+    @apply px-6 py-3 bg-primary text-white rounded-md hover:bg-transparent hover:text-primary hover:border-primary hover:border-2 cursor-pointer transition-all ease-linear;
+  }
+  .btn-outline {
+    @apply px-6 py-3 bg-transparent text-primary rounded-md hover:bg-primary hover:text-white border-2 border-primary cursor-pointer transition-all ease-linear;
   }
 }
