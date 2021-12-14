@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
 import { ProductImage } from "../components/ViewPage/ProductImage";
 import { ProductContents } from "../components/ViewPage/ProductContents";
+import { ProductDetails } from "../components/ViewPage/ProductDetails";
 
 const product = {
   id: 1,
@@ -84,6 +85,7 @@ function view() {
         <ProductImage product={product} />
         <ProductContents product={product} />
       </div>
+      <ProductDetails product={product} />
       {/* <!-- product view end --> */}
       <Footer />
       <Copyright />
