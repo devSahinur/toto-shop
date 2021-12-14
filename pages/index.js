@@ -9,8 +9,18 @@ import { Categories } from "../components/Home/Categories/Categories";
 import { TopNewArrival } from "../components/Home/TopNewArrival/TopNewArrival";
 import { MiddleAds } from "../components/Home/MiddleAds";
 import { RecomendedProduct } from "../components/Home/RecomendedProduct/RecomendedProduct";
+import { useEffect, useState } from "react";
+import Modal from "../components/Home/Modal/Modal";
 
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -28,6 +38,9 @@ export default function Home() {
         <MiddleAds />
         <RecomendedProduct />
       </main>
+
+      {/* for show the modal */}
+      {showModal && <Modal setShowModal={setShowModal} />}
 
       <Footer />
       <Copyright />

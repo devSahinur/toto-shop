@@ -5,24 +5,24 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
+      sm: "576px",
+      md: "768px",
+      lg: "992px",
+      xl: "1200px",
     },
     container: {
       center: true,
-      padding: '1rem',
+      padding: "1rem",
     },
     extend: {
       colors: {
-        primary: '#FD3D57'
+        primary: "#FD3D57",
       },
-      fontFamily:{
-        poppins:  "'Poppins', sans-serif",
-        roboto:  "'Roboto', sans-serif",
-      }
+      fontFamily: {
+        poppins: "'Poppins', sans-serif",
+        roboto: "'Roboto', sans-serif",
+      },
     },
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/custom-forms")],
+};
