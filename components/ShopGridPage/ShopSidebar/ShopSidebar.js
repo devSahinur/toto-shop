@@ -1,7 +1,5 @@
 import { useState } from "react";
 import ShopCategory from "./ShopCategory/ShopCategory";
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
 import { XIcon } from "@heroicons/react/solid";
 
 function ShopSidebar({ fileterbtn, setShowSidebar }) {
@@ -48,9 +46,9 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
       }`}
     >
       {/* category */}
-      <div className="pb-3 border-b space-y-4">
-        <div className="flex items-center justify-between pb-4">
-          <h1 className="text-xl font-medium uppercase">Categories</h1>
+      <div className=" border-b space-y-4">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl text-gray-800  uppercase font-medium">Categories</h1>
           {setShowSidebar && (
             <XIcon
               onClick={() => setShowSidebar(false)}
@@ -74,7 +72,25 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
       </div>
 
       {/* price section */}
-      <div className="py-4 border-b space-y-4">
+      <div className="pt-4">
+        <h3 className="text-xl text-gray-800  uppercase font-medium">
+          Price
+        </h3>
+        <div className="mt-4 flex items-center">
+          <input
+            type="text"
+            className="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
+            placeholder="min"
+          />
+          <span className="mx-3 text-gray-500">-</span>
+          <input
+            type="text"
+            className="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
+            placeholder="mix"
+          />
+        </div>
+      </div>
+      {/* <div className="py-4 border-b space-y-4">
         <h1 className="text-xl font-medium uppercase">Price</h1>
         <Box sx={{ width: 250 }}>
           <Slider
@@ -88,11 +104,11 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
         <h1>
           ${value[0]} - ${value[1]}
         </h1>
-      </div>
+      </div> */}
 
       {/* size section */}
       <div className="py-4 border-b space-y-4">
-        <h1 className="text-xl font-medium uppercase">Size</h1>
+        <h1 className="text-xl text-gray-800 mb-3 uppercase font-medium">Size</h1>
         <div className="flex items-center space-x-3">
           <span
             className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"
