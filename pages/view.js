@@ -3,11 +3,14 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import { ProductImage } from "../components/ViewPage/ProductImage";
+import { ProductContents } from "../components/ViewPage/ProductContents";
 
 const product = {
   id: 1,
   title: "Italian L Shape Sofa",
   totalReviews: 150,
+  rating:3,
   availability: true,
   totalQuantity: 56,
   image: [
@@ -72,52 +75,14 @@ function view() {
         <span className="text-sm text-gray-400">
           <i className="fas fa-chevron-right"></i>
         </span>
-        <p className="text-gray-600 font-medium uppercase">
-          {product.title}
-        </p>
+        <p className="text-gray-600 font-medium uppercase">{product.title}</p>
       </div>
       {/* <!-- breadcrum end --> */}
 
       {/* <!-- product view --> */}
       <div className="container pt-4 pb-6 grid lg:grid-cols-2 gap-6">
-        {/* <!-- product image --> */}
-        <div>
-          <div>
-            <img id="main-img" src={product.image[0].img} className="w-full" />
-          </div>
-          <div className="grid grid-cols-5 gap-4 mt-4">
-            <div>
-              <img
-                src={product.image[0].img}
-                className="single-img w-full cursor-pointer border border-primary"
-              />
-            </div>
-            <div>
-              <img
-                src={product.image[1].img}
-                className="single-img w-full cursor-pointer border"
-              />
-            </div>
-            <div>
-              <img
-                src={product.image[2].img}
-                className="single-img w-full cursor-pointer border"
-              />
-            </div>
-            <div>
-              <img
-                src={product.image[3].img}
-                className="single-img w-full cursor-pointer border"
-              />
-            </div>
-            <div>
-              <img
-                src={product.image[4].img}
-                className="single-img w-full cursor-pointer border"
-              />
-            </div>
-          </div>
-        </div>
+        <ProductImage product={product} />
+        <ProductContents product={product} />
       </div>
       {/* <!-- product view end --> */}
       <Footer />
