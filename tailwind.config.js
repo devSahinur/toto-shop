@@ -24,5 +24,11 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      visibility: ["group-hover"],
+      display: ["group-hover"],
+    },
+  },
   plugins: [require("@tailwindcss/custom-forms")],
 };
