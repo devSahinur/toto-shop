@@ -6,7 +6,7 @@ function Navbar() {
   const router = useRouter();
   return (
     <>
-      <nav className="bg-gray-800 hidden lg:block">
+      <nav className="bg-gray-800 hidden lg:block sticky top-0 z-40">
         <div className="container">
           <div className="flex">
             {/* all category  */}

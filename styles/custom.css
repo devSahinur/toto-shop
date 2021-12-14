@@ -4,3 +4,25 @@
 .slick-slider::-webkit-scrollbar {
   width: 0;
 }
+/* .custom_modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: 70;
+  
+} */
+
+.animation {
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  top {
+    opacity: 1;
+  }
+}

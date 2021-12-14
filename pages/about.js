@@ -23,7 +23,7 @@ function about() {
       />
       {/* <AboutBanner bg={'/img/contact-banner.jpg'} Icon={HomeIcon} text='About us' /> */}
       {/* main-Content */}
-      <main className="max-w-7xl mx-auto px-4 py-6">
+      <main className="max-w-[75rem] mx-auto px-4 py-6">
         <OurHistory />
         <OurVision />
         <OurTeam />

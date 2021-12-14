@@ -21,7 +21,7 @@ function faq() {
       <Header />
       <Navbar />
       {/* this is the main content */}
-      <main className="max-w-7xl mx-auto px-4 py-6">
+      <main className="max-w-[75rem] mx-auto px-4 py-6">
         {/* main content  top*/}
         <div className="px-1 md:px-8 space-y-6 max-w-[550px] pt-4 pb-10">
           <div className="flex items-center space-x-2 text-gray-800 text-sm sm:text-lg">

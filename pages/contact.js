@@ -21,7 +21,7 @@ function contact() {
       />
 
       {/* main content */}
-      <main className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-3 md:space-x-6 gap-y-12">
+      <main className="max-w-[75rem] mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-3 md:space-x-6 gap-y-12">
         {/* left */}
         <ContactForm />
         <ContactInfo />
