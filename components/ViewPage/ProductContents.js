@@ -91,29 +91,38 @@ export const ProductContents = ({ product }) => {
       </div>
       {/* <!-- size end --> */}
       {/* <!-- color --> */}
-      {/* <div className="mt-4">
-                <h3 className="text-base text-gray-800 mb-1">Color</h3>
-                <div className="flex items-center gap-2">
-                    <div className="color-selector">
-                        <input type="radio" name="color" className="hidden" id="color-red" checked/>
-                        <label style="background-color : #fc3d57"
-                            className="text-xs border border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm">
-                        </label>
-                    </div>
-                    <div className="color-selector">
-                        <input type="radio" name="color" className="hidden" id="color-white"/>
-                        <label " style="background-color : #fff"
-                            className="text-xs border border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm">
-                        </label>
-                    </div>
-                    <div className="color-selector">
-                        <input type="radio" name="color" className="hidden" id="color-black"/>
-                        <label  style="background-color : #000"
-                            className="text-xs border border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm">
-                        </label>
-                    </div>
-                </div>
-            </div> */}
+      <div className="mt-4">
+        <h3 className="text-base text-gray-800 mb-1">Color</h3>
+        <div className="flex items-center gap-2">
+          <div className="color-selector">
+            <input
+              type="radio"
+              name="color"
+              className="hidden"
+              id="color-red"
+            />
+            <label className="text-xs bg-[#fc3d57] border border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm"></label>
+          </div>
+          <div className="color-selector">
+            <input
+              type="radio"
+              name="color"
+              className="hidden"
+              id="color-white"
+            />
+            <label className="text-xs border bg-white border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm"></label>
+          </div>
+          <div className="color-selector">
+            <input
+              type="radio"
+              name="color"
+              className="hidden"
+              id="color-black"
+            />
+            <label className="text-xs border bg-black border-gray-200 rounded-sm h-5 w-5 flex items-center justify-center cursor-pointer shadow-sm"></label>
+          </div>
+        </div>
+      </div>
       {/* <!-- color end --> */}
       {/* <!-- quantity --> */}
       <div className="mt-4">
