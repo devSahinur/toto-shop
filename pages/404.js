@@ -1,7 +1,5 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import Link from "next/link";
-import { ArrowRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Copyright from "../components/Copyright";
 import Footer from "../components/Footer";
 import Image from "next/image";
@@ -26,7 +24,10 @@ function Custom404() {
             <h1 className="text-xl md:text-2xl xl:text-3xl md:font-semibold pb-8">
               THE PAGE YOU'VE REQUESTED IS NOT AVAILABLE
             </h1>
-            <div onClick={() => router.push("/")} className="btn cursor-pointer uppercase">
+            <div
+              onClick={() => router.push("/")}
+              className="btn cursor-pointer uppercase"
+            >
               Back to Home
             </div>
           </div>
