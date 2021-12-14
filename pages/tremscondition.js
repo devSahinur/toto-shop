@@ -4,8 +4,10 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function TramsCondition() {
+  const router = useRouter();
   return (
     <div>
       <Header />
