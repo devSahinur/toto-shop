@@ -33,7 +33,6 @@ function Custom404() {
           </div>
         </div>
       </main>
-      <Footer />
       <Copyright />
     </div>
   );

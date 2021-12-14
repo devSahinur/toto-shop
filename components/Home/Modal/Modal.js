@@ -38,13 +38,13 @@ function Modal({ setShowModal }) {
           </div>
 
           {/* check button */}
-          <label class="flex items-center justify-center space-x-3 text-gray-500">
+          <label className="flex items-center justify-center space-x-3 text-gray-500">
             <input
               type="checkbox"
-              class="form-checkbox text-primary border-primary rounded-md border-2 p-2 focus-within:outline-primary outline-primary"
+              className="form-checkbox text-primary border-primary rounded-md border-2 p-2 focus-within:outline-primary outline-primary"
               onChange={(e) => setShowModal(false)}
             />
-            <span class="ml-2">Do not show this again</span>
+            <span className="ml-2">Do not show this again</span>
           </label>
         </div>
 
