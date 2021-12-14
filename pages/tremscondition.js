@@ -12,15 +12,21 @@ function TramsCondition() {
       <Navbar />
       {/* main-Content */}
 
-      <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
-        <div className="flex items-center sm:space-x-4 space-x-2 py-6">
-          <Link href="/">
-            <HomeIcon className="h-4 sm:h-5 cursor-pointer text-primary" />
-          </Link>
-          <ArrowRightIcon className="h-4 sm:h-5 cursor-pointer" />
-          <h3 className="font-light sm:text-xl">Terms & Conditions</h3>
+      <div className="py-4 container flex gap-3 items-center">
+        <div
+          onClick={() => router.push("/")}
+          className="text-primary cursor-pointer text-base"
+        >
+          <i className="fas fa-home"></i>
         </div>
+        <span className="text-sm text-gray-400">
+          <i className="fas fa-chevron-right"></i>
+        </span>
+        Terms & Conditions
+      </div>
 
+      <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
+        
         <h1 className="text-center text-xl md:text-4xl font-semibold">
           Terms & Conditions
         </h1>

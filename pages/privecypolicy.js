@@ -14,21 +14,19 @@ function PrivacyPolicy() {
       <Navbar />
       {/* main-Content */}
       <div className="py-4 container flex gap-3 items-center">
-          <div
-            onClick={() => router.push("/")}
-            className="text-primary cursor-pointer text-base"
-          >
-            <i className="fas fa-home"></i>
-          </div>
-          <span className="text-sm text-gray-400">
-            <i className="fas fa-chevron-right"></i>
-          </span>
-          Privacy And Policy
+        <div
+          onClick={() => router.push("/")}
+          className="text-primary cursor-pointer text-base"
+        >
+          <i className="fas fa-home"></i>
         </div>
+        <span className="text-sm text-gray-400">
+          <i className="fas fa-chevron-right"></i>
+        </span>
+        Privacy And Policy
+      </div>
 
       <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
-        
-
         <h1 className="text-center text-xl md:text-4xl font-semibold">
           Privacy Policy
         </h1>
