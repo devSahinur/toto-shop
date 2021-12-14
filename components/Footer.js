@@ -107,25 +107,25 @@ function Footer() {
                   </h3>
                   <div className="mt-4 space-y-4">
                     <a
-                      href="#"
+                      onClick={() => router.push("/developers")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
-                      Pricing
+                      Developers
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/documentation")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Documentation
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/guides")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Guides
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/api-status")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       API Status
@@ -146,13 +146,13 @@ function Footer() {
                       About
                     </div>
                     <a
-                      href="#"
+                      onClick={() => router.push("/blog")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Blog
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/jobs")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Jobs
@@ -171,25 +171,25 @@ function Footer() {
                   </h3>
                   <div className="mt-4 space-y-4">
                     <a
-                      href="#"
+                      onClick={() => router.push("/claim")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Claim
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/privacy-policy")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Privacy
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/privacy-policy")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Policy
                     </a>
                     <a
-                      href="#"
+                      onClick={() => router.push("/terms-condition")}
                       className="text-base cursor-pointer text-gray-500 hover:text-gray-900 block"
                     >
                       Terms

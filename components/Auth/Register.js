@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export const Register = () => {
+  const router = useRouter();
   const [isClick, setIsClick] = useState(true);
 
   return (
     <div className="container py-16">
       <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
         {isClick ? (
-          <h2 className="text-2xl uppercase font-medium mb-1">LOGIN</h2>
+          <h2 className="text-2xl uppercase  font-medium mb-1">LOGIN</h2>
         ) : (
           <h2 className="text-2xl uppercase font-medium mb-1">
             create an acocunt
@@ -127,9 +129,9 @@ export const Register = () => {
               />
               <label className="text-gray-600 ml-3 cursor-pointer">
                 I have read and agree to the
-                <a href="#" className="ml-1 text-primary">
+                <div onClick={() => router.push("/terms-condition")} className="ml-1 inline-block cursor-pointer text-primary">
                   terms & conditions
-                </a>
+                </div>
               </label>
             </div>
             <div className="mt-4">
