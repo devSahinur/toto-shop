@@ -8,8 +8,10 @@ import Faq from "react-faq-component";
 import ShoppingData from "../components/FaqPage/ShoppingFaqData/ShoppingFaqData";
 import OrderData from "../components/FaqPage/OrderReturnFaqData/OrderFaqData";
 import PaymentData from "../components/FaqPage/PaymentFaqData/PaymentFaqData";
+import { useRouter } from "next/router";
 
 function faq() {
+  const router = useRouter();
   const config = {
     animate: true,
     arrowIcon: <PlusIcon />,
@@ -21,16 +23,21 @@ function faq() {
       <Header />
       <Navbar />
       {/* this is the main content */}
+      <div className="py-4 container flex gap-3 items-center">
+        <div
+          onClick={() => router.push("/")}
+          className="text-primary cursor-pointer text-base"
+        >
+          <i className="fas fa-home"></i>
+        </div>
+        <span className="text-sm text-gray-400">
+          <i className="fas fa-chevron-right"></i>
+        </span>
+        FAQ
+      </div>
       <main className="max-w-[75rem] mx-auto px-4 py-6">
         {/* main content  top*/}
         <div className="px-1 md:px-8 space-y-6 max-w-[550px] pt-4 pb-10">
-          <div className="flex items-center space-x-2 text-gray-800 text-sm sm:text-lg">
-            <Link href="/">
-              <HomeIcon className="h-4 md:h-6 cursor-pointer text-primary" />
-            </Link>
-            <ArrowRightIcon className="h-4 md:h-6 cursor-pointer" />
-            <h3 className="font-light">FAQ</h3>
-          </div>
 
           {/* bottom Details */}
           <h1 className="font-medium text-2xl md:text-3xl md:font-semibold">
