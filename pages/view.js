@@ -6,12 +6,13 @@ import Copyright from "../components/Copyright";
 import { ProductImage } from "../components/ViewPage/ProductImage";
 import { ProductContents } from "../components/ViewPage/ProductContents";
 import { ProductDetails } from "../components/ViewPage/ProductDetails";
+import SingleCard from "../components/Home/TopNewArrival/SingleArrival";
 
 const product = {
   id: 1,
   title: "Italian L Shape Sofa",
   totalReviews: 150,
-  rating:5,
+  rating: 5,
   availability: true,
   totalQuantity: 56,
   image: [
@@ -48,6 +49,37 @@ const product = {
   material: "Artificial Leather",
   color: "Black, Brown, Red",
 };
+
+const related = [
+  {
+    id: 1,
+    title: "Guyer chair",
+    price: 45.0,
+    rating: 150,
+    image: "https://i.ibb.co/n3jvf6V/product8.jpg",
+  },
+  {
+    id: 2,
+    title: "Guyer chair",
+    price: 45.0,
+    rating: 150,
+    image: "https://i.ibb.co/TBzx17p/product9.jpg",
+  },
+  {
+    id: 3,
+    title: "Guyer chair",
+    price: 45.0,
+    rating: 150,
+    image: "https://i.ibb.co/HtTYwjV/product12.jpg",
+  },
+  {
+    id: 4,
+    title: "Guyer chair",
+    price: 45.0,
+    rating: 150,
+    image: "https://i.ibb.co/2jHpJws/product1.jpg",
+  },
+];
 
 function view() {
   const router = useRouter();
@@ -87,6 +119,22 @@ function view() {
       </div>
       <ProductDetails product={product} />
       {/* <!-- product view end --> */}
+
+      {/* <!-- related products --> */}
+      <div className="container pb-16">
+        <h2 className="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">
+          related products
+        </h2>
+        {/* <!-- product wrapper --> */}
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
+          {related.map((product) => (
+            <SingleCard key={product.id} product={product} />
+          ))}
+        </div>
+        {/* <!-- product wrapper end --> */}
+      </div>
+      {/* <!-- related products end --> */}
+
       <Footer />
       <Copyright />
     </>
