@@ -1,3 +1,4 @@
+import Breadcrum from "../components/commonComponents/Breadcrum";
 import Copyright from "../components/Copyright";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -8,7 +9,8 @@ function cart() {
     <div>
       <Header />
       <Navbar />
-      <h1>This is cart page</h1>
+      <Breadcrum title={'Shopping Cart'} />
+      
       <Footer />
       <Copyright />
     </div>
