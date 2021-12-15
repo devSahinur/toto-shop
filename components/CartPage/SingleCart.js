@@ -3,7 +3,7 @@ export const SingleCart = () => {
     <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
       {/* <!-- cart image --> */}
       <div className="w-32 flex-shrink-0">
-        <img src="images/products/product9.jpg" className="w-full" />
+        <img src="https://i.ibb.co/TBzx17p/product9.jpg" className="w-full" />
       </div>
       {/* <!-- cart image end --> */}
       {/* <!-- cart content --> */}
