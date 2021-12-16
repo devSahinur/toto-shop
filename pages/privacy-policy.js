@@ -62,7 +62,7 @@ function PrivacyPolicy() {
             quas quibusdam quisquam quos repellat tenetur ut! Deleniti id,
             inventore ipsa modi nesciunt officiis repellendus! Harum labore
             officiis ratione totam velit? Consequatur, dolor libero.
-          </p>
+          </p> 
         </div>
 
         <div className="pb-6 text-gray-700">
