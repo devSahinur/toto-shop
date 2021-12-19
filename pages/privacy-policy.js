@@ -12,7 +12,7 @@ function PrivacyPolicy() {
     <div>
       <Header />
       <Navbar />
-      {/* main-Content */}
+      {/* main-Content */} 
       <div className="py-4 container flex gap-3 items-center">
         <div
           onClick={() => router.push("/")}
