@@ -13,13 +13,13 @@ import { useEffect, useState } from "react";
 import Modal from "../components/Home/Modal/Modal";
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowModal(true);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setShowModal(true);
+  //   }, 3000);
+  // }, []);
 
   return (
     <div>
@@ -42,7 +42,7 @@ export default function Home() {
       </main>
 
       {/* for show the modal */}
-      {showModal && <Modal setShowModal={setShowModal} />}
+      {/* {showModal && <Modal setShowModal={setShowModal} />} */}
 
       <Footer />
       <Copyright />
