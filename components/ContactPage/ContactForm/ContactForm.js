@@ -23,7 +23,7 @@ function ContactForm() {
       <form action="#" className="space-y-6">
         <div className="grid grid-cols-2 space-x-3">
           <div className="flex flex-col">
-            <label className="cinputTi" htmlFor="fname">
+            <label className="cinputTi" >
               First Name <span className="text-primary pl-2 text-xl">*</span>
             </label>
             <input
@@ -34,7 +34,7 @@ function ContactForm() {
             />
           </div>
           <div className="flex flex-col">
-            <label className="cinputTi" htmlFor="lname">
+            <label className="cinputTi" >
               Last Name <span className="text-primary pl-2 text-xl">*</span>
             </label>
             <input
@@ -46,7 +46,7 @@ function ContactForm() {
           </div>
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" htmlFor="name">
+          <label className="cinputTi" >
             Email Address <span>*</span>
           </label>
           <input
@@ -57,7 +57,7 @@ function ContactForm() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" htmlFor="name">
+          <label className="cinputTi" >
             Subject
           </label>
           <input
@@ -68,7 +68,7 @@ function ContactForm() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" htmlFor="name">
+          <label className="cinputTi" >
             Your message <span className="text-primary pl-2 text-xl">*</span>
           </label>
           <textarea
