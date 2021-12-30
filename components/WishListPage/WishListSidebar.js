@@ -13,9 +13,7 @@ function WishListSidebar() {
           </div>
           <div>
             <p className="text-gray-600">Hello,</p>
-            <h4 className="text-gray-800 capitalize font-medium">
-              Mr ToTo
-            </h4>
+            <h4 className="text-gray-800 capitalize font-medium">Mr ToTo</h4>
           </div>
         </div>
         {/* <!-- account profile end --> */}
