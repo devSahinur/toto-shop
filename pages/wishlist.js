@@ -8,7 +8,7 @@ function wishlist() {
     <div>
       <Header />
       <Navbar />
-      This is Wish List page
+
       <Footer />
       <Copyright />
     </div>
