@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>ToToSHOP - Online Shopping Website</title>
+        <title>ToTo SHOP - Online Shopping Website</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
         <meta
