@@ -3,10 +3,11 @@ import CheckoutOrder from "../components/CheckoutPage/CheckOrder/CheckoutOrder";
 import CheckoutFrom from "../components/CheckoutPage/CheckoutFrom/CheckoutFrom";
 import Copyright from "../components/Copyright";
 import Footer from "../components/Footer";
+import ForgetFrom from "../components/ForgetPage/ForgetFrom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
-function checkout() {
+function ForgetPassword() {
   const router = useRouter();
   return (
     <div>
@@ -23,27 +24,15 @@ function checkout() {
         <span className="text-sm text-gray-400">
           <i className="fas fa-chevron-right"></i>
         </span>
-        <div
-          onClick={() => router.push("/shop")}
-          className="text-primary cursor-pointer text-base font-medium uppercase"
-        >
-          Shop
-        </div>
         <span className="text-sm text-gray-400">
           <i className="fas fa-chevron-right"></i>
         </span>
-        <p className="text-gray-600 font-medium">Checkout</p>
+        <p className="text-gray-600 font-medium">Forgot Password</p>
       </div>
       {/* <!-- breadcrum end --> */}
 
       <main className="max-w-[75rem] mx-auto px-4 py-6">
-        <div className="md:grid md:grid-cols-3 md:gap-x-4">
-          {/* checkoutLeft */}
-          <CheckoutFrom />
-
-          {/* checkout Rignt */}
-          <CheckoutOrder />
-        </div>
+        <ForgetFrom />
       </main>
 
       <Footer />
@@ -52,4 +41,4 @@ function checkout() {
   );
 }
 
-export default checkout;
+export default ForgetPassword;
