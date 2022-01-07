@@ -42,7 +42,6 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/manage-address")}
-              href="manage-address.html"
               className="hover:text-primary cursor-pointer transition capitalize block"
             >
               Manage address
