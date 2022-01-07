@@ -20,7 +20,7 @@ function account() {
           {/* <!-- single card --> */}
           <AccuntSingleCard name= 'Personal profile' />
           <AccuntSingleCard name='Shipping Address' />
-          <AccuntSingleCard name ='Billing Address' />
+          <AccuntSingleCard name ='' />
           {/* <!-- single card end --> */}
         </div>
         {/* <!-- account content end --> */}
