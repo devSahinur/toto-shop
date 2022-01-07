@@ -1,4 +1,7 @@
+import { useRouter } from "next/router";
+
 function WishListSidebar() {
+  const router = useRouter();
   return (
     <>
       {/* <!-- sidebar --> */}
@@ -22,33 +25,34 @@ function WishListSidebar() {
         <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8">
-            <a
-              href="account.html"
-              className="relative text-base font-medium capitalize hover:text-primary transition block"
+            <div
+              onClick={() => router.push("/account")}
+              className="relative text-base font-medium capitalize cursor-pointer hover:text-primary transition block"
             >
               Manage account
               <span className="absolute -left-8 top-0 text-base">
                 <i className="far fa-address-card"></i>
               </span>
-            </a>
-            <a
-              href="profile-info.html"
-              className="hover:text-primary transition capitalize block"
+            </div>
+            <div
+              onClick={() => router.push("/profile-info")}
+              className="hover:text-primary transition cursor-pointer capitalize block"
             >
               Profile information
-            </a>
-            <a
+            </div>
+            <div
+              onClick={() => router.push("/manage-address")}
               href="manage-address.html"
-              className="hover:text-primary transition capitalize block"
+              className="hover:text-primary cursor-pointer transition capitalize block"
             >
               Manage address
-            </a>
-            <a
-              href="change-password.html"
-              className="hover:text-primary transition capitalize block"
+            </div>
+            <div
+              onClick={() => router.push("/change-password")}
+              className="hover:text-primary transition cursor-pointer capitalize block"
             >
               change password
-            </a>
+            </div>
           </div>
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
@@ -103,15 +107,15 @@ function WishListSidebar() {
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
-            <a
-              href="wishlist.html"
-              className="relative medium capitalize font-medium hover:text-primary transition block text-primary"
+            <div
+              onClick={() => router.push("/wishlist")}
+              className="relative medium capitalize cursor-pointer font-medium hover:text-primary transition block text-primary"
             >
               my wishlist
               <span className="absolute -left-8 top-0 text-base">
                 <i className="far fa-heart"></i>
               </span>
-            </a>
+            </div>
           </div>
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
