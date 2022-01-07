@@ -8,7 +8,7 @@ import AccuntSingleCard from "../components/Account/AccuntSingleCard";
 
 function account() {
   return (
-    <div>
+    <>
       <Header />
       <Navbar />
       <Breadcrum title={"MY ACCOUNT"} />
@@ -27,7 +27,7 @@ function account() {
       </div>
       <Footer />
       <Copyright />
-    </div>
+    </>
   );
 }
 
