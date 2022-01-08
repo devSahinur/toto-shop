@@ -1,4 +1,7 @@
+import { useRouter } from "next/router";
+
 function SingleReturnOrder({ product }) {
+  const router = useRouter();
   return (
     <>
       {/* <!-- single return order --> */}
@@ -40,7 +43,12 @@ function SingleReturnOrder({ product }) {
         </div>
         {/* view order */}
         <div>
-          <button className="btn-outline py-2">View Order</button>
+          <button
+            onClick={() => router.push("/return-order-details")}
+            className="btn-outline py-2"
+          >
+            View Order
+          </button>
         </div>
       </div>
       {/* <!-- single retun order --> */}
