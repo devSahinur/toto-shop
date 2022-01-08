@@ -26,7 +26,7 @@ function Custom404() {
             </h1>
             <div
               onClick={() => router.push("/")}
-              className="btn cursor-pointer uppercase"
+              className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
             >
               Back to Home
             </div>
