@@ -1,21 +1,7 @@
-<<<<<<< HEAD
-import Breadcrum from "../components/commonComponents/Breadcrum";
-=======
->>>>>>> 5abb0e4 (alhamdulilah my word done)
 import Copyright from "../components/Copyright";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-<<<<<<< HEAD
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
-
-function PaymentMethods() {
-  return (
-    <>
-      <Header />
-      <Navbar />
-      <Breadcrum title={"MY ACCOUNT"} />
-=======
 import Breadcrum from "../components/commonComponents/Breadcrum";
 import WishListSidebar from "../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../components/Account/AccuntSingleCard";
@@ -49,16 +35,10 @@ function PaymentMethod() {
       <Header />
       <Navbar />
       <Breadcrum title={"Payment Methods"} />
->>>>>>> 5abb0e4 (alhamdulilah my word done)
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <WishListSidebar />
 
         {/* <!-- account content --> */}
-<<<<<<< HEAD
-        <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
-          {/* <!-- single card --> */}
-            <h1>this is PaymentMethods </h1>
-=======
         <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
           {/* <!-- single card --> */}
           {orderHistory?.map(
@@ -74,23 +54,14 @@ function PaymentMethod() {
               />
             )
           )}
->>>>>>> 5abb0e4 (alhamdulilah my word done)
           {/* <!-- single card end --> */}
         </div>
         {/* <!-- account content end --> */}
       </div>
       <Footer />
       <Copyright />
-<<<<<<< HEAD
-    </>
-  );
-}
-
-export default PaymentMethods;
-=======
     </div>
   );
 }
 
 export default PaymentMethod;
->>>>>>> 5abb0e4 (alhamdulilah my word done)
