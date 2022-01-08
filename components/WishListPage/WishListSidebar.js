@@ -56,46 +56,46 @@ function WishListSidebar() {
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8 pt-4">
-            <a
-              href="#"
-              className="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block"
+            <div
+              onClick={() => router.push("/my-order-history")}
+              className="relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary transition block"
             >
               My order history
               <span className="absolute -left-8 top-0 text-base">
                 <i className="fas fa-gift"></i>
               </span>
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary transition block capitalize"
+            </div>
+            <div
+              onClick={() => router.push("/my-return-order")}
+              className="hover:text-primary cursor-pointer transition block capitalize"
             >
               my returns
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary transition block capitalize"
+            </div>
+            <div
+              onClick={() => router.push("/my-cancellations")}
+              className="hover:text-primary cursor-pointer transition block capitalize"
             >
               my cancellations
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary transition block capitalize"
+            </div>
+            <div
+              onClick={() => router.push("/my-reviews")}
+              className="hover:text-primary cursor-pointer transition block capitalize"
             >
               my reviews
-            </a>
+            </div>
           </div>
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8 pt-4">
-            <a
-              href="#"
+            <div
+              onClick={() => router.push("/payment-methods")}
               className="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block"
             >
               Payment methods
               <span className="absolute -left-8 top-0 text-base">
                 <i className="far fa-credit-card"></i>
               </span>
-            </a>
+            </div>
             <a
               href="#"
               className="hover:text-primary transition block capitalize"
