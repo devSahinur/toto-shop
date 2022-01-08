@@ -15,7 +15,7 @@ function ChangePassword() {
         <WishListSidebar />
 
         <div className="col-span-9 shadow rounded px-6 pt-5 pb-7 mt-6 lg:mt-0">
-          <form>
+          <form >
             <h3 className="text-lg font-medium capitalize mb-4">
               Change password
             </h3>
@@ -75,8 +75,8 @@ function ChangePassword() {
           </form>
         </div>
       </div>
-      <Copyright />
       <Footer />
+      <Copyright />
     </>
   );
 }
