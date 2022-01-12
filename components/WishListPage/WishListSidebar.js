@@ -12,12 +12,12 @@ function WishListSidebar() {
         {/* <!-- account profile --> */}
         <div className="px-4 py-3 shadow flex items-center gap-4">
           <div className="flex-shrink-0">
-            {
-              session && <span
-              style={{ backgroundImage: `url('${session.user.image}')` }}
-              // className={styles.avatar}
-            />
-            }
+            {session && (
+              <span
+                style={{ backgroundImage: `url('${session.user.image}')` }}
+                // className={styles.avatar}
+              />
+            )}
             <img
               src={session?.user?.image}
               // src="https://i.ibb.co/dG9tksD/download.jpg"
@@ -26,7 +26,9 @@ function WishListSidebar() {
           </div>
           <div>
             <p className="text-gray-600">Hello,</p>
-            <h4 className="text-gray-800 capitalize font-medium">{session && session?.user.name}</h4>
+            <h4 className="text-gray-800 capitalize font-medium">
+              {session && session?.user.name}
+            </h4>
           </div>
         </div>
         {/* <!-- account profile end --> */}
