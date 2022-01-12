@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import MobileMenubar from "./MobileMenubar";
 import { HeartIcon } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Navbar() {
   const router = useRouter();
@@ -146,7 +147,8 @@ function Navbar() {
                 </div>
               </div>
               <div
-                onClick={() => router.push("login")}
+                // onClick={() => router.push("login")}
+                onClick={signIn}
                 className="ml-auto justify-self-end text-gray-200 hover:text-white transition cursor-pointer"
               >
                 Login/Register
