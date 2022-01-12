@@ -2,9 +2,41 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 function Header() {
   const router = useRouter();
+  const [search, setSearch] = useState("");
+  const [fetchData, setFatchData] = useState([]);
+  const [filterData, setFilterData] = useState(fetchData);
+
+  useEffect(() => {
+    if (search === "") return;
+    setFilterData(() =>
+      fetchData.filter((item) =>
+        item.title.toLocaleLowerCase().match(search.toLocaleLowerCase())
+      )
+    );
+  }, [search]);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+
+    if (!e.target.value.length > 0) {
+      setFilterData(fetchData);
+    }
+  };
+
+  console.log(fetchData);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setFatchData(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <header className="py-4 shadow-sm bg-pink-100 lg:bg-white">
       <div className="container flex items-center justify-between">
@@ -60,6 +92,8 @@ function Header() {
             type="text"
             className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md outline-primary focus:border-primary"
             placeholder="search"
+            value={search}
+            onChange={handleChange}
           />
           <button
             type="submit"
@@ -67,6 +101,39 @@ function Header() {
           >
             Search
           </button>
+
+          {/* serch Result code start */}
+          {search && (
+            <div
+              className="absolute top-14 bg-white px-4 py-4 z-50 left-0 w-full max-h-[500px] overflow-y-scroll shadow-md"
+              id="scrollBarHide"
+            >
+              <ul className="space-y-2">
+                {filterData?.map((item) => (
+                  <li
+                    key={item.id}
+                    className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 py-3 rounded-md"
+                  >
+                    <div className="w-[150px]">
+                      <Image
+                        src={item.image}
+                        className="object-contain"
+                        width={70}
+                        height={50}
+                      />
+                    </div>
+                    <div className="col-span-3">
+                      <h3 className="text-lg font-light">{item?.title}</h3>
+                      <span className="font-medium text-gray-600">
+                        ${item?.price}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/* serch Result code end */}
         </div>
 
         {/* navicons */}
