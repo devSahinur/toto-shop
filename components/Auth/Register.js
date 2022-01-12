@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/react"
 
 export const Register = () => {
   const router = useRouter();
@@ -161,12 +162,14 @@ export const Register = () => {
           >
             Facebook
           </a>
-          <a
-            href="#"
-            className="block w-1/2 py-2 text-center text-white bg-yellow-600 rounded uppercase font-roboto font-medium text-sm"
+          <div
+            onClick={() => {
+              signIn("google", { callbackUrl: "/" })
+            }}
+            className="block w-1/2 py-2 text-center text-white bg-yellow-600 rounded uppercase cursor-pointer font-roboto font-medium text-sm"
           >
             Google
-          </a>
+          </div>
         </div>
         {/* <!-- login with social end --> */}
 

@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 function Navbar() {
   const router = useRouter();
+  const { data: session } = useSession();
   return (
     <>
       <nav className="bg-gray-800 hidden lg:block sticky top-0 z-40">
@@ -151,7 +152,7 @@ function Navbar() {
                 onClick={signIn}
                 className="ml-auto justify-self-end text-gray-200 hover:text-white transition cursor-pointer"
               >
-                Login/Register
+                {session ? `${session?.user?.email}` : "Login/Register"}
               </div>
             </div>
           </div>
