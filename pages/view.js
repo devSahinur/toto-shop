@@ -83,7 +83,6 @@ const related = [
 
 function view() {
   const router = useRouter();
-  console.log(product);
   return (
     <>
       <Header />
