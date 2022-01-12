@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function WishListSidebar() {
   const router = useRouter();
+  const { data: session } = useSession();
+
   return (
     <>
       {/* <!-- sidebar --> */}
@@ -9,14 +12,21 @@ function WishListSidebar() {
         {/* <!-- account profile --> */}
         <div className="px-4 py-3 shadow flex items-center gap-4">
           <div className="flex-shrink-0">
+            {
+              session && <span
+              style={{ backgroundImage: `url('${session.user.image}')` }}
+              // className={styles.avatar}
+            />
+            }
             <img
-              src="https://i.ibb.co/dG9tksD/download.jpg"
+              src={session?.user?.image}
+              // src="https://i.ibb.co/dG9tksD/download.jpg"
               className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
             />
           </div>
           <div>
             <p className="text-gray-600">Hello,</p>
-            <h4 className="text-gray-800 capitalize font-medium">Mr ToTo</h4>
+            <h4 className="text-gray-800 capitalize font-medium">{session && session?.user.name}</h4>
           </div>
         </div>
         {/* <!-- account profile end --> */}
@@ -119,15 +129,15 @@ function WishListSidebar() {
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
-            <a
-              href="#"
-              className="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block"
+            <div
+              onClick={signOut}
+              className="relative medium cursor-pointer capitalize text-gray-800 font-medium hover:text-primary transition block"
             >
               logout
               <span className="absolute -left-8 top-0 text-base">
                 <i className="fas fa-sign-out-alt"></i>
               </span>
-            </a>
+            </div>
           </div>
           {/* <!-- single link end --> */}
         </div>
