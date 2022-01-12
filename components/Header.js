@@ -112,6 +112,7 @@ function Header() {
                 {filterData?.map((item) => (
                   <li
                     key={item.id}
+                    onClick={() => router.push("/view")}
                     className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 py-3 rounded-md"
                   >
                     <div className="w-[150px]">
