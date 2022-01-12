@@ -149,7 +149,7 @@ function Navbar() {
               </div>
               <div
                 // onClick={() => router.push("login")}
-                onClick={signIn}
+                onClick={session ? signOut : signIn}
                 className="ml-auto justify-self-end text-gray-200 hover:text-white transition cursor-pointer"
               >
                 {session ? `${session?.user?.email}` : "Login/Register"}
