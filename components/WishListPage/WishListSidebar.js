@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 
 function WishListSidebar() {
   const router = useRouter();
@@ -12,14 +13,16 @@ function WishListSidebar() {
         {/* <!-- account profile --> */}
         <div className="px-4 py-3 shadow flex items-center gap-4">
           <div className="flex-shrink-0">
-            {session && (
-              <span
-                style={{ backgroundImage: `url('${session.user.image}')` }}
-                // className={styles.avatar}
-              />
-            )}
-            <img
+            {/* {session && (
+              // <span
+              //   style={{ backgroundImage: `url('${session?.user.image}')` }}
+              //   // className={styles.avatar}
+              // />
+            )} */}
+            <Image
               src={session?.user?.image}
+              height={50}
+              width={50}
               // src="https://i.ibb.co/dG9tksD/download.jpg"
               className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
             />
