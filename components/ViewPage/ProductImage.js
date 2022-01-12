@@ -1,12 +1,15 @@
 import { useState } from "react";
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import InnerImageZoom from "react-inner-image-zoom";
 
 export const ProductImage = ({ product }) => {
   const [mainImg, setMainImg] = useState(product.image[0].img);
-  
+
   return (
     <div>
       <div>
-        <img id="main-img" src={mainImg} className="w-full" />
+        {/* <img id="main-img" src={mainImg} className="w-full" /> */}
+        <InnerImageZoom src={mainImg} />
       </div>
       <div className="grid grid-cols-5 gap-4 mt-4">
         <div onClick={() => setMainImg(product.image[0].img)}>
