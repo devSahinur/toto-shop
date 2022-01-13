@@ -5,7 +5,7 @@ import Image from "next/image";
 function WishListSidebar() {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log(router.pathname =="/wishlist")
+  console.log(router.pathname == "/wishlist");
 
   return (
     <>
@@ -20,16 +20,15 @@ function WishListSidebar() {
               //   // className={styles.avatar}
               // />
             )} */}
-            {
-              session?.user?.image && <Image
-              src={session?.user?.image}
-              height={50}
-              width={50}
-              // src="https://i.ibb.co/dG9tksD/download.jpg"
-              className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
-            />
-            }
-            
+            {session?.user?.image && (
+              <Image
+                src={session?.user?.image}
+                height={50}
+                width={50}
+                // src="https://i.ibb.co/dG9tksD/download.jpg"
+                className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
+              />
+            )}
           </div>
           <div>
             <p className="text-gray-600">Hello,</p>
@@ -46,7 +45,9 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8">
             <div
               onClick={() => router.push("/account")}
-              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/account" && 'text-primary'} transition block`}
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
+                router.pathname == "/account" && "text-primary"
+              } transition block`}
             >
               Manage account
               <span className="absolute -left-8 top-0 text-base">
@@ -55,19 +56,25 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/profile-info")}
-              className={`hover:text-primary transition cursor-pointer ${router.pathname =="/profile-info" && 'text-primary'} capitalize block`}
+              className={`hover:text-primary transition cursor-pointer ${
+                router.pathname == "/profile-info" && "text-primary"
+              } capitalize block`}
             >
               Profile information
             </div>
             <div
               onClick={() => router.push("/manage-address")}
-              className={`hover:text-primary cursor-pointer transition ${router.pathname =="/manage-address" && 'text-primary'} capitalize block`}
+              className={`hover:text-primary cursor-pointer transition ${
+                router.pathname == "/manage-address" && "text-primary"
+              } capitalize block`}
             >
               Manage address
             </div>
             <div
               onClick={() => router.push("/change-password")}
-              className={`hover:text-primary transition cursor-pointer ${router.pathname =="/change-password" && 'text-primary'} capitalize block`}
+              className={`hover:text-primary transition cursor-pointer ${
+                router.pathname == "/change-password" && "text-primary"
+              } capitalize block`}
             >
               change password
             </div>
@@ -77,7 +84,9 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/my-order-history")}
-              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/my-order-history" && 'text-primary'} transition block`}
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
+                router.pathname == "/my-order-history" && "text-primary"
+              } transition block`}
             >
               My order history
               <span className="absolute -left-8 top-0 text-base">
@@ -86,7 +95,9 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/my-return-order")}
-              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-return-order" && 'text-primary'} capitalize`}
+              className={`hover:text-primary cursor-pointer transition block ${
+                router.pathname == "/my-return-order" && "text-primary"
+              } capitalize`}
             >
               my returns
             </div>
@@ -98,7 +109,9 @@ function WishListSidebar() {
             </div> */}
             <div
               onClick={() => router.push("/my-reviews")}
-              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-reviews" && 'text-primary'} capitalize`}
+              className={`hover:text-primary cursor-pointer transition block ${
+                router.pathname == "/my-reviews" && "text-primary"
+              } capitalize`}
             >
               my reviews
             </div>
@@ -108,7 +121,9 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/payment-methods")}
-              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/payment-methods" && 'text-primary'} transition block`}
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
+                router.pathname == "/payment-methods" && "text-primary"
+              } transition block`}
             >
               Payment methods
               <span className="absolute -left-8 top-0 text-base">
@@ -127,7 +142,9 @@ function WishListSidebar() {
           <div className="pl-8 pt-4">
             <div
               onClick={() => router.push("/wishlist")}
-              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${router.pathname =="/wishlist" && 'text-primary'} `}
+              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
+                router.pathname == "/wishlist" && "text-primary"
+              } `}
             >
               my wishlist
               <span className="absolute -left-8 top-0 text-base">
