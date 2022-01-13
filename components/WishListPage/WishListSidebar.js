@@ -105,7 +105,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/payment-methods")}
-              className={`relative medium capitalize text-gray-800 font-medium hover:text-primary transition block ${router.pathname =="/payment-methods" && 'text-primary'}`}
+              className={`relative medium capitalize cursor-pointer text-gray-800 font-medium hover:text-primary transition block ${router.pathname =="/payment-methods" && 'text-primary'}`}
             >
               Payment methods
               <span className="absolute -left-8 top-0 text-base">
@@ -114,7 +114,7 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/vvv")}
-              className="hover:text-primary transition block capitalize"
+              className="hover:text-primary cursor-pointer transition block capitalize"
             >
               Voucher
             </div>
