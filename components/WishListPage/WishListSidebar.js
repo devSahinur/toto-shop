@@ -20,13 +20,16 @@ function WishListSidebar() {
               //   // className={styles.avatar}
               // />
             )} */}
-            <Image
+            {
+              session?.user?.image && <Image
               src={session?.user?.image}
               height={50}
               width={50}
               // src="https://i.ibb.co/dG9tksD/download.jpg"
               className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
             />
+            }
+            
           </div>
           <div>
             <p className="text-gray-600">Hello,</p>
@@ -74,7 +77,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/my-order-history")}
-              className={`relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary ${router.pathname =="/my-return-order" && 'text-primary'} transition block`}
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/my-order-history" && 'text-primary'} transition block`}
             >
               My order history
               <span className="absolute -left-8 top-0 text-base">
@@ -83,16 +86,16 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/my-return-order")}
-              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/wishlist" && 'text-primary'} capitalize`}
+              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-return-order" && 'text-primary'} capitalize`}
             >
               my returns
             </div>
-            <div
+            {/* <div
               onClick={() => router.push("/my-cancellations")}
               className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-cancellations" && 'text-primary'} capitalize`}
             >
               my cancellations
-            </div>
+            </div> */}
             <div
               onClick={() => router.push("/my-reviews")}
               className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-reviews" && 'text-primary'} capitalize`}
@@ -105,7 +108,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/payment-methods")}
-              className={`relative medium capitalize cursor-pointer text-gray-800 font-medium hover:text-primary transition block ${router.pathname =="/payment-methods" && 'text-primary'}`}
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/payment-methods" && 'text-primary'} transition block`}
             >
               Payment methods
               <span className="absolute -left-8 top-0 text-base">
