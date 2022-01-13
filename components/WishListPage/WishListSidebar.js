@@ -5,6 +5,7 @@ import Image from "next/image";
 function WishListSidebar() {
   const router = useRouter();
   const { data: session } = useSession();
+  console.log(router.pathname =="/wishlist")
 
   return (
     <>
@@ -42,7 +43,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8">
             <div
               onClick={() => router.push("/account")}
-              className="relative text-base font-medium capitalize cursor-pointer hover:text-primary transition block"
+              className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${router.pathname =="/account" && 'text-primary'} transition block`}
             >
               Manage account
               <span className="absolute -left-8 top-0 text-base">
@@ -51,19 +52,19 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/profile-info")}
-              className="hover:text-primary transition cursor-pointer capitalize block"
+              className={`hover:text-primary transition cursor-pointer ${router.pathname =="/profile-info" && 'text-primary'} capitalize block`}
             >
               Profile information
             </div>
             <div
               onClick={() => router.push("/manage-address")}
-              className="hover:text-primary cursor-pointer transition capitalize block"
+              className={`hover:text-primary cursor-pointer transition ${router.pathname =="/manage-address" && 'text-primary'} capitalize block`}
             >
               Manage address
             </div>
             <div
               onClick={() => router.push("/change-password")}
-              className="hover:text-primary transition cursor-pointer capitalize block"
+              className={`hover:text-primary transition cursor-pointer ${router.pathname =="/change-password" && 'text-primary'} capitalize block`}
             >
               change password
             </div>
@@ -73,7 +74,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/my-order-history")}
-              className="relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary transition block"
+              className={`relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary ${router.pathname =="/my-order-history" && 'text-primary'} transition block`}
             >
               My order history
               <span className="absolute -left-8 top-0 text-base">
@@ -82,19 +83,19 @@ function WishListSidebar() {
             </div>
             <div
               onClick={() => router.push("/my-return-order")}
-              className="hover:text-primary cursor-pointer transition block capitalize"
+              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/wishlist" && 'text-primary'} capitalize`}
             >
               my returns
             </div>
             <div
               onClick={() => router.push("/my-cancellations")}
-              className="hover:text-primary cursor-pointer transition block capitalize"
+              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-cancellations" && 'text-primary'} capitalize`}
             >
               my cancellations
             </div>
             <div
               onClick={() => router.push("/my-reviews")}
-              className="hover:text-primary cursor-pointer transition block capitalize"
+              className={`hover:text-primary cursor-pointer transition block ${router.pathname =="/my-reviews" && 'text-primary'} capitalize`}
             >
               my reviews
             </div>
@@ -104,26 +105,26 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/payment-methods")}
-              className="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block"
+              className={`relative medium capitalize text-gray-800 font-medium hover:text-primary transition block ${router.pathname =="/payment-methods" && 'text-primary'}`}
             >
               Payment methods
               <span className="absolute -left-8 top-0 text-base">
                 <i className="far fa-credit-card"></i>
               </span>
             </div>
-            <a
-              href="#"
+            <div
+              onClick={() => router.push("/vvv")}
               className="hover:text-primary transition block capitalize"
             >
               Voucher
-            </a>
+            </div>
           </div>
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
             <div
               onClick={() => router.push("/wishlist")}
-              className="relative medium capitalize cursor-pointer font-medium hover:text-primary transition block text-primary"
+              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${router.pathname =="/wishlist" && 'text-primary'} `}
             >
               my wishlist
               <span className="absolute -left-8 top-0 text-base">
