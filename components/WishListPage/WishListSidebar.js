@@ -74,7 +74,7 @@ function WishListSidebar() {
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/my-order-history")}
-              className={`relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary ${router.pathname =="/my-order-history" && 'text-primary'} transition block`}
+              className={`relative medium capitalize text-gray-800 cursor-pointer font-medium hover:text-primary ${router.pathname =="/my-return-order" && 'text-primary'} transition block`}
             >
               My order history
               <span className="absolute -left-8 top-0 text-base">
