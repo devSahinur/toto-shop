@@ -5,7 +5,6 @@ import Image from "next/image";
 function WishListSidebar() {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log(router.pathname == "/wishlist");
 
   return (
     <>
