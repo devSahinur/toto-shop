@@ -1,11 +1,11 @@
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Breadcrum from "../components/commonComponents/Breadcrum";
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../components/Account/AccuntSingleCard";
-import SinglePaymentCard from "../components/PaymentMethod/SinglePaymentCard/SinglePaymentCard";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Breadcrum from "../../components/commonComponents/Breadcrum";
+import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
+import SinglePaymentCard from "../../components/PaymentMethod/SinglePaymentCard/SinglePaymentCard";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png

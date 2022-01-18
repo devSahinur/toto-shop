@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import Image from "next/image";
 
 function OrderComplate() {

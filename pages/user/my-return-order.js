@@ -1,11 +1,11 @@
-import Breadcrum from "../components/commonComponents/Breadcrum";
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import SingleReturnOrder from "../components/OrderReturn/SingleReturnOrder/SingleReturnOrder";
-import SingleWishList from "../components/WishListPage/SingleWishList";
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
+import Breadcrum from "../../components/commonComponents/Breadcrum";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import SingleReturnOrder from "../../components/OrderReturn/SingleReturnOrder/SingleReturnOrder";
+import SingleWishList from "../../components/WishListPage/SingleWishList";
+import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 
 const product = [
   {

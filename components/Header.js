@@ -187,7 +187,7 @@ function Header() {
             <div className="text-xs leading-3">Cart</div>
           </div>
           <div
-            onClick={() => router.push("/account")}
+            onClick={() => router.push("/user/account")}
             className="block text-center cursor-pointer text-gray-700 hover:text-primary transition"
           >
             <div className="text-2xl mx-auto">

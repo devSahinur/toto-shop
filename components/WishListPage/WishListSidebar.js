@@ -43,9 +43,9 @@ function WishListSidebar() {
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8">
             <div
-              onClick={() => router.push("/account")}
+              onClick={() => router.push("/user/account")}
               className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
-                router.pathname == "/account" && "text-primary"
+                router.pathname == "/user/account" && "text-primary"
               } transition block`}
             >
               Manage account
@@ -54,25 +54,25 @@ function WishListSidebar() {
               </span>
             </div>
             <div
-              onClick={() => router.push("/profile-info")}
+              onClick={() => router.push("/user/profile-info")}
               className={`hover:text-primary transition cursor-pointer ${
-                router.pathname == "/profile-info" && "text-primary"
+                router.pathname == "/user/profile-info" && "text-primary"
               } capitalize block`}
             >
               Profile information
             </div>
             <div
-              onClick={() => router.push("/manage-address")}
+              onClick={() => router.push("/user/manage-address")}
               className={`hover:text-primary cursor-pointer transition ${
-                router.pathname == "/manage-address" && "text-primary"
+                router.pathname == "/user/manage-address" && "text-primary"
               } capitalize block`}
             >
               Manage address
             </div>
             <div
-              onClick={() => router.push("/change-password")}
+              onClick={() => router.push("/user/change-password")}
               className={`hover:text-primary transition cursor-pointer ${
-                router.pathname == "/change-password" && "text-primary"
+                router.pathname == "/user/change-password" && "text-primary"
               } capitalize block`}
             >
               change password
@@ -82,9 +82,9 @@ function WishListSidebar() {
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8 pt-4">
             <div
-              onClick={() => router.push("/my-order-history")}
+              onClick={() => router.push("/user/my-order-history")}
               className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
-                router.pathname == "/my-order-history" && "text-primary"
+                router.pathname == "/user/my-order-history" && "text-primary"
               } transition block`}
             >
               My order history
@@ -93,9 +93,9 @@ function WishListSidebar() {
               </span>
             </div>
             <div
-              onClick={() => router.push("/my-return-order")}
+              onClick={() => router.push("/user/my-return-order")}
               className={`hover:text-primary cursor-pointer transition block ${
-                router.pathname == "/my-return-order" && "text-primary"
+                router.pathname == "/user/my-return-order" && "text-primary"
               } capitalize`}
             >
               my returns
@@ -107,9 +107,9 @@ function WishListSidebar() {
               my cancellations
             </div> */}
             <div
-              onClick={() => router.push("/my-reviews")}
+              onClick={() => router.push("/user/my-reviews")}
               className={`hover:text-primary cursor-pointer transition block ${
-                router.pathname == "/my-reviews" && "text-primary"
+                router.pathname == "/user/my-reviews" && "text-primary"
               } capitalize`}
             >
               my reviews
@@ -119,9 +119,9 @@ function WishListSidebar() {
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8 pt-4">
             <div
-              onClick={() => router.push("/payment-methods")}
+              onClick={() => router.push("/user/payment-methods")}
               className={`relative text-base font-medium capitalize cursor-pointer hover:text-primary ${
-                router.pathname == "/payment-methods" && "text-primary"
+                router.pathname == "/user/payment-methods" && "text-primary"
               } transition block`}
             >
               Payment methods
@@ -130,7 +130,7 @@ function WishListSidebar() {
               </span>
             </div>
             <div
-              onClick={() => router.push("/vvv")}
+              onClick={() => router.push("/user/vvv")}
               className="hover:text-primary cursor-pointer transition block capitalize"
             >
               Voucher
@@ -140,9 +140,9 @@ function WishListSidebar() {
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
             <div
-              onClick={() => router.push("/wishlist")}
+              onClick={() => router.push("/user/wishlist")}
               className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
-                router.pathname == "/wishlist" && "text-primary"
+                router.pathname == "/user/wishlist" && "text-primary"
               } `}
             >
               my wishlist

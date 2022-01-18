@@ -1,14 +1,13 @@
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Breadcrum from "../components/commonComponents/Breadcrum";
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../components/Account/AccuntSingleCard";
-import OrderDetailsTop from "../components/OrderDetails/OrderDetailsTop/OrderDetailsTop";
-import OrderDetailsBottom from "../components/OrderDetails/OrderDetailsBottom/OrderDetailsBottom";
-import ReturnOrdermain from "../components/ReturnOrderDetails/ReturnOrderMain/ReturnOrdermain";
-import MyWriteReviews from "../components/MyWriteReviews/MyWriteReviesmain";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Breadcrum from "../../components/commonComponents/Breadcrum";
+import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
+import OrderDetailsTop from "../../components/OrderDetails/OrderDetailsTop/OrderDetailsTop";
+import OrderDetailsBottom from "../../components/OrderDetails/OrderDetailsBottom/OrderDetailsBottom";
+import ReturnOrdermain from "../../components/ReturnOrderDetails/ReturnOrderMain/ReturnOrdermain";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -32,19 +31,19 @@ const orderHistory = [
   },
 ];
 
-function MyWiriteReviews() {
+function ReturnDetails() {
   return (
     <div>
       <Header />
       <Navbar />
-      <Breadcrum title={"My Account"} second={"Order Cancel"} />
+      <Breadcrum title={"My Account"} second={"Return Order details"} />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <WishListSidebar />
 
         {/* <!-- account content --> */}
         <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
           {/* <!-- single card --> */}
-          <MyWriteReviews />
+          <ReturnOrdermain />
           {/* <!-- single card end --> */}
         </div>
         {/* <!-- account content end --> */}
@@ -55,4 +54,4 @@ function MyWiriteReviews() {
   );
 }
 
-export default MyWiriteReviews;
+export default ReturnDetails;

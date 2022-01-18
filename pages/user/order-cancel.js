@@ -1,11 +1,11 @@
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Breadcrum from "../components/commonComponents/Breadcrum";
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../components/Account/AccuntSingleCard";
-import SingleOrderHistory from "../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Breadcrum from "../../components/commonComponents/Breadcrum";
+import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
+import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
 
 // https://i.ibb.co/fDCywKw/iphone-12.png
 // https://i.ibb.co/dMJPPb8/headphone-1-1.png
