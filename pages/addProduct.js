@@ -1,15 +1,10 @@
 import AddProductImage from "../components/AddProduct/AddProductImage";
 import AddProductInput from "../components/AddProduct/AddProductInput";
-import Link from "next/link";
-import ShopSidebar from "../components/ShopGridPage/ShopSidebar/ShopSidebar";
-import ShopContent from "../components/ShopGridPage/ShopContent/ShopContent";
-import { useRouter } from "next/router";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Breadcrum from "../components/commonComponents/Breadcrum";
 import WishListSidebar from "../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../components/Account/AccuntSingleCard";
 import Copyright from "../components/Copyright";
 
 function addProduct() {
