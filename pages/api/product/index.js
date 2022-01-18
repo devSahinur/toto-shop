@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         const product = req.body;
         // const filter = { name: user.name, email: user.email }
         // const update = { $push: { purchaseHistory: req.body } }
-
+        // console.log(product)
         await Product.create(product);
 
         res.status(200).json({ product });
