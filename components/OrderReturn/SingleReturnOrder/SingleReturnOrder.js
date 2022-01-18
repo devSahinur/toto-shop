@@ -44,7 +44,7 @@ function SingleReturnOrder({ product }) {
         {/* view order */}
         <div>
           <button
-            onClick={() => router.push("/return-order-details")}
+            onClick={() => router.push("/user/return-order-details")}
             className="btn-outline py-2"
           >
             View Order
