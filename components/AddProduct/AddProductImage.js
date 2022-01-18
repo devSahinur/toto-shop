@@ -73,7 +73,7 @@ function AddProductImage() {
 
   return (
     <div>
-      <h1>Product Image</h1>
+      <h1 className="pb-4 text-lg text-gray-600 font-bold">Product Image</h1>
       <div>
         <div className="space-y-6">
           <div className="grid grid-cols-2 space-x-4">
