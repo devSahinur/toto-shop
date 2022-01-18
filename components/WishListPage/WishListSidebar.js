@@ -140,6 +140,19 @@ function WishListSidebar() {
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
             <div
+              onClick={() => router.push("/user/sellingOrders")}
+              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
+                router.pathname == "/user/sellingOrders" && "text-primary"
+              } `}
+            >
+              Selling orders
+              <span className="absolute -left-8 top-0 text-base">
+                <i className="far fa-heart"></i>
+              </span>
+            </div>
+          </div>
+          <div className="pl-8 pt-4">
+            <div
               onClick={() => router.push("/user/wishlist")}
               className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
                 router.pathname == "/user/wishlist" && "text-primary"
