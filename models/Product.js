@@ -4,7 +4,7 @@ const ProductSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-  }, // username
+  }, 
   email: {
     type: String,
     required: true,
