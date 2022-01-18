@@ -139,7 +139,7 @@ function Header() {
         {/* navicons */}
         <div className="space-x-4 flex items-center text-center">
           <div
-            onClick={() => router.push("/wishlist")}
+            onClick={() => router.push("/user/wishlist")}
             className="block text-center text-gray-700 cursor-pointer hover:text-primary transition relative"
           >
             <span className="absolute -right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
