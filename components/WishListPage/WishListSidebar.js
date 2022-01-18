@@ -147,7 +147,7 @@ function WishListSidebar() {
             >
               Selling orders
               <span className="absolute -left-8 top-0 text-base">
-                <i className="far fa-heart"></i>
+              <i className="fas fa-cart-plus"></i>
               </span>
             </div>
           </div>
@@ -160,7 +160,7 @@ function WishListSidebar() {
             >
               my wishlist
               <span className="absolute -left-8 top-0 text-base">
-                <i className="far fa-heart"></i>
+              <i className="fas fa-heart"></i>
               </span>
             </div>
           </div>
