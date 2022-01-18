@@ -9,30 +9,53 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
+  image:[],
+  totalReviews: {
+    type: Number,
+    default: 0,
+  },
+  price: {
+    type: Number,
     required: true,
   },
-  customName: {
-    type: String,
-    default: "",
-  },
-  provider: {
-    type: String,
-    required: true,
-  },
-  isSeller: {
+  availability: {
     type: Boolean,
-    default: false,
+    default: true,
   },
-  sellerId: String,
-  address: {
-    type: String,
-    default: "",
+  totalQuantity: {
+    type: Number,
+    default: 20,
   },
-  phoneNumber: {
+  brand: {
     type: String,
-    default: "",
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  sku: {
+    type: String,
+  },
+  shortDescription: {
+    type: String,
+    required: true,
+  },
+  longDescription: {
+    type: String,
+    required: true,
+  },
+  weight: {
+    type: String,
+    required: true,
+  },
+  material: {
+    type: String,
+    required: true,
+  },
+  color: {
+    type: String,
+    required: true,
   },
 });
 
