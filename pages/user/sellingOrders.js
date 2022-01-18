@@ -1,11 +1,11 @@
-import AddProductImage from "../components/AddProduct/AddProductImage";
-import AddProductInput from "../components/AddProduct/AddProductInput";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Breadcrum from "../components/commonComponents/Breadcrum";
-import WishListSidebar from "../components/WishListPage/WishListSidebar";
-import Copyright from "../components/Copyright";
+import AddProductImage from "../../components/AddProduct/AddProductImage";
+import AddProductInput from "../../components/AddProduct/AddProductInput";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Breadcrum from "../../components/commonComponents/Breadcrum";
+import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import Copyright from "../../components/Copyright";
 
 function addProduct() {
   return (
