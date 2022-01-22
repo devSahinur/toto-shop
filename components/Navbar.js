@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import MobileMenubar from "./MobileMenubar";
 import { HeartIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 function Navbar() {
   const router = useRouter();
@@ -116,36 +117,31 @@ function Navbar() {
             {/* nav menu */}
             <div className="flex items-center justify-between flex-grow pl-12">
               <div className="flex items-center space-x-6 text-base capitalize">
-                <div
-                  onClick={() => router.push("/")}
-                  className="text-gray-200 hover:text-white transition cursor-pointer"
-                >
-                  Home
-                </div>
-                <div
-                  onClick={() => router.push("/shop")}
-                  className="text-gray-200 hover:text-white transition cursor-pointer"
-                >
-                  Shop
-                </div>
-                <div
-                  onClick={() => router.push("/about")}
-                  className="text-gray-200 hover:text-white transition cursor-pointer"
-                >
-                  About us
-                </div>
-                <div
-                  onClick={() => router.push("/contact")}
-                  className="text-gray-200 hover:text-white transition cursor-pointer"
-                >
-                  Contact us
-                </div>
-                <div
-                  onClick={() => router.push("/faq")}
-                  className="text-gray-200 hover:text-white transition cursor-pointer"
-                >
-                  FAQ
-                </div>
+                <Link href="/">
+                  <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                    Home
+                  </a>
+                </Link>
+                <Link href="/shop">
+                  <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                    Shop
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                    About us
+                  </a>
+                </Link>
+                <Link href="/contact">
+                  <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                    Contact us
+                  </a>
+                </Link>
+                <Link href="/faq">
+                  <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                    FAQ
+                  </a>
+                </Link>
               </div>
               <div
                 // onClick={() => router.push("login")}
