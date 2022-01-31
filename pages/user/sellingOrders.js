@@ -7,8 +7,8 @@ import Layout from "../../components/layout";
 import axios from "axios";
 
 function addProduct() {
-  const [inputs, setInputs] = useState({});
   const [images, setImageURL] = useState([]);
+  const [inputs, setInputs] = useState({});
 
   const {
     register,
@@ -50,19 +50,19 @@ function addProduct() {
           {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5"
-            >
-              <AddProductInput
-                setInputs={setInputs}
-                inputs={inputs}
-                register={register}
-              />
-              <AddProductImage
-                images={images}
-                handleImageUpload={handleImageUpload}
-              />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
+                <AddProductInput
+                  setInputs={setInputs}
+                  inputs={inputs}
+                  register={register}
+                />
+                <AddProductImage
+                  images={images}
+                  handleImageUpload={handleImageUpload}
+                />
+              </div>
+              <input className="btn" type="submit" />
             </form>
           </main>
           {/* <!-- account content end --> */}
