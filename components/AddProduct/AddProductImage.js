@@ -23,15 +23,15 @@ function AddProductImage({ handleImageUpload, images }) {
                   <input
                     type="file"
                     onChange={handleImageUpload}
-                    className="hidden input_file"
+                    className="cursor-pointer hidden input_file"
                   />
                   <PhotographIcon
-                    className="h-8"
+                    className="h-8 cursor-pointer hover:text-primary"
                     onClick={() =>
                       document.querySelector(".input_file").click()
                     }
                   />
-                  <h3>Add Image</h3>
+                  <h3 className="">Add Image</h3>
                 </>
               )}
             </div>
@@ -56,7 +56,7 @@ function AddProductImage({ handleImageUpload, images }) {
                     className="hidden input_file"
                   />
                   <PhotographIcon
-                    className="h-8"
+                    className="h-8 cursor-pointer hover:text-primary"
                     onClick={() =>
                       document.querySelector(".input_file").click()
                     }
@@ -86,7 +86,7 @@ function AddProductImage({ handleImageUpload, images }) {
                     className="hidden input_file"
                   />
                   <PhotographIcon
-                    className="h-8"
+                    className="h-8 cursor-pointer hover:text-primary"
                     onClick={() =>
                       document.querySelector(".input_file").click()
                     }
@@ -116,7 +116,7 @@ function AddProductImage({ handleImageUpload, images }) {
                     className="hidden input_file"
                   />
                   <PhotographIcon
-                    className="h-8"
+                    className="h-8 cursor-pointer hover:text-primary"
                     onClick={() =>
                       document.querySelector(".input_file").click()
                     }
@@ -145,7 +145,7 @@ function AddProductImage({ handleImageUpload, images }) {
                     className="hidden input_file"
                   />
                   <PhotographIcon
-                    className="h-8"
+                    className="h-8 cursor-pointer hover:text-primary"
                     onClick={() =>
                       document.querySelector(".input_file").click()
                     }
