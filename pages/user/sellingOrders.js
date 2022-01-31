@@ -6,8 +6,25 @@ import Footer from "../../components/Footer";
 import Breadcrum from "../../components/commonComponents/Breadcrum";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import Copyright from "../../components/Copyright";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
 function addProduct() {
+  const [inputs, setInputs] = useState({});
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  
+  console.log(inputs);
+  
+  const onSubmit = (data) => console.log(data)
+
+
   return (
     <div>
       <Header />
@@ -20,10 +37,10 @@ function addProduct() {
         <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
 
-          <div className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
-            <AddProductInput />
+          <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
+            <AddProductInput setInputs={setInputs} inputs={inputs} />
             <AddProductImage />
-          </div>
+          </form>
         </main>
         {/* <!-- account content end --> */}
       </div>
