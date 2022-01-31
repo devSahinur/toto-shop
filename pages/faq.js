@@ -12,7 +12,7 @@ function faq() {
     animate: true,
     arrowIcon: <PlusIcon />,
     tabFocus: true,
-  };
+  }; 
 
   return (
     <div>
