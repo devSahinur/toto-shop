@@ -1,8 +1,5 @@
-import Breadcrum from "../../components/commonComponents/Breadcrum";
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
+
+import Layout from "../../components/layout";
 import SingleWishList from "../../components/WishListPage/SingleWishList";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 
@@ -94,22 +91,19 @@ const product = [
 function wishlist() {
   return (
     <div>
-      <Header />
-      <Navbar />
-      <Breadcrum title={"MY ACCOUNT"} />
-      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-        <WishListSidebar />
+      <Layout title={"MY wish list"}>
+        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+          <WishListSidebar />
 
-        {/* <!-- account content --> */}
-        <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
-          {product.map((product) => (
-            <SingleWishList product={product} key={product.id} />
-          ))}
+          {/* <!-- account content --> */}
+          <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
+            {product.map((product) => (
+              <SingleWishList product={product} key={product.id} />
+            ))}
+          </div>
+          {/* <!-- account content end --> */}
         </div>
-        {/* <!-- account content end --> */}
-      </div>
-      <Footer />
-      <Copyright />
+      </Layout>
     </div>
   );
 }

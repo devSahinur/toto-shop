@@ -1,17 +1,11 @@
-import Breadcrum from "../../components/commonComponents/Breadcrum";
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
+import Layout from "../../components/layout";
 
 function wishlist() {
   return (
     <div>
-      <Header />
-      <Navbar />
-      <h1>I am the order Traking page</h1>
-      <Footer />
-      <Copyright />
+      <Layout title={"My order tracking"}>
+        <h1>I am the order Traking page</h1>
+      </Layout>
     </div>
   );
 }
