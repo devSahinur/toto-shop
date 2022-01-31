@@ -5,21 +5,19 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../../components/layout";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 function addProduct() {
-  const [images, setImageURL] = useState([]);
-  const [inputs, setInputs] = useState({});
-
+  const { data: session } = useSession();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-
-  console.log(inputs);
-
-  const onSubmit = (data) => console.log(data);
+  const [images, setImageURL] = useState([]);
+  const [inputData, setInputData] = useState({});
+  const [inputs, setInputs] = useState({});
 
   // TODO: image
 
@@ -40,6 +38,25 @@ function addProduct() {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const onSubmit = async (data) => {
+    setInputData(data);
+    const res = await fetch("/api/product", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+        image: images,
+        email: session.user.email,
+      }),
+    });
+
+    if (res.ok) {
+      console.log("Post done");
+    }
   };
 
   return (

@@ -1,8 +1,6 @@
 import { PhotographIcon } from "@heroicons/react/solid";
-import { useState } from "react";
 
 function AddProductImage({ handleImageUpload, images }) {
-  console.log(images);
   return (
     <div>
       <h1 className="pb-4 text-lg text-gray-600 font-bold">Product Image</h1>

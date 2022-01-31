@@ -24,7 +24,7 @@ const ProductSchema = new mongoose.Schema({
   },
   totalQuantity: {
     type: Number,
-    default: 20,
+    default: 10,
   },
   brand: {
     type: String,
@@ -51,11 +51,11 @@ const ProductSchema = new mongoose.Schema({
   },
   material: {
     type: String,
-    required: true,
+    default: "Artificial Leather",
   },
   color: {
     type: String,
-    required: true,
+    default: "Black, Brown, Red",
   },
 });
 
