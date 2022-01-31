@@ -19,22 +19,36 @@ function addProduct() {
 
   const onSubmit = (data) => console.log(data);
 
+
+
+  const handleImageUpload = event => {
+    const imageData = new FormData();
+    imageData.set('key', '701a71fc100ddc2599c9438b268fee30');
+    imageData.append('image', event.target.files[0]);
+
+    axios.post('https://api.imgbb.com/1/upload', imageData)
+        .then(response => {
+            setImageURL(response.data.data.display_url);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
   return (
     <div>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
-
           {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
-
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5"
             >
-              <AddProductInput setInputs={setInputs} inputs={inputs} />
-              <AddProductImage />
+              <AddProductInput setInputs={setInputs} inputs={inputs} register={register}  />
+              <AddProductImage handleImageUpload={handleImageUpload} />
             </form>
           </main>
           {/* <!-- account content end --> */}

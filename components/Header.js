@@ -27,8 +27,6 @@ function Header() {
     }
   };
 
-  console.log(fetchData);
-
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
