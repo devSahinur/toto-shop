@@ -4,6 +4,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../../components/layout";
+import axios from "axios";
 
 function addProduct() {
   const [inputs, setInputs] = useState({});
@@ -19,21 +20,27 @@ function addProduct() {
 
   const onSubmit = (data) => console.log(data);
 
+  // TODO: image
+  let images = [];
 
-
-  const handleImageUpload = event => {
+  const handleImageUpload = (event) => {
     const imageData = new FormData();
-    imageData.set('key', '701a71fc100ddc2599c9438b268fee30');
-    imageData.append('image', event.target.files[0]);
+    imageData.set("key", "701a71fc100ddc2599c9438b268fee30");
+    imageData.append("image", event.target.files[0]);
 
-    axios.post('https://api.imgbb.com/1/upload', imageData)
-        .then(response => {
-            setImageURL(response.data.data.display_url);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
+    axios
+      .post("https://api.imgbb.com/1/upload", imageData)
+      .then((response) => {
+        let newImages = [...images];
+        newImages.push(response.data.data.display_url);
+        images = newImages;
+        // setImageURL();
+        console.log(images);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -47,8 +54,15 @@ function addProduct() {
               onSubmit={handleSubmit(onSubmit)}
               className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5"
             >
-              <AddProductInput setInputs={setInputs} inputs={inputs} register={register}  />
-              <AddProductImage handleImageUpload={handleImageUpload} />
+              <AddProductInput
+                setInputs={setInputs}
+                inputs={inputs}
+                register={register}
+              />
+              <AddProductImage
+                images={images}
+                handleImageUpload={handleImageUpload}
+              />
             </form>
           </main>
           {/* <!-- account content end --> */}
