@@ -29,7 +29,7 @@ export default function Home() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout>
+      <Layout title={'no'}>
         <main>
           <Banner />
           <Features />

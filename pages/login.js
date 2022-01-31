@@ -1,21 +1,14 @@
 import { Register } from "../components/Auth/Register";
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import Layout from "../components/layout";
 
 function login() {
   return (
     <div>
-      <Header />
-      <Navbar />
-
-      <main>
-        <Register />
-      </main>
-
-      <Footer />
-      <Copyright />
+      <Layout title={"no"}>
+        <main>
+          <Register />
+        </main>
+      </Layout>
     </div>
   );
 }
