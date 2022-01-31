@@ -1,7 +1,7 @@
 import { PhotographIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 
-function AddProductImage() {
+function AddProductImage({ handleImageUpload, images }) {
   const [img1, setImage1] = useState(null);
   const [img2, setImage2] = useState(null);
 
@@ -83,7 +83,7 @@ function AddProductImage() {
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={URL.createObjectURL(img1)}
+                    src={images && images[0]}
                     onClick={() => setImage1(null)}
                   />
                 </>
@@ -91,7 +91,7 @@ function AddProductImage() {
                 <>
                   <input
                     type="file"
-                    onChange={Imagehandler1}
+                    onChange={handleImageUpload}
                     className="hidden input_file"
                   />
                   <PhotographIcon
@@ -114,7 +114,7 @@ function AddProductImage() {
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={URL.createObjectURL(img2)}
+                    src={images && images[0]}
                     onClick={() => setImage2(null)}
                   />
                 </>
@@ -122,7 +122,7 @@ function AddProductImage() {
                 <>
                   <input
                     type="file"
-                    onChange={Imagehandler2}
+                    onChange={handleImageUpload}
                     className="hidden input_file"
                   />
                   <PhotographIcon
@@ -145,7 +145,7 @@ function AddProductImage() {
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={URL.createObjectURL(img3)}
+                    src={images && images[1]}
                     onClick={() => setImage3(null)}
                   />
                 </>
@@ -153,7 +153,7 @@ function AddProductImage() {
                 <>
                   <input
                     type="file"
-                    onChange={Imagehandler3}
+                    onChange={handleImageUpload}
                     className="hidden input_file"
                   />
                   <PhotographIcon
@@ -176,7 +176,7 @@ function AddProductImage() {
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={URL.createObjectURL(img4)}
+                    src={images && images[3]}
                     onClick={() => setImage4(null)}
                   />
                 </>
@@ -184,7 +184,7 @@ function AddProductImage() {
                 <>
                   <input
                     type="file"
-                    onChange={Imagehandler4}
+                    onChange={handleImageUpload}
                     className="hidden input_file"
                   />
                   <PhotographIcon
@@ -206,7 +206,7 @@ function AddProductImage() {
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={URL.createObjectURL(img5)}
+                    src={images && images[4]}
                     onClick={() => setImage5(null)}
                   />
                 </>
@@ -214,7 +214,7 @@ function AddProductImage() {
                 <>
                   <input
                     type="file"
-                    onChange={Imagehandler5}
+                    onChange={handleImageUpload}
                     className="hidden input_file"
                   />
                   <PhotographIcon
@@ -226,6 +226,10 @@ function AddProductImage() {
                   <h3>Add Image</h3>
                 </>
               )}
+
+              {images.map((item) => (
+                <li>{item}</li>
+              ))}
             </div>
           </div>
         </div>
