@@ -8,6 +8,7 @@ import axios from "axios";
 
 function addProduct() {
   const [inputs, setInputs] = useState({});
+  const [images, setImageURL] = useState([]);
 
   const {
     register,
@@ -21,7 +22,6 @@ function addProduct() {
   const onSubmit = (data) => console.log(data);
 
   // TODO: image
-  let images = [];
 
   const handleImageUpload = (event) => {
     const imageData = new FormData();
@@ -31,11 +31,11 @@ function addProduct() {
     axios
       .post("https://api.imgbb.com/1/upload", imageData)
       .then((response) => {
+        let image = [];
         let newImages = [...images];
         newImages.push(response.data.data.display_url);
-        images = newImages;
-        // setImageURL();
-        console.log(images);
+        image = newImages;
+        setImageURL(image);
       })
       .catch((error) => {
         console.log(error);

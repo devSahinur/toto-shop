@@ -2,75 +2,7 @@ import { PhotographIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 
 function AddProductImage({ handleImageUpload, images }) {
-  const [img1, setImage1] = useState(null);
-  const [img2, setImage2] = useState(null);
-
-  const [img3, setImage3] = useState(null);
-
-  const [img4, setImage4] = useState(null);
-  const [img5, setImage5] = useState(null);
-
-  const Imagehandler1 = (e) => {
-    e.preventDefault();
-    const Image = e.target.files[0];
-
-    if (Image == "" || Image === undefined) {
-      alert(`not an image, file is a${Image.type}`);
-    }
-
-    setImage1(Image);
-    console.log(img1);
-  };
-
-  const Imagehandler2 = (e) => {
-    e.preventDefault();
-    const Image = e.target.files[0];
-
-    if (Image == "" || Image === undefined) {
-      alert(`not an image, file is a${Image.type}`);
-    }
-
-    setImage2(Image);
-  };
-
-  const Imagehandler3 = (e) => {
-    e.preventDefault();
-    const Image = e.target.files[0];
-
-    if (Image == "" || Image === undefined) {
-      alert(`not an image, file is a${Image.type}`);
-    }
-
-    setImage3(Image);
-  };
-
-  const Imagehandler4 = (e) => {
-    e.preventDefault();
-    const Image = e.target.files[0];
-
-    if (Image == "" || Image === undefined) {
-      alert(`not an image, file is a${Image.type}`);
-    }
-
-    setImage4(Image);
-  };
-
-  const Imagehandler5 = (e) => {
-    e.preventDefault();
-    const Image = e.target.files[0];
-
-    if (Image == "" || Image === undefined) {
-      alert(`not an image, file is a${Image.type}`);
-    }
-
-    setImage5(Image);
-  };
-
-  console.log(img2);
-  console.log(img3);
-  console.log(img4);
-  console.log(img5);
-
+  console.log(images);
   return (
     <div>
       <h1 className="pb-4 text-lg text-gray-600 font-bold">Product Image</h1>
@@ -79,12 +11,11 @@ function AddProductImage({ handleImageUpload, images }) {
           <div className="grid grid-cols-2 space-x-4">
             {/* TODO: Single Image 1  */}
             <div className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500">
-              {img1 ? (
+              {images.length >= 1 ? (
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={images && images[0]}
-                    onClick={() => setImage1(null)}
+                    src={images[0]}
                   />
                 </>
               ) : (
@@ -110,12 +41,11 @@ function AddProductImage({ handleImageUpload, images }) {
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500"
               onClick={() => document.querySelector(".input_file").click()}
             >
-              {img2 ? (
+              {images.length >= 2 ? (
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={images && images[0]}
-                    onClick={() => setImage2(null)}
+                    src={images[1]}
                   />
                 </>
               ) : (
@@ -141,12 +71,11 @@ function AddProductImage({ handleImageUpload, images }) {
           <div className="grid grid-cols-3 space-x-3">
             {/* TODO: Single Image 1  */}
             <div className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500">
-              {img3 ? (
+              {images.length >= 3 ? (
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={images && images[1]}
-                    onClick={() => setImage3(null)}
+                    src={images[2]}
                   />
                 </>
               ) : (
@@ -172,12 +101,11 @@ function AddProductImage({ handleImageUpload, images }) {
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500"
               onClick={() => document.querySelector(".input_file").click()}
             >
-              {img4 ? (
+              {images.length >= 4 ? (
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={images && images[3]}
-                    onClick={() => setImage4(null)}
+                    src={images[3]}
                   />
                 </>
               ) : (
@@ -202,12 +130,11 @@ function AddProductImage({ handleImageUpload, images }) {
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500"
               onClick={() => document.querySelector(".input_file").click()}
             >
-              {img5 ? (
+              {images.length >= 5 ? (
                 <>
                   <img
                     className="object-contain w-full h-full"
-                    src={images && images[4]}
-                    onClick={() => setImage5(null)}
+                    src={images[4]}
                   />
                 </>
               ) : (
@@ -226,10 +153,6 @@ function AddProductImage({ handleImageUpload, images }) {
                   <h3>Add Image</h3>
                 </>
               )}
-
-              {images.map((item) => (
-                <li>{item}</li>
-              ))}
             </div>
           </div>
         </div>
