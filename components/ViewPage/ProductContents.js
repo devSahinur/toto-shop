@@ -1,6 +1,14 @@
+import { useState } from "react";
 import { RatingStar } from "./RatingStar";
 
 export const ProductContents = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+  const incrementQuantity = () => setQuantity(quantity + 1);
+  let decrementQuantity = () => setQuantity(quantity - 1);
+
+  if (quantity <= 1) {
+    decrementQuantity = () => setQuantity(1);
+  }
   return (
     <div>
       <h2 className="md:text-3xl text-2xl font-medium uppercase mb-2">
@@ -128,11 +136,19 @@ export const ProductContents = ({ product }) => {
       <div className="mt-4">
         <h3 className="text-base text-gray-800 mb-1">Quantity</h3>
         <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
-          <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
+          <div
+            onClick={decrementQuantity}
+            className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none"
+          >
             -
           </div>
-          <div className="h-8 w-10 flex items-center justify-center">4</div>
-          <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
+          <div className="h-8 w-10 flex items-center justify-center">
+            {quantity}
+          </div>
+          <div
+            onClick={incrementQuantity}
+            className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none"
+          >
             +
           </div>
         </div>
