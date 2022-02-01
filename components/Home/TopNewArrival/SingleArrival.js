@@ -107,7 +107,7 @@ function SingleArrival({ product }) {
         </div>
       </div>
       <div className="pt-4 pb-3 px-4">
-        <div onClick={() => router.push("/view")}>
+        <div onClick={() => router.push(`/product/${product._id}`)}>
           <h4 className="uppercase font-medium text-md cursor-pointer mb-2 text-gray-800 hover:text-primary transition">
             {product?.title}
           </h4>
