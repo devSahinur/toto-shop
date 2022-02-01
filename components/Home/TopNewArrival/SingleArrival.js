@@ -93,7 +93,7 @@ function SingleArrival({ product }) {
         <img src={product?.image} className="w-full h-[205px] object-contain" />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
           <div
-            onClick={() => router.push("/view")}
+            onClick={() => router.push(`/product/${product._id}`)}
             className="text-white text-lg w-9 h-9 cursor-pointer rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center"
           >
             <SearchIcon className="h-5 w-5" />

@@ -38,7 +38,7 @@ export const ProductDetails = ({product}) => {
                 </tr>
                 <tr>
                     <th className="py-2 px-4 border border-gray-300 w-40 font-medium">Weight</th>
-                    <td className="py-2 px-4 border border-gray-300">{product.weight}</td>
+                    <td className="py-2 px-4 border border-gray-300">{product.weight} KG</td>
                 </tr>
             </table>
             {/* <!-- details table --> */}
