@@ -114,10 +114,10 @@ function SingleArrival({ product }) {
         </div>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-roboto font-semibold">
-            ${(product.price).toFixed(2)}
+            ${(product?.price)?.toFixed(2)}
           </p>
           <p className="text-sm text-gray-400 font-roboto line-through">
-          ${(product.price * 1.6).toFixed(2)}
+          ${(product?.price * 1.6)?.toFixed(2)}
           </p>
         </div>
         <div className="flex items-center">
