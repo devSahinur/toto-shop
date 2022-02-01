@@ -25,8 +25,6 @@ export default function Home() {
       .then((data) => setProducts(data.data));
   }, []);
 
-  console.log(products)
-
   return (
     <div>
       <Head>
@@ -45,7 +43,7 @@ export default function Home() {
           <Categories />
           <TopNewArrival products={products} />
           <MiddleAds />
-          <RecomendedProduct />
+          <RecomendedProduct products={products} />
         </main>
         {/* for show the modal */}
         {/* {showModal && <Modal setShowModal={setShowModal} />} */}

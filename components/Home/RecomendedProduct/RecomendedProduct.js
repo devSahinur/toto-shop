@@ -59,15 +59,17 @@ const products = [
   },
 ];
 
-export const RecomendedProduct = () => {
+export const RecomendedProduct = ({ products }) => {
+  const allProduct = products.slice(4);
+
   return (
     <div className="container pb-16">
       <h2 className="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">
         recomended for you
       </h2>
       <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-        {products.map((product) => (
-          <SingleArrival key={product.id} product={product} />
+        {allProduct?.map((product) => (
+          <SingleArrival key={product._id} product={product} />
         ))}
       </div>
     </div>
