@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 import Modal from "../components/Home/Modal/Modal";
 import Layout from "../components/layout";
 
-export default function Home() {
+export default function Home({ products }) {
   // const [showModal, setShowModal] = useState(false);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -19,11 +19,11 @@ export default function Home() {
   //   }, 3000);
   // }, []);
 
-  useEffect(() => {
-    fetch("/api/product")
-      .then((response) => response.json())
-      .then((data) => setProducts(data.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/product")
+  //     .then((response) => response.json())
+  //     .then((data) => setProducts(data.data));
+  // }, []);
 
   return (
     <div>
@@ -50,4 +50,15 @@ export default function Home() {
       </Layout>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/product");
+  const data = await res.json();
+
+  return {
+    props: {
+      products: data.data,
+    },
+  };
 }
