@@ -90,7 +90,7 @@ function SingleArrival({ product }) {
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
       <div className="relative">
-        <img src={product?.image} className="w-full" />
+        <img src={product?.image} className="w-full h-[205px] object-contain" />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
           <div
             onClick={() => router.push("/view")}
@@ -108,7 +108,7 @@ function SingleArrival({ product }) {
       </div>
       <div className="pt-4 pb-3 px-4">
         <div onClick={() => router.push("/view")}>
-          <h4 className="uppercase font-medium text-xl cursor-pointer mb-2 text-gray-800 hover:text-primary transition">
+          <h4 className="uppercase font-medium text-md cursor-pointer mb-2 text-gray-800 hover:text-primary transition">
             {product?.title}
           </h4>
         </div>

@@ -11,12 +11,21 @@ import Layout from "../components/layout";
 
 export default function Home() {
   // const [showModal, setShowModal] = useState(false);
+  const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   setTimeout(() => {
   //     setShowModal(true);
   //   }, 3000);
   // }, []);
+
+  useEffect(() => {
+    fetch("/api/product")
+      .then((response) => response.json())
+      .then((data) => setProducts(data.data));
+  }, []);
+
+  console.log(products)
 
   return (
     <div>
@@ -29,12 +38,12 @@ export default function Home() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout title={'no'}>
+      <Layout title={"no"}>
         <main>
           <Banner />
           <Features />
           <Categories />
-          <TopNewArrival />
+          <TopNewArrival products={products} />
           <MiddleAds />
           <RecomendedProduct />
         </main>
