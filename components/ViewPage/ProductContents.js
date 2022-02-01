@@ -48,7 +48,7 @@ export const ProductContents = ({ product }) => {
         <span className="text-primary font-semibold text-xl">
           ${product.price}
         </span>
-        <span className="text-gray-500 text-base line-through">$500.00</span>
+        <span className="text-gray-500 text-base line-through">${product.price *1.6}</span>
       </div>
       <p className="mt-4 text-gray-600">{product.shortDescription}</p>
       {/* <!-- size --> */}
