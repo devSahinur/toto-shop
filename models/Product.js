@@ -10,10 +10,7 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   image:[],
-  totalReviews: {
-    type: Number,
-    default: 0,
-  },
+  totalReviews: [],
   price: {
     type: Number,
     required: true,
