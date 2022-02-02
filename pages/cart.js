@@ -7,6 +7,8 @@ import { selectItems } from "../slices/appSlice";
 
 function cart() {
   const cartData = useSelector(selectItems);
+
+  console.log(cartData[0]?.product?._id);
   return (
     <div>
       <Layout title={"Shopping Cart"}>
@@ -15,7 +17,11 @@ function cart() {
             <CartTitleBar />
             <div className="space-y-4">
               {cartData?.map((product) => (
-                <SingleCart key={product?.product?._id} product={product} />
+                <SingleCart
+                  key={product?.product?._id}
+                  id={product?.product?._id}
+                  product={product}
+                />
               ))}
             </div>
           </div>
