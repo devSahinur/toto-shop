@@ -11,16 +11,7 @@ export const basketSlice = createSlice({
     addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
     },
-    removeFromBasket: (state, action) => {
-      const findIndex = state.items.findIndex(
-        (items) => items._id === action.payload._id
-      );
-      let newItems = [...state.items];
-      if (findIndex >= 0) {
-        newItems.slice(findIndex, 1);
-      }
-      state.items = newItems;
-    },
+    removeFromBasket: (state, action) => {},
   },
 });
 

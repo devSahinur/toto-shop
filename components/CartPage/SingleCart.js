@@ -1,11 +1,17 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromBasket } from "../../slices/appSlice";
 
 export const SingleCart = ({ product }) => {
   const cartData = product?.product;
   const realPrice = cartData?.price;
+  const dispatch = useDispatch();
+
   const [quantity, setQuantity] = useState(1);
   const [singleProductFullPrice, setSingleProductFullPrice] =
     useState(realPrice);
+
+
   const incrementQuantity = () => setQuantity(quantity + 1);
   let decrementQuantity = () => setQuantity(quantity - 1);
 
@@ -15,6 +21,7 @@ export const SingleCart = ({ product }) => {
       setSingleProductFullPrice(realPrice);
     };
   }
+
   const increment = () => {
     incrementQuantity();
     setSingleProductFullPrice(singleProductFullPrice + realPrice);
@@ -24,6 +31,10 @@ export const SingleCart = ({ product }) => {
     decrementQuantity();
     setSingleProductFullPrice(singleProductFullPrice - realPrice);
   };
+
+  const CartToRemoved = () =>{
+    dispatch(removeFromBasket({product: cartData}))
+  }
 
   return (
     <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
@@ -74,7 +85,7 @@ export const SingleCart = ({ product }) => {
           $ {singleProductFullPrice}
         </p>
       </div>
-      <div className="text-gray-600 hover:text-primary cursor-pointer">
+      <div onClick={CartToRemoved} className="text-gray-600 hover:text-primary cursor-pointer">
         <i className="fas fa-trash"></i>
       </div>
     </div>
