@@ -1,17 +1,19 @@
-export const SingleCart = () => {
+export const SingleCart = ({ product }) => {
+  const cartData = product?.product;
+
   return (
     <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
       {/* <!-- cart image --> */}
       <div className="w-32 flex-shrink-0">
-        <img src="https://i.ibb.co/TBzx17p/product9.jpg" className="w-full" />
+        <img src={cartData?.image[0]} className="w-full" />
       </div>
       {/* <!-- cart image end --> */}
       {/* <!-- cart content --> */}
       <div className="md:w-1/3 w-full">
         <h2 className="text-gray-800 mb-3 xl:text-xl textl-lg font-medium uppercase">
-          Italian L Shape Sofa
+          {cartData?.title}
         </h2>
-        <p className="text-primary font-semibold">$45.00</p>
+        <p className="text-primary font-semibold">${cartData?.price?.toFixed(2)}</p>
         <p className="text-gray-500">Size: M</p>
       </div>
       {/* <!-- cart content end --> */}

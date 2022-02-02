@@ -93,12 +93,14 @@ function SingleArrival({ product }) {
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
 
-  const CartId = !!cartData.find((item) => !!(item.productId === product._id));
+  const CartId = !!cartData.find(
+    (item) => !!(item.product._id === product._id)
+  );
 
   const AddToCart = () => {
     dispatch(
       addToBasket({
-        productId: product._id,
+        product: product,
       })
     );
   };
@@ -156,7 +158,7 @@ function SingleArrival({ product }) {
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
         </div>
       </div>
-      {CartId ? ( 
+      {CartId ? (
         <div className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b cursor-not-allowed bg-opacity-80">
           Already Added
         </div>

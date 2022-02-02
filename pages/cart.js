@@ -2,8 +2,11 @@ import CartTitleBar from "../components/CartPage/CartTitleBar";
 import OrderSummary from "../components/CartPage/OrderSummary";
 import { SingleCart } from "../components/CartPage/SingleCart";
 import Layout from "../components/layout";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/appSlice";
 
 function cart() {
+  const cartData = useSelector(selectItems);
   return (
     <div>
       <Layout title={"Shopping Cart"}>
@@ -11,9 +14,9 @@ function cart() {
           <div className="xl:col-span-9 lg:col-span-8">
             <CartTitleBar />
             <div className="space-y-4">
-              <SingleCart />
-              <SingleCart />
-              <SingleCart />
+              {cartData?.map((product) => (
+                <SingleCart key={product?.product?._id} product={product} />
+              ))}
             </div>
           </div>
           <OrderSummary />
