@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromBasket } from "../../slices/appSlice";
+import {
+  removeFromBasket,
+  addToBasket,
+  removeFulProduct,
+} from "../../slices/appSlice";
 
-export const SingleCart = ({ product }) => {
+export const SingleCart = ({ product, id }) => {
   const cartData = product?.product;
   const realPrice = cartData?.price;
   const dispatch = useDispatch();
+  console.log(product);
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product.quantity);
   const [singleProductFullPrice, setSingleProductFullPrice] =
     useState(realPrice);
-
 
   const incrementQuantity = () => setQuantity(quantity + 1);
   let decrementQuantity = () => setQuantity(quantity - 1);
@@ -23,18 +27,16 @@ export const SingleCart = ({ product }) => {
   }
 
   const increment = () => {
-    incrementQuantity();
-    setSingleProductFullPrice(singleProductFullPrice + realPrice);
+    dispatch(addToBasket({ product: product?.product }));
   };
 
   const decrement = () => {
-    decrementQuantity();
-    setSingleProductFullPrice(singleProductFullPrice - realPrice);
+    dispatch(removeFromBasket({ _id: product?.product?._id }));
   };
 
-  const CartToRemoved = () =>{
-    dispatch(removeFromBasket({product: cartData}))
-  }
+  const CartToRemoved = () => {
+    dispatch(removeFulProduct({ _id: product?.product?._id }));
+  };
 
   return (
     <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
@@ -56,7 +58,7 @@ export const SingleCart = ({ product }) => {
       {/* <!-- cart content end --> */}
       {/* <!-- cart quantity --> */}
       <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300">
-        {quantity <= 1 ? (
+        {product?.quantity <= 1 ? (
           <div className="h-8 w-8 text-xl flex items-center justify-center cursor-not-allowed bg-opacity-80 select-none">
             -
           </div>
@@ -70,7 +72,7 @@ export const SingleCart = ({ product }) => {
         )}
 
         <div className="h-8 w-10 flex items-center justify-center">
-          {quantity}
+          {product?.quantity}
         </div>
         <div
           onClick={increment}
@@ -82,10 +84,13 @@ export const SingleCart = ({ product }) => {
       {/* <!-- cart quantity end --> */}
       <div className="ml-auto md:ml-0">
         <p className="text-primary text-lg font-semibold">
-          $ {singleProductFullPrice}
+          $ {product?.quantity * cartData?.price}
         </p>
       </div>
-      <div onClick={CartToRemoved} className="text-gray-600 hover:text-primary cursor-pointer">
+      <div
+        onClick={CartToRemoved}
+        className="text-gray-600 hover:text-primary cursor-pointer"
+      >
         <i className="fas fa-trash"></i>
       </div>
     </div>

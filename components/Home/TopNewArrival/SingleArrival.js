@@ -101,6 +101,7 @@ function SingleArrival({ product }) {
     dispatch(
       addToBasket({
         product: product,
+        quantity: 1,
       })
     );
   };
