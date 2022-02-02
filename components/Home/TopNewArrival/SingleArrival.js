@@ -156,8 +156,8 @@ function SingleArrival({ product }) {
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
         </div>
       </div>
-      {CartId ? (
-        <div className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+      {CartId ? ( 
+        <div className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b cursor-not-allowed bg-opacity-80">
           Already Added
         </div>
       ) : (
