@@ -1,5 +1,29 @@
+import { useState } from "react";
+
 export const SingleCart = ({ product }) => {
   const cartData = product?.product;
+  const realPrice = cartData?.price;
+  const [quantity, setQuantity] = useState(1);
+  const [singleProductFullPrice, setSingleProductFullPrice] =
+    useState(realPrice);
+  const incrementQuantity = () => setQuantity(quantity + 1);
+  let decrementQuantity = () => setQuantity(quantity - 1);
+
+  if (quantity <= 1 && singleProductFullPrice < realPrice) {
+    decrementQuantity = () => {
+      setQuantity(1);
+      setSingleProductFullPrice(realPrice);
+    };
+  }
+  const increment = () => {
+    incrementQuantity();
+    setSingleProductFullPrice(singleProductFullPrice + realPrice);
+  };
+
+  const decrement = () => {
+    decrementQuantity();
+    setSingleProductFullPrice(singleProductFullPrice - realPrice);
+  };
 
   return (
     <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
@@ -13,23 +37,42 @@ export const SingleCart = ({ product }) => {
         <h2 className="text-gray-800 mb-3 xl:text-xl textl-lg font-medium uppercase">
           {cartData?.title}
         </h2>
-        <p className="text-primary font-semibold">${cartData?.price?.toFixed(2)}</p>
+        <p className="text-primary font-semibold">
+          ${cartData?.price?.toFixed(2)}
+        </p>
         <p className="text-gray-500">Size: M</p>
       </div>
       {/* <!-- cart content end --> */}
       {/* <!-- cart quantity --> */}
       <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300">
-        <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
-          -
+        {quantity <= 1 ? (
+          <div className="h-8 w-8 text-xl flex items-center justify-center cursor-not-allowed bg-opacity-80 select-none">
+            -
+          </div>
+        ) : (
+          <div
+            onClick={decrement}
+            className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer  select-none"
+          >
+            -
+          </div>
+        )}
+
+        <div className="h-8 w-10 flex items-center justify-center">
+          {quantity}
         </div>
-        <div className="h-8 w-10 flex items-center justify-center">4</div>
-        <div className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">
+        <div
+          onClick={increment}
+          className="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none"
+        >
           +
         </div>
       </div>
       {/* <!-- cart quantity end --> */}
       <div className="ml-auto md:ml-0">
-        <p className="text-primary text-lg font-semibold">$320.00</p>
+        <p className="text-primary text-lg font-semibold">
+          $ {singleProductFullPrice}
+        </p>
       </div>
       <div className="text-gray-600 hover:text-primary cursor-pointer">
         <i className="fas fa-trash"></i>
