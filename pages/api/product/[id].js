@@ -40,7 +40,7 @@ export default async (req, res) => {
             break;
         case 'DELETE':
             try {
-                const deletedProduct = await Note.deleteOne({ _id: id });
+                const deletedProduct = await Product.deleteOne({ _id: id });
 
                 if (!deletedProduct) {
                     return res.status(400).json({ success: false })
