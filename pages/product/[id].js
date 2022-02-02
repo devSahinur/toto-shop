@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Layout from "../../components/layout";
 import { useRouter } from "next/router";
 import SingleCard from "../../components/Home/TopNewArrival/SingleArrival";
@@ -40,6 +41,12 @@ function view({ product }) {
   const router = useRouter();
   return (
     <>
+      <Head>
+        <title>{product.title} - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content={`${product.title} - ToToSHOP`}></meta>
+        <meta name="description" content={product.shortDescription}></meta>
+      </Head>
       <Layout title={"no"}>
         {/* <!-- breadcrum --> */}
         <div className="py-4 container flex gap-3 items-center">
