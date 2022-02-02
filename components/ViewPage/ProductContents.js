@@ -1,14 +1,32 @@
 import { useState } from "react";
 import { RatingStar } from "./RatingStar";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, selectItems } from "../../slices/appSlice";
 
 export const ProductContents = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartData = useSelector(selectItems);
   const [quantity, setQuantity] = useState(1);
+
   const incrementQuantity = () => setQuantity(quantity + 1);
   let decrementQuantity = () => setQuantity(quantity - 1);
 
   if (quantity <= 1) {
     decrementQuantity = () => setQuantity(1);
   }
+
+  const CartId = !!cartData.find(
+    (item) => !!(item.product._id === product._id)
+  );
+
+  const AddToCart = () => {
+    dispatch(
+      addToBasket({
+        product: product,
+      })
+    );
+  };
+
   return (
     <div>
       <h2 className="md:text-3xl text-2xl font-medium uppercase mb-2">
@@ -48,7 +66,9 @@ export const ProductContents = ({ product }) => {
         <span className="text-primary font-semibold text-xl">
           ${product.price}
         </span>
-        <span className="text-gray-500 text-base line-through">${product.price *1.6}</span>
+        <span className="text-gray-500 text-base line-through">
+          ${product.price * 1.6}
+        </span>
       </div>
       <p className="mt-4 text-gray-600">{product.shortDescription}</p>
       {/* <!-- size --> */}
@@ -156,18 +176,31 @@ export const ProductContents = ({ product }) => {
       {/* <!-- color end --> */}
       {/* <!-- add to cart button --> */}
       <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
-        <a
-          href="#"
-          className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
-                    hover:bg-transparent hover:text-primary transition text-sm flex items-center"
-        >
-          <span className="mr-2">
-            <i className="fas fa-shopping-bag"></i>
-          </span>{" "}
-          Add to cart
-        </a>
-        <a
-          href="#"
+        {
+          CartId ? (<div
+            onClick={AddToCart}
+            className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
+            cursor-not-allowed bg-opacity-80 text-sm flex items-center"
+          >
+            <span className="mr-2">
+              <i className="fas fa-shopping-bag"></i>
+            </span>{" "}
+            Already Added
+          </div>):(
+            <div
+            onClick={AddToCart}
+            className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
+                      hover:bg-transparent hover:text-primary transition text-sm flex items-center"
+          >
+            <span className="mr-2">
+              <i className="fas fa-shopping-bag"></i>
+            </span>{" "}
+            Add to cart
+          </div>
+          )
+        }
+        
+        <div
           className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
                     hover:bg-transparent hover:text-primary transition text-sm"
         >
@@ -175,7 +208,7 @@ export const ProductContents = ({ product }) => {
             <i className="far fa-heart"></i>
           </span>{" "}
           Wishlist
-        </a>
+        </div>
       </div>
       {/* <!-- add to cart button end --> */}
       {/* <!-- product share icons --> */}
