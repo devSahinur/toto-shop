@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/appSlice";
 
 function MobileMenubar() {
   const [isClick, setIsClick] = useState(true);
   const router = useRouter();
+  const cartData = useSelector(selectItems);
 
   const menuButton = () => {
     setIsClick(false);
@@ -88,7 +91,7 @@ function MobileMenubar() {
           className="text-center cursor-pointer text-gray-700 hover:text-primary transition relative"
         >
           <span className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
-            3
+            {cartData.length}
           </span>
           <div className="text-2xl">
             <svg

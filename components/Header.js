@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/appSlice";
 
 function Header() {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const [fetchData, setFatchData] = useState([]);
   const [filterData, setFilterData] = useState(fetchData);
+  const cartData = useSelector(selectItems);
 
   useEffect(() => {
     if (search === "") return;
@@ -165,7 +168,7 @@ function Header() {
             className="lg:block text-center text-gray-700 cursor-pointer hover:text-primary transition hidden relative"
           >
             <span className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
-              3
+              {cartData.length}
             </span>
             <div className="text-2xl">
               <svg
