@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { RatingStar } from "./RatingStar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
 
 export const ProductContents = ({ product }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
   const [quantity, setQuantity] = useState(1);
@@ -214,22 +216,22 @@ export const ProductContents = ({ product }) => {
       {/* <!-- product share icons --> */}
       <div className="flex space-x-3 mt-4">
         <a
-          href="#"
+          href={`https://www.facebook.com/sharer/sharer.php?u=totoshop.tech/product/${product._id}&quote=Awesome%20Product!`}
           className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
         >
           <i className="fab fa-facebook-f"></i>
         </a>
         <a
-          href="#"
+          href={`https://twitter.com/intent/tweet?text=Awesome%20Product!&url=totoshop.tech/product/${product._id}`}
           className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
         >
           <i className="fab fa-twitter"></i>
         </a>
         <a
-          href="#"
+          href={`https://wa.me/?text=Awesome%20Product!%5Cn%20totoshop.tech/product/${product._id}`}
           className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
         >
-          <i className="fab fa-instagram"></i>
+          <i className="fab fa-whatsapp"></i>
         </a>
       </div>
       {/* <!-- product share icons end --> */}
