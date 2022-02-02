@@ -178,8 +178,8 @@ export const ProductContents = ({ product }) => {
       {/* <!-- color end --> */}
       {/* <!-- add to cart button --> */}
       <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
-        {
-          CartId ? (<div
+        {CartId ? (
+          <div
             onClick={AddToCart}
             className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
             cursor-not-allowed bg-opacity-80 text-sm flex items-center"
@@ -188,8 +188,9 @@ export const ProductContents = ({ product }) => {
               <i className="fas fa-shopping-bag"></i>
             </span>{" "}
             Already Added
-          </div>):(
-            <div
+          </div>
+        ) : (
+          <div
             onClick={AddToCart}
             className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
                       hover:bg-transparent hover:text-primary transition text-sm flex items-center"
@@ -199,9 +200,8 @@ export const ProductContents = ({ product }) => {
             </span>{" "}
             Add to cart
           </div>
-          )
-        }
-        
+        )}
+
         <div
           className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
                     hover:bg-transparent hover:text-primary transition text-sm"
