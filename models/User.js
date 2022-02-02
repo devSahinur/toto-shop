@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
   customName: {
     type: String,
     default: "",
-  },
+  }, // Firstname-Lastname 
   provider: {
     type: String,
     required: true,
@@ -34,6 +34,28 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-});
+  cart: [
+    {
+      itemID: { type: String, ref: "Item" },
+      quantity: Number,
+      isConfirm: Boolean,
+    },
+  ],
+  wishlist: [],
+  purchaseHistory: [
+    {
+      _id: false,
+      itemID: String,
+      name: String,
+      image: String,
+      price: Number,
+      sellerName: String,
+      sellerID: String,
+      quantity: Number,
+      isRating: { type: Boolean, default: false },
+      orderAt: { type: Date, default: Date.now },
+    },
+  ],
+})
 
-module.exports = mongoose.models.User || mongoose.model("User", UserSchema);
+module.exports = mongoose.models.User || mongoose.model("User", UserSchema)
