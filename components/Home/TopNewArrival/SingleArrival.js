@@ -84,9 +84,24 @@
 
 import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, selectItems } from "../../../slices/appSlice";
 
 function SingleArrival({ product }) {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const cartData = useSelector(selectItems);
+
+  const CartId = !!cartData.find((item) => !!(item.productId === product._id));
+
+  const AddToCart = () => {
+    dispatch(
+      addToBasket({
+        productId: product._id,
+      })
+    );
+  };
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
       <div className="relative">
@@ -114,10 +129,10 @@ function SingleArrival({ product }) {
         </div>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-roboto font-semibold">
-            ${(product?.price)?.toFixed(2)}
+            ${product?.price?.toFixed(2)}
           </p>
           <p className="text-sm text-gray-400 font-roboto line-through">
-          ${(product?.price * 1.6)?.toFixed(2)}
+            ${(product?.price * 1.6)?.toFixed(2)}
           </p>
         </div>
         <div className="flex items-center">
@@ -141,12 +156,18 @@ function SingleArrival({ product }) {
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
         </div>
       </div>
-      <a
-        href="#"
-        className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-      >
-        Add to Cart
-      </a>
+      {CartId ? (
+        <div className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+          Already Added
+        </div>
+      ) : (
+        <div
+          onClick={AddToCart}
+          className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+        >
+          Add to Cart
+        </div>
+      )}
     </div>
   );
 }
