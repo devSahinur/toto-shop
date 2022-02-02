@@ -24,6 +24,7 @@ const OrderSummary = () => {
   const applyCuponBtn = () => {
     if (cuponInput === cuponcode) {
       setCupon(true);
+      setNotmatchCupon(false);
     } else {
       setNotmatchCupon(true);
     }

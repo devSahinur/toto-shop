@@ -16,7 +16,6 @@ export const basketSlice = createSlice({
       );
       let newCart = [...state.items];
       if (findIndex >= 0) {
-        console.log("if");
         newCart[findIndex].quantity += 1;
       } else {
         newCart = [...state.items, action.payload];
