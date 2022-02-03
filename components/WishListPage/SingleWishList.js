@@ -1,11 +1,30 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket } from "../../slices/appSlice";
+import { removeFromWish, selectWish } from "../../slices/wishSlice";
+
 function SingleWishList({ product }) {
+  const dispatch = useDispatch();
+
+  const AddtoCart = () => {
+    dispatch(
+      addToBasket({
+        product: product,
+        quantity: 1,
+      })
+    );
+  };
+
+  const wishlistAll = useSelector(selectWish);
+
+  const findwishList = wishlistAll.find((item) => item._id === product._id);
+
   return (
     <>
       {/* <!-- single wishlist --> */}
       <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
         {/* <!-- cart image --> */}
         <div className="w-28 flex-shrink-0">
-          <img src={product.image[0].img} className="w-full" />
+          <img src={product.image[0]} className="w-full" />
         </div>
         {/* <!-- cart image end --> */}
         {/* <!-- cart content --> */}
@@ -27,12 +46,24 @@ function SingleWishList({ product }) {
           <p className="text-primary text-lg font-semibold">${product.price}</p>
         </div>
         {product.availability ? (
-          <a
-            href="#"
-            className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-          >
-            Add to cart
-          </a>
+          <>
+            {findwishList ? (
+              <a
+                href="#"
+                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium cursor-not-allowed"
+              >
+                Already Added
+              </a>
+            ) : (
+              <a
+                href="#"
+                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+                onClick={AddtoCart}
+              >
+                Add to cart
+              </a>
+            )}
+          </>
         ) : (
           <a
             href="#"
@@ -42,7 +73,10 @@ function SingleWishList({ product }) {
           </a>
         )}
 
-        <div className="text-gray-600 hover:text-primary cursor-pointer">
+        <div
+          className="text-gray-600 hover:text-primary cursor-pointer"
+          onClick={() => dispatch(removeFromWish({ _id: product?._id }))}
+        >
           <i className="fas fa-trash"></i>
         </div>
       </div>
