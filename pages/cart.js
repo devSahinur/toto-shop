@@ -4,14 +4,16 @@ import { SingleCart } from "../components/CartPage/SingleCart";
 import Layout from "../components/layout";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
+import ProductNotAvailable from "../components/CartPage/ProductNotAvailable";
 
 function cart() {
   const cartData = useSelector(selectItems);
 
   console.log(cartData[0]?.product?._id);
   return (
-    <div>
-      <Layout title={"Shopping Cart"}>
+    <>
+      <ProductNotAvailable />
+      {/* <Layout title={"Shopping Cart"}>
         <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
           <div className="xl:col-span-9 lg:col-span-8">
             <CartTitleBar />
@@ -27,8 +29,8 @@ function cart() {
           </div>
           <OrderSummary />
         </div>
-      </Layout>
-    </div>
+      </Layout> */}
+    </>
   );
 }
 
