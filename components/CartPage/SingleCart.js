@@ -6,25 +6,9 @@ import {
   removeFulProduct,
 } from "../../slices/appSlice";
 
-export const SingleCart = ({ product, id }) => {
+export const SingleCart = ({ product }) => {
   const cartData = product?.product;
-  const realPrice = cartData?.price;
   const dispatch = useDispatch();
-  console.log(product);
-
-  const [quantity, setQuantity] = useState(product.quantity);
-  const [singleProductFullPrice, setSingleProductFullPrice] =
-    useState(realPrice);
-
-  const incrementQuantity = () => setQuantity(quantity + 1);
-  let decrementQuantity = () => setQuantity(quantity - 1);
-
-  if (quantity <= 1 && singleProductFullPrice < realPrice) {
-    decrementQuantity = () => {
-      setQuantity(1);
-      setSingleProductFullPrice(realPrice);
-    };
-  }
 
   const increment = () => {
     dispatch(addToBasket({ product: product?.product }));
