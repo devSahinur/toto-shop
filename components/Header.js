@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
+import { selectWish } from "../slices/wishSlice";
 
 function Header() {
   const router = useRouter();
@@ -28,6 +29,9 @@ function Header() {
       setFilterData(fetchData);
     }
   };
+
+  // TODO: to target the wishlish
+  const wishlistAll = useSelector(selectWish);
 
   useEffect(() => {
     fetch("/api/product")
@@ -143,7 +147,7 @@ function Header() {
             className="block text-center text-gray-700 cursor-pointer hover:text-primary transition relative"
           >
             <span className="absolute -right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
-              5
+              {wishlistAll.length}
             </span>
             <div className="text-2xl">
               <svg

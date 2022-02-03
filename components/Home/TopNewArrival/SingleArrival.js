@@ -87,6 +87,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
+import { addToWish, selectWish } from "../../../slices/wishSlice";
 
 function SingleArrival({ product }) {
   const router = useRouter();
@@ -105,6 +106,17 @@ function SingleArrival({ product }) {
       })
     );
   };
+
+  const wishlistAll = useSelector(selectWish);
+
+  const findwishList = wishlistAll.find((item) => item._id === product._id);
+  const getWishList = () => {
+    if (!findwishList) {
+      dispatch(addToWish(product));
+    }
+    // router.push("/user/wishlist");s
+  };
+
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
       <div className="relative">
@@ -117,8 +129,10 @@ function SingleArrival({ product }) {
             <SearchIcon className="h-5 w-5" />
           </div>
           <div
-            onClick={() => router.push("/wishlist")}
-            className="text-white text-lg w-9 h-9 rounded-full cursor-pointer bg-primary hover:bg-gray-800 transition flex items-center justify-center"
+            onClick={getWishList}
+            className={`text-white text-lg w-9 h-9 rounded-full cursor-pointer ${
+              findwishList && "cursor-not-allowed"
+            } bg-primary hover:bg-gray-800 transition flex items-center justify-center`}
           >
             <HeartIcon className="h-5 w-5" />
           </div>
