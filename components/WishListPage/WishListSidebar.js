@@ -1,45 +1,65 @@
 import { useRouter } from "next/router";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import MobileMenu from "../MobileMenu";
+import { MenuIcon } from "@heroicons/react/outline";
+import { useState } from "react";
 
 function WishListSidebar() {
   const router = useRouter();
   const { data: session } = useSession();
 
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const openSidebarMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
   return (
     <>
       {/* <!-- sidebar --> */}
-      <div className="col-span-3">
+      <div className="col-span-3 relative">
         {/* <!-- account profile --> */}
-        <div className="px-4 py-3 shadow flex items-center gap-4">
-          <div className="flex-shrink-0">
-            {/* {session && (
+
+        <div className="px-4 py-3 shadow flex items-center justify-between gap-4">
+          <div className="flex items-center space-x-5">
+            <div className="flex-shrink-0">
+              {/* {session && (
               // <span
               //   style={{ backgroundImage: `url('${session?.user.image}')` }}
               //   // className={styles.avatar}
               // />
             )} */}
-            {session?.user?.image && (
-              <Image
-                src={session?.user?.image}
-                height={50}
-                width={50}
-                // src="https://i.ibb.co/dG9tksD/download.jpg"
-                className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
-              />
-            )}
+              {session?.user?.image && (
+                <Image
+                  src={session?.user?.image}
+                  height={50}
+                  width={50}
+                  // src="https://i.ibb.co/dG9tksD/download.jpg"
+                  className="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
+                />
+              )}
+            </div>
+            <div>
+              <p className="text-gray-600">Hello,</p>
+              <h4 className="text-gray-800 capitalize font-medium">
+                {session && session?.user.name}
+              </h4>
+            </div>
           </div>
-          <div>
-            <p className="text-gray-600">Hello,</p>
-            <h4 className="text-gray-800 capitalize font-medium">
-              {session && session?.user.name}
-            </h4>
+
+          {/* mobile hambarger */}
+          <div
+            className="cursor-pointer inline-flex md:hidden"
+            onClick={openSidebarMenu}
+          >
+            <MenuIcon className="h-6" />
           </div>
         </div>
         {/* <!-- account profile end --> */}
 
         {/* <!-- profile links --> */}
-        <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
+        <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600 hidden md:block">
           {/* <!-- single link --> */}
           <div className="space-y-1 pl-8">
             <div
@@ -147,7 +167,7 @@ function WishListSidebar() {
             >
               Selling orders
               <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-cart-plus"></i>
+                <i className="fas fa-cart-plus"></i>
               </span>
             </div>
           </div>
@@ -160,7 +180,7 @@ function WishListSidebar() {
             >
               my wishlist
               <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-heart"></i>
+                <i className="fas fa-heart"></i>
               </span>
             </div>
           </div>
@@ -182,6 +202,9 @@ function WishListSidebar() {
         {/* <!-- profile links end --> */}
       </div>
       {/* <!-- sidebar end --> */}
+
+      {/* TODO: mobile menu */}
+      {openMenu && <MobileMenu />}
     </>
   );
 }
