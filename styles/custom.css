@@ -22,7 +22,23 @@
   from {
     opacity: 0;
   }
-  top {
+  to {
     opacity: 1;
+  }
+}
+
+/* animatin for the sidebar */
+.animationSidebar {
+  animation: tranfromSidebar 0.7s;
+}
+
+@keyframes tranfromSidebar {
+  from {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
