@@ -1,5 +1,10 @@
 import NextAuth from "next-auth";
+// dbConnect
+import dbConnect from "/lib/dbConnect";
+// Providers
 import GoogleProvider from "next-auth/providers/google";
+// Model
+import User from "../../../models/User";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -15,14 +20,20 @@ export default NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    async session({ session, token, user }) {
-      session.user.username = session.user.name
-        .split(" ")
-        .join("")
-        .toLocaleLowerCase();
-
-      session.user.uid = token.sub;
-      return session;
+    async signIn({ user, account, profile, email, credentials }) {
+      await dbConnect();
+      const checkUser = await User.findOne({
+        name: user.name,
+        email: user.email,
+        provider: account.provider,
+      });
+      if (checkUser) {
+        return true; // user db
+      } else {
+        user.provider = account.provider;
+        await User.create(user);
+        return true;
+      }
     },
   },
 });

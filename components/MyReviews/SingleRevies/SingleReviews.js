@@ -25,8 +25,8 @@ function SingleReviews({
             <p className="text-sm">${total}</p>
             {/* ratting */}
             <div className="flex items-center">
-              {ratting?.map((num) => (
-                <StarIcon className="h-5 text-yellow-400" />
+              {ratting?.map((num,index) => (
+                <StarIcon key={index} className="h-5 text-yellow-400" />
               ))}
             </div>
           </div>
