@@ -4,6 +4,7 @@ import Image from "next/image";
 import MobileMenu from "../MobileMenu";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function WishListSidebar() {
   const router = useRouter();
