@@ -7,26 +7,26 @@ import { selectTotal } from "../../slices/appSlice";
 const OrderSummary = () => {
   const total = useSelector(selectTotal);
   const router = useRouter();
-  const [cuponInput, setCuponInput] = useState("");
-  const tax = 15;
-  const [cupon, setCupon] = useState(false);
-  const [notMatchCupon, setNotmatchCupon] = useState(false);
+  const [couponInput, setCouponInput] = useState("");
 
-  // const totalWithTax =;
+  const [coupon, setCoupon] = useState(false);
+  const [notMatchCoupon, setNotmatchCoupon] = useState(false);
 
-  // TODO: calculte the parcentage
 
+// TODO: calculte the parcentage
+// this is const value
   const parcentageNumber = 5;
+  const tax = 15;
 
   const parcentage = ((total + tax) * parcentageNumber) / 100;
 
-  const cuponcode = "fms";
-  const applyCuponBtn = () => {
-    if (cuponInput === cuponcode) {
-      setCupon(true);
-      setNotmatchCupon(false);
+  const couponcode = "fms";
+  const applyCouponBtn = () => {
+    if (couponInput === couponcode) {
+      setCoupon(true);
+      setNotmatchCoupon(false);
     } else {
-      setNotmatchCupon(true);
+      setNotmatchCoupon(true);
     }
   };
 
@@ -51,22 +51,22 @@ const OrderSummary = () => {
       </div>
       <div className="flex justify-between my-3 text-gray-800 font-semibold uppercase">
         <h4>Total</h4>
-        <h4>$ {cupon ? total - parcentage : total + tax}</h4>
+        <h4>$ {coupon ? total - parcentage : total + tax}</h4>
       </div>
 
-      {!cupon ? (
+      {!coupon ? (
         <div className="flex mb-5">
           <input
             type="text"
             className="pl-4 w-full outline-none border border-r-0 border-primary py-2 px-3 rounded-l-md focus:ring-primary focus:border-primary text-sm"
-            placeholder="Coupon"
-            value={cuponInput}
-            onChange={(e) => setCuponInput(e.target.value)}
+            placeholder="Cooupon"
+            value={couponInput}
+            onChange={(e) => setCouponInput(e.target.value)}
           />
           <button
             type="submit"
             className="bg-primary border border-primary text-white px-5 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition text-sm font-roboto"
-            onClick={applyCuponBtn}
+            onClick={applyCouponBtn}
           >
             Apply
           </button>
@@ -76,9 +76,9 @@ const OrderSummary = () => {
           5% Discount done 🥰
         </div>
       )}
-      {notMatchCupon && (
+      {notMatchCoupon && (
         <div className="text-[#FFCC00] font-bold py-3 text-lg w-full block text-center">
-          Cupon Don't Match
+          Coupon Don't Match
         </div>
       )}
       {/* <!-- searchbar end --> */}

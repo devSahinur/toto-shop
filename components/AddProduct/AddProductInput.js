@@ -60,9 +60,9 @@ function AddProductInput({ register }) {
             />
           </div>
 
-          {/* FIXME: cupon */}
+          {/* FIXME: coupon */}
           <div className="space-y-2">
-            <label className="labelText">Coupon </label>
+            <label className="labelText">Cooupon </label>
             <input type="text" {...register("sku")} className="input-box" />
           </div>
           <div className="space-y-2">
