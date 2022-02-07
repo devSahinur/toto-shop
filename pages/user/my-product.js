@@ -28,9 +28,7 @@ function myProduct() {
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
             <MyProductTitleBar />
-            <MyProductCard />
-            <MyProductCard />
-            <MyProductCard />
+            {myData.map(product => <MyProductCard key={product._id} product={product} />)}
           </main>
           {/* <!-- account content end --> */}
         </div>

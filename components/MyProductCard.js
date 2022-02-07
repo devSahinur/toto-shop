@@ -1,19 +1,19 @@
 import React from "react";
 
-function MyProductCard() {
+function MyProductCard({product}) {
   return (
     <div className="flex hover:bg-[#E9EFFF] cursor-pointer items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
       {/* <!-- product image --> */}
       <div className="w-32 flex-shrink-0">
-        <img src="https://i.ibb.co/2Y1JJ6b/product1.jpg" className="w-full" />
+        <img src={product.image[0]} className="w-full" />
       </div>
       {/* <!-- product image end --> */}
       {/* <!-- product content --> */}
       <div className="md:w-1/3 w-full">
         <h2 className="text-gray-800 mb-3 xl:text-xl text-lg font-medium uppercase">
-          {/* {productData?.title}  */} hello titile
+          {product.title}
         </h2>
-        <p className="text-primary font-semibold">$56</p>
+        <p className="text-primary font-semibold">$ {product.price}</p>
       </div>
       {/* <!-- product content end --> */}
       {/* <!-- product sold --> */}
