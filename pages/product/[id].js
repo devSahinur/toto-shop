@@ -6,39 +6,10 @@ import { ProductImage } from "../../components/ViewPage/ProductImage";
 import { ProductContents } from "../../components/ViewPage/ProductContents";
 import { ProductDetails } from "../../components/ViewPage/ProductDetails";
 
-const related = [
-  {
-    id: 1,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/n3jvf6V/product8.jpg",
-  },
-  {
-    id: 2,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/TBzx17p/product9.jpg",
-  },
-  {
-    id: 3,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/HtTYwjV/product12.jpg",
-  },
-  {
-    id: 4,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/2jHpJws/product1.jpg",
-  },
-];
-
-function view({ product }) {
+function view({ product, allData }) {
+  const relatedProduct = allData.slice(0, 4);
   const router = useRouter();
+
   return (
     <>
       <Head>
@@ -87,8 +58,8 @@ function view({ product }) {
           </h2>
           {/* <!-- product wrapper --> */}
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-            {related?.map((product) => (
-              <SingleCard key={product.id} product={product} />
+            {relatedProduct?.map((product) => (
+              <SingleCard key={product._id} product={product} />
             ))}
           </div>
           {/* <!-- product wrapper end --> */}
@@ -106,9 +77,13 @@ export async function getServerSideProps(context) {
   const res = await fetch(`http://localhost:3000/api/product/${id}`);
   const data = await res.json();
 
+  const resAll = await fetch("http://localhost:3000/api/product");
+  const allData = await resAll.json();
+
   return {
     props: {
       product: data.data,
+      allData: allData.data,
     },
   };
 }
