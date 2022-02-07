@@ -141,7 +141,7 @@ function SingleArrival({ product }) {
       <div className="pt-4 pb-3 px-4">
         <div onClick={() => router.push(`/product/${product._id}`)}>
           <h4 className="uppercase font-medium text-md cursor-pointer mb-2 text-gray-800 hover:text-primary transition">
-            {product?.title}
+            {product?.title.slice(0, 45)}{product?.title.slice(0, 45) < product.title && '...'}
           </h4>
         </div>
         <div className="flex items-baseline mb-1 space-x-2">
