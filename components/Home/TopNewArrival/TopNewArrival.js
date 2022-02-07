@@ -1,38 +1,9 @@
 import SingleArrival from "./SingleArrival";
 
-const newProducts = [
-  {
-    id: 1,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/n3jvf6V/product8.jpg",
-  },
-  {
-    id: 2,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/TBzx17p/product9.jpg",
-  },
-  {
-    id: 3,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/HtTYwjV/product12.jpg",
-  },
-  {
-    id: 4,
-    title: "Guyer chair",
-    price: 45.0,
-    rating: 150,
-    image: "https://i.ibb.co/2jHpJws/product1.jpg",
-  },
-];
+export const TopNewArrival = (props) => {
+  const products = props.products.reverse();
+  const productCat = products.slice(0, 4);
 
-export const TopNewArrival = ({products}) => {
-  const productCat = products.slice(0,4)
   return (
     <div className="container pb-16">
       <h2 className="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">
