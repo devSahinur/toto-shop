@@ -8,7 +8,7 @@ function MyProductTitleBar() {
       <p className=" text-gray-600  text-center">Sold</p>
       <p className="  text-green-600 text-center">
         Add Product
-        <i class="fas text-green-600 fa-plus-circle"></i>
+        <i className="fas text-green-600 fa-plus-circle"></i>
       </p>
     </div>
   );

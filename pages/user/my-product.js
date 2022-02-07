@@ -1,9 +1,24 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import Layout from "../../components/layout";
 import MyProductCard from "../../components/MyProductCard";
 import MyProductTitleBar from "../../components/MyProductTitleBar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import {  useSession } from "next-auth/react";
 
 function myProduct() {
+    const { data: session } = useSession();
+    const [product, setProduct] = useState([])
+
+    const myData = product?.filter(p => p?.email === session?.user?.email)
+    console.log(myData)
+
+    useEffect(async () =>{
+        const res = await fetch("http://localhost:3000/api/product");
+        const data = await res.json();
+        setProduct(data?.data)
+    },[])
+    
   return (
     <>
       <Layout title={"Add Product"}>

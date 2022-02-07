@@ -27,7 +27,7 @@ function MyProductCard() {
         <p className="text-green-600 text-lg font-semibold">{/* 556 */}</p>
       </div>
       <div className="text-gray-600 hover:text-green-600 cursor-pointer">
-        <i class="fas fa-edit"></i>
+        <i className="fas fa-edit"></i>
       </div>
       <div className="text-gray-600 hover:text-primary cursor-pointer">
         <i className="fas fa-trash"></i>
