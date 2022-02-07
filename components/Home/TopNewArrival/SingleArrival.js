@@ -1,6 +1,5 @@
 import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
 import { addToWish, selectWish } from "../../../slices/wishSlice";
