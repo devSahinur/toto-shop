@@ -6,13 +6,14 @@ import { useForm } from "react-hook-form";
 import Layout from "../../components/layout";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function addProduct() {
+  const router = useRouter();
   const { data: session } = useSession();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const [images, setImageURL] = useState([]);
@@ -56,6 +57,7 @@ function addProduct() {
 
     if (res.ok) {
       console.log("Post done");
+      router.push("/user/my-product");
     }
   };
 
