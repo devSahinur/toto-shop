@@ -39,7 +39,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
 
   return (
     <div
-      className={`px-4 py-6 shadow-lg rounded-md border pl-6 h-fit ${
+      className={`px-4 py-6 shadow-lg rounded-md border max-w-[275px]  pl-6 h-fit ${
         !fileterbtn
           ? "hidden xl:block"
           : "absolute z-50 bg-white top-14 -left-4"
@@ -48,7 +48,9 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
       {/* category */}
       <div className=" border-b space-y-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl text-gray-800  uppercase font-medium">Categories</h1>
+          <h1 className="text-xl text-gray-800  uppercase font-medium">
+            Categories
+          </h1>
           {setShowSidebar && (
             <XIcon
               onClick={() => setShowSidebar(false)}
@@ -73,9 +75,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
 
       {/* price section */}
       <div className="pt-4">
-        <h3 className="text-xl text-gray-800  uppercase font-medium">
-          Price
-        </h3>
+        <h3 className="text-xl text-gray-800  uppercase font-medium">Price</h3>
         <div className="mt-4 flex items-center">
           <input
             type="text"
@@ -108,7 +108,9 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
 
       {/* size section */}
       <div className="py-4 border-b space-y-4">
-        <h1 className="text-xl text-gray-800 mb-3 uppercase font-medium">Size</h1>
+        <h1 className="text-xl text-gray-800 mb-3 uppercase font-medium">
+          Size
+        </h1>
         <div className="flex items-center space-x-3">
           <span
             className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"

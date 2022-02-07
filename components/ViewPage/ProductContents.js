@@ -25,6 +25,7 @@ export const ProductContents = ({ product }) => {
     dispatch(
       addToBasket({
         product: product,
+        quantity: quantity,
       })
     );
   };
