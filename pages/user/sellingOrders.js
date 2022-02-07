@@ -60,7 +60,7 @@ function addProduct() {
   };
 
   return (
-    <div>
+    <>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
@@ -85,7 +85,7 @@ function addProduct() {
           {/* <!-- account content end --> */}
         </div>
       </Layout>
-    </div>
+    </>
   );
 }
 
