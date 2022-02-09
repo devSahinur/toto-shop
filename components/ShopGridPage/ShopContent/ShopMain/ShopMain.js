@@ -60,12 +60,12 @@ const products = [
   },
 ];
 
-function ShopMain() {
+function ShopMain({currentItems}) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-      {products.map((product) => (
+      {currentItems.map((product) => (
         <SingleArrival
-          key={product.id}
+          key={product._id}
           product={product}
           hot={product.hot && product.hot}
         />

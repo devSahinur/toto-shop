@@ -82,7 +82,7 @@ function ShopMain({currentItems}) {
     <div className="grid grid-cols-1 gap-6">
       {currentItems.map((product) => (
         <SingleShopItem
-          key={product.id}
+          key={product._id}
           product={product}
           hot={product.hot && product.hot}
         />
