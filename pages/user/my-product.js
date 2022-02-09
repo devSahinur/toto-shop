@@ -4,21 +4,22 @@ import Layout from "../../components/layout";
 import MyProductCard from "../../components/MyProductCard";
 import MyProductTitleBar from "../../components/MyProductTitleBar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
-import {  useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
 
 function myProduct() {
-    const { data: session } = useSession();
-    const [product, setProduct] = useState([])
+  const { data: session } = useSession();
+  const [product, setProduct] = useState([]);
 
-    const myData = product?.filter(p => p?.email === session?.user?.email)
-    console.log(myData)
+  const myData = product?.filter((p) => p?.email === session?.user?.email);
+  console.log(myData);
 
-    useEffect(async () =>{
-        const res = await fetch("http://localhost:3000/api/product");
-        const data = await res.json();
-        setProduct(data?.data)
-    },[])
-    
+  useEffect(async () => {
+    const res = await fetch("http://localhost:3000/api/product");
+    const data = await res.json();
+    setProduct(data?.data);
+  }, []);
+
   return (
     <>
       <Layout title={"Add Product"}>
@@ -27,8 +28,16 @@ function myProduct() {
           {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
-            <MyProductTitleBar />
-            {myData.map(product => <MyProductCard key={product._id} product={product} />)}
+            {myData.length >= 1 ? (
+              <>
+                <MyProductTitleBar />
+                {myData.map((product) => (
+                  <MyProductCard key={product._id} product={product} />
+                ))}
+              </>
+            ) : (
+              <NotfoundProduct />
+            )}
           </main>
           {/* <!-- account content end --> */}
         </div>
