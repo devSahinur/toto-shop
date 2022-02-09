@@ -20,7 +20,7 @@ function ContactInfo() {
           <span>+8801646177169, +8801859650917</span>
         </a>
         <a className="flex items-center space-x-5 space-y-4 text-md text-gray-700">
-          <MailIcon className="h-6" /> <span>fmridha166@gmail.com</span>
+          <MailIcon className="h-6" /> <span>info@totoshop.tech</span>
         </a>
       </div>
       {/* div middle */}
@@ -62,10 +62,10 @@ function ContactInfo() {
           CAREERS
         </h2>
         <p className="text-gray-900 text-light" style={{ lineHeight: "30px" }}>
-          If you are interesting in emplyment opportunities at RAFCARTs. Please
+          If you are interesting in emplyment opportunities at ToToShop. Please
           email us :{" "}
           <span className="text-primary text-semibold cursor-pointer hover:underline">
-            fmridha166@gmail.com
+          info@totoshop.tech
           </span>
         </p>
       </div>
