@@ -28,7 +28,7 @@ function myProduct() {
           {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
-            {myData ? (
+            {myData.length >= 1 ? (
               <>
                 <MyProductTitleBar />
                 {myData.map((product) => (
