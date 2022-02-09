@@ -16,7 +16,7 @@ function MyProductCard({ product }) {
       {/* <!-- product image end --> */}
       {/* <!-- product content --> */}
       <div className="md:w-1/3 w-full">
-        <h2 className="text-gray-800 mb-3 xl:text-xl text-lg font-medium uppercase">
+        <h2 className="text-gray-800 mb-3 xl:text-md text-md font-medium">
           {truncateDescription}
         </h2>
         <p className="text-primary font-semibold">$ {product.price}</p>
