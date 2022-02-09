@@ -4,13 +4,26 @@ import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import querySearch from "../lib/querySearch";
 import spliceData from "../lib/spliceData";
+import Head from "next/head";
 
 const itemsPerPage = 20; // Number of Card per page (for pagination)
 
 function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
   // console.log(props);
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          {keyword} - Buy {keyword} at Best Price in Bangladesh |
+          www.totoshop.tech
+        </title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content={`${keyword} Bangladesh - Shop for best hello online at www.totoshop.tech`}
+        ></meta>
+      </Head>
       <Layout title={"Shop"}>
         <main className="sm:max-w-[70rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
@@ -21,7 +34,7 @@ function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
           </div>
         </main>
       </Layout>
-    </div>
+    </>
   );
 }
 
