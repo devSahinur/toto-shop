@@ -8,6 +8,7 @@ function MyProductTitleBar() {
       <p className="text-gray-600  text-center">Product Title And Price</p>
       <p className="text-gray-600  text-center "> {/* Quantity*/}</p>
       <p className=" text-gray-600  text-center">Sold</p>
+      <p className=" text-gray-600  text-center">Quantity</p>
       <p
         onClick={() => router.push("/user/sellingOrders")}
         className="  cursor-pointer text-green-600 text-center"
