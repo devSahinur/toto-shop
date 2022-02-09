@@ -14,7 +14,7 @@ import ShopSidebar from "../../ShopSidebar/ShopSidebar";
 function ShopTopNav({ listView, setListView }) {
   const router = useRouter();
   const [showSelect, setShowSelect] = useState(false);
-  const [sorting, setShorting] = useState(`${sortTitles.[0]}`);
+  const [sorting, setShorting] = useState(`${sortTitles?.[0]}`);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const setShort = (e) => {
