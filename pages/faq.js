@@ -5,6 +5,7 @@ import OrderData from "../components/FaqPage/OrderReturnFaqData/OrderFaqData";
 import PaymentData from "../components/FaqPage/PaymentFaqData/PaymentFaqData";
 import { useRouter } from "next/router";
 import Layout from "../components/layout";
+import Head from "next/head";
 
 function faq() {
   const router = useRouter();
@@ -12,10 +13,19 @@ function faq() {
     animate: true,
     arrowIcon: <PlusIcon />,
     tabFocus: true,
-  }; 
+  };
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>F.A.Q -ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Can’t find the answer you’re looking for? We’ve shared some of your most frequently asked questions to help you out!"
+        ></meta>
+      </Head>
       <Layout title={"FAQ"}>
         <main className="max-w-[75rem] mx-auto px-4 py-6">
           {/* main content  top*/}
@@ -76,7 +86,7 @@ function faq() {
           </div>
         </main>
       </Layout>
-    </div>
+    </>
   );
 }
 
