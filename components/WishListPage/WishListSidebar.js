@@ -138,6 +138,34 @@ function WishListSidebar() {
           </div>
           {/* <!-- single link end --> */}
           {/* <!-- single link --> */}
+          <div className="pl-8 pt-4">
+            <div
+              onClick={() => router.push("/user/my-product")}
+              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
+                router.pathname == "/user/my-product" && "text-primary"
+              } `}
+            >
+              My Product
+              <span className="absolute -left-8 top-0 text-base">
+                <i className="fas fa-cart-plus"></i>
+              </span>
+            </div>
+          </div>
+          <div className="pl-8 pt-4">
+            <div
+              onClick={() => router.push("/user/wishlist")}
+              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
+                router.pathname == "/user/wishlist" && "text-primary"
+              } `}
+            >
+              my wishlist
+              <span className="absolute -left-8 top-0 text-base">
+                <i className="fas fa-heart"></i>
+              </span>
+            </div>
+          </div>
+          {/* <!-- single link end --> */}
+          {/* <!-- single link --> */}
           <div className="space-y-1 pl-8 pt-4">
             <div
               onClick={() => router.push("/user/payment-methods")}
@@ -158,34 +186,7 @@ function WishListSidebar() {
             </div>
           </div>
           {/* <!-- single link end --> */}
-          {/* <!-- single link --> */}
-          <div className="pl-8 pt-4">
-            <div
-              onClick={() => router.push("/user/sellingOrders")}
-              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
-                router.pathname == "/user/sellingOrders" && "text-primary"
-              } `}
-            >
-              Selling orders
-              <span className="absolute -left-8 top-0 text-base">
-                <i className="fas fa-cart-plus"></i>
-              </span>
-            </div>
-          </div>
-          <div className="pl-8 pt-4">
-            <div
-              onClick={() => router.push("/user/wishlist")}
-              className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
-                router.pathname == "/user/wishlist" && "text-primary"
-              } `}
-            >
-              my wishlist
-              <span className="absolute -left-8 top-0 text-base">
-                <i className="fas fa-heart"></i>
-              </span>
-            </div>
-          </div>
-          {/* <!-- single link end --> */}
+
           {/* <!-- single link --> */}
           <div className="pl-8 pt-4">
             <div
