@@ -5,10 +5,20 @@ import OurVision from "../components/AboutPage/ourVision/OurVision";
 import OurTeam from "../components/AboutPage/ourTeam/OurTeam";
 import OurCompany from "../components/AboutPage/ourCompany/OurCompany";
 import Layout from "../components/layout";
+import Head from "next/head";
 
 function about() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>About Us - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="We design and delever our customers' degital transformation by bringing together their vision with our industry knowledge and deep technologcal expertise. We design and delever our customers' degital transformmation"
+        ></meta>
+      </Head>
       <Layout title={"no"}>
         {/* about Banner components */}
         <AboutBanner
@@ -25,7 +35,7 @@ function about() {
           <OurCompany />
         </main>
       </Layout>
-    </div>
+    </>
   );
 }
 
