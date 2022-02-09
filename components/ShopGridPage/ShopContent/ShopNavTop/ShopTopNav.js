@@ -5,12 +5,16 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/outline";
 import { ClipboardListIcon, DuplicateIcon } from "@heroicons/react/solid";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import sortTitles from "../../../../lib/sortTitles";
 import ShopSidebar from "../../ShopSidebar/ShopSidebar";
 
 function ShopTopNav({ listView, setListView }) {
+  const router = useRouter();
   const [showSelect, setShowSelect] = useState(false);
-  const [sorting, setShorting] = useState("Default sorting");
+  const [sorting, setShorting] = useState(`${sortTitles.[0]}`);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const setShort = (e) => {
@@ -52,24 +56,22 @@ function ShopTopNav({ listView, setListView }) {
             className="absolute top-12 -left-[2rem] bg-white border-2 w-full rounded-md"
             style={{ zIndex: 100 }}
           >
-            <p
-              onClick={() => setShort("Defaul sorting")}
-              className="px-4 py-3 bg-gray-200 cursor-pointer font-semibold"
-            >
-              Default sorting
-            </p>
-            <p
-              onClick={() => setShort("Price low-high")}
-              className="px-3 py-2 bg-white hover:bg-gray-200 cursor-pointer"
-            >
-              Price low-high
-            </p>
-            <p
-              onClick={() => setShort("Price hign-low")}
-              className="px-3 py-2 bg-white hover:bg-gray-200 cursor-pointer"
-            >
-              Price high-low
-            </p>
+            {sortTitles.map((text) => (
+              <p
+                key={text}
+                onClick={() => setShort(`${text}`)}
+                className="px-4 py-3 bg-gray-200 cursor-pointer font-semibold"
+              >
+                <Link
+                  href={{
+                    pathname: "/shop",
+                    query: { ...router.query, sort: text },
+                  }}
+                >
+                  <a>{text}</a>
+                </Link>
+              </p>
+            ))}
           </div>
         )}
       </div>
