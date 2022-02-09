@@ -26,7 +26,7 @@ export default function Home({ products }) {
   // }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>ToTo SHOP - Online Shopping Website</title>
         <link rel="icon" href="/favicon.ico" />
@@ -48,7 +48,7 @@ export default function Home({ products }) {
         {/* for show the modal */}
         {/* {showModal && <Modal setShowModal={setShowModal} />} */}
       </Layout>
-    </div>
+    </>
   );
 }
 

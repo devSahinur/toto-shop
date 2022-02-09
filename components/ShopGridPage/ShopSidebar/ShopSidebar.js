@@ -58,7 +58,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
             />
           )}
         </div>
-        <ShopCategory setvalue={setWoman} category="Womem" number={16} />
+        <ShopCategory setvalue={setWoman} category="Womem"  />
         <ShopCategory setvalue={setman} category="Men" number={9} />
         <ShopCategory setvalue={setShoes} category="Shoes" number={19} />
         <ShopCategory setvalue={setComputer} category="Computer" number={35} />
