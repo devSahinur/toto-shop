@@ -53,11 +53,13 @@ function SingleShopItem({ product, hot }) {
               <i className="fas fa-star"></i>
             </span>
           </div>
-          <div className="text-md text-gray-500 ml-3">({product.rating})</div>
+          <div className="text-md text-gray-500 ml-3">({product?.rating})</div>
         </div>
 
         {/* product detils */}
-        <p className="text-gray-400 pb-2 pr-20 md:pr-4">{product?.details}</p>
+        <p className="text-gray-400 pb-2 pr-20 md:pr-4">
+          {product?.shortDescription}
+        </p>
 
         {/* Product button */}
 

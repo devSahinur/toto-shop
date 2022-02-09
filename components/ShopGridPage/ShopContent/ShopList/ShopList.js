@@ -76,10 +76,11 @@ const products = [
   },
 ];
 
-function ShopMain() {
+function ShopMain({currentItems}) {
+  console.log(currentItems)
   return (
     <div className="grid grid-cols-1 gap-6">
-      {products.map((product) => (
+      {currentItems.map((product) => (
         <SingleShopItem
           key={product.id}
           product={product}

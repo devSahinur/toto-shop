@@ -3,7 +3,7 @@ import ShopMain from "./ShopMain/ShopMain";
 import ShopTopNav from "./ShopNavTop/ShopTopNav";
 import ShopList from "../ShopContent/ShopList/ShopList";
 
-function ShopContent() {
+function ShopContent({currentItems}) {
   const [listView, setListView] = useState(false);
   // const [pagenation,setPagenation] = useState()
 
@@ -13,7 +13,7 @@ function ShopContent() {
 
       {/* render the view */}
       <div className="max-w[400px] mx-auto">
-        {listView ? <ShopList /> : <ShopMain />}
+        {listView ? <ShopList currentItems={currentItems} /> : <ShopMain currentItems={currentItems} />}
 
         {/* pagenation */}
         <div className="w-fit mx-auto pt-10 pb-6">
