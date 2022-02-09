@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -7,23 +8,23 @@ import { selectWish } from "../slices/wishSlice";
 
 function Header() {
   const router = useRouter();
-  const [search, setSearch] = useState("");
+  const [keyword, setKeyword] = useState("");
   const [fetchData, setFatchData] = useState([]);
   const [filterData, setFilterData] = useState(fetchData);
   const cartData = useSelector(selectItems);
 
   useEffect(() => {
-    if (search === "") return;
+    if (keyword === "") return;
     setFilterData(() =>
       fetchData.filter((item) =>
-        item.title.toLocaleLowerCase().match(search.toLocaleLowerCase())
+        item.title.toLocaleLowerCase().match(keyword.toLocaleLowerCase())
       )
     );
-  }, [search]);
+  }, [keyword]);
 
   const handleChange = (e) => {
     e.preventDefault();
-    setSearch(e.target.value);
+    setKeyword(e.target.value);
 
     if (!e.target.value.length > 0) {
       setFilterData(fetchData);
@@ -95,18 +96,25 @@ function Header() {
             type="text"
             className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md outline-primary focus:border-primary"
             placeholder="search"
-            value={search}
+            value={keyword}
             onChange={handleChange}
           />
-          <button
-            type="submit"
-            className="bg-primary border border-primary text-white px-8 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition"
+          <Link
+            href={{
+              pathname: "/shop",
+              query: { ...router.query, keyword },
+            }}
           >
-            Search
-          </button>
+            <button
+              onClick={() => setKeyword("")}
+              className="bg-primary border border-primary text-white items-center text-center px-8 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition"
+            >
+              Search
+            </button>
+          </Link>
 
           {/* serch Result code start */}
-          {search && (
+          {keyword && (
             <div
               className="absolute top-14 bg-white px-4 py-4 z-50 left-0 w-full max-h-[500px] overflow-y-scroll shadow-md"
               id="scrollBarHide"
