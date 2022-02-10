@@ -19,14 +19,14 @@ function SingleOrderHistory({
       <div className="flex items-center justify-between pb-4">
         {/* top left */}
         <div className="flex items-center">
-          {image?.map((url) => (
+          {image?.splice(0, 3).map((url) => (
             <Image src={url} width={100} height={70} objectFit="contain" />
           ))}
         </div>
         {/* top right */}
         <div>
           <button
-            className="btn-outline py-[7px]"
+            className="btn-outline py-[7px] w-[150px]"
             onClick={() => router.push("/order-details")}
           >
             View Order
@@ -48,12 +48,12 @@ function SingleOrderHistory({
         </div>
 
         {/* another one */}
-        <div className="space-y-1">
+        <div className="space-y-1 hidden md:inline-flex">
           <h3 className="font-medium text-base">Quantity</h3>
           <p className="text-sm"> x{quantity}</p>
         </div>
         {/* another one */}
-        <div className="space-y-1">
+        <div className="space-y-1 hidden md:inline-flex">
           <h3 className="font-medium text-base">Total</h3>
           <p className="text-sm">${total}</p>
         </div>

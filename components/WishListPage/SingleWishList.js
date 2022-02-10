@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket } from "../../slices/appSlice";
+import { addToBasket, selectItems } from "../../slices/appSlice";
 import { removeFromWish, selectWish } from "../../slices/wishSlice";
 
 function SingleWishList({ product }) {
@@ -14,9 +14,13 @@ function SingleWishList({ product }) {
     );
   };
 
-  const wishlistAll = useSelector(selectWish);
+  const cartDataAll = useSelector(selectItems);
 
-  const findwishList = wishlistAll.find((item) => item._id === product._id);
+  const findCartData = cartDataAll.find(
+    (item) => item.product._id === product._id
+  );
+
+  console.log();
 
   return (
     <>
@@ -25,14 +29,16 @@ function SingleWishList({ product }) {
         {/* <!-- cart image --> */}
         <div className="w-28 flex-shrink-0">
           <img
-            src={product?.image[0] ? product?.image[0] : product?.image}
+            src={
+              Array.isArray(product?.image) ? product?.image[0] : product?.image
+            }
             className="w-full"
           />
         </div>
         {/* <!-- cart image end --> */}
         {/* <!-- cart content --> */}
         <div className="md:w-1/3 w-full">
-          <h2 className="text-gray-800 mb-1 xl:text-xl textl-lg font-medium uppercase">
+          <h2 className="text-gray-800 mb-1 xl:text-base text-base font-medium uppercase">
             {product.title}
           </h2>
           <p className="text-gray-500 text-sm">
@@ -50,7 +56,7 @@ function SingleWishList({ product }) {
         </div>
         {product.availability ? (
           <>
-            {findwishList ? (
+            {findCartData ? (
               <a
                 href="#"
                 className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium cursor-not-allowed"
@@ -72,7 +78,7 @@ function SingleWishList({ product }) {
             href="#"
             className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded uppercase font-roboto font-medium cursor-not-allowed bg-opacity-80"
           >
-            Add to cart
+            Out Of Stock
           </a>
         )}
 
