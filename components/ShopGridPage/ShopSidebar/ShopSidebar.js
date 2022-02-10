@@ -2,10 +2,34 @@ import { useState } from "react";
 import ShopCategory from "./ShopCategory/ShopCategory";
 import { XIcon } from "@heroicons/react/solid";
 import categories from "../../../lib/categoryList";
+import { useRouter } from "next/router";
 
 function ShopSidebar({ fileterbtn, setShowSidebar }) {
+  const router = useRouter();
   // for the price slider range
   const [value, setValue] = useState([20, 37]);
+  const min = router.query.minprice ? router.query.minprice : "";
+  const max = router.query.maxprice ? router.query.maxprice : "";
+  const [minPrice, setMinPrice] = useState(min);
+  const [maxPrice, setMaxPrice] = useState(max);
+
+  const handleMinChange = (e) => {
+    const value = e.target.value;
+    setMinPrice(value);
+  };
+
+  const handleMaxChange = (e) => {
+    const value = e.target.value;
+    setMaxPrice(value);
+  };
+
+  const handlePriceSubmit = (e) => {
+    router.push({
+      pathname: "/shop",
+      query: { ...router.query, minprice: minPrice, maxprice: maxPrice },
+    });
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -44,6 +68,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
       <div className="py-4 border-b space-y-4">
         <h1 className="text-xl font-medium uppercase">Brands</h1>
         {/* <ShopCategory setvalue={setAdidas} title="Adidas" /> */}
+        <p>Coming soon</p>
       </div>
 
       {/* price section */}
@@ -52,16 +77,23 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
         <div className="mt-4 flex items-center">
           <input
             type="text"
-            className="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
+            className="w-full border-primary focus:ring-0 border-2 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
             placeholder="min"
+            value={minPrice}
+            onChange={handleMinChange}
           />
           <span className="mx-3 text-gray-500">-</span>
           <input
             type="text"
-            className="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
+            className="w-full border-primary focus:ring-0 border-2  focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
             placeholder="mix"
+            value={maxPrice}
+            onChange={handleMaxChange}
           />
         </div>
+        <button onClick={handlePriceSubmit} className="btn mt-6 w-full">
+          Set Price
+        </button>
       </div>
       {/* <div className="py-4 border-b space-y-4">
         <h1 className="text-xl font-medium uppercase">Price</h1>
