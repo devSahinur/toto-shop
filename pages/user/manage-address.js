@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 
 function ManageAddress() {
+
   return (
     <>
       <Layout title={"Manage my Address"}>
@@ -22,7 +24,7 @@ function ManageAddress() {
                     {/* <!-- Single input --> */}
                     <div>
                       <label className="text-gray-600 mb-2 block">
-                        Full Name
+                        Company Name
                       </label>
                       <input type="text" className="input-box" value="John" />
                     </div>
@@ -30,7 +32,7 @@ function ManageAddress() {
                     {/* <!-- single input --> */}
                     <div>
                       <label className="text-gray-600 mb-2 block">
-                        Phone Number
+                        Country/Region
                       </label>
                       <input
                         type="text"

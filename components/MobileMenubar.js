@@ -43,7 +43,7 @@ function MobileMenubar() {
           <div className="text-xs leading-3">Menu</div>
         </div>
         <div
-          onClick={() => router.push("/category")}
+          onClick={() => router.push("/shop")}
           className="block cursor-pointer text-center text-gray-700 hover:text-primary transition relative"
         >
           <div className="text-2xl">

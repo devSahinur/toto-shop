@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 const blog = () => {
   return (
     <div>
-      <Layout title={Blog}>
+      <Layout title={'blog'}>
         <main className="sm:max-w-[50rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
 

@@ -19,7 +19,7 @@ function contact() {
       </Head>
       <Layout title={"no"}>
         <AboutBanner
-          bg={"https://i.ibb.co/VJKRqcn/contact-banner.jpg"}
+          bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
           Icon={HomeIcon}
           text="Contact Us"
         />

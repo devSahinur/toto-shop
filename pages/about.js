@@ -22,7 +22,7 @@ function about() {
       <Layout title={"no"}>
         {/* about Banner components */}
         <AboutBanner
-          bg={"https://i.ibb.co/VJKRqcn/contact-banner.jpg"}
+          bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
           Icon={HomeIcon}
           text="About us"
         />
