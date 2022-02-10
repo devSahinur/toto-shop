@@ -33,12 +33,32 @@ function search({ product }) {
   };
 
   return (
+<<<<<<< HEAD
+    <div className="bg-gray-100 min-h-screen overflow-x-hidden">
+      {/* TODO: search input */}
+      <div className="bg-gradient-to-r from-primary via-pink-300  to-pink-700 flex items-center px-5 py-3 justify-between relative z-10">
+        <ArrowLeftIcon
+          className="h-5 text-white cursor-pointer"
+          onClick={() => router.push("/")}
+        />
+        <input
+          type="text"
+          placeholder="Search in TotoShop"
+          className="flex-1 mx-4 bg-transparent outline-none placeholder-gray-200 placeholder:text-sm text-white"
+          value={input}
+          onChange={inputHandler}
+        />
+        {/* TODO: close icon and button */}
+        <div className="flex items-center space-x-2">
+          <XIcon
+=======
     <>
       <MobileMenubar />
       <div className="bg-gray-100 min-h-screen overflow-x-hidden">
         {/* TODO: search input */}
         <div className="bg-gradient-to-r from-primary via-pink-300  to-pink-700 flex items-center px-5 py-3 justify-between relative z-10">
           <ArrowLeftIcon
+>>>>>>> 368d47226f2d18f38af8a65bcc45f6319c5aef70
             className="h-5 text-white cursor-pointer"
             onClick={() => router.back()}
           />
