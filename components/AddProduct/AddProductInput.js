@@ -1,4 +1,4 @@
-function AddProductInput({ register }) {
+function AddProductInput({ register, product }) {
   return (
     <div>
       {/* TODO: input box */}
@@ -10,6 +10,7 @@ function AddProductInput({ register }) {
             type="text"
             {...register("title", { required: true })}
             className="input-box"
+            defaultValue={product.title}
           />
         </div>
 
@@ -19,7 +20,11 @@ function AddProductInput({ register }) {
 
           <div className="space-y-2">
             <label className="labelText">Category </label>
-            <select {...register("category")} className="input-box">
+            <select
+              {...register("category")}
+              defaultValue={product.category}
+              className="input-box"
+            >
               <option value="all">Select</option>
               <option value="Bedroom">Bedroom</option>
               <option value="Sofa">Sofa</option>
@@ -36,6 +41,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("price", { required: true })}
               className="input-box"
+              defaultValue={product.price}
             />
           </div>
           {/* TODO: quantity */}
@@ -45,6 +51,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("totalQuantity", { required: true })}
               className="input-box"
+              defaultValue={product.totalQuantity}
             />
           </div>
         </div>
@@ -57,13 +64,19 @@ function AddProductInput({ register }) {
               type="text"
               {...register("brand", { required: true })}
               className="input-box"
+              defaultValue={product.brand}
             />
           </div>
 
           {/* FIXME: coupon */}
           <div className="space-y-2">
-            <label className="labelText">Cooupon </label>
-            <input type="text" {...register("sku")} className="input-box" />
+            <label className="labelText">Coupon </label>
+            <input
+              type="text"
+              defaultValue={product.sku}
+              {...register("sku")}
+              className="input-box"
+            />
           </div>
           <div className="space-y-2">
             <label className="labelText">Weight(KG)</label>
@@ -71,6 +84,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("weight", { required: true })}
               className="input-box"
+              defaultValue={product.weight}
             />
           </div>
         </div>
@@ -81,6 +95,7 @@ function AddProductInput({ register }) {
             cols="30"
             rows="10"
             {...register("shortDescription", { required: true })}
+            defaultValue={product.shortDescription}
           ></textarea>
         </div>
         <div className="space-y-2">
@@ -90,33 +105,9 @@ function AddProductInput({ register }) {
             cols="30"
             rows="10"
             {...register("longDescription", { required: true })}
+            defaultValue={product.longDescription}
           ></textarea>
         </div>
-
-        <h1 className="labelText">Size</h1>
-        <div className="grid grid-cols-5 space-x-3">
-          <div className="space-y-2">
-            <input type="checkbox" />
-            <label className="labelText"> XS</label>
-          </div>
-          <div className="space-y-2">
-            <input type="checkbox" />
-            <label className="labelText"> S</label>
-          </div>
-          <div className="space-y-2">
-            <input type="checkbox" />
-            <label className="labelText"> M</label>
-          </div>
-          <div className="space-y-2">
-            <input type="checkbox" />
-            <label className="labelText"> L</label>
-          </div>
-          <div className="space-y-2">
-            <input type="checkbox" />
-            <label className="labelText"> XL</label>
-          </div>
-        </div>
-        <div></div>
       </div>
     </div>
   );

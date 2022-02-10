@@ -1,6 +1,6 @@
 import { PhotographIcon, XIcon } from "@heroicons/react/solid";
 
-function AddProductImage({ handleImageUpload, images }) {
+function AddProductImage({ handleImageUpload, images,imageRemoveControl }) {
   return (
     <div>
       <h1 className="pb-4 text-lg text-gray-600 font-bold">Product Image</h1>
@@ -10,7 +10,7 @@ function AddProductImage({ handleImageUpload, images }) {
             {/* TODO: Single Image 1  */}
             <div
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative"
-              onClick={() => document.querySelector(".input_file").click()}
+              onClick={() => document.querySelector(".input_file").click(), () => imageRemoveControl(`${images[0]}`)}
             >
               {images.length >= 1 ? (
                 <>
@@ -36,7 +36,7 @@ function AddProductImage({ handleImageUpload, images }) {
             {/* TODO: Single Image 1  */}
             <div
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative"
-              onClick={() => document.querySelector(".input_file").click()}
+              onClick={() => document.querySelector(".input_file").click(), () => imageRemoveControl(`${images[1]}`)}
             >
               {images.length >= 2 ? (
                 <>
@@ -65,7 +65,7 @@ function AddProductImage({ handleImageUpload, images }) {
             {/* TODO: Single Image 1  */}
             <div
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative"
-              onClick={() => document.querySelector(".input_file").click()}
+              onClick={() => document.querySelector(".input_file").click(), () => imageRemoveControl(`${images[2]}`)}
             >
               {images.length >= 3 ? (
                 <>
@@ -91,7 +91,7 @@ function AddProductImage({ handleImageUpload, images }) {
             {/* TODO: Single Image 1  */}
             <div
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative"
-              onClick={() => document.querySelector(".input_file").click()}
+              onClick={() => document.querySelector(".input_file").click(), () => imageRemoveControl(`${images[3]}`)}
             >
               {images.length >= 4 ? (
                 <>
@@ -116,7 +116,7 @@ function AddProductImage({ handleImageUpload, images }) {
             {/* TODO: Single Image 1  */}
             <div
               className="text-center flex items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative"
-              onClick={() => document.querySelector(".input_file").click()}
+              onClick={() => document.querySelector(".input_file").click(), () => imageRemoveControl(`${images[4]}`)}
             >
               {images.length >= 5 ? (
                 <>
@@ -132,6 +132,7 @@ function AddProductImage({ handleImageUpload, images }) {
                     type="file"
                     onChange={handleImageUpload}
                     className="hidden input_file"
+                    value={images[4]}
                   />
                   <PhotographIcon className="h-8 cursor-pointer hover:text-primary" />
                   <h3>Add Image</h3>
