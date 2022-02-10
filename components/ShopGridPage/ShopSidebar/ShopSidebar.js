@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ShopCategory from "./ShopCategory/ShopCategory";
 import { XIcon } from "@heroicons/react/solid";
+import categories from "../../../lib/categoryList";
 
 function ShopSidebar({ fileterbtn, setShowSidebar }) {
   // all category
@@ -58,19 +59,13 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
             />
           )}
         </div>
-        <ShopCategory setvalue={setWoman} category="Womem"  />
-        <ShopCategory setvalue={setman} category="Men" number={9} />
-        <ShopCategory setvalue={setShoes} category="Shoes" number={19} />
-        <ShopCategory setvalue={setComputer} category="Computer" number={35} />
+        {categories.slice(0, 6).map(category => <ShopCategory category={category}  />)}
       </div>
 
       {/* Brands */}
       <div className="py-4 border-b space-y-4">
         <h1 className="text-xl font-medium uppercase">Brands</h1>
-        <ShopCategory setvalue={setAdidas} category="Adidas" />
-        <ShopCategory setvalue={setNike} category="Nike" />
-        <ShopCategory setvalue={setEasy} category="Easy" />
-        <ShopCategory setvalue={setArong} category="Arong" />
+        {/* <ShopCategory setvalue={setAdidas} title="Adidas" /> */}
       </div>
 
       {/* price section */}
