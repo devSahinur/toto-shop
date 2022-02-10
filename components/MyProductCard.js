@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function MyProductCard({ product }) {
@@ -40,9 +41,11 @@ function MyProductCard({ product }) {
       <div className="ml-auto md:ml-0">
         <p className="text-green-600 text-lg font-semibold">{/* 556 */}</p>
       </div>
-      <div className="text-gray-600 hover:text-green-600 cursor-pointer">
-        <i className="fas fa-edit"></i>
-      </div>
+      <Link href={`/user/editproduct/${product._id}`}>
+        <div className="text-gray-600 hover:text-green-600 cursor-pointer">
+          <i className="fas fa-edit"></i>
+        </div>
+      </Link>
       <div className="text-gray-600 hover:text-primary cursor-pointer">
         <i className="fas fa-trash"></i>
       </div>
