@@ -4,18 +4,6 @@ import { XIcon } from "@heroicons/react/solid";
 import categories from "../../../lib/categoryList";
 
 function ShopSidebar({ fileterbtn, setShowSidebar }) {
-  // all category
-  const [woman, setWoman] = useState("");
-  const [man, setman] = useState("");
-  const [shoes, setShoes] = useState("");
-  const [computer, setComputer] = useState("");
-
-  // brands
-  const [adidas, setAdidas] = useState("");
-  const [nike, setNike] = useState("");
-  const [easy, setEasy] = useState("");
-  const [arong, setArong] = useState("");
-
   // for the price slider range
   const [value, setValue] = useState([20, 37]);
   const handleChange = (event, newValue) => {
@@ -24,18 +12,6 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
 
   const valuetext = (value) => {
     return `${value}°C`;
-  };
-
-  // for size
-  const [size, setSize] = useState("M");
-  const sizeHandler = (e) => {
-    alert(e);
-  };
-
-  // COLOR PALET
-  const [color, setColor] = useState("Red");
-  const colorHandler = (e) => {
-    alert(e);
   };
 
   return (
@@ -59,7 +35,9 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
             />
           )}
         </div>
-        {categories.slice(0, 6).map(category => <ShopCategory category={category}  />)}
+        {categories.slice(0, 6).map((category) => (
+          <ShopCategory category={category} />
+        ))}
       </div>
 
       {/* Brands */}
@@ -102,62 +80,6 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
       </div> */}
 
       {/* size section */}
-      <div className="py-4 border-b space-y-4">
-        <h1 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-          Size
-        </h1>
-        <div className="flex items-center space-x-3">
-          <span
-            className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"
-            onClick={() => sizeHandler("XS")}
-          >
-            XS
-          </span>
-          <span
-            className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"
-            onClick={() => sizeHandler("S")}
-          >
-            S
-          </span>
-          <span
-            className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md bg-primary text-white font-medium"
-            onClick={() => sizeHandler("M")}
-          >
-            M
-          </span>
-          <span
-            className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"
-            onClick={() => sizeHandler("L")}
-          >
-            L
-          </span>
-          <span
-            className="cursor-pointer text-xs px-2 py-1 border-2 rounded-md"
-            onClick={() => sizeHandler("XL")}
-          >
-            XL
-          </span>
-        </div>
-      </div>
-
-      {/* colour section */}
-      <div className="py-4 pb-2 space-y-4">
-        <h1 className="text-xl font-medium uppercase">Color</h1>
-        <div className="flex items-center space-x-3">
-          <span
-            className="cursor-pointer w-6 h-6 bg-red-600 border-2 border-gray-400 px-3 rounded-md"
-            onClick={() => colorHandler("Red")}
-          ></span>
-          <span
-            className="cursor-pointer w-6 h-6 bg-white border-2 border-gray-400 px-3 rounded-md"
-            onClick={() => colorHandler("White")}
-          ></span>
-          <span
-            className="cursor-pointer w-6 h-6 bg-black border-2 border-gray-400 px-3 rounded-md"
-            onClick={() => colorHandler("Black")}
-          ></span>
-        </div>
-      </div>
     </div>
   );
 }
