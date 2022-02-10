@@ -27,20 +27,22 @@ export const SingleCart = ({ product }) => {
       {/* <!-- cart image --> */}
       <div className="w-32 flex-shrink-0">
         <img
-          src={cartData?.image[0] ? cartData.image[0] : cartData?.image}
+          src={
+            Array.isArray(cartData?.image) ? cartData.image[0] : cartData?.image
+          }
           className="w-full"
         />
       </div>
       {/* <!-- cart image end --> */}
       {/* <!-- cart content --> */}
       <div className="md:w-1/3 w-full">
-        <h2 className="text-gray-800 mb-3 xl:text-xl textl-lg font-medium uppercase">
+        <h2 className="text-gray-800 mb-3 xl:text-base text-base font-medium uppercase">
           {cartData?.title}
         </h2>
         <p className="text-primary font-semibold">
           ${cartData?.price?.toFixed(2)}
         </p>
-        <p className="text-gray-500">Size: M</p>
+        {/* <p className="text-gray-500">Size: M</p> */}
       </div>
       {/* <!-- cart content end --> */}
       {/* <!-- cart quantity --> */}

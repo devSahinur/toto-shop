@@ -60,9 +60,9 @@ const products = [
   },
 ];
 
-function ShopMain({currentItems}) {
+function ShopMain({ currentItems }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {currentItems.map((product) => (
         <SingleArrival
           key={product._id}

@@ -40,7 +40,7 @@ function ShopTopNav({ listView, setListView }) {
       {/* default sorting */}
       <div className="flex items-center px-4 py-3 border-2 cursor-pointer rounded-md space-x-8 relative">
         <div
-          className="flex items-center space-x-6"
+          className="flex items-center justify-between space-x-6 min-w-[190px]"
           onClick={() => setShowSelect(!showSelect)}
         >
           <h3>{sorting}</h3>
@@ -53,7 +53,7 @@ function ShopTopNav({ listView, setListView }) {
         {/* default sorting  */}
         {showSelect && (
           <div
-            className="absolute top-12 -left-[2rem] bg-white border-2 rounded-md w-[195px] max-w-[200px]"
+            className="absolute top-12 -left-[2rem] bg-white border-2 rounded-md w-full"
             style={{ zIndex: 100 }}
           >
             {sortTitles.map((text) => (
