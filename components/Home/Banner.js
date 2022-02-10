@@ -34,9 +34,32 @@ function Banner() {
             alt=""
           />
         </div>
+        <div>
+          <img
+            loading="lazy"
+            src="https://i.ibb.co/bdqZwjq/pay.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            loading="lazy"
+            src="https://i.ibb.co/qyPyMGp/200x1200-1.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            loading="lazy"
+            src="https://i.ibb.co/Nyn2zfY/ros.jpg"
+            alt=""
+          />
+        </div>
       </Carousel>
     </div>
   );
 }
 
 export default Banner;
+
+
