@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import SingleCheckoutOrder from "../SingleChekoutOrder/SingleCheckoutOrder";
 
 const product = [
@@ -25,6 +26,7 @@ const product = [
 ];
 
 function CheckoutOrder() {
+  const router = useRouter()
   return (
     <div className="py-6 px-4 border shadow-md h-fit">
       <div className="pb-4">
@@ -80,7 +82,7 @@ function CheckoutOrder() {
         </div>
 
         <div className="w-full">
-          <button className="btn py-2 w-full uppercase font-medium">
+          <button onClick={()=> router.push('success')} className="btn py-2 w-full uppercase font-medium">
             Place Order
           </button>
         </div>
