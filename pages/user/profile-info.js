@@ -19,13 +19,13 @@ function ProfileInfo() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-gray-600 mb-2 block">
-                      First Name
+                      Full Name
                     </label>
                     <input type="text" className="input-box" value="John" />
                   </div>
                   <div>
                     <label className="text-gray-600 mb-2 block">
-                      Last Name
+                      Username
                     </label>
                     <input type="text" className="input-box" value="Doe" />
                   </div>
