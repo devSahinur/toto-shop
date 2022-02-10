@@ -24,7 +24,10 @@ function SingleWishList({ product }) {
       <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
         {/* <!-- cart image --> */}
         <div className="w-28 flex-shrink-0">
-          <img src={product.image[0]} className="w-full" />
+          <img
+            src={product?.image[0] ? product?.image[0] : product?.image}
+            className="w-full"
+          />
         </div>
         {/* <!-- cart image end --> */}
         {/* <!-- cart content --> */}

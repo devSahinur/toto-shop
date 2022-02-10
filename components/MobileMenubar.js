@@ -119,7 +119,7 @@ function MobileMenubar() {
         }`}
         id="mobileMenu"
       >
-        <div className="absolute left-0 top-0 w-72 h-full z-50 bg-white shadow">
+        <div className="absolute left-0 top-0 w-72 h-full z-50 bg-white shadow animateHomeSidebar">
           <div
             onClick={crossButton}
             id="closeMenu"

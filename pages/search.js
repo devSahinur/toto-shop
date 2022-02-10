@@ -44,7 +44,7 @@ function search({ product }) {
       <div className="bg-gradient-to-r from-primary via-pink-300  to-pink-700 flex items-center px-5 py-3 justify-between relative z-10">
         <ArrowLeftIcon
           className="h-5 text-white cursor-pointer"
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
         />
         <input
           type="text"
