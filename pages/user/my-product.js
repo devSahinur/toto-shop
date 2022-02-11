@@ -21,38 +21,38 @@ function myProduct() {
     setProduct(data?.data);
   }, []);
 
-
   const confirmDelete = async (id) => {
     const res = await fetch(`/api/productitem?id=${id}`, {
       method: "DELETE",
-    })
+    });
     if (res.ok) {
       // Router.reload() // Reload page for fetch GET item again
-      router.push("/user/my-product");
-      console.log(id, 'delete done')
+      router.push("/");
     }
-  }
+  };
 
   return (
     <>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
-          {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
             {myData.length >= 1 ? (
               <>
                 <MyProductTitleBar />
                 {myData.map((product) => (
-                  <MyProductCard key={product._id} confirmDelete={confirmDelete} product={product} />
+                  <MyProductCard
+                    key={product._id}
+                    confirmDelete={confirmDelete}
+                    product={product}
+                  />
                 ))}
               </>
             ) : (
               <NotfoundProduct />
             )}
           </main>
-          {/* <!-- account content end --> */}
         </div>
       </Layout>
     </>
