@@ -144,7 +144,7 @@ export async function getServerSideProps(context) {
   } else {
     return {
       redirect: {
-        destination: "/signup",
+        destination: "/login",
         permanent: false,
       },
     };
