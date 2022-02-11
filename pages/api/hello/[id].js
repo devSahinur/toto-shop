@@ -8,6 +8,8 @@ export default async (req, res) => {
     query: { id },
     method,
   } = req;
+  // const id = req.param.id
+  console.log(id)
 
   switch (method) {
     case "GET":

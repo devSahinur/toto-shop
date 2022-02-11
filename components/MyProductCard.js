@@ -1,11 +1,13 @@
 import Link from "next/link";
 import React from "react";
 
-function MyProductCard({ product }) {
+function MyProductCard({ product,confirmDelete }) {
   const truncateDescription =
     product.title.length > 30
       ? `${product.title.substring(0, 30)}...`
       : product.title;
+
+
 
   return (
     <div className="flex hover:bg-[#E9EFFF] cursor-pointer items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
@@ -45,7 +47,7 @@ function MyProductCard({ product }) {
           <i className="fas fa-edit"></i>
         </div>
       </Link>
-      <div className="text-gray-600 hover:text-primary cursor-pointer">
+      <div onClick={() => confirmDelete(product._id)} className="text-gray-600 hover:text-primary cursor-pointer">
         <i className="fas fa-trash"></i>
       </div>
     </div>

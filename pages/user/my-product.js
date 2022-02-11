@@ -6,8 +6,10 @@ import MyProductTitleBar from "../../components/MyProductTitleBar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useSession } from "next-auth/react";
 import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
+import { useRouter } from "next/router";
 
 function myProduct() {
+  const router = useRouter();
   const { data: session } = useSession();
   const [product, setProduct] = useState([]);
 
@@ -18,6 +20,18 @@ function myProduct() {
     const data = await res.json();
     setProduct(data?.data);
   }, []);
+
+
+  const confirmDelete = async (id) => {
+    const res = await fetch(`/api/productitem?id=${id}`, {
+      method: "DELETE",
+    })
+    if (res.ok) {
+      // Router.reload() // Reload page for fetch GET item again
+      router.push("/user/my-product");
+      console.log(id, 'delete done')
+    }
+  }
 
   return (
     <>
@@ -31,7 +45,7 @@ function myProduct() {
               <>
                 <MyProductTitleBar />
                 {myData.map((product) => (
-                  <MyProductCard key={product._id} product={product} />
+                  <MyProductCard key={product._id} confirmDelete={confirmDelete} product={product} />
                 ))}
               </>
             ) : (

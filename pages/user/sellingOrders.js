@@ -43,7 +43,7 @@ function addProduct() {
 
   const onSubmit = async (data) => {
     setInputData(data);
-    const res = await fetch("/api/product", {
+    const res = await fetch("/api/productitem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

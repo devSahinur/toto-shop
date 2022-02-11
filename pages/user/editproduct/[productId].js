@@ -18,7 +18,7 @@ import EditProductInput from "../../../components/EditProduct/EditProductInput";
 
 function editProduct({ product, user }) {
   // console.log(product)
-  console.log(product, user);
+  // console.log(product, user);
   const router = useRouter();
   const { data: session } = useSession();
   const {
@@ -63,8 +63,17 @@ function editProduct({ product, user }) {
   };
 
   const onSubmit = async (data) => {
+    // console.log({...data,
+    //   image: images,
+    //   availability:product.availability,
+    //   color:product.color,
+    //   email:product.email,
+    //   id:product.id,
+    //   _id:product._id,
+    //   material:product.material,
+    //   reviews:product.reviews,})
     setInputData(data);
-    const res = await fetch("/api/productitem", {
+    const res = await fetch(`/api/productitem`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -72,12 +81,19 @@ function editProduct({ product, user }) {
       body: JSON.stringify({
         ...data,
         image: images,
-        email: session.user.email,
+        availability:product.availability,
+        color:product.color,
+        email:product.email,
+        id:product.id,
+        _id:product._id,
+        material:product.material,
+        reviews:product.reviews,
+
       }),
     });
 
     if (res.ok) {
-      console.log("Post Update done");
+      console.log("Product Update done");
       router.push("/user/my-product");
     }
   };
@@ -131,7 +147,7 @@ export async function getServerSideProps(context) {
     ).lean();
     leanResponse._id = leanResponse._id.toString();
 
-    const item = await Product.findOne({ _id: productId }, { color: 0 }).lean();
+    const item = await Product.findOne({ _id: productId }).lean();
     const product = JSON.parse(JSON.stringify(item));
 
     return {
