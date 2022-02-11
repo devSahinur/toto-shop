@@ -17,7 +17,6 @@ import EditProductImage from "../../../components/EditProduct/EditProductImage";
 import EditProductInput from "../../../components/EditProduct/EditProductInput";
 
 function editProduct({ product, user }) {
-  // console.log(product)
   // console.log(product, user);
   const router = useRouter();
   const { data: session } = useSession();
@@ -52,26 +51,15 @@ function editProduct({ product, user }) {
   };
 
   const imageRemoveControl = (image) => {
-    // console.log(image);
     const arrayImage = [...images];
     const index = arrayImage.indexOf(image);
     if (index > -1) {
       arrayImage.splice(index, 1); // 2nd parameter means remove one item only
     }
     setImageURL(arrayImage);
-    // console.log();
   };
 
   const onSubmit = async (data) => {
-    // console.log({...data,
-    //   image: images,
-    //   availability:product.availability,
-    //   color:product.color,
-    //   email:product.email,
-    //   id:product.id,
-    //   _id:product._id,
-    //   material:product.material,
-    //   reviews:product.reviews,})
     setInputData(data);
     const res = await fetch(`/api/productitem`, {
       method: "PUT",
@@ -81,14 +69,13 @@ function editProduct({ product, user }) {
       body: JSON.stringify({
         ...data,
         image: images,
-        availability:product.availability,
-        color:product.color,
-        email:product.email,
-        id:product.id,
-        _id:product._id,
-        material:product.material,
-        reviews:product.reviews,
-
+        availability: product.availability,
+        color: product.color,
+        email: product.email,
+        id: product.id,
+        _id: product._id,
+        material: product.material,
+        reviews: product.reviews,
       }),
     });
 
@@ -103,7 +90,6 @@ function editProduct({ product, user }) {
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
-          {/* <!-- account content --> */}
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
             {/* content Main */}
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -123,7 +109,6 @@ function editProduct({ product, user }) {
               <input className="btn" type="submit" value={"Confirm change"} />
             </form>
           </main>
-          {/* <!-- account content end --> */}
         </div>
       </Layout>
     </>
