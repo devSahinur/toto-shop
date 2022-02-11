@@ -17,7 +17,7 @@ function NotfoundProduct() {
         </div>
 
         <button
-          onClick={() => router.push("/user/sellingOrders")}
+          onClick={() => router.push("/user/addproduct")}
           className="px-4 py-3 bg-green-400 shadow-md rounded-lg text-gray-50 font-semibold transform hover:scale-125 transition-all ease-in-out"
         >
           Add Product

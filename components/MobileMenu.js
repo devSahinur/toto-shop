@@ -107,9 +107,9 @@ function MobileMenu() {
         {/* <!-- single link --> */}
         <div className="pl-8 pt-4">
           <div
-            onClick={() => router.push("/user/sellingOrders")}
+            onClick={() => router.push("/user/addproduct")}
             className={`relative medium capitalize cursor-pointer font-medium hover:text-primary transition block ${
-              router.pathname == "/user/sellingOrders" && "text-primary"
+              router.pathname == "/user/addproduct" && "text-primary"
             } `}
           >
             Selling orders
