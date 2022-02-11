@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       // Get all items that sellerId sold
       try {
         const sellerId = req.query.sellerId
-        const productLeanResponse = await Product.find({ sellerId }, { _id: 0 })
+        const productLeanResponse = await Product.find({ sellerId }, { color: 0 })
           .sort({ _id: -1 })
           .lean()
         res.status(200).json({ Product: productLeanResponse })

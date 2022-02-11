@@ -4,7 +4,7 @@ dbConnect();
 
 export default async (req, res) => {
     const {
-        query: { _id },
+        query: {id },
         method
     } = req;
 
@@ -24,7 +24,7 @@ export default async (req, res) => {
             break;
         case 'PUT':
             try {
-                const product = await Product.findByIdAndUpdate(_id, req.body, {
+                const product = await Product.findByIdAndUpdate(id, req.body, {
                     new: true,
                     runValidators: true
                 });
@@ -40,7 +40,7 @@ export default async (req, res) => {
             break;
         case 'DELETE':
             try {
-                const deletedProduct = await Product.deleteOne({ _id: _id });
+                const deletedProduct = await Product.deleteOne({ _id: id });
 
                 if (!deletedProduct) {
                     return res.status(400).json({ success: false })

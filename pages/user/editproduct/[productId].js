@@ -13,10 +13,12 @@ import Product from "./../../../models/Product";
 // Component
 import Layout from "../../../components/layout";
 import WishListSidebar from "../../../components/WishListPage/WishListSidebar";
-import AddProductInput from "../../../components/AddProduct/AddProductInput";
-import AddProductImage from "../../../components/AddProduct/AddProductImage";
+import EditProductImage from "../../../components/EditProduct/EditProductImage";
+import EditProductInput from "../../../components/EditProduct/EditProductInput";
 
 function editProduct({ product, user }) {
+  // console.log(product)
+  console.log(product, user);
   const router = useRouter();
   const { data: session } = useSession();
   const {
@@ -90,13 +92,13 @@ function editProduct({ product, user }) {
             {/* content Main */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
-                <AddProductInput
+                <EditProductInput
                   setInputs={setInputs}
                   inputs={inputs}
                   register={register}
                   product={product}
                 />
-                <AddProductImage
+                <EditProductImage
                   images={images}
                   imageRemoveControl={imageRemoveControl}
                   handleImageUpload={handleImageUpload}
@@ -116,7 +118,7 @@ export default editProduct;
 
 export async function getServerSideProps(context) {
   const { req } = context;
-  const { _id } = context.query;
+  const { productId } = context.query;
   const session = await getSession({ req });
   if (session) {
     await dbConnect();
@@ -129,7 +131,7 @@ export async function getServerSideProps(context) {
     ).lean();
     leanResponse._id = leanResponse._id.toString();
 
-    const item = await Product.findOne({ id: _id }, { color: 0 }).lean();
+    const item = await Product.findOne({ _id: productId }, { color: 0 }).lean();
     const product = JSON.parse(JSON.stringify(item));
 
     return {

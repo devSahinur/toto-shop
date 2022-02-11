@@ -12,7 +12,6 @@ function myProduct() {
   const [product, setProduct] = useState([]);
 
   const myData = product?.filter((p) => p?.email === session?.user?.email);
-  console.log(myData);
 
   useEffect(async () => {
     const res = await fetch("http://localhost:3000/api/product");

@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 function MyProductCard({ product }) {
-  console.log(product);
   const truncateDescription =
     product.title.length > 30
       ? `${product.title.substring(0, 30)}...`

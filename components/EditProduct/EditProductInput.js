@@ -1,4 +1,4 @@
-function AddProductInput({ register }) {
+function EditProductInput({ register, product }) {
   return (
     <div>
       {/* TODO: input box */}
@@ -10,6 +10,7 @@ function AddProductInput({ register }) {
             type="text"
             {...register("title", { required: true })}
             className="input-box"
+            defaultValue={product?.title}
           />
         </div>
 
@@ -19,7 +20,11 @@ function AddProductInput({ register }) {
 
           <div className="space-y-2">
             <label className="labelText">Category </label>
-            <select {...register("category")} className="input-box">
+            <select
+              {...register("category")}
+              defaultValue={product?.category}
+              className="input-box"
+            >
               <option value="all">Select</option>
               <option value="Bedroom">Bedroom</option>
               <option value="Sofa">Sofa</option>
@@ -36,6 +41,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("price", { required: true })}
               className="input-box"
+              defaultValue={product?.price}
             />
           </div>
           {/* TODO: quantity */}
@@ -45,6 +51,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("totalQuantity", { required: true })}
               className="input-box"
+              defaultValue={product?.totalQuantity}
             />
           </div>
         </div>
@@ -57,13 +64,19 @@ function AddProductInput({ register }) {
               type="text"
               {...register("brand", { required: true })}
               className="input-box"
+              defaultValue={product?.brand}
             />
           </div>
 
           {/* FIXME: coupon */}
           <div className="space-y-2">
             <label className="labelText">Coupon </label>
-            <input type="text" {...register("sku")} className="input-box" />
+            <input
+              type="text"
+              defaultValue={product?.sku}
+              {...register("sku")}
+              className="input-box"
+            />
           </div>
           <div className="space-y-2">
             <label className="labelText">Weight(KG)</label>
@@ -71,6 +84,7 @@ function AddProductInput({ register }) {
               type="number"
               {...register("weight", { required: true })}
               className="input-box"
+              defaultValue={product?.weight}
             />
           </div>
         </div>
@@ -81,6 +95,7 @@ function AddProductInput({ register }) {
             cols="30"
             rows="10"
             {...register("shortDescription", { required: true })}
+            defaultValue={product?.shortDescription}
           ></textarea>
         </div>
         <div className="space-y-2">
@@ -90,6 +105,7 @@ function AddProductInput({ register }) {
             cols="30"
             rows="10"
             {...register("longDescription", { required: true })}
+            defaultValue={product?.longDescription}
           ></textarea>
         </div>
       </div>
@@ -97,4 +113,4 @@ function AddProductInput({ register }) {
   );
 }
 
-export default AddProductInput;
+export default EditProductInput;
