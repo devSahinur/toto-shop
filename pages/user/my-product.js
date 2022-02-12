@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
 import Layout from "../../components/layout";
@@ -7,6 +8,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useSession } from "next-auth/react";
 import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
 import { useRouter } from "next/router";
+import withAuth from "../../lib/withAuth";
 
 function myProduct() {
   const router = useRouter();
@@ -27,12 +29,27 @@ function myProduct() {
     });
     if (res.ok) {
       // Router.reload() // Reload page for fetch GET item again
-      router.push("/");
+      // router.push("/");
+      const findIndex = product.findIndex((item) => item._id === id);
+      const newProducts = [...product];
+      if (findIndex >= 0) {
+        newProducts.splice(findIndex, 1);
+      }
+      setProduct(newProducts);
     }
   };
 
   return (
     <>
+    <Head>
+        <title>({myData.length}) Product | ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
@@ -59,4 +76,4 @@ function myProduct() {
   );
 }
 
-export default myProduct;
+export default withAuth(myProduct);

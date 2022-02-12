@@ -1,6 +1,7 @@
 
 import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import withAuth from "../../lib/withAuth";
 
 function ProfileInfo() {
   return (
@@ -87,4 +88,4 @@ function ProfileInfo() {
   );
 }
 
-export default ProfileInfo;
+export default withAuth(ProfileInfo);

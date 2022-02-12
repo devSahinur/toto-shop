@@ -2,6 +2,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/fDCywKw/iphone-12.png
 // https://i.ibb.co/dMJPPb8/headphone-1-1.png
@@ -78,4 +79,4 @@ function OrderCancel() {
   );
 }
 
-export default OrderCancel;
+export default withAuth(OrderCancel);

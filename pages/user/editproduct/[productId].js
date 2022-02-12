@@ -1,4 +1,5 @@
 // React, Next lib
+import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -7,6 +8,7 @@ import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 // Custom lib
 import dbConnect from "./../../../lib/dbConnect";
+import withAuth from "../../../lib/withAuth";
 // Model
 import User from "./../../../models/User";
 import Product from "./../../../models/Product";
@@ -87,6 +89,15 @@ function editProduct({ product, user }) {
 
   return (
     <>
+      <Head>
+        <title>Edit Product({product.title}) - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
@@ -115,7 +126,7 @@ function editProduct({ product, user }) {
   );
 }
 
-export default editProduct;
+export default withAuth(editProduct);
 
 export async function getServerSideProps(context) {
   const { req } = context;

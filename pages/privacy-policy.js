@@ -1,8 +1,18 @@
+import Head from "next/head";
 import Layout from "../components/layout";
 
 function PrivacyPolicy() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Privacy Policy - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Privacy And Policy"}>
         <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
           <h1 className="text-center text-xl md:text-4xl font-semibold">
@@ -82,7 +92,7 @@ function PrivacyPolicy() {
           </div>
         </main>
       </Layout>
-    </div>
+    </>
   );
 }
 

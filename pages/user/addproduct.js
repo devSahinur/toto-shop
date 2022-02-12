@@ -1,3 +1,4 @@
+import Head from "next/head";
 import AddProductImage from "../../components/AddProduct/AddProductImage";
 import AddProductInput from "../../components/AddProduct/AddProductInput";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
@@ -7,6 +8,7 @@ import Layout from "../../components/layout";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import withAuth from "../../lib/withAuth";
 
 function addProduct() {
   const router = useRouter();
@@ -61,8 +63,23 @@ function addProduct() {
     }
   };
 
+  const deleteHandler = (params) => {
+    let newImages = [...images];
+    newImages.splice(params, 1);
+    setImageURL(newImages);
+  };
+
   return (
     <>
+    <Head>
+        <title>Add Product - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
@@ -79,6 +96,7 @@ function addProduct() {
                 <AddProductImage
                   images={images}
                   handleImageUpload={handleImageUpload}
+                  deleteHandler={deleteHandler}
                 />
               </div>
               <input className="btn" type="submit" />
@@ -91,4 +109,4 @@ function addProduct() {
   );
 }
 
-export default addProduct;
+export default  withAuth(addProduct);
