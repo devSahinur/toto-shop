@@ -18,10 +18,10 @@ function BlogPost({
         <h3 className="text-lg">{caption}</h3>
       </div>
       {/* post image */}
-      <div classname="">
+      <div classname="mx-auto flex items-center justify-center w-[500px]">
         <Image
           src={photo}
-          width={600}
+          width={500}
           height={400}
           className="min-w-[600px] object-contain mx-auto"
         />
