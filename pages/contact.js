@@ -4,7 +4,7 @@ import AboutBanner from "../components/AboutPage/AboutBanner/AboutBanner";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import ContactInfo from "../components/ContactPage/ContactInfo/ContactInfo";
 import Layout from "../components/layout";
-
+ 
 function contact() {
   return (
     <>
