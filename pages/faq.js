@@ -14,7 +14,7 @@ function faq() {
     arrowIcon: <PlusIcon />,
     tabFocus: true,
   };
-
+ 
   return (
     <>
       <Head>
