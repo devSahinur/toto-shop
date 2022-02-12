@@ -6,11 +6,11 @@ import Layout from "../components/layout";
 const blog = () => {
   return (
     <div>
-      <Layout title={'blog'}>
-        <main className="sm:max-w-[50rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
+      <Layout title={"blog"}>
+        <main className="max-w-5xl mx-auto px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
 
-          <div className="md:flex xl:space-x-10">
+          <div className="md:flex md:space-x-5 xl:space-x-10">
             <BlogSideBar />
             <BlogContent />
           </div>

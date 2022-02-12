@@ -61,6 +61,12 @@ function addProduct() {
     }
   };
 
+  const deleteHandler = (params) => {
+    let newImages = [...images];
+    newImages.splice(params, 1);
+    setImageURL(newImages);
+  };
+
   return (
     <>
       <Layout title={"Add Product"}>
@@ -79,6 +85,7 @@ function addProduct() {
                 <AddProductImage
                   images={images}
                   handleImageUpload={handleImageUpload}
+                  deleteHandler={deleteHandler}
                 />
               </div>
               <input className="btn" type="submit" />
