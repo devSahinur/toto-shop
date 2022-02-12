@@ -3,6 +3,7 @@ import MobileMenubar from "./MobileMenubar";
 import { HeartIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Navbar() {
   const router = useRouter();
@@ -143,12 +144,24 @@ function Navbar() {
                   </a>
                 </Link>
               </div>
-              <div
-                // onClick={() => router.push("login")}
-                onClick={session ? signOut : signIn}
-                className="ml-auto justify-self-end text-gray-200 hover:text-white transition cursor-pointer"
-              >
-                {session ? `${session?.user?.email}` : "Login/Register"}
+              <div className="flex items-center space-x-5">
+                <div className="flex-shrink-0  mt-1">
+                  {session?.user?.image && (
+                    <Image
+                      src={session?.user?.image}
+                      height={50}
+                      width={50}
+                      // src="https://i.ibb.co/dG9tksD/download.jpg"
+                      className="rounded-full  border border-gray-200 object-cover"
+                    />
+                  )}
+                </div>
+                <div>
+                  <p className="text-white">Hello,</p>
+                  <h4 className="text-white capitalize font-medium">
+                    {session && session?.user.name}
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
