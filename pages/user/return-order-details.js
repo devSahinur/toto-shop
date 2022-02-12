@@ -5,6 +5,7 @@ import OrderDetailsTop from "../../components/OrderDetails/OrderDetailsTop/Order
 import OrderDetailsBottom from "../../components/OrderDetails/OrderDetailsBottom/OrderDetailsBottom";
 import ReturnOrdermain from "../../components/ReturnOrderDetails/ReturnOrderMain/ReturnOrdermain";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -48,4 +49,4 @@ function ReturnDetails() {
   );
 }
 
-export default ReturnDetails;
+export default withAuth(ReturnDetails);

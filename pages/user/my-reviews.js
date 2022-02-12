@@ -1,7 +1,7 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
 import SingleReviews from "../../components/MyReviews/SingleRevies/SingleReviews";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/fDCywKw/iphone-12.png
 // https://i.ibb.co/dMJPPb8/headphone-1-1.pnghttps://i.ibb.co/GcHqRGD/x-box.png
@@ -89,4 +89,4 @@ function OrderHistory() {
   );
 }
 
-export default OrderHistory;
+export default withAuth(OrderHistory);

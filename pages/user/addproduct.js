@@ -7,6 +7,7 @@ import Layout from "../../components/layout";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import withAuth from "../../lib/withAuth";
 
 function addProduct() {
   const router = useRouter();
@@ -98,4 +99,4 @@ function addProduct() {
   );
 }
 
-export default addProduct;
+export default  withAuth(addProduct);

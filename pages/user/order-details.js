@@ -3,6 +3,7 @@ import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
 import OrderDetailsTop from "../../components/OrderDetails/OrderDetailsTop/OrderDetailsTop";
 import OrderDetailsBottom from "../../components/OrderDetails/OrderDetailsBottom/OrderDetailsBottom";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -47,4 +48,4 @@ function OrderDetails() {
   );
 }
 
-export default OrderDetails;
+export default withAuth(OrderDetails);

@@ -2,6 +2,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/D5kM6Hb/headphone-3.png
 // https://i.ibb.co/kDYYgSr/tv.png
@@ -80,4 +81,4 @@ function OrderHistory() {
   );
 }
 
-export default OrderHistory;
+export default withAuth(OrderHistory);

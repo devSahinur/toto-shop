@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Layout from "../../components/layout";
+import withAuth from "../../lib/withAuth";
 
 function OrderComplate() {
   const router = useRouter();
@@ -42,4 +43,4 @@ function OrderComplate() {
   );
 }
 
-export default OrderComplate;
+export default withAuth(OrderComplate);

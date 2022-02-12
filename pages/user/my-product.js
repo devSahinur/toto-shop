@@ -7,6 +7,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useSession } from "next-auth/react";
 import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
 import { useRouter } from "next/router";
+import withAuth from "../../lib/withAuth";
 
 function myProduct() {
   const router = useRouter();
@@ -65,4 +66,4 @@ function myProduct() {
   );
 }
 
-export default myProduct;
+export default withAuth(myProduct);
