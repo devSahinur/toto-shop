@@ -1,10 +1,20 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Layout from "../components/layout";
 
 function TramsCondition() {
   const router = useRouter();
   return (
-    <div>
+    <>
+      <Head>
+        <title>Terms & Conditions - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Terms & Conditions"}>
         <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
           <h1 className="text-center text-xl md:text-4xl font-semibold">
@@ -93,7 +103,7 @@ function TramsCondition() {
           </div>
         </main>
       </Layout>
-    </div>
+    </>
   );
 }
 

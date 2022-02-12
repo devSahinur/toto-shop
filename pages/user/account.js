@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/react";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
 import Layout from "../../components/layout";
@@ -9,7 +9,7 @@ function account() {
   const { data: session } = useSession();
   return (
     <>
-    <Head>
+      <Head>
         <title>{session.user.name} | ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>

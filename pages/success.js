@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { CheckIcon } from "@heroicons/react/outline";
 import { useEffect } from "react";
 import Layout from "../components/layout";
@@ -9,7 +10,16 @@ function success() {
   }, []);
   return (
     <>
-      <Layout title={'no'}>
+      <Head>
+        <title>Thanks for your order! - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
+      <Layout title={"no"}>
         <div className="container xl:max-w-screen-xl mx-auto py-12 px-6 text-center">
           <div className="py-4 px-8 rounded-md bg-gray-100 max-w-lg mx-auto">
             <h2 className="text-4xl font-semibold flex flex-col items-center space-x-1">

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import AddProductImage from "../../components/AddProduct/AddProductImage";
 import AddProductInput from "../../components/AddProduct/AddProductInput";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
@@ -70,6 +71,15 @@ function addProduct() {
 
   return (
     <>
+    <Head>
+        <title>Add Product - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"Add Product"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />

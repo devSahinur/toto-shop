@@ -12,7 +12,7 @@ function wishlist() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>My WistList({wishlistAll.length}) - ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>

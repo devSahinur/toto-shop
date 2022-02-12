@@ -1,13 +1,22 @@
+import Head from "next/head";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
 import Image from "next/image";
 import { useRouter } from "next/router";
 function Custom404() {
   const router = useRouter();
   return (
-    <div>
+    <>
+      <Head>
+        <title>404 Error - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Header />
       <Navbar />
       {/* <AboutBanner bg={'/img/contact-banner.jpg'} Icon={HomeIcon} text='About us' /> */}
@@ -34,7 +43,7 @@ function Custom404() {
         </div>
       </main>
       <Copyright />
-    </div>
+    </>
   );
 }
 
