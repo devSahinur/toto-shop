@@ -27,7 +27,13 @@ function myProduct() {
     });
     if (res.ok) {
       // Router.reload() // Reload page for fetch GET item again
-      router.push("/");
+      // router.push("/");
+      const findIndex = product.findIndex((item) => item._id === id);
+      const newProducts = [...product];
+      if (findIndex >= 0) {
+        newProducts.splice(findIndex, 1);
+      }
+      setProduct(newProducts);
     }
   };
 
