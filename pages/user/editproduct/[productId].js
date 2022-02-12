@@ -7,7 +7,7 @@ import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 // Custom lib
 import dbConnect from "./../../../lib/dbConnect";
-import withAuth from "../../lib/withAuth";
+import withAuth from "../../../lib/withAuth";
 // Model
 import User from "./../../../models/User";
 import Product from "./../../../models/Product";
