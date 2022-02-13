@@ -169,7 +169,7 @@ function ProfileInfo() {
                 <input
                   type="submit"
                   value="Save change"
-                  className="px-6 py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+                  className="px-6 py-2 text-center cursor-pointer text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
                 />
               </div>
             </form>

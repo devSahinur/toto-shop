@@ -117,7 +117,7 @@ function editProduct({ product, user }) {
                   handleImageUpload={handleImageUpload}
                 />
               </div>
-              <input className="btn" type="submit" value={"Confirm change"} />
+              <input className="btn mt-5" type="submit" value={"Confirm change"} />
             </form>
           </main>
         </div>

@@ -82,14 +82,14 @@ function WishListSidebar() {
             >
               Profile information
             </div>
-            <div
+            {/* <div
               onClick={() => router.push("/user/manage-address")}
               className={`hover:text-primary cursor-pointer transition ${
                 router.pathname == "/user/manage-address" && "text-primary"
               } capitalize block`}
             >
               Manage address
-            </div>
+            </div> */}
             <div
               onClick={() => router.push("/user/change-password")}
               className={`hover:text-primary transition cursor-pointer ${
