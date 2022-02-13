@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema({
   },
   customName: {
     type: String,
+    unique:true,
     default: "",
   }, // Firstname-Lastname 
   provider: {
