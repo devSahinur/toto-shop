@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -15,12 +15,24 @@ const UserSchema = new mongoose.Schema({
   },
   customName: {
     type: String,
-    unique:true,
+    unique: true,
     default: "",
-  }, // Firstname-Lastname 
+  }, // Firstname-Lastname
   provider: {
     type: String,
     required: true,
+  },
+  birthday: {
+    type: String,
+    default: "",
+  },
+  gender: {
+    type: String,
+    default: "",
+  },
+  shopName: {
+    type: String,
+    default: "",
   },
   isSeller: {
     type: Boolean,
@@ -57,6 +69,6 @@ const UserSchema = new mongoose.Schema({
       orderAt: { type: Date, default: Date.now },
     },
   ],
-})
+});
 
-module.exports = mongoose.models.User || mongoose.model("User", UserSchema)
+module.exports = mongoose.models.User || mongoose.model("User", UserSchema);

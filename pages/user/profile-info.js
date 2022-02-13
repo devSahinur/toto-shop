@@ -1,9 +1,18 @@
-
+import { useForm } from "react-hook-form";
 import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 
 function ProfileInfo() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <>
       <Layout title={"My profile info"}>
@@ -12,7 +21,7 @@ function ProfileInfo() {
 
           {/* <!-- account content --> */}
           <div className="col-span-9 shadow rounded px-6 pt-5 pb-7 mt-6 lg:mt-0">
-            <form action="">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <h3 className="text-lg font-medium capitalize mb-4">
                 Profile Information
               </h3>
@@ -22,27 +31,38 @@ function ProfileInfo() {
                     <label className="text-gray-600 mb-2 block">
                       Full Name
                     </label>
-                    <input type="text" className="input-box" value="John" />
+                    <input
+                      type="text"
+                      {...register("name", { required: true })}
+                      className="input-box"
+                      placeholder="Enter your full name?"
+                    />
                   </div>
                   <div>
-                    <label className="text-gray-600 mb-2 block">
-                      Username
-                    </label>
-                    <input type="text" className="input-box" value="Doe" />
+                    <label className="text-gray-600 mb-2 block">Username</label>
+                    <input
+                      type="text"
+                      {...register("customName", { required: true })}
+                      className="input-box"
+                      placeholder="Enter your username like mrX123"
+                    />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-gray-600 mb-2 block">Birthday</label>
                     <input
+                      {...register("birthday", { required: true })}
                       type="date"
-                      value="1998-01-08"
                       className="input-box"
                     />
                   </div>
                   <div>
                     <label className="text-gray-600 mb-2 block">Gender</label>
-                    <select className="input-box">
+                    <select
+                      {...register("gender", { required: true })}
+                      className="input-box"
+                    >
                       <option>Male</option>
                       <option>Female</option>
                     </select>
@@ -54,9 +74,10 @@ function ProfileInfo() {
                       Email Address
                     </label>
                     <input
+                      {...register("email", { required: true })}
                       type="text"
                       className="input-box"
-                      value="example@mail.com"
+                      placeholder="Enter your email?"
                     />
                   </div>
                   <div>
@@ -64,9 +85,30 @@ function ProfileInfo() {
                       Phone Number
                     </label>
                     <input
+                      type="number"
+                      className="input-box"
+                      {...register("phoneNumber", { required: true })}
+                      placeholder="+8801234567891"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-gray-600 mb-2 block">Address</label>
+                    <input
                       type="text"
                       className="input-box"
-                      value="+123 456 789"
+                      {...register("address", { required: true })}
+                      placeholder="Enter your local address ?"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-gray-600 mb-2 block">
+                      Shop Name
+                    </label>
+                    <input
+                      {...register("shopName", { required: true })}
+                      type="text"
+                      className="input-box"
+                      placeholder="Enter your shop name ?"
                     />
                   </div>
                 </div>
@@ -88,4 +130,4 @@ function ProfileInfo() {
   );
 }
 
-export default withAuth(ProfileInfo);
+export default ProfileInfo;
