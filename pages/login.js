@@ -1,12 +1,19 @@
 import Head from "next/head";
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+
 import { Register } from "../components/Auth/Register";
 import Layout from "../components/layout";
 
 function login() {
+  const router = useRouter();
+  const { data: session } = useSession();
+  if (session) {
+    router.back();
+  }
   return (
     <>
-    <Head>
+      <Head>
         <title>Login | ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>

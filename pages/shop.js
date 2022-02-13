@@ -1,6 +1,5 @@
 import ShopSidebar from "../components/ShopGridPage/ShopSidebar/ShopSidebar";
 import ShopContent from "../components/ShopGridPage/ShopContent/ShopContent";
-import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import querySearch from "../lib/querySearch";
 import spliceData from "../lib/spliceData";
