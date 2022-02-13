@@ -15,24 +15,11 @@ const UserSchema = new mongoose.Schema({
   },
   customName: {
     type: String,
-    unique: true,
     default: "",
   }, // Firstname-Lastname
   provider: {
     type: String,
     required: true,
-  },
-  birthday: {
-    type: String,
-    default: "",
-  },
-  gender: {
-    type: String,
-    default: "",
-  },
-  shopName: {
-    type: String,
-    default: "",
   },
   isSeller: {
     type: Boolean,
@@ -44,6 +31,18 @@ const UserSchema = new mongoose.Schema({
     default: "",
   },
   phoneNumber: {
+    type: String,
+    default: "",
+  },
+  shopName: {
+    type: String,
+    default: "",
+  },
+  gender: {
+    type: String,
+    default: "",
+  },
+  birthday: {
     type: String,
     default: "",
   },

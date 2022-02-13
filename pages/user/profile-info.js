@@ -1,20 +1,65 @@
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 
 function ProfileInfo() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [user, setUser] = useState();
+  console.log(user);
+
+  useEffect(async () => {
+    const res = await fetch("/api/user");
+    const data = await res.json();
+    setUser(data.Login[0]);
+  }, []);
+
+  const onSubmit = async (data) => {
+    const res = await fetch(`/api/user?userId=${user._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+        isSeller: user.isSeller,
+        provider: user.provider,
+        purchaseHistory: user.purchaseHistory,
+        cart: user.cart,
+        wishlist: user.wishlist,
+        _id: user._id,
+        email: user.email,
+        image: user.image,
+      }),
+    });
+
+    if (res.ok) {
+      console.log("User Update done");
+      router.push("/user/account");
+    }
   };
+
   return (
     <>
+      <Head>
+        <title>My Profile Edit - ToTo SHOP</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta
+          name="description"
+          content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
+        ></meta>
+      </Head>
       <Layout title={"My profile info"}>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
@@ -36,6 +81,7 @@ function ProfileInfo() {
                       {...register("name", { required: true })}
                       className="input-box"
                       placeholder="Enter your full name?"
+                      defaultValue={user?.name}
                     />
                   </div>
                   <div>
@@ -45,6 +91,7 @@ function ProfileInfo() {
                       {...register("customName", { required: true })}
                       className="input-box"
                       placeholder="Enter your username like mrX123"
+                      defaultValue={user?.customName}
                     />
                   </div>
                 </div>
@@ -55,6 +102,7 @@ function ProfileInfo() {
                       {...register("birthday", { required: true })}
                       type="date"
                       className="input-box"
+                      defaultValue={user?.birthday}
                     />
                   </div>
                   <div>
@@ -62,6 +110,7 @@ function ProfileInfo() {
                     <select
                       {...register("gender", { required: true })}
                       className="input-box"
+                      defaultValue={user?.gender}
                     >
                       <option>Male</option>
                       <option>Female</option>
@@ -74,10 +123,10 @@ function ProfileInfo() {
                       Email Address
                     </label>
                     <input
-                      {...register("email", { required: true })}
                       type="text"
                       className="input-box"
                       placeholder="Enter your email?"
+                      value={user?.email}
                     />
                   </div>
                   <div>
@@ -89,6 +138,7 @@ function ProfileInfo() {
                       className="input-box"
                       {...register("phoneNumber", { required: true })}
                       placeholder="+8801234567891"
+                      defaultValue={user?.phoneNumber}
                     />
                   </div>
                   <div>
@@ -98,6 +148,7 @@ function ProfileInfo() {
                       className="input-box"
                       {...register("address", { required: true })}
                       placeholder="Enter your local address ?"
+                      defaultValue={user?.address}
                     />
                   </div>
                   <div>
@@ -109,17 +160,17 @@ function ProfileInfo() {
                       type="text"
                       className="input-box"
                       placeholder="Enter your shop name ?"
+                      defaultValue={user?.shopName}
                     />
                   </div>
                 </div>
               </div>
               <div className="mt-6">
-                <button
+                <input
                   type="submit"
+                  value="Save change"
                   className="px-6 py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-                >
-                  Save change
-                </button>
+                />
               </div>
             </form>
           </div>
@@ -130,4 +181,4 @@ function ProfileInfo() {
   );
 }
 
-export default ProfileInfo;
+export default withAuth(ProfileInfo);
