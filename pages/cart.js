@@ -2,7 +2,7 @@ import Head from "next/head";
 import CartTitleBar from "../components/CartPage/CartTitleBar";
 import OrderSummary from "../components/CartPage/OrderSummary";
 import { SingleCart } from "../components/CartPage/SingleCart";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
 import ProductNotAvailable from "../components/CartPage/ProductNotAvailable";
@@ -23,7 +23,7 @@ function cart() {
         ></meta>
       </Head>
       {cartData.length ? (
-        <Layout title={"Shopping Cart"}>
+        // <Layout title={"Shopping Cart"}>
           <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
             <div className="xl:col-span-9 lg:col-span-8">
               <CartTitleBar />
@@ -39,7 +39,7 @@ function cart() {
             </div>
             <OrderSummary />
           </div>
-        </Layout>
+        // </Layout>
       ) : (
         <ProductNotAvailable />
       )}

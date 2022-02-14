@@ -3,7 +3,7 @@ import Head from "next/head";
 import AboutBanner from "../components/AboutPage/AboutBanner/AboutBanner";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import ContactInfo from "../components/ContactPage/ContactInfo/ContactInfo";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
  
 function contact() {
   return (
@@ -17,7 +17,7 @@ function contact() {
           content="Use The Form Below To Get In Touch With The Sales Team"
         ></meta>
       </Head>
-      <Layout title={"no"}>
+      {/* <Layout title={"no"}> */}
         <AboutBanner
           bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
           Icon={HomeIcon}
@@ -30,7 +30,7 @@ function contact() {
           <ContactForm />
           <ContactInfo />
         </main>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

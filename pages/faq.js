@@ -4,7 +4,7 @@ import ShoppingData from "../components/FaqPage/ShoppingFaqData/ShoppingFaqData"
 import OrderData from "../components/FaqPage/OrderReturnFaqData/OrderFaqData";
 import PaymentData from "../components/FaqPage/PaymentFaqData/PaymentFaqData";
 import { useRouter } from "next/router";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import Head from "next/head";
 
 function faq() {
@@ -26,7 +26,7 @@ function faq() {
           content="Can’t find the answer you’re looking for? We’ve shared some of your most frequently asked questions to help you out!"
         ></meta>
       </Head>
-      <Layout title={"FAQ"}>
+      {/* <Layout title={"FAQ"}> */}
         <main className="max-w-[75rem] mx-auto px-4 py-6">
           {/* main content  top*/}
           <div className="px-1 md:px-8 space-y-6 max-w-[550px] pt-4 pb-10">
@@ -85,7 +85,7 @@ function faq() {
             </div>
           </div>
         </main>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }
