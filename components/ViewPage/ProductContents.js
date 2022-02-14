@@ -229,7 +229,7 @@ export const ProductContents = ({ product }) => {
           <i className="fab fa-twitter"></i>
         </a>
         <a
-          href={`https://wa.me/?text=Awesome%20Product!%5Cn%20totoshop.tech/product/${product._id}`}
+          href={`https://wa.me/?text=Awesome%20Product!%20totoshop.tech/product/${product._id}`}
           className="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center"
         >
           <i className="fab fa-whatsapp"></i>
