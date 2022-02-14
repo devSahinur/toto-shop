@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import { useRouter } from "next/router";
 import SingleCard from "../../components/Home/TopNewArrival/SingleArrival";
 import { ProductImage } from "../../components/ViewPage/ProductImage";
