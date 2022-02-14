@@ -2,19 +2,27 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectTotal } from "../../slices/appSlice";
+import { selectItems, selectTotal } from "../../slices/appSlice";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+
+const stripePromise = loadStripe(process.env.stripe_public_key);
 
 const OrderSummary = () => {
   const total = useSelector(selectTotal);
+  const items = useSelector(selectItems);
+  const { data: session } = useSession();
   const router = useRouter();
   const [couponInput, setCouponInput] = useState("");
 
   const [coupon, setCoupon] = useState(false);
   const [notMatchCoupon, setNotmatchCoupon] = useState(false);
 
+  console.log(items);
 
-// TODO: calculte the parcentage
-// this is const value
+  // TODO: calculte the parcentage
+  // this is const value
   const parcentageNumber = 5;
   const tax = 15;
 
@@ -28,6 +36,27 @@ const OrderSummary = () => {
     } else {
       setNotmatchCoupon(true);
     }
+  };
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+
+    // Call the backend create a checkout session
+    const checkoutSession = await axios.post(
+      "/api/create-checkout-session",
+      {
+        items: items,
+        email: session.user.email,
+      },
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    // // Redirect user /customer to Stripe Checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) alert(result.error.message);
   };
 
   return (
@@ -84,13 +113,14 @@ const OrderSummary = () => {
       {/* <!-- searchbar end --> */}
 
       {/* <!-- checkout --> */}
-      <div
-        onClick={() => router.push("/checkout")}
+      <button
+        role="link"
+        onClick={createCheckoutSession}
         className="bg-primary border border-primary text-white px-4 cursor-pointer py-3 font-medium rounded-md uppercase hover:bg-transparent
      hover:text-primary transition text-sm w-full block text-center"
       >
         Process to checkout
-      </div>
+      </button>
       {/* <!-- checkout end --> */}
     </div>
   );

@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.6.0",
     "@heroicons/react": "^1.0.5",
     "@reduxjs/toolkit": "^1.6.2",
+    "@stripe/stripe-js": "^1.22.0",
     "@tailwindcss/forms": "^0.4.0",
     "axios": "^0.25.0",
     "canvas-confetti": "^1.5.1",
@@ -28,7 +29,8 @@
     "react-redux": "^7.2.6",
     "react-responsive-carousel": "^3.2.22",
     "react-slick": "^0.28.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "stripe": "^8.202.0"
   },
   "devDependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
