@@ -5,7 +5,7 @@ import OurVision from "../components/AboutPage/ourVision/OurVision";
 import OurTeam from "../components/AboutPage/ourTeam/OurTeam";
 import OurCompany from "../components/AboutPage/ourCompany/OurCompany";
 import Head from "next/head";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 
 function about() {
   return (
@@ -19,7 +19,7 @@ function about() {
           content="We design and delever our customers' degital transformation by bringing together their vision with our industry knowledge and deep technologcal expertise. We design and delever our customers' degital transformmation"
         ></meta>
       </Head>
-      <Layout title={"no"}>
+      {/* <Layout title={"no"}> */}
         {/* about Banner components */}
         <AboutBanner
           bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
@@ -34,7 +34,7 @@ function about() {
           <OurTeam />
           <OurCompany />
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }
