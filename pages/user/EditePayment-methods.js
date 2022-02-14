@@ -1,7 +1,10 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import EditePaymentFrom from "../../components/EditePaymentmethod/EditePaymentFrom/EditePaymentFrom";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -27,21 +30,25 @@ const orderHistory = [
 
 function EditePaymentMethods() {
   return (
-    <div>
+    <>
       {/* <Layout title={"Edit Payment Methods"}> */}
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
+      <Header />
+      <Navbar />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <WishListSidebar />
 
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            <EditePaymentFrom />
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+        {/* <!-- account content --> */}
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {/* <!-- single card --> */}
+          <EditePaymentFrom />
+          {/* <!-- single card end --> */}
         </div>
+        {/* <!-- account content end --> */}
+      </div>
       {/* </Layout> */}
-    </div>
+      <Footer />
+      <Copyright />
+    </>
   );
 }
 

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-// import Layout from "../../components/layout";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import SingleWishList from "../../components/WishListPage/SingleWishList";
 import WishListProductNotAvailable from "../../components/WishListPage/WishListProductNotAvailable";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
@@ -23,6 +25,9 @@ function wishlist() {
       </Head>
       {wishlistAll.length ? (
         // <Layout title={"MY wish list"}>
+        <>
+        <Header/>
+        <Navigator/>
           <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
             <WishListSidebar />
             <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
@@ -31,7 +36,9 @@ function wishlist() {
               ))}
             </div>
           </div>
-        // </Layout>
+          <Footer/>
+          <Copyright/>
+        </>
       ) : (
         <WishListProductNotAvailable />
       )}

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
-// import Layout from "../../components/layout";
 import MyProductCard from "../../components/MyProductCard";
 import MyProductTitleBar from "../../components/MyProductTitleBar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
@@ -9,6 +8,10 @@ import { useSession } from "next-auth/react";
 import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
 import { useRouter } from "next/router";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import Copyright from "../../components/Copyright";
 
 function myProduct() {
   const router = useRouter();
@@ -51,6 +54,8 @@ function myProduct() {
         ></meta>
       </Head>
       {/* <Layout title={"Add Product"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
           <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
@@ -72,6 +77,8 @@ function myProduct() {
           </main>
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

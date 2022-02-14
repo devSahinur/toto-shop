@@ -1,10 +1,15 @@
-// import Layout from "../../components/layout";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 
 function ChangePassword() {
   return (
     <>
       {/* <Layout title={"Change Password"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -72,6 +77,8 @@ function ChangePassword() {
           </div>
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

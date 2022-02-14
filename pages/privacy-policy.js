@@ -1,5 +1,8 @@
 import Head from "next/head";
-// import Layout from "../components/layout";
+import Copyright from "../components/Copyright";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 function PrivacyPolicy() {
   return (
@@ -14,6 +17,8 @@ function PrivacyPolicy() {
         ></meta>
       </Head>
       {/* <Layout title={"Privacy And Policy"}> */}
+      <Header/>
+      <Navbar/>
         <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
           <h1 className="text-center text-xl md:text-4xl font-semibold">
             Privacy Policy
@@ -91,7 +96,8 @@ function PrivacyPolicy() {
             </p>
           </div>
         </main>
-      {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

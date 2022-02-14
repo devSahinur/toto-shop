@@ -4,11 +4,14 @@ import AddProductInput from "../../components/AddProduct/AddProductInput";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-// import Layout from "../../components/layout";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 function addProduct() {
   const router = useRouter();
@@ -81,6 +84,8 @@ function addProduct() {
         ></meta>
       </Head>
       {/* <Layout title={"Add Product"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
           {/* <!-- account content --> */}
@@ -105,6 +110,8 @@ function addProduct() {
           {/* <!-- account content end --> */}
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

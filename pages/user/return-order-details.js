@@ -1,8 +1,11 @@
 
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import ReturnOrdermain from "../../components/ReturnOrderDetails/ReturnOrderMain/ReturnOrdermain";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 
 const orderHistory = [
@@ -28,6 +31,8 @@ function ReturnDetails() {
   return (
     <>
       {/* <Layout title={"Return Details"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -40,6 +45,8 @@ function ReturnDetails() {
           {/* <!-- account content end --> */}
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

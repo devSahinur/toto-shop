@@ -13,10 +13,13 @@ import withAuth from "../../../lib/withAuth";
 import User from "./../../../models/User";
 import Product from "./../../../models/Product";
 // Component
-// import Layout from "../../../components/layout";
 import WishListSidebar from "../../../components/WishListPage/WishListSidebar";
 import EditProductImage from "../../../components/EditProduct/EditProductImage";
 import EditProductInput from "../../../components/EditProduct/EditProductInput";
+import Header from "../../../components/Header";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import Copyright from "../../../components/Copyright";
 
 function editProduct({ product, user }) {
   // console.log(product, user);
@@ -99,29 +102,37 @@ function editProduct({ product, user }) {
         ></meta>
       </Head>
       {/* <Layout title={"Add Product"}> */}
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-          <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
-            {/* content Main */}
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
-                <EditProductInput
-                  setInputs={setInputs}
-                  inputs={inputs}
-                  register={register}
-                  product={product}
-                />
-                <EditProductImage
-                  images={images}
-                  imageRemoveControl={imageRemoveControl}
-                  handleImageUpload={handleImageUpload}
-                />
-              </div>
-              <input className="btn mt-5" type="submit" value={"Confirm change"} />
-            </form>
-          </main>
-        </div>
+      <Header />
+      <Navbar />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <WishListSidebar />
+        <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
+          {/* content Main */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 space-y-5  md:grid-cols-2 md:space-x-5">
+              <EditProductInput
+                setInputs={setInputs}
+                inputs={inputs}
+                register={register}
+                product={product}
+              />
+              <EditProductImage
+                images={images}
+                imageRemoveControl={imageRemoveControl}
+                handleImageUpload={handleImageUpload}
+              />
+            </div>
+            <input
+              className="btn mt-5"
+              type="submit"
+              value={"Confirm change"}
+            />
+          </form>
+        </main>
+      </div>
       {/* </Layout> */}
+      <Footer />
+      <Copyright />
     </>
   );
 }

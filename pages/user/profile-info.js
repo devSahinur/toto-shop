@@ -3,7 +3,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-// import Layout from "../../components/layout";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 
@@ -61,6 +64,8 @@ function ProfileInfo() {
         ></meta>
       </Head>
       {/* <Layout title={"My profile info"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -177,6 +182,8 @@ function ProfileInfo() {
           {/* <!-- account content end --> */}
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

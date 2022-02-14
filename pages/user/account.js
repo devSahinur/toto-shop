@@ -2,8 +2,11 @@ import Head from "next/head";
 import { useSession } from "next-auth/react";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 function account() {
   const { data: session } = useSession();
@@ -19,6 +22,8 @@ function account() {
         ></meta>
       </Head>
       {/* <Layout title={"My account"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
           <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
@@ -30,6 +35,8 @@ function account() {
           </div>
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

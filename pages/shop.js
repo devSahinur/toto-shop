@@ -4,6 +4,10 @@ import ShopContent from "../components/ShopGridPage/ShopContent/ShopContent";
 import querySearch from "../lib/querySearch";
 import spliceData from "../lib/spliceData";
 import Head from "next/head";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
 
 const itemsPerPage = 20; // Number of Card per page (for pagination)
 
@@ -24,15 +28,19 @@ function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
         ></meta>
       </Head>
       {/* <Layout title={"Shop"}> */}
-        <main className="sm:max-w-[70rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
-          {/* content Main */}
+      <Header />
+      <Navbar />
+      <main className="sm:max-w-[70rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
+        {/* content Main */}
 
-          <div className="flex xl:space-x-10">
-            <ShopSidebar />
-            <ShopContent currentItems={currentItems} />
-          </div>
-        </main>
+        <div className="flex xl:space-x-10">
+          <ShopSidebar />
+          <ShopContent currentItems={currentItems} />
+        </div>
+      </main>
       {/* </Layout> */}
+      <Footer />
+      <Copyright />
     </>
   );
 }

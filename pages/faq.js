@@ -4,8 +4,11 @@ import ShoppingData from "../components/FaqPage/ShoppingFaqData/ShoppingFaqData"
 import OrderData from "../components/FaqPage/OrderReturnFaqData/OrderFaqData";
 import PaymentData from "../components/FaqPage/PaymentFaqData/PaymentFaqData";
 import { useRouter } from "next/router";
-// import Layout from "../components/layout";
 import Head from "next/head";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
 
 function faq() {
   const router = useRouter();
@@ -27,6 +30,8 @@ function faq() {
         ></meta>
       </Head>
       {/* <Layout title={"FAQ"}> */}
+      <Header/>
+      <Navbar/>
         <main className="max-w-[75rem] mx-auto px-4 py-6">
           {/* main content  top*/}
           <div className="px-1 md:px-8 space-y-6 max-w-[550px] pt-4 pb-10">
@@ -86,6 +91,8 @@ function faq() {
           </div>
         </main>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

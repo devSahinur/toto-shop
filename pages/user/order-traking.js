@@ -1,13 +1,16 @@
-// import Layout from "../../components/layout";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import withAuth from "../../lib/withAuth";
 
 function wishlist() {
   return (
-    <dv>
+    <>
+    <Header/>
       {/* <Layout title={"My order tracking"}> */}
         <h1>I am the order Traking page</h1>
       {/* </Layout> */}
-    </dv>
+      <Footer/>
+    </>
   );
 }
 

@@ -3,6 +3,10 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import { Register } from "../components/Auth/Register";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
 // import Layout from "../components/layout";
 
 function login() {
@@ -23,10 +27,14 @@ function login() {
         ></meta>
       </Head>
       {/* <Layout title={"no"}> */}
+      <Header/>
+      <Navbar/>
         <main>
           <Register />
         </main>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

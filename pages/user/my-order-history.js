@@ -1,7 +1,10 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 // https://i.ibb.co/D5kM6Hb/headphone-3.png
 // https://i.ibb.co/kDYYgSr/tv.png
@@ -51,6 +54,8 @@ function OrderHistory() {
   return (
     <>
       {/* <Layout title={"My Order History"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -76,6 +81,8 @@ function OrderHistory() {
           {/* <!-- account content end --> */}
         </div>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

@@ -1,7 +1,10 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 // https://i.ibb.co/fDCywKw/iphone-12.png
 // https://i.ibb.co/dMJPPb8/headphone-1-1.png
@@ -49,31 +52,35 @@ function OrderCancel() {
   return (
     <>
       {/* <Layout title={"My Order Cancel"}> */}
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
+      <Header />
+      <Navbar />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <WishListSidebar />
 
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            {orderHistory?.map(
-              ({ id, image, orderNumber, date, quantity, total, status }) => (
-                <SingleOrderHistory
-                  key={id}
-                  id={id}
-                  image={image}
-                  orderNumber={orderNumber}
-                  date={date}
-                  quantity={quantity}
-                  total={total}
-                  status={status}
-                />
-              )
-            )}
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+        {/* <!-- account content --> */}
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {/* <!-- single card --> */}
+          {orderHistory?.map(
+            ({ id, image, orderNumber, date, quantity, total, status }) => (
+              <SingleOrderHistory
+                key={id}
+                id={id}
+                image={image}
+                orderNumber={orderNumber}
+                date={date}
+                quantity={quantity}
+                total={total}
+                status={status}
+              />
+            )
+          )}
+          {/* <!-- single card end --> */}
         </div>
+        {/* <!-- account content end --> */}
+      </div>
       {/* </Layout> */}
+      <Footer />
+      <Copyright />
     </>
   );
 }

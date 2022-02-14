@@ -1,8 +1,11 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import OrderDetailsTop from "../../components/OrderDetails/OrderDetailsTop/OrderDetailsTop";
 import OrderDetailsBottom from "../../components/OrderDetails/OrderDetailsBottom/OrderDetailsBottom";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import Copyright from "../../components/Copyright";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -30,19 +33,23 @@ function OrderDetails() {
   return (
     <>
       {/* <Layout title={"Order Details"}> */}
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
+      <Header />
+      <Navbar />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <WishListSidebar />
 
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            <OrderDetailsTop />
-            <OrderDetailsBottom />
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+        {/* <!-- account content --> */}
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {/* <!-- single card --> */}
+          <OrderDetailsTop />
+          <OrderDetailsBottom />
+          {/* <!-- single card end --> */}
         </div>
+        {/* <!-- account content end --> */}
+      </div>
       {/* </Layout> */}
+      <Footer />
+      <Copyright />
     </>
   );
 }

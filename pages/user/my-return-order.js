@@ -1,4 +1,8 @@
 // import Layout from "../../components/layout";
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import SingleReturnOrder from "../../components/OrderReturn/SingleReturnOrder/SingleReturnOrder";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
@@ -172,8 +176,10 @@ const product = [
 
 function ReturnOrder() {
   return (
-    <div>
+    <>
       {/* <Layout title={"my Return Order"}> */}
+      <Header/>
+      <Navbar/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -186,7 +192,9 @@ function ReturnOrder() {
           {/* <!-- account content end --> */}
         </div>
       {/* </Layout> */}
-    </div>
+      <Footer/>
+      <Copyright/>
+    </>
   );
 }
 

@@ -1,13 +1,18 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 function OrderComplate() {
   const router = useRouter();
   return (
     <>
       {/* <Layout title={"Order Complete"}> */}
+      <Header/>
+      <Navbar/>
         <main className="max-w-[75rem] mx-auto px-4 py-6">
           {/* main content  top*/}
           <div className="px-1 md:px-8 pt-4 pb-10 flex justify-center items-center">
@@ -39,6 +44,8 @@ function OrderComplate() {
           </div>
         </main>
       {/* </Layout> */}
+      <Footer/>
+      <Copyright/>
     </>
   );
 }

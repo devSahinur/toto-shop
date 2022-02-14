@@ -1,7 +1,10 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SinglePaymentCard from "../../components/PaymentMethod/SinglePaymentCard/SinglePaymentCard";
-// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -29,30 +32,34 @@ function PaymentMethod() {
   return (
     <>
       {/* <Layout title={"Payment Methods"}> */}
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
+      <Header />
+      <Navbar />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <WishListSidebar />
 
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            {orderHistory?.map(
-              ({ id, image, method, defaultValue, lastFour, expires }) => (
-                <SinglePaymentCard
-                  key={id}
-                  id={id}
-                  image={image}
-                  method={method}
-                  defaultValue={defaultValue}
-                  lastFour={lastFour}
-                  expires={expires}
-                />
-              )
-            )}
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+        {/* <!-- account content --> */}
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {/* <!-- single card --> */}
+          {orderHistory?.map(
+            ({ id, image, method, defaultValue, lastFour, expires }) => (
+              <SinglePaymentCard
+                key={id}
+                id={id}
+                image={image}
+                method={method}
+                defaultValue={defaultValue}
+                lastFour={lastFour}
+                expires={expires}
+              />
+            )
+          )}
+          {/* <!-- single card end --> */}
         </div>
+        {/* <!-- account content end --> */}
+      </div>
       {/* </Layout> */}
+      <Footer />
+      <Copyright />
     </>
   );
 }

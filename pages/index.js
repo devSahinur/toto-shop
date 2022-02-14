@@ -7,7 +7,10 @@ import { MiddleAds } from "../components/Home/MiddleAds";
 import { RecomendedProduct } from "../components/Home/RecomendedProduct/RecomendedProduct";
 import { useEffect, useState } from "react";
 import Modal from "../components/Home/Modal/Modal";
-// import Layout from "../components/layout";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
 
 export default function Home({ products }) {
   // const [showModal, setShowModal] = useState(false);
@@ -37,6 +40,8 @@ export default function Home({ products }) {
         ></meta>
       </Head>
       {/* <Layout title={"no"}> */}
+      <Header/>
+      <Navbar/>
         <main>
           <Banner />
           <Features />
@@ -47,6 +52,8 @@ export default function Home({ products }) {
         </main>
         {/* for show the modal */}
         {/* {showModal && <Modal setShowModal={setShowModal} />} */}
+        <Footer/>
+        <Copyright/>
       {/* </Layout> */}
     </>
   );
