@@ -6,8 +6,8 @@ import withAuth from "../../lib/withAuth";
 function OrderComplate() {
   const router = useRouter();
   return (
-    <div>
-      <Layout title={"Order Complete"}>
+    <>
+      {/* <Layout title={"Order Complete"}> */}
         <main className="max-w-[75rem] mx-auto px-4 py-6">
           {/* main content  top*/}
           <div className="px-1 md:px-8 pt-4 pb-10 flex justify-center items-center">
@@ -38,8 +38,8 @@ function OrderComplate() {
             </div>
           </div>
         </main>
-      </Layout>
-    </div>
+      {/* </Layout> */}
+    </>
   );
 }
 

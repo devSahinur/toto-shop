@@ -22,7 +22,7 @@ function wishlist() {
         ></meta>
       </Head>
       {wishlistAll.length ? (
-        <Layout title={"MY wish list"}>
+        // <Layout title={"MY wish list"}>
           <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
             <WishListSidebar />
             <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
@@ -31,7 +31,7 @@ function wishlist() {
               ))}
             </div>
           </div>
-        </Layout>
+        // </Layout>
       ) : (
         <WishListProductNotAvailable />
       )}

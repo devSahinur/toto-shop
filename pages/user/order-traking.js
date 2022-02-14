@@ -3,11 +3,11 @@ import withAuth from "../../lib/withAuth";
 
 function wishlist() {
   return (
-    <div>
-      <Layout title={"My order tracking"}>
+    <dv>
+      {/* <Layout title={"My order tracking"}> */}
         <h1>I am the order Traking page</h1>
-      </Layout>
-    </div>
+      {/* </Layout> */}
+    </dv>
   );
 }
 

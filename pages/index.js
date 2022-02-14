@@ -36,7 +36,7 @@ export default function Home({ products }) {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout title={"no"}>
+      {/* <Layout title={"no"}> */}
         <main>
           <Banner />
           <Features />
@@ -47,7 +47,7 @@ export default function Home({ products }) {
         </main>
         {/* for show the modal */}
         {/* {showModal && <Modal setShowModal={setShowModal} />} */}
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

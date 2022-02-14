@@ -174,7 +174,7 @@ const product = [
 function ReturnOrder() {
   return (
     <div>
-      <Layout title={"my Return Order"}>
+      {/* <Layout title={"my Return Order"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -186,7 +186,7 @@ function ReturnOrder() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </div>
   );
 }

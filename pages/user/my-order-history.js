@@ -51,7 +51,7 @@ const orderHistory = [
 function OrderHistory() {
   return (
     <>
-      <Layout title={"My Order History"}>
+      {/* <Layout title={"My Order History"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -76,7 +76,7 @@ function OrderHistory() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

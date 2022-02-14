@@ -7,7 +7,7 @@ function ManageAddress() {
 
   return (
     <>
-      <Layout title={"Manage my Address"}>
+      {/* <Layout title={"Manage my Address"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -101,7 +101,7 @@ function ManageAddress() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

@@ -30,7 +30,7 @@ const orderHistory = [
 function EditePaymentMethods() {
   return (
     <div>
-      <Layout title={"Edit Payment Methods"}>
+      {/* <Layout title={"Edit Payment Methods"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -42,7 +42,7 @@ function EditePaymentMethods() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </div>
   );
 }

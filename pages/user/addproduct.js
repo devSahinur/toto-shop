@@ -80,7 +80,7 @@ function addProduct() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout title={"Add Product"}>
+      {/* <Layout title={"Add Product"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
           {/* <!-- account content --> */}
@@ -104,7 +104,7 @@ function addProduct() {
           </main>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

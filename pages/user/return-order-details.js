@@ -31,8 +31,8 @@ const orderHistory = [
 
 function ReturnDetails() {
   return (
-    <div>
-      <Layout title={"Return Details"}>
+    <>
+      {/* <Layout title={"Return Details"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -44,8 +44,8 @@ function ReturnDetails() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
-    </div>
+      {/* </Layout> */}
+    </>
   );
 }
 

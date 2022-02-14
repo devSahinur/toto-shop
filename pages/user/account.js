@@ -18,7 +18,7 @@ function account() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout title={"My account"}>
+      {/* <Layout title={"My account"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
           <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
@@ -29,7 +29,7 @@ function account() {
             {/* <!-- single card end --> */}
           </div>
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

@@ -28,8 +28,8 @@ const orderHistory = [
 
 function PaymentMethod() {
   return (
-    <div>
-      <Layout title={"Payment Methods"}>
+    <>
+      {/* <Layout title={"Payment Methods"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -53,8 +53,8 @@ function PaymentMethod() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
-    </div>
+      {/* </Layout> */}
+    </>
   );
 }
 

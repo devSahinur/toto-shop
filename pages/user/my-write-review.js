@@ -28,7 +28,7 @@ const orderHistory = [
 function MyWiriteReviews() {
   return (
     <div>
-      <Layout title={"Order Cancel"}>
+      {/* <Layout title={"Order Cancel"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -40,7 +40,7 @@ function MyWiriteReviews() {
           </div>
           {/* <!-- account content end --> */}
         </div>
-      </Layout>
+      {/* </Layout> */}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 function ChangePassword() {
   return (
     <>
-      <Layout title={"Change Password"}>
+      {/* <Layout title={"Change Password"}> */}
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
           <WishListSidebar />
 
@@ -71,7 +71,7 @@ function ChangePassword() {
             </form>
           </div>
         </div>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }
