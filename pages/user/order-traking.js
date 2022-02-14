@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 function wishlist() {

@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import { Register } from "../components/Auth/Register";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 
 function login() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import ShopSidebar from "../components/ShopGridPage/ShopSidebar/ShopSidebar";
 import ShopContent from "../components/ShopGridPage/ShopContent/ShopContent";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import querySearch from "../lib/querySearch";
 import spliceData from "../lib/spliceData";
 import Head from "next/head";

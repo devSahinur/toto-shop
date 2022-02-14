@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import SingleWishList from "../../components/WishListPage/SingleWishList";
 import WishListProductNotAvailable from "../../components/WishListPage/WishListProductNotAvailable";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";

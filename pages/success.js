@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { CheckIcon } from "@heroicons/react/outline";
 import { useEffect } from "react";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import { shootFireworks } from "../lib/successEffect";
 
 function success() {

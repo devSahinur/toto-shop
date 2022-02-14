@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 function OrderComplate() {

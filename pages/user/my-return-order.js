@@ -1,6 +1,5 @@
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import SingleReturnOrder from "../../components/OrderReturn/SingleReturnOrder/SingleReturnOrder";
-import SingleWishList from "../../components/WishListPage/SingleWishList";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 

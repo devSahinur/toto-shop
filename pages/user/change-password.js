@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 
 function ChangePassword() {

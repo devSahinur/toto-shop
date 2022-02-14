@@ -1,6 +1,6 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleReviews from "../../components/MyReviews/SingleRevies/SingleReviews";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/fDCywKw/iphone-12.png

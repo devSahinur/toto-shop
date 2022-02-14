@@ -7,7 +7,7 @@ import { MiddleAds } from "../components/Home/MiddleAds";
 import { RecomendedProduct } from "../components/Home/RecomendedProduct/RecomendedProduct";
 import { useEffect, useState } from "react";
 import Modal from "../components/Home/Modal/Modal";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 
 export default function Home({ products }) {
   // const [showModal, setShowModal] = useState(false);

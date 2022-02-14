@@ -4,7 +4,7 @@ import AddProductInput from "../../components/AddProduct/AddProductInput";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";

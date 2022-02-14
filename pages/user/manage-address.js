@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 

@@ -1,6 +1,6 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import MyWriteReviews from "../../components/MyWriteReviews/MyWriteReviesmain";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/WzDxXQY/visa.png

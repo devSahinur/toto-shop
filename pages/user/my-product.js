@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import MyProductCard from "../../components/MyProductCard";
 import MyProductTitleBar from "../../components/MyProductTitleBar";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";

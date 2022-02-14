@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useSession } from "next-auth/react";
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 function account() {

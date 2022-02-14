@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 
 function TramsCondition() {
   const router = useRouter();

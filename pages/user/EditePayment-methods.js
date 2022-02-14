@@ -1,8 +1,6 @@
 import WishListSidebar from "../../components/WishListPage/WishListSidebar";
-import AccuntSingleCard from "../../components/Account/AccuntSingleCard";
-import SinglePaymentCard from "../../components/PaymentMethod/SinglePaymentCard/SinglePaymentCard";
 import EditePaymentFrom from "../../components/EditePaymentmethod/EditePaymentFrom/EditePaymentFrom";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 import withAuth from "../../lib/withAuth";
 
 // https://i.ibb.co/WzDxXQY/visa.png

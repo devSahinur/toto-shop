@@ -13,7 +13,7 @@ import withAuth from "../../../lib/withAuth";
 import User from "./../../../models/User";
 import Product from "./../../../models/Product";
 // Component
-import Layout from "../../../components/layout";
+// import Layout from "../../../components/layout";
 import WishListSidebar from "../../../components/WishListPage/WishListSidebar";
 import EditProductImage from "../../../components/EditProduct/EditProductImage";
 import EditProductInput from "../../../components/EditProduct/EditProductInput";
