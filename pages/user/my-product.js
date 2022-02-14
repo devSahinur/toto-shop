@@ -21,7 +21,7 @@ function myProduct() {
   const myData = product?.filter((p) => p?.email === session?.user?.email);
 
   useEffect(async () => {
-    const res = await fetch(`${process.env.HOST}/api/product`);
+    const res = await fetch(`${process.env.host_url}/api/product`);
     const data = await res.json();
     setProduct(data?.data);
   }, []);

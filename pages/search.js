@@ -115,7 +115,7 @@ function search({ product }) {
 export default search;
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/product");
+  const res = await fetch(`${process.env.HOST}/api/product`);
   const data = await res.json();
   return {
     props: {
