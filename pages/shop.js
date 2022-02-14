@@ -23,7 +23,7 @@ function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
           content={`${keyword} Bangladesh - Shop for best hello online at www.totoshop.tech`}
         ></meta>
       </Head>
-      <Layout title={"Shop"}>
+      {/* <Layout title={"Shop"}> */}
         <main className="sm:max-w-[70rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
 
@@ -32,7 +32,7 @@ function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
             <ShopContent currentItems={currentItems} />
           </div>
         </main>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

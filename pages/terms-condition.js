@@ -15,7 +15,7 @@ function TramsCondition() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Layout title={"Terms & Conditions"}>
+      {/* <Layout title={"Terms & Conditions"}> */}
         <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
           <h1 className="text-center text-xl md:text-4xl font-semibold">
             Terms & Conditions
@@ -102,7 +102,7 @@ function TramsCondition() {
             </p>
           </div>
         </main>
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

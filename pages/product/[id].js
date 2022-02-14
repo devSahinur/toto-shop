@@ -18,7 +18,7 @@ function view({ product, allData }) {
         <meta name="title" content={`${product.title} - ToToSHOP`}></meta>
         <meta name="description" content={product.shortDescription}></meta>
       </Head>
-      <Layout title={"no"}>
+      {/* <Layout title={"no"}> */}
         {/* <!-- breadcrum --> */}
         <div className="py-4 container flex gap-3 items-center">
           <div
@@ -65,7 +65,7 @@ function view({ product, allData }) {
           {/* <!-- product wrapper end --> */}
         </div>
         {/* <!-- related products end --> */}
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }
