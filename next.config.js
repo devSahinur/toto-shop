@@ -5,6 +5,7 @@ module.exports = {
       "raw.githubusercontent.com",
       "lh3.googleusercontent.com",
       "fakestoreapi.com",
+      "avatars.githubusercontent.com"
     ],
   },
   env: {

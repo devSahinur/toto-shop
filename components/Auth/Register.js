@@ -156,12 +156,14 @@ export const Register = () => {
           </div>
         </div>
         <div className="mt-4 flex gap-4">
-          <a
-            href="#"
-            className="block w-1/2 py-2 text-center text-white bg-blue-800 rounded uppercase font-roboto font-medium text-sm"
+          <div
+            onClick={() => {
+              signIn("github", { callbackUrl: "/" })
+            }}
+            className="block w-1/2 py-2 text-center cursor-pointer text-white bg-blue-800 rounded uppercase font-roboto font-medium text-sm"
           >
-            Facebook
-          </a>
+            GitHub
+          </div>
           <div
             onClick={() => {
               signIn("google", { callbackUrl: "/" })
