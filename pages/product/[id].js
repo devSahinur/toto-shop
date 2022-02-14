@@ -81,10 +81,10 @@ export default view;
 
 export async function getServerSideProps(context) {
   const { id } = context.query;
-  const res = await fetch(`http://localhost:3000/api/product/${id}`);
+  const res = await fetch(`${process.env.HOST}/api/product/${id}`);
   const data = await res.json();
 
-  const resAll = await fetch("http://localhost:3000/api/product");
+  const resAll = await fetch(`${process.env.HOST}/api/product`);
   const allData = await resAll.json();
 
   return {
