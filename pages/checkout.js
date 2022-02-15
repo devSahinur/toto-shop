@@ -10,7 +10,7 @@ function checkout() {
   const router = useRouter();
   return (
     <>
-      <Layout title={"Checkout"}>
+      {/* <Layout title={"Checkout"}> */}
       <Header />
       <Navbar />
       <main className="max-w-[75rem] mx-auto px-4 py-6">
@@ -22,7 +22,7 @@ function checkout() {
           <CheckoutOrder />
         </div>
       </main>
-      </Layout>
+      {/* </Layout> */}
       <Footer />
       <Copyright />
     </>

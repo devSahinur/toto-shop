@@ -9,7 +9,6 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
-import Layout from '../components/Layout'
 
 function cart() {
   const cartData = useSelector(selectItems);
@@ -27,7 +26,7 @@ function cart() {
         ></meta>
       </Head>
       {cartData.length ? (
-        <Layout  title={"Shopping Cart"}>
+        // <Layout  title={"Shopping Cart"}>
           <>
             <Header />
             <Navbar />
@@ -49,7 +48,6 @@ function cart() {
             <Footer />
             <Copyright />
           </>
-        </Layout>
       ) : (
         <ProductNotAvailable />
       )}
