@@ -40,10 +40,10 @@ function ShopTopNav({ listView, setListView }) {
       {/* default sorting */}
       <div className="flex items-center px-4 py-3 border-2 cursor-pointer rounded-md space-x-8 relative">
         <div
-          className="flex items-center justify-between space-x-6 min-w-[190px]"
+          className="flex items-center justify-between space-x-6 max-w-[190px]"
           onClick={() => setShowSelect(!showSelect)}
         >
-          <h3>{sorting}</h3>
+          <h3 className="text-xs md:text-base">{sorting}</h3>
           {showSelect ? (
             <ChevronUpIcon className="h-4 text-gray-600" />
           ) : (
@@ -60,7 +60,7 @@ function ShopTopNav({ listView, setListView }) {
               <p
                 key={text}
                 onClick={() => setShort(`${text}`)}
-                className="px-4 py-3 bg-gray-200 cursor-pointer font-semibold"
+                className="px-2 py-2 md:px-4 md:py-3 bg-gray-200 cursor-pointer font-semibold"
               >
                 <Link
                   href={{
@@ -68,7 +68,7 @@ function ShopTopNav({ listView, setListView }) {
                     query: { ...router.query, sort: text },
                   }}
                 >
-                  <a>{text}</a>
+                  <a className="text-sm md:text-base">{text}</a>
                 </Link>
               </p>
             ))}

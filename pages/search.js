@@ -44,7 +44,7 @@ function search({ product }) {
           <input
             type="text"
             placeholder="Search in TotoShop"
-            className="flex-1 mx-4 bg-transparent outline-none placeholder-gray-200 placeholder:text-sm text-white"
+            className="md:flex-1 mx-4 bg-transparent outline-none placeholder-gray-200 placeholder:text-sm text-white"
             value={keyword}
             onChange={inputHandler}
           />
@@ -107,8 +107,6 @@ function search({ product }) {
             )}
           </div>
         </div>
-
-        <h1>hellow</h1>
       </div>
     </>
   );
