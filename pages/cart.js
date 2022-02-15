@@ -9,6 +9,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import Layout from '../components/Layout'
 
 function cart() {
   const cartData = useSelector(selectItems);
@@ -26,28 +27,29 @@ function cart() {
         ></meta>
       </Head>
       {cartData.length ? (
-        // <Layout title={"Shopping Cart"}>
-        <>
-          <Header />
-          <Navbar />
-          <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
-            <div className="xl:col-span-9 lg:col-span-8">
-              <CartTitleBar />
-              <div className="space-y-4">
-                {cartData?.map((product) => (
-                  <SingleCart
-                    key={product?.product?._id}
-                    id={product?.product?._id}
-                    product={product}
-                  />
-                ))}
+        <Layout  title={"Shopping Cart"}>
+          <>
+            <Header />
+            <Navbar />
+            <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
+              <div className="xl:col-span-9 lg:col-span-8">
+                <CartTitleBar />
+                <div className="space-y-4">
+                  {cartData?.map((product) => (
+                    <SingleCart
+                      key={product?.product?._id}
+                      id={product?.product?._id}
+                      product={product}
+                    />
+                  ))}
+                </div>
               </div>
+              <OrderSummary />
             </div>
-            <OrderSummary />
-          </div>
-          <Footer />
-          <Copyright />
-        </>
+            <Footer />
+            <Copyright />
+          </>
+        </Layout>
       ) : (
         <ProductNotAvailable />
       )}
