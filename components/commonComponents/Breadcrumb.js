@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-const Breadcrum = ({ title, second }) => {
+const Breadcrumb = ({ title, second }) => {
   const router = useRouter();
   return (
     <div className="py-4 container flex gap-3 items-center">
@@ -26,4 +26,4 @@ const Breadcrum = ({ title, second }) => {
   );
 };
 
-export default Breadcrum;
+export default Breadcrumb;

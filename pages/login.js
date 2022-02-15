@@ -1,12 +1,9 @@
 import Head from "next/head";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-
 import { Register } from "../components/Auth/Register";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Copyright from "../components/Copyright";
+import MainHeader from "../components/commonComponents/MainHeader";
+import MainFooter from "../components/commonComponents/MainFooter";
 // import Layout from "../components/layout";
 
 function login() {
@@ -26,15 +23,11 @@ function login() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"no"}> */}
-      <Header/>
-      <Navbar/>
-        <main>
-          <Register />
-        </main>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      <MainHeader BreadcrumbTitle="no" />
+      <main>
+        <Register />
+      </main>
+      <MainFooter />
     </>
   );
 }

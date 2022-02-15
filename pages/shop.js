@@ -1,18 +1,14 @@
 import ShopSidebar from "../components/ShopGridPage/ShopSidebar/ShopSidebar";
 import ShopContent from "../components/ShopGridPage/ShopContent/ShopContent";
-// import Layout from "../components/layout";
 import querySearch from "../lib/querySearch";
 import spliceData from "../lib/spliceData";
 import Head from "next/head";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Copyright from "../components/Copyright";
+import MainHeader from "../components/commonComponents/MainHeader";
+import MainFooter from "../components/commonComponents/MainFooter";
 
 const itemsPerPage = 20; // Number of Card per page (for pagination)
 
 function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
-  // console.log(props);
   return (
     <>
       <Head>
@@ -27,20 +23,14 @@ function ShopGrid({ keyword, totalItems, sortby, currentItems, category }) {
           content={`${keyword} Bangladesh - Shop for best hello online at www.totoshop.tech`}
         ></meta>
       </Head>
-      {/* <Layout title={"Shop"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="Shop" />
       <main className="sm:max-w-[70rem] xl:max-w-7xl mx-auto px-5 md:px-8 py-6 space-y-6">
-        {/* content Main */}
-
         <div className="flex xl:space-x-10">
           <ShopSidebar />
           <ShopContent currentItems={currentItems} />
         </div>
       </main>
-      {/* </Layout> */}
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

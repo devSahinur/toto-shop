@@ -1,14 +1,8 @@
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Copyright from "../../components/Copyright";
-
-// https://i.ibb.co/D5kM6Hb/headphone-3.png
-// https://i.ibb.co/kDYYgSr/tv.png
-// https://i.ibb.co/k1X4DXy/laptop-1.png
+import MainHeader from "../../components/commonComponents/MainHeader";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 
 const orderHistory = [
   {
@@ -53,36 +47,27 @@ const orderHistory = [
 function OrderHistory() {
   return (
     <>
-      {/* <Layout title={"My Order History"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            {orderHistory?.map(
-              ({ id, image, orderNumber, date, quantity, total, status }) => (
-                <SingleOrderHistory
-                  key={id}
-                  id={id}
-                  image={image}
-                  orderNumber={orderNumber}
-                  date={date}
-                  quantity={quantity}
-                  total={total}
-                  status={status}
-                />
-              )
-            )}
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+      <MainHeader BreadcrumbTitle="My Order History" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {orderHistory?.map(
+            ({ id, image, orderNumber, date, quantity, total, status }) => (
+              <SingleOrderHistory
+                key={id}
+                id={id}
+                image={image}
+                orderNumber={orderNumber}
+                date={date}
+                quantity={quantity}
+                total={total}
+                status={status}
+              />
+            )
+          )}
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      </div>
+      <MainFooter />
     </>
   );
 }

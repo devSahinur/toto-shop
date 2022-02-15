@@ -1,10 +1,7 @@
-// import Layout from "../../components/layout";
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import MainHeader from "../../components/commonComponents/MainHeader";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 import SingleReturnOrder from "../../components/OrderReturn/SingleReturnOrder/SingleReturnOrder";
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 
 const product = [
@@ -177,23 +174,16 @@ const product = [
 function ReturnOrder() {
   return (
     <>
-      {/* <Layout title={"my Return Order"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
-          {/* <!-- account content --> */}
-          <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
-            {product.map((product) => (
-              <SingleReturnOrder product={product} key={product.id} />
-            ))}
-          </div>
-          {/* <!-- account content end --> */}
+      <MainHeader BreadcrumbTitle="my Return Order" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
+          {product.map((product) => (
+            <SingleReturnOrder product={product} key={product.id} />
+          ))}
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      </div>
+      <MainFooter />
     </>
   );
 }

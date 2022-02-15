@@ -5,10 +5,8 @@ import OurVision from "../components/AboutPage/ourVision/OurVision";
 import OurTeam from "../components/AboutPage/ourTeam/OurTeam";
 import OurCompany from "../components/AboutPage/ourCompany/OurCompany";
 import Head from "next/head";
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import MainFooter from "../components/commonComponents/MainFooter";
+import MainHeader from "../components/commonComponents/MainHeader";
 
 function about() {
   return (
@@ -22,9 +20,7 @@ function about() {
           content="We design and delever our customers' degital transformation by bringing together their vision with our industry knowledge and deep technologcal expertise. We design and delever our customers' degital transformmation"
         ></meta>
       </Head>
-      <Header />
-      <Navbar />
-      {/* about Banner components */}
+      <MainHeader BreadcrumbTitle="no" />
       <AboutBanner
         bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
         Icon={HomeIcon}
@@ -38,8 +34,7 @@ function about() {
         <OurTeam />
         <OurCompany />
       </div>
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

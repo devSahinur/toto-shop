@@ -3,11 +3,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import MainHeader from "../../components/commonComponents/MainHeader";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 import withAuth from "../../lib/withAuth";
 
 function ProfileInfo() {
@@ -63,127 +61,116 @@ function ProfileInfo() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"My profile info"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
-          {/* <!-- account content --> */}
-          <div className="col-span-9 shadow rounded px-6 pt-5 pb-7 mt-6 lg:mt-0">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <h3 className="text-lg font-medium capitalize mb-4">
-                Profile Information
-              </h3>
-              <div className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-gray-600 mb-2 block">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      {...register("name", { required: true })}
-                      className="input-box"
-                      placeholder="Enter your full name?"
-                      defaultValue={user?.name}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-600 mb-2 block">Username</label>
-                    <input
-                      type="text"
-                      {...register("customName", { required: true })}
-                      className="input-box"
-                      placeholder="Enter your username like mrX123"
-                      defaultValue={user?.customName}
-                    />
-                  </div>
+      <MainHeader BreadcrumbTitle="My profile info" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <div className="col-span-9 shadow rounded px-6 pt-5 pb-7 mt-6 lg:mt-0">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <h3 className="text-lg font-medium capitalize mb-4">
+              Profile Information
+            </h3>
+            <div className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-gray-600 mb-2 block">Full Name</label>
+                  <input
+                    type="text"
+                    {...register("name", { required: true })}
+                    className="input-box"
+                    placeholder="Enter your full name?"
+                    defaultValue={user?.name}
+                  />
                 </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-gray-600 mb-2 block">Birthday</label>
-                    <input
-                      {...register("birthday", { required: true })}
-                      type="date"
-                      className="input-box"
-                      defaultValue={user?.birthday}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-600 mb-2 block">Gender</label>
-                    <select
-                      {...register("gender", { required: true })}
-                      className="input-box"
-                      defaultValue={user?.gender}
-                    >
-                      <option>Male</option>
-                      <option>Female</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-gray-600 mb-2 block">
-                      Email Address
-                    </label>
-                    <input
-                      type="text"
-                      className="input-box"
-                      placeholder="Enter your email?"
-                      value={user?.email}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-600 mb-2 block">
-                      Phone Number
-                    </label>
-                    <input
-                      type="number"
-                      className="input-box"
-                      {...register("phoneNumber", { required: true })}
-                      placeholder="+8801234567891"
-                      defaultValue={user?.phoneNumber}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-600 mb-2 block">Address</label>
-                    <input
-                      type="text"
-                      className="input-box"
-                      {...register("address", { required: true })}
-                      placeholder="Enter your local address ?"
-                      defaultValue={user?.address}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-600 mb-2 block">
-                      Shop Name
-                    </label>
-                    <input
-                      {...register("shopName", { required: true })}
-                      type="text"
-                      className="input-box"
-                      placeholder="Enter your shop name ?"
-                      defaultValue={user?.shopName}
-                    />
-                  </div>
+                <div>
+                  <label className="text-gray-600 mb-2 block">Username</label>
+                  <input
+                    type="text"
+                    {...register("customName", { required: true })}
+                    className="input-box"
+                    placeholder="Enter your username like mrX123"
+                    defaultValue={user?.customName}
+                  />
                 </div>
               </div>
-              <div className="mt-6">
-                <input
-                  type="submit"
-                  value="Save change"
-                  className="px-6 py-2 text-center cursor-pointer text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-                />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-gray-600 mb-2 block">Birthday</label>
+                  <input
+                    {...register("birthday", { required: true })}
+                    type="date"
+                    className="input-box"
+                    defaultValue={user?.birthday}
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 mb-2 block">Gender</label>
+                  <select
+                    {...register("gender", { required: true })}
+                    className="input-box"
+                    defaultValue={user?.gender}
+                  >
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
               </div>
-            </form>
-          </div>
-          {/* <!-- account content end --> */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-gray-600 mb-2 block">
+                    Email Address
+                  </label>
+                  <input
+                    type="text"
+                    className="input-box"
+                    placeholder="Enter your email?"
+                    value={user?.email}
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 mb-2 block">
+                    Phone Number
+                  </label>
+                  <input
+                    type="number"
+                    className="input-box"
+                    {...register("phoneNumber", { required: true })}
+                    placeholder="+8801234567891"
+                    defaultValue={user?.phoneNumber}
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 mb-2 block">Address</label>
+                  <input
+                    type="text"
+                    className="input-box"
+                    {...register("address", { required: true })}
+                    placeholder="Enter your local address ?"
+                    defaultValue={user?.address}
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 mb-2 block">Shop Name</label>
+                  <input
+                    {...register("shopName", { required: true })}
+                    type="text"
+                    className="input-box"
+                    placeholder="Enter your shop name ?"
+                    defaultValue={user?.shopName}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="mt-6">
+              <input
+                type="submit"
+                value="Save change"
+                className="px-6 py-2 text-center cursor-pointer text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+              />
+            </div>
+          </form>
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      </div>
+      <MainFooter />
     </>
   );
 }

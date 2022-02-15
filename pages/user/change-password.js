@@ -1,18 +1,13 @@
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import MainHeader from "../../components/commonComponents/MainHeader";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 
 function ChangePassword() {
   return (
     <>
-      {/* <Layout title={"Change Password"}> */}
-      <Header/>
-      <Navbar/>
+      <MainHeader BreadcrumbTitle='Change Password'/>
         <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
+          <UserSidebar/>
           <div className="col-span-9 shadow rounded px-6 pt-5 pb-7 mt-6 lg:mt-0">
             <form>
               <h3 className="text-lg font-medium capitalize mb-4">
@@ -76,9 +71,7 @@ function ChangePassword() {
             </form>
           </div>
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+        <MainFooter/>
     </>
   );
 }

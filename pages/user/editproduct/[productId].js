@@ -13,13 +13,11 @@ import withAuth from "../../../lib/withAuth";
 import User from "./../../../models/User";
 import Product from "./../../../models/Product";
 // Component
-import WishListSidebar from "../../../components/WishListPage/WishListSidebar";
 import EditProductImage from "../../../components/EditProduct/EditProductImage";
 import EditProductInput from "../../../components/EditProduct/EditProductInput";
-import Header from "../../../components/Header";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import Copyright from "../../../components/Copyright";
+import MainHeader from "../../../components/commonComponents/MainHeader";
+import UserSidebar from "../../../components/commonComponents/UserSidebar";
+import MainFooter from "../../../components/commonComponents/MainFooter";
 
 function editProduct({ product, user }) {
   // console.log(product, user);
@@ -101,11 +99,9 @@ function editProduct({ product, user }) {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"Add Product"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="Edit My Product" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-        <WishListSidebar />
+        <UserSidebar />
         <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
           {/* content Main */}
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -130,9 +126,7 @@ function editProduct({ product, user }) {
           </form>
         </main>
       </div>
-      {/* </Layout> */}
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

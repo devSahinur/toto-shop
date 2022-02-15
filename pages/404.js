@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Copyright from "../components/Copyright";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import MainHeader from "../components/commonComponents/MainHeader";
 function Custom404() {
   const router = useRouter();
   return (
@@ -17,8 +16,7 @@ function Custom404() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="no" />
       {/* <AboutBanner bg={'/img/contact-banner.jpg'} Icon={HomeIcon} text='About us' /> */}
       {/* main-Content */}
 

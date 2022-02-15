@@ -1,10 +1,8 @@
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SinglePaymentCard from "../../components/PaymentMethod/SinglePaymentCard/SinglePaymentCard";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Copyright from "../../components/Copyright";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
+import MainHeader from "../../components/commonComponents/MainHeader";
 
 // https://i.ibb.co/WzDxXQY/visa.png
 // https://i.ibb.co/D8M3MPP/a-express.png
@@ -31,15 +29,10 @@ const orderHistory = [
 function PaymentMethod() {
   return (
     <>
-      {/* <Layout title={"Payment Methods"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="Payment Methods" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-        <WishListSidebar />
-
-        {/* <!-- account content --> */}
+        <UserSidebar />
         <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-          {/* <!-- single card --> */}
           {orderHistory?.map(
             ({ id, image, method, defaultValue, lastFour, expires }) => (
               <SinglePaymentCard
@@ -53,13 +46,9 @@ function PaymentMethod() {
               />
             )
           )}
-          {/* <!-- single card end --> */}
         </div>
-        {/* <!-- account content end --> */}
       </div>
-      {/* </Layout> */}
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

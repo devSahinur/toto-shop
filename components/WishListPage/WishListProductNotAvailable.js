@@ -1,18 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import MainHeader from "../commonComponents/MainHeader";
+import UserSidebar from "../commonComponents/UserSidebar";
 import Copyright from "../Copyright";
 import Footer from "../Footer";
-import Header from "../Header";
-import Navbar from "../Navbar";
-import WishListSidebar from "./WishListSidebar";
 
 function WishListProductNotAvailable() {
   return (
     <>
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="no" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-        <WishListSidebar />
+        <UserSidebar />
         <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
           <Image
             src="https://i.ibb.co/Gt2LmrF/empty-wishlist.png"
@@ -27,7 +25,7 @@ function WishListProductNotAvailable() {
         </div>
       </div>
       <div className="hidden md:block">
-          <Footer/>
+        <Footer />
       </div>
       <Copyright />
     </>

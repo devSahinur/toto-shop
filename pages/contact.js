@@ -1,12 +1,10 @@
 import { HomeIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import AboutBanner from "../components/AboutPage/AboutBanner/AboutBanner";
+import MainFooter from "../components/commonComponents/MainFooter";
+import MainHeader from "../components/commonComponents/MainHeader";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import ContactInfo from "../components/ContactPage/ContactInfo/ContactInfo";
-import Copyright from "../components/Copyright";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 
 function contact() {
   return (
@@ -20,9 +18,7 @@ function contact() {
           content="Use The Form Below To Get In Touch With The Sales Team"
         ></meta>
       </Head>
-      {/* <Layout title={"no"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="no" />
       <AboutBanner
         bg={"https://i.ibb.co/FhtxsfW/contat-banner-1.jpg"}
         Icon={HomeIcon}
@@ -35,9 +31,7 @@ function contact() {
         <ContactForm />
         <ContactInfo />
       </main>
-      {/* </Layout> */}
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

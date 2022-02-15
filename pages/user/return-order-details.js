@@ -1,12 +1,8 @@
-
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import ReturnOrdermain from "../../components/ReturnOrderDetails/ReturnOrderMain/ReturnOrdermain";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Copyright from "../../components/Copyright";
-
+import MainHeader from "../../components/commonComponents/MainHeader";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 
 const orderHistory = [
   {
@@ -30,23 +26,14 @@ const orderHistory = [
 function ReturnDetails() {
   return (
     <>
-      {/* <Layout title={"Return Details"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            <ReturnOrdermain />
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+      <MainHeader BreadcrumbTitle="Return Details" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          <ReturnOrdermain />
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      </div>
+      <MainFooter />
     </>
   );
 }

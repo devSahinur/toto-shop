@@ -5,10 +5,8 @@ import { SingleCart } from "../components/CartPage/SingleCart";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
 import ProductNotAvailable from "../components/CartPage/ProductNotAvailable";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Copyright from "../components/Copyright";
+import MainHeader from "../components/commonComponents/MainHeader";
+import MainFooter from "../components/commonComponents/MainFooter";
 
 function cart() {
   const cartData = useSelector(selectItems);
@@ -26,24 +24,25 @@ function cart() {
         ></meta>
       </Head>
       {cartData.length ? (
-        // <Layout  title={"Shopping Cart"}>
-          <>
-            <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
-              <div className="xl:col-span-9 lg:col-span-8">
-                <CartTitleBar />
-                <div className="space-y-4">
-                  {cartData?.map((product) => (
-                    <SingleCart
-                      key={product?.product?._id}
-                      id={product?.product?._id}
-                      product={product}
-                    />
-                  ))}
-                </div>
+        <>
+          <MainHeader BreadcrumbTitle="Shopping Cartkout" />
+          <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
+            <div className="xl:col-span-9 lg:col-span-8">
+              <CartTitleBar />
+              <div className="space-y-4">
+                {cartData?.map((product) => (
+                  <SingleCart
+                    key={product?.product?._id}
+                    id={product?.product?._id}
+                    product={product}
+                  />
+                ))}
               </div>
-              <OrderSummary />
             </div>
-          </>
+            <OrderSummary />
+          </div>
+          <MainFooter />
+        </>
       ) : (
         <ProductNotAvailable />
       )}

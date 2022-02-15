@@ -1,13 +1,9 @@
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Copyright from "../../components/Copyright";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
+import MainHeader from "../../components/commonComponents/MainHeader";
 
-// https://i.ibb.co/fDCywKw/iphone-12.png
-// https://i.ibb.co/dMJPPb8/headphone-1-1.png
 
 const orderHistory = [
   {
@@ -51,15 +47,10 @@ const orderHistory = [
 function OrderCancel() {
   return (
     <>
-      {/* <Layout title={"My Order Cancel"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="My Order Cancel" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-        <WishListSidebar />
-
-        {/* <!-- account content --> */}
+        <UserSidebar />
         <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-          {/* <!-- single card --> */}
           {orderHistory?.map(
             ({ id, image, orderNumber, date, quantity, total, status }) => (
               <SingleOrderHistory
@@ -74,13 +65,9 @@ function OrderCancel() {
               />
             )
           )}
-          {/* <!-- single card end --> */}
         </div>
-        {/* <!-- account content end --> */}
       </div>
-      {/* </Layout> */}
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

@@ -7,10 +7,8 @@ import { MiddleAds } from "../components/Home/MiddleAds";
 import { RecomendedProduct } from "../components/Home/RecomendedProduct/RecomendedProduct";
 import { useEffect, useState } from "react";
 import Modal from "../components/Home/Modal/Modal";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Copyright from "../components/Copyright";
+import MainHeader from "../components/commonComponents/MainHeader";
+import MainFooter from "../components/commonComponents/MainFooter";
 
 export default function Home({ products }) {
   // const [showModal, setShowModal] = useState(false);
@@ -39,22 +37,18 @@ export default function Home({ products }) {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"no"}> */}
-      <Header/>
-      <Navbar/>
-        <main>
-          <Banner />
-          <Features />
-          <Categories />
-          <TopNewArrival products={products} />
-          <MiddleAds />
-          <RecomendedProduct products={products} />
-        </main>
-        {/* for show the modal */}
-        {/* {showModal && <Modal setShowModal={setShowModal} />} */}
-        <Footer/>
-        <Copyright/>
-      {/* </Layout> */}
+      <MainHeader BreadcrumbTitle="no" />
+      <main>
+        <Banner />
+        <Features />
+        <Categories />
+        <TopNewArrival products={products} />
+        <MiddleAds />
+        <RecomendedProduct products={products} />
+      </main>
+      {/* for show the modal */}
+      {/* {showModal && <Modal setShowModal={setShowModal} />} */}
+      <MainFooter />
     </>
   );
 }

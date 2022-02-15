@@ -1,11 +1,10 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import Copyright from "../../components/Copyright";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import MainHeader from "../../components/commonComponents/MainHeader";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
 import SingleWishList from "../../components/WishListPage/SingleWishList";
 import WishListProductNotAvailable from "../../components/WishListPage/WishListProductNotAvailable";
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import withAuth from "../../lib/withAuth";
 import { selectWish } from "../../slices/wishSlice";
 
@@ -24,20 +23,17 @@ function wishlist() {
         ></meta>
       </Head>
       {wishlistAll.length ? (
-        // <Layout title={"MY wish list"}>
         <>
-        <Header/>
-        <Navigator/>
+          <MainHeader BreadcrumbTitle="MY wish list" />
           <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-            <WishListSidebar />
+            <UserSidebar />
             <div className="col-span-9 mt-6 lg:mt-0 space-y-4">
               {wishlistAll?.map((product) => (
                 <SingleWishList product={product} key={product._id} />
               ))}
             </div>
           </div>
-          <Footer/>
-          <Copyright/>
+          <MainFooter />
         </>
       ) : (
         <WishListProductNotAvailable />

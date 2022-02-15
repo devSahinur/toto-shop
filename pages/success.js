@@ -2,10 +2,8 @@ import Head from "next/head";
 import { CheckIcon } from "@heroicons/react/outline";
 import { useEffect } from "react";
 import { shootFireworks } from "../lib/successEffect";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Copyright from "../components/Copyright";
+import MainHeader from "../components/commonComponents/MainHeader";
+import MainFooter from "../components/commonComponents/MainFooter";
 
 function success() {
   useEffect(() => {
@@ -22,9 +20,7 @@ function success() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"no"}> */}
-      <Header />
-      <Navbar />
+      <MainHeader BreadcrumbTitle="no" />
       <div className="container xl:max-w-screen-xl mx-auto py-12 px-6 text-center">
         <div className="py-4 px-8 rounded-md bg-gray-100 max-w-lg mx-auto">
           <h2 className="text-4xl font-semibold flex flex-col items-center space-x-1">
@@ -34,8 +30,7 @@ function success() {
           <p className="text-lg mt-3">Check your inbox for the receipt.</p>
         </div>
       </div>
-      <Footer />
-      <Copyright />
+      <MainFooter />
     </>
   );
 }

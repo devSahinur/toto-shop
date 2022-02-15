@@ -7,7 +7,6 @@ import "../styles/globals.css";
 import ProgressBar from "@badrap/bar-of-progress";
 // custom css
 import "../styles/custom.css";
-import Layout from "../components/Layout";
 
 const progress = new ProgressBar({
   size: 4,
@@ -24,9 +23,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </Provider>
     </SessionProvider>
   );

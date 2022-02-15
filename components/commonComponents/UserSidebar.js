@@ -4,9 +4,8 @@ import Image from "next/image";
 import MobileMenu from "../MobileMenu";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useState } from "react";
-import { useEffect } from "react";
 
-function WishListSidebar() {
+function UserSidebar() {
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -179,7 +178,7 @@ function WishListSidebar() {
               </span>
             </div>
             <div
-              onClick={() => router.push("/user/vvv")}
+              onClick={() => router.push("/user/order-traking")}
               className="hover:text-primary cursor-pointer transition block capitalize"
             >
               Voucher
@@ -199,9 +198,7 @@ function WishListSidebar() {
               </span>
             </div>
           </div>
-          {/* <!-- single link end --> */}
         </div>
-        {/* <!-- profile links end --> */}
       </div>
       {/* <!-- sidebar end --> */}
 
@@ -211,4 +208,4 @@ function WishListSidebar() {
   );
 }
 
-export default WishListSidebar;
+export default UserSidebar;

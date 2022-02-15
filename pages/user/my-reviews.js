@@ -1,15 +1,9 @@
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import SingleReviews from "../../components/MyReviews/SingleRevies/SingleReviews";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import Copyright from "../../components/Copyright";
+import MainFooter from "../../components/commonComponents/MainFooter";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
+import MainHeader from "../../components/commonComponents/MainHeader";
 
-// https://i.ibb.co/fDCywKw/iphone-12.png
-// https://i.ibb.co/dMJPPb8/headphone-1-1.pnghttps://i.ibb.co/GcHqRGD/x-box.png
-// https://i.ibb.co/dMJPPb8/headphone-1-1.png
-// https://i.ibb.co/sWxtXxc/bag-2.png
 
 const orderHistory = [
   {
@@ -50,48 +44,39 @@ const orderHistory = [
 function OrderHistory() {
   return (
     <>
-      {/* <Layout title={"MY Order History"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-
-          {/* <!-- account content --> */}
-          <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-            {/* <!-- single card --> */}
-            {orderHistory?.map(
-              ({
-                id,
-                image,
-                orderNumber,
-                date,
-                ratting,
-                total,
-                status,
-                titile,
-                quantity,
-              }) => (
-                <SingleReviews
-                  key={id}
-                  id={id}
-                  image={image}
-                  orderNumber={orderNumber}
-                  date={date}
-                  quantity={quantity}
-                  total={total}
-                  titile={titile}
-                  ratting={ratting}
-                  status={status}
-                />
-              )
-            )}
-            {/* <!-- single card end --> */}
-          </div>
-          {/* <!-- account content end --> */}
+      <MainHeader BreadcrumbTitle="MY Order History" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
+          {orderHistory?.map(
+            ({
+              id,
+              image,
+              orderNumber,
+              date,
+              ratting,
+              total,
+              status,
+              titile,
+              quantity,
+            }) => (
+              <SingleReviews
+                key={id}
+                id={id}
+                image={image}
+                orderNumber={orderNumber}
+                date={date}
+                quantity={quantity}
+                total={total}
+                titile={titile}
+                ratting={ratting}
+                status={status}
+              />
+            )
+          )}
         </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      </div>
+      <MainFooter />
     </>
   );
 }

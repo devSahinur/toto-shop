@@ -3,15 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import MyProductCard from "../../components/MyProductCard";
 import MyProductTitleBar from "../../components/MyProductTitleBar";
-import WishListSidebar from "../../components/WishListPage/WishListSidebar";
 import { useSession } from "next-auth/react";
 import NotfoundProduct from "../../components/MyProductPage/NotfoundProduct";
 import { useRouter } from "next/router";
 import withAuth from "../../lib/withAuth";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import Copyright from "../../components/Copyright";
+import MainHeader from "../../components/commonComponents/MainHeader";
+import UserSidebar from "../../components/commonComponents/UserSidebar";
+import MainFooter from "../../components/commonComponents/MainFooter";
 
 function myProduct() {
   const router = useRouter();
@@ -44,7 +42,7 @@ function myProduct() {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>({myData.length}) Product | ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
@@ -53,32 +51,27 @@ function myProduct() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
-      {/* <Layout title={"Add Product"}> */}
-      <Header/>
-      <Navbar/>
-        <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
-          <WishListSidebar />
-          <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
-            {/* content Main */}
-            {myData.length >= 1 ? (
-              <>
-                <MyProductTitleBar />
-                {myData.map((product) => (
-                  <MyProductCard
-                    key={product._id}
-                    confirmDelete={confirmDelete}
-                    product={product}
-                  />
-                ))}
-              </>
-            ) : (
-              <NotfoundProduct />
-            )}
-          </main>
-        </div>
-      {/* </Layout> */}
-      <Footer/>
-      <Copyright/>
+      <MainHeader BreadcrumbTitle="Add Product" />
+      <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+        <UserSidebar />
+        <main className="col-span-9 px-5 md:px-8 py-6 space-y-6">
+          {myData.length >= 1 ? (
+            <>
+              <MyProductTitleBar />
+              {myData.map((product) => (
+                <MyProductCard
+                  key={product._id}
+                  confirmDelete={confirmDelete}
+                  product={product}
+                />
+              ))}
+            </>
+          ) : (
+            <NotfoundProduct />
+          )}
+        </main>
+      </div>
+      <MainFooter />
     </>
   );
 }
