@@ -55,7 +55,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
           {setShowSidebar && (
             <XIcon
               onClick={() => setShowSidebar(false)}
-              className="h-5 hover:text-primary text-gray-600 transform hover:scale-105 transition-all ease-in cursor-pointer"
+              className="h-5 hover:text-primary text-gray-600 transform hover:scale-105 transition-all ease-in cursor-pointer pl-2"
             />
           )}
         </div>
