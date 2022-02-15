@@ -8,8 +8,6 @@ function ProductNotAvailable() {
     const router = useRouter();
   return (
     <>
-      <Header />
-      <Navbar />
       <main className="sm:max-w-[50rem] xl:max-w-[75rem] mx-auto px-5 md:px-8 py-6 space-y-6">
         {/* bottom containt */}
         <div className="max-w-[55rem] mx-auto px-4 py-6 pt-6 flex items-center justify-center flex-col space-y-5">
@@ -31,7 +29,6 @@ function ProductNotAvailable() {
           </div>
         </div>
       </main>
-      <Copyright />
     </>
   );
 }

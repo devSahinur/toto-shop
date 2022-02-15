@@ -28,8 +28,6 @@ function cart() {
       {cartData.length ? (
         // <Layout  title={"Shopping Cart"}>
           <>
-            <Header />
-            <Navbar />
             <div className="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
               <div className="xl:col-span-9 lg:col-span-8">
                 <CartTitleBar />
@@ -45,8 +43,6 @@ function cart() {
               </div>
               <OrderSummary />
             </div>
-            <Footer />
-            <Copyright />
           </>
       ) : (
         <ProductNotAvailable />
