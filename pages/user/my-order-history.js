@@ -1,4 +1,6 @@
-import SingleOrderHistory from "../../components/OrderHistory/SingleOrderHistory/SingleOrderHistory";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useState } from "react";
 import withAuth from "../../lib/withAuth";
 import MainHeader from "../../components/commonComponents/MainHeader";
 import MainFooter from "../../components/commonComponents/MainFooter";
@@ -45,26 +47,50 @@ const orderHistory = [
 ];
 
 function OrderHistory() {
+  const [order, setOrders] = useState([]);
+  const { data: session } = useSession();
+
+  console.log(order);
+
+  useEffect(async () => {
+    const res = await fetch("/api/order");
+    const data = await res.json();
+    setOrders(data.OrderHistory);
+  }, []);
   return (
     <>
       <MainHeader BreadcrumbTitle="My Order History" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <UserSidebar />
         <div className="col-span-9 space-y-6 mt-6 lg:mt-0">
-          {orderHistory?.map(
-            ({ id, image, orderNumber, date, quantity, total, status }) => (
-              <SingleOrderHistory
-                key={id}
-                id={id}
-                image={image}
-                orderNumber={orderNumber}
-                date={date}
-                quantity={quantity}
-                total={total}
-                status={status}
-              />
-            )
-          )}
+          <main className="max-w-screen-lg mx-auto p-10">
+            <h1 className="text-3xl border-b mb-2 pb-1 border-primary">
+              Your Orders
+            </h1>
+            {session ? (
+              <h2>{order.length} Orders</h2>
+            ) : (
+              <h2>Please sign in to see your orders</h2>
+            )}
+            <div className="mt-5 space-y-4">
+              {/* {order?.map(
+                        ({id, title, amount, description, category, images,timestamp,amountShipping, items}
+                        )=> (
+                        <Order 
+                        id={id}
+                        key={id}
+                        title={title}
+                        amount={amount}
+                        description={description}
+                        category={category}
+                        images={images}
+                        timestamp={timestamp}
+                        amountShipping={amountShipping}
+                        items={items}
+                        />
+                    ))} */}
+            </div>
+          </main>
         </div>
       </div>
       <MainFooter />
