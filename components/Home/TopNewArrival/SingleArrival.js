@@ -5,7 +5,6 @@ import { addToBasket, selectItems } from "../../../slices/appSlice";
 import { addToWish, selectWish } from "../../../slices/wishSlice";
 
 function SingleArrival({ product }) {
-  const singleProduct = product;
   const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
@@ -18,7 +17,8 @@ function SingleArrival({ product }) {
     ? product.image[0]
     : product.image;
 
-  // console.log(itemImg)
+  const singleProduct = product;
+  
   const AddToCart = () => {
     dispatch(
       addToBasket({
