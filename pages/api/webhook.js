@@ -26,7 +26,7 @@ const fulfillOrder = async (session) => {
     id: session.id,
     amount: session.amount_total / 100,
     amount_shipping: session.total_details.amount_shipping / 100,
-    images: session.metadata.images,
+    images: JSON.parse(session.metadata.images),
     email: session.metadata.email,
   });
 

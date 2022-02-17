@@ -1,62 +1,20 @@
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useState } from "react";
 import withAuth from "../../lib/withAuth";
 import MainHeader from "../../components/commonComponents/MainHeader";
 import MainFooter from "../../components/commonComponents/MainFooter";
 import UserSidebar from "../../components/commonComponents/UserSidebar";
+import { getSession } from "next-auth/react";
+import Currency from "react-currency-formatter";
 
-const orderHistory = [
-  {
-    id: 1,
-    image: [
-      "https://i.ibb.co/kDYYgSr/tv.png",
-      "https://i.ibb.co/kDYYgSr/tv.png",
-    ],
-    orderNumber: "23E34R13",
-    date: "01 March 2021",
-    quantity: 3,
-    total: 120,
-    status: false,
-  },
-  {
-    id: 2,
-    image: [
-      "https://i.ibb.co/D5kM6Hb/headphone-3.png",
-      "https://i.ibb.co/D5kM6Hb/headphone-3.png",
-    ],
-    orderNumber: "23E34R13",
-    date: "01 March 2021",
-    quantity: 3,
-    total: 120,
-    status: true,
-  },
-  {
-    id: 3,
-    image: [
-      "https://i.ibb.co/k1X4DXy/laptop-1.png",
-      "https://i.ibb.co/k1X4DXy/laptop-1.png",
-      "https://i.ibb.co/k1X4DXy/laptop-1.png",
-    ],
-    orderNumber: "23E34R13",
-    date: "01 March 2021",
-    quantity: 3,
-    total: 120,
-    status: false,
-  },
-];
+// Database
+import dbConnect from "./../../lib/dbConnect";
+import Order from "./../../models/order";
 
-function OrderHistory() {
-  const [order, setOrders] = useState([]);
+function OrderHistory({ orders }) {
   const { data: session } = useSession();
 
-  console.log(order);
+  console.log(orders);
 
-  useEffect(async () => {
-    const res = await fetch("/api/order");
-    const data = await res.json();
-    setOrders(data.OrderHistory);
-  }, []);
   return (
     <>
       <MainHeader BreadcrumbTitle="My Order History" />
@@ -68,27 +26,61 @@ function OrderHistory() {
               Your Orders
             </h1>
             {session ? (
-              <h2>{order.length} Orders</h2>
+              <h2>{orders.length} Orders</h2>
             ) : (
               <h2>Please sign in to see your orders</h2>
             )}
             <div className="mt-5 space-y-4">
-              {/* {order?.map(
-                        ({id, title, amount, description, category, images,timestamp,amountShipping, items}
-                        )=> (
-                        <Order 
-                        id={id}
-                        key={id}
-                        title={title}
-                        amount={amount}
-                        description={description}
-                        category={category}
-                        images={images}
-                        timestamp={timestamp}
-                        amountShipping={amountShipping}
-                        items={items}
-                        />
-                    ))} */}
+              {orders?.map(
+                ({
+                  id,
+                  title,
+                  amount,
+                  description,
+                  category,
+                  images,
+                  amountShipping,
+                  items,
+                }) => (
+                  <div key={id} className="relative border rounded-md">
+                    <div className="flex items-center space-x-10 p-5 bg-gray-100 text-sm text-gray-600">
+                      <div>
+                        <p className="font-bold text-xs">ORDER PLACED</p>
+                        {/* <p>{moment.unix(timestamp).format("DD MMM YYYY")}</p> */}
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-bold">TOTAL</p>
+                        <p>
+                          <Currency quantity={amount} currency="USD" /> - Next
+                          Day Delivery{" "}
+                          <Currency quantity={amountShipping} currency="USD" />
+                        </p>
+                      </div>
+
+                      <p className="text-xs whitespace-nowrap sm:text-xl self-end flex-1 text-right text-blue-500">
+                        {items.data.length} items
+                      </p>
+
+                      <p className="absolute top-2 right-2 w-40 lg:w-72 truncate text-xs whitespace-nowrap">
+                        ORDER # {id}
+                      </p>
+                    </div>
+
+                    <div className="p-5 sm:p-10 ">
+                      <div className="flex space-x-6 overflow-x-auto">
+                        {images.map((image) => (
+                          <img
+                            src={image}
+                            alt=""
+                            className="h-20 object-contain sm:h-32"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
             </div>
           </main>
         </div>
@@ -99,3 +91,36 @@ function OrderHistory() {
 }
 
 export default withAuth(OrderHistory);
+
+export async function getServerSideProps(ctx) {
+  const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+  const session = await getSession(ctx);
+
+  const email = session.user.email;
+
+  await dbConnect();
+
+  const OrderData = await Order.find({ email }).sort({ _id: -1 }).lean();
+  const stripeOrders = JSON.parse(JSON.stringify(OrderData));
+
+  const orderGet = await Promise.all(
+    stripeOrders.map(async (order) => ({
+      id: order.id,
+      amount: order.amount,
+      amountShipping: order.amount_shipping,
+      images: order.images,
+      items: await stripe.checkout.sessions.listLineItems(order.id, {
+        limit: 100,
+      }),
+    }))
+  );
+
+  const orders = JSON.parse(JSON.stringify(orderGet));
+
+  return {
+    props: {
+      orders,
+    },
+  };
+}

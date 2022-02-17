@@ -7,14 +7,6 @@ const OrderSchema = new mongoose.Schema({
   amount: String,
   amount_shipping: String,
   city: String,
-  country: String,
-  line1: String,
-  line2: String,
-  postal_code: String,
-  state: String,
-  amount_discount_real: Number,
-  amount_shipping_real: Number,
-  amount_tax_real: Number,
   images: [],
 });
 
