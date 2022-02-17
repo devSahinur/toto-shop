@@ -53,7 +53,7 @@ function ShopTopNav({ listView, setListView }) {
         {/* default sorting  */}
         {showSelect && (
           <div
-            className="absolute top-12 -left-[2rem] bg-white border-2 rounded-md w-full"
+            className="absolute top-12 min-w-[150px] mx-auto -left-[2rem] bg-white border-2 rounded-md w-full"
             style={{ zIndex: 100 }}
           >
             {sortTitles.map((text) => (

@@ -2,7 +2,7 @@ const Features = () => {
   return (
     <div className="container py-16">
       <div className="lg:w-10/12 grid md:grid-cols-3 gap-3 lg:gap-6 mx-auto justify-center">
-        <div className="border-primary border rounded-sm px-8 lg:px-3 lg:py-6 py-4 flex justify-center items-center gap-5">
+        <div className="border-primary border rounded-sm px-8 lg:px-3 lg:py-6 py-4 flex justify-center items-center gap-5 hover:bg-primary cursor-pointer text-white">
           <img
             src="https://i.ibb.co/jV7ZLDY/delivery-van.png"
             className="lg:w-12 w-10 h-12 object-contain"

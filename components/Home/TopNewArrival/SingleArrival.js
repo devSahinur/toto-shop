@@ -32,6 +32,10 @@ function SingleArrival({ product }) {
     // router.push("/user/wishlist");s
   };
 
+  const buyNowHandler = () => {
+    alert("Buy Now");
+  };
+
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
       <div className="relative">
@@ -89,18 +93,31 @@ function SingleArrival({ product }) {
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
         </div>
       </div>
-      {CartId ? (
-        <div className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b cursor-not-allowed bg-opacity-80">
-          Already Added
-        </div>
-      ) : (
+      {/* buy now button */}
+      <div className="flex items-center space-x-3 pb-5">
+        {CartId ? (
+          <div
+            onClick={() => router.push("/cart")}
+            className="block w-full py-1 text-center text-white font-semibold bg-primary border border-primary rounded-b cursor-pointer bg-opacity-80"
+          >
+            Go to Card
+          </div>
+        ) : (
+          <div
+            onClick={AddToCart}
+            className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+          >
+            Add to Cart
+          </div>
+        )}
+
         <div
-          onClick={AddToCart}
-          className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+          onClick={buyNowHandler}
+          className="block w-full py-1 text-center cursor-pointer text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500"
         >
-          Add to Cart
+          Buy Now
         </div>
-      )}
+      </div>
     </div>
   );
 }
