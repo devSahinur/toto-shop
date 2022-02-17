@@ -18,7 +18,7 @@ function SingleArrival({ product }) {
     : product.image;
 
   const singleProduct = product;
-  
+
   const AddToCart = () => {
     dispatch(
       addToBasket({
@@ -112,9 +112,9 @@ function SingleArrival({ product }) {
         {CartId ? (
           <div
             onClick={() => router.push("/cart")}
-            className="block w-full py-1 text-center text-white font-semibold bg-primary border border-primary rounded-b cursor-pointer bg-opacity-80"
+            className="block w-full py-1 text-center text-white font-semibold bg-green-600 border border-green-600 rounded-b cursor-pointer bg-opacity-80"
           >
-            Go to Card
+            Go to Cart
           </div>
         ) : (
           <div
