@@ -5,6 +5,7 @@ import { addToBasket, selectItems } from "../../../slices/appSlice";
 import { addToWish, selectWish } from "../../../slices/wishSlice";
 
 function SingleArrival({ product }) {
+  const singleProduct = product;
   const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
@@ -13,10 +14,23 @@ function SingleArrival({ product }) {
     (item) => !!(item.product._id === product._id)
   );
 
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  // console.log(itemImg)
   const AddToCart = () => {
     dispatch(
       addToBasket({
-        product: product,
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
         quantity: 1,
       })
     );
