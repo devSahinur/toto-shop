@@ -124,7 +124,7 @@ function Header() {
                   <li
                     key={item.id}
                     onClick={() => router.push(`/product/${item._id}`)}
-                    className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 py-3 rounded-md"
+                    className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 transition-all ease-in-out py-3 rounded-md"
                   >
                     <div className="w-[150px]">
                       <Image
