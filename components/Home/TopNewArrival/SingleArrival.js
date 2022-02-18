@@ -52,8 +52,11 @@ function SingleArrival({ product }) {
 
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
-      <div className="relative">
-        <img src={product?.image} className="w-full h-[205px] object-contain" />
+      <div className="relative overflow-hidden">
+        <img
+          src={product?.image}
+          className="w-full h-[205px] object-contain transform  group-hover:scale-125 ease-in-out duration-700 hover:overflow-hidden"
+        />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
           <div
             onClick={() => router.push(`/product/${product._id}`)}

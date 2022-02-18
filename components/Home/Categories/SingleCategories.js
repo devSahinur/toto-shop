@@ -7,7 +7,7 @@ export const SingleCategories = ({ data }) => {
         <div className="relative group rounded-sm overflow-hidden">
           <img
             src={data?.image}
-            className="w-full transform transition-all ease-in group-hover:scale-125"
+            className="w-full transform transition-all  ease-in-out duration-700  group-hover:scale-125"
           />
           <a
             href="#"
