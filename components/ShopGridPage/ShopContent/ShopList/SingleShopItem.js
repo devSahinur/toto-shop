@@ -2,7 +2,7 @@ import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/outline";
 import { HeartIcon as HeartIconFull } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { selectItems } from "../../../../slices/appSlice";
+import { addToBasket, selectItems } from "../../../../slices/appSlice";
 import { addToWish, selectWish } from "../../../../slices/wishSlice";
 
 function SingleShopItem({ product, hot }) {
