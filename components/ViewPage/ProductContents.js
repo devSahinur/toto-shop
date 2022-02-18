@@ -21,14 +21,37 @@ export const ProductContents = ({ product }) => {
     (item) => !!(item.product._id === product._id)
   );
 
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  const singleProduct = product;
+
   const AddToCart = () => {
     dispatch(
       addToBasket({
-        product: product,
-        quantity: quantity,
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
+        quantity: 1,
       })
     );
   };
+
+  // const AddToCart = () => {
+  //   dispatch(
+  //     addToBasket({
+  //       product: product,
+  //       quantity: quantity,
+  //     })
+  //   );
+  // };
 
   return (
     <div>
@@ -181,7 +204,6 @@ export const ProductContents = ({ product }) => {
       <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
         {CartId ? (
           <div
-            onClick={AddToCart}
             className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
             cursor-not-allowed bg-opacity-80 text-sm flex items-center"
           >
@@ -193,7 +215,7 @@ export const ProductContents = ({ product }) => {
         ) : (
           <div
             onClick={AddToCart}
-            className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
+            className="bg-primary cursor-pointer border border-primary text-white px-8 py-2 font-medium rounded uppercase 
                       hover:bg-transparent hover:text-primary transition text-sm flex items-center"
           >
             <span className="mr-2">
@@ -205,7 +227,7 @@ export const ProductContents = ({ product }) => {
 
         <div
           className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
-                    hover:bg-transparent hover:text-primary transition text-sm"
+                    hover:bg-transparent cursor-pointer hover:text-primary transition text-sm"
         >
           <span className="mr-2">
             <i className="far fa-heart"></i>
