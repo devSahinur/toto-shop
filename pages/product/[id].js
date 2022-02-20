@@ -11,6 +11,28 @@ function view({ product, allData }) {
   const relatedProduct = allData.slice(0, 4);
   const router = useRouter();
 
+
+  // const wishList = async (heart) => {
+  //   if (!heart) {
+  //     await fetch("/api/wishlist", {
+  //       method: "POST",
+  //       body: JSON.stringify({ itemID: product.id, isHeart: true }),
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //     })
+  //     setShowHeart(true)
+  //   } else {
+  //     await fetch("/api/wishlist", {
+  //       method: "DELETE",
+  //       body: JSON.stringify({ itemID: product.id, isHeart: false }),
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //     })
+  //   }
+  // }
+
   return (
     <>
       <Head>

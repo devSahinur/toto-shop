@@ -39,6 +39,14 @@ function Header() {
       .then((res) => res.json())
       .then((data) => setFatchData(data.data))
       .catch((err) => console.log(err));
+
+  }, []);
+  useEffect(() => {
+    fetch("/api/wishlist")
+      .then((res) => res.json())
+      .then((data) => setFatchData(data.data))
+      .catch((err) => console.log(err));
+
   }, []);
 
   return (

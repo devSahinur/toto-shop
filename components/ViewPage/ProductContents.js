@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { RatingStar } from "./RatingStar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
+import { addToWish, removeFromWish, selectWish } from "../../slices/wishSlice";
 
 export const ProductContents = ({ product }) => {
   const router = useRouter();
@@ -42,6 +43,40 @@ export const ProductContents = ({ product }) => {
         quantity: 1,
       })
     );
+  };
+
+  const wishlistAll = useSelector(selectWish);
+
+  const findWishListItem = wishlistAll.find((item) => item._id === product._id);
+
+  const addToWishList = async () => {
+    if (!findWishListItem) {
+      dispatch(addToWish(product));
+
+      if (!findWishListItem) {
+        await fetch("/api/wishlist", {
+          method: "POST",
+          body: JSON.stringify({ itemID: product.id }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+      }
+    }
+
+    // router.push("/user/wishlist");s
+  };
+
+  const removedWishList = async () => {
+    await fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product.id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+
+    dispatch(removeFromWish({ _id: product?.id }));
   };
 
   // const AddToCart = () => {
@@ -225,15 +260,29 @@ export const ProductContents = ({ product }) => {
           </div>
         )}
 
-        <div
-          className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
-                    hover:bg-transparent cursor-pointer hover:text-primary transition text-sm"
-        >
-          <span className="mr-2">
-            <i className="far fa-heart"></i>
-          </span>{" "}
-          Wishlist
-        </div>
+        {findWishListItem ? (
+          <div
+            onClick={removedWishList}
+            className="border cursor-pointer bg-opacity-80 border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
+                        hover:bg-transparent hover:text-primary transition text-sm"
+          >
+            <span className="mr-2">
+              <i className="far fa-heart"></i>
+            </span>{" "}
+            Wishlist Added
+          </div>
+        ) : (
+          <div
+            onClick={addToWishList}
+            className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
+                        hover:bg-transparent cursor-pointer hover:text-primary transition text-sm"
+          >
+            <span className="mr-2">
+              <i className="far fa-heart"></i>
+            </span>{" "}
+            Wishlist
+          </div>
+        )}
       </div>
       {/* <!-- add to cart button end --> */}
       {/* <!-- product share icons --> */}
