@@ -8,6 +8,9 @@ export const wishSlice = createSlice({
   name: "wish",
   initialState,
   reducers: {
+    addAllToWish: (state, action) => {
+      state.wishList = action.payload;
+    },
     addToWish: (state, action) => {
       const findIndex = state.wishList.findIndex(
         (item) => item._id === action.payload._id
@@ -32,7 +35,7 @@ export const wishSlice = createSlice({
   },
 });
 
-export const { addToWish, removeFromWish } = wishSlice.actions;
+export const { addToWish, removeFromWish, addAllToWish } = wishSlice.actions;
 
 export const selectWish = (state) => state.wish.wishList;
 

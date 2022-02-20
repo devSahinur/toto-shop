@@ -65,10 +65,10 @@ function SingleWishList({ product }) {
           <>
             {findCartData ? (
               <a
-                href="#"
-                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium cursor-not-allowed"
+                onClick={() => router.push("/cart")}
+                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 transition uppercase font-roboto font-medium cursor-not-allowed"
               >
-                Already Added
+                Go to Cart
               </a>
             ) : (
               <a
@@ -83,9 +83,9 @@ function SingleWishList({ product }) {
         ) : (
           <a
             href="#"
-            className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded uppercase font-roboto font-medium cursor-not-allowed bg-opacity-80"
+            className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded uppercase font-roboto font-medium bg-opacity-80 cursor-not-allowed"
           >
-            Out Of Stock
+            Add to cart
           </a>
         )}
 
