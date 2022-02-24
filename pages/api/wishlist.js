@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
           res.status(200).json({ success: true })
         } catch (error) {
-          res.status(400).send({ error: "error, POST method for wishlist api" })
+          res.status(405).send({ error: "error, POST method for wishlist api" })
         }
         break
       case "GET":
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
           res.status(200).json(data.wishlist)
         } catch (error) {
-          res.status(400).send({ error: "error, GET method for wishlist api" })
+          res.status(405).send({ error: "error, GET method for wishlist api" })
         }
         break
       case "DELETE":
@@ -52,13 +52,14 @@ export default async function handler(req, res) {
           res.status(200).json({ success: true })
         } catch (error) {
           res
-            .status(400)
+            .status(405)
             .send({ error: "error, DELETE method for wishlist api" })
         }
 
       default:
-        res.status(400)
+        res.status(405)
         break
     }
   }
+
 }
