@@ -2,7 +2,11 @@ import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
-import { addToWish, selectWish } from "../../../slices/wishSlice";
+import {
+  addToWish,
+  selectWish,
+  selectWishAll,
+} from "../../../slices/wishSlice";
 
 function SingleArrival({ product }) {
   const router = useRouter();
@@ -36,12 +40,12 @@ function SingleArrival({ product }) {
     );
   };
 
-  const wishlistAll = useSelector(selectWish);
+  const wishlistAll = useSelector(selectWishAll);
 
   const findWishListItem = wishlistAll.find((item) => item._id === product._id);
   const addToWishList = () => {
     if (!findWishListItem) {
-      dispatch(addToWish(product));
+      dispatch(addToWish(product._id));
     }
     // router.push("/user/wishlist");s
   };

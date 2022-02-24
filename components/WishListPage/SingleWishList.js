@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
 import { removeFromWish } from "../../slices/wishSlice";
 
 function SingleWishList({ product }) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const cartDataAll = useSelector(selectItems);
 

@@ -3,7 +3,12 @@ import { useRouter } from "next/router";
 import { RatingStar } from "./RatingStar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
-import { addToWish, removeFromWish, selectWish } from "../../slices/wishSlice";
+import {
+  addToWish,
+  removeFromWish,
+  selectWish,
+  selectWishAll,
+} from "../../slices/wishSlice";
 
 export const ProductContents = ({ product }) => {
   const router = useRouter();
@@ -45,13 +50,14 @@ export const ProductContents = ({ product }) => {
     );
   };
 
-  const wishlistAll = useSelector(selectWish);
+  const wishlistAll = useSelector(selectWishAll);
 
   const findWishListItem = wishlistAll.find((item) => item._id === product._id);
+  console.log(findWishListItem);
 
   const addToWishList = async () => {
     if (!findWishListItem) {
-      dispatch(addToWish(product));
+      dispatch(addToWish(product._id));
 
       if (!findWishListItem) {
         await fetch("/api/wishlist", {

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   wishList: [],
+  currenUserWish: [],
 };
 
 export const wishSlice = createSlice({
@@ -23,20 +24,26 @@ export const wishSlice = createSlice({
       }
     },
     removeFromWish: (state, action) => {
-      const findIndex = state.wishList.findIndex(
+      const findIndex = state.currenUserWish.findIndex(
         (item) => item._id === action.payload._id
       );
-      const newWish = [...state.wishList];
+      const newWish = [...state.currenUserWish];
       if (findIndex >= 0) {
         newWish.splice(findIndex, 1);
       }
-      state.wishList = newWish;
+      state.currenUserWish = newWish;
+    },
+
+    addSingleWish: (state, action) => {
+      state.currenUserWish = [...state.currenUserWish, action.payload];
     },
   },
 });
 
-export const { addToWish, removeFromWish, addAllToWish } = wishSlice.actions;
+export const { addToWish, removeFromWish, addAllToWish, addSingleWish } =
+  wishSlice.actions;
 
 export const selectWish = (state) => state.wish.wishList;
+export const selectWishAll = (state) => state.wish.currenUserWish;
 
 export default wishSlice.reducer;
