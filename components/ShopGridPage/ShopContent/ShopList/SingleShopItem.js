@@ -40,10 +40,20 @@ function SingleShopItem({ product, hot }) {
 
   const wishlistAll = useSelector(selectWish);
 
-  const findwishList = wishlistAll.find((item) => item._id === product._id);
+  const findwishList = wishlistAll.find((item) => item === product._id);
   const getWishList = () => {
     if (!findwishList) {
-      dispatch(addToWish(product));
+      dispatch(addToWish(product._id));
+    }
+
+    if (!findwishList) {
+      fetch("/api/wishlist", {
+        method: "POST",
+        body: JSON.stringify({ itemID: product._id }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
     }
     // router.push("/user/wishlist");s
   };

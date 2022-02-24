@@ -50,17 +50,17 @@ export const ProductContents = ({ product }) => {
     );
   };
 
-  const wishlistAll = useSelector(selectWishAll);
+  const wishlistAll = useSelector(selectWish);
 
-  const findWishListItem = wishlistAll.find((item) => item._id === product._id);
+  const findWishListItem = wishlistAll.find((item) => item === product._id);
   console.log(findWishListItem);
 
-  const addToWishList = async () => {
+  const addToWishList = () => {
     if (!findWishListItem) {
       dispatch(addToWish(product._id));
 
       if (!findWishListItem) {
-        await fetch("/api/wishlist", {
+        fetch("/api/wishlist", {
           method: "POST",
           body: JSON.stringify({ itemID: product.id }),
           headers: {

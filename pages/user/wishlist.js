@@ -22,8 +22,6 @@ function wishlist() {
 
   const wishListAlls = useSelector(selectWishAll);
 
-  let wish = [];
-
   const addWishL = (e) => {
     console.log(e);
     if (e) {
@@ -50,8 +48,6 @@ function wishlist() {
       addWishL(filterWishItem);
     });
   }, [allProduct]);
-
-  console.log(wish);
 
   return (
     <>

@@ -14,7 +14,7 @@ export const wishSlice = createSlice({
     },
     addToWish: (state, action) => {
       const findIndex = state.wishList.findIndex(
-        (item) => item._id === action.payload._id
+        (item) => item === action.payload
       );
 
       if (findIndex >= 0) {
@@ -23,6 +23,18 @@ export const wishSlice = createSlice({
         state.wishList = [...state.wishList, action.payload];
       }
     },
+
+    removeSingleWish: (state, action) => {
+      const findIndex = state.wishList.findIndex(
+        (item) => item === action.payload
+      );
+      const newWish = [...state.wishList];
+      if (findIndex >= 0) {
+        newWish.splice(findIndex, 1);
+      }
+      state.wishList = newWish;
+    },
+
     removeFromWish: (state, action) => {
       const findIndex = state.currenUserWish.findIndex(
         (item) => item._id === action.payload._id
@@ -35,13 +47,26 @@ export const wishSlice = createSlice({
     },
 
     addSingleWish: (state, action) => {
-      state.currenUserWish = [...state.currenUserWish, action.payload];
+      const findTaht = state.currenUserWish.find(
+        (wish) => wish._id === action.payload._id
+      );
+
+      if (findTaht) {
+        return;
+      } else {
+        state.currenUserWish = [...state.currenUserWish, action.payload];
+      }
     },
   },
 });
 
-export const { addToWish, removeFromWish, addAllToWish, addSingleWish } =
-  wishSlice.actions;
+export const {
+  addToWish,
+  removeFromWish,
+  addAllToWish,
+  addSingleWish,
+  removeSingleWish,
+} = wishSlice.actions;
 
 export const selectWish = (state) => state.wish.wishList;
 export const selectWishAll = (state) => state.wish.currenUserWish;

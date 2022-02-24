@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
-import { removeFromWish } from "../../slices/wishSlice";
+import { removeFromWish, removeSingleWish } from "../../slices/wishSlice";
 
 function SingleWishList({ product }) {
   const dispatch = useDispatch();
@@ -93,7 +93,18 @@ function SingleWishList({ product }) {
 
         <div
           className="text-gray-600 hover:text-primary cursor-pointer"
-          onClick={() => dispatch(removeFromWish({ _id: product?._id }))}
+          onClick={() => {
+            dispatch(removeFromWish({ _id: product?._id }));
+            dispatch(removeSingleWish(product?._id));
+
+            fetch("/api/wishlist", {
+              method: "DELETE",
+              body: JSON.stringify({ itemID: product.id }),
+              headers: {
+                "content-type": "application/json",
+              },
+            });
+          }}
         >
           <i className="fas fa-trash"></i>
         </div>
