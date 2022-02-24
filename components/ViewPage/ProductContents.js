@@ -9,12 +9,14 @@ import {
   selectWish,
   selectWishAll,
 } from "../../slices/wishSlice";
+import { useSession } from "next-auth/react";
 
 export const ProductContents = ({ product }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
   const [quantity, setQuantity] = useState(1);
+  const { data: session } = useSession();
 
   const incrementQuantity = () => setQuantity(quantity + 1);
   let decrementQuantity = () => setQuantity(quantity - 1);
@@ -56,21 +58,23 @@ export const ProductContents = ({ product }) => {
   console.log(findWishListItem);
 
   const addToWishList = () => {
-    if (!findWishListItem) {
-      dispatch(addToWish(product._id));
-
+    if (session) {
       if (!findWishListItem) {
-        fetch("/api/wishlist", {
-          method: "POST",
-          body: JSON.stringify({ itemID: product.id }),
-          headers: {
-            "content-type": "application/json",
-          },
-        });
-      }
-    }
+        dispatch(addToWish(product._id));
 
-    // router.push("/user/wishlist");s
+        if (!findWishListItem) {
+          fetch("/api/wishlist", {
+            method: "POST",
+            body: JSON.stringify({ itemID: product.id }),
+            headers: {
+              "content-type": "application/json",
+            },
+          });
+        }
+      }
+    } else {
+      router.push("/login");
+    }
   };
 
   const removedWishList = async () => {

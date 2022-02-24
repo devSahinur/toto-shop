@@ -1,5 +1,6 @@
 import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/outline";
 import { HeartIcon as HeartIconFull } from "@heroicons/react/solid";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../../slices/appSlice";
@@ -8,6 +9,7 @@ import { addToWish, selectWish } from "../../../../slices/wishSlice";
 function SingleShopItem({ product, hot }) {
   const cartData = useSelector(selectItems);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const CartId = !!cartData.find(
     (item) => !!(item.product._id === product._id)
@@ -42,20 +44,23 @@ function SingleShopItem({ product, hot }) {
 
   const findwishList = wishlistAll.find((item) => item === product._id);
   const getWishList = () => {
-    if (!findwishList) {
-      dispatch(addToWish(product._id));
-    }
+    if (session) {
+      if (!findwishList) {
+        dispatch(addToWish(product._id));
+      }
 
-    if (!findwishList) {
-      fetch("/api/wishlist", {
-        method: "POST",
-        body: JSON.stringify({ itemID: product._id }),
-        headers: {
-          "content-type": "application/json",
-        },
-      });
+      if (!findwishList) {
+        fetch("/api/wishlist", {
+          method: "POST",
+          body: JSON.stringify({ itemID: product._id }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+      }
+    } else {
+      router.push("/login");
     }
-    // router.push("/user/wishlist");s
   };
 
   return (
