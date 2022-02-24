@@ -5,7 +5,6 @@ import { addToBasket, selectItems } from "../../../slices/appSlice";
 import {
   addToWish,
   selectWish,
-  selectWishAll,
 } from "../../../slices/wishSlice";
 import { useSession } from "next-auth/react";
 
@@ -43,8 +42,10 @@ function SingleArrival({ product }) {
   };
 
   const wishlistAll = useSelector(selectWish);
+  console.log(wishlistAll)
 
   const findWishListItem = wishlistAll.find((item) => item === product._id);
+
   const addToWishList = () => {
     if (session) {
       if (!findWishListItem) {
