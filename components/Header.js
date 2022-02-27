@@ -48,7 +48,7 @@ function Header() {
       .then((res) => res.json())
       .then((data) => dispatch(addAllToWish(data)))
       .catch((err) => console.log(err));
-  }, [session]);
+  }, []);
 
   return (
     <header className="py-4 shadow-sm bg-pink-100 lg:bg-white">
