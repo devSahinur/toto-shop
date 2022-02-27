@@ -10,7 +10,7 @@ function SingleTeam({ id, image, name, status, fbLink, insLink, twiLink }) {
         <title>About US</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
-          rel="stylesheet"
+          // rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         />
       </Head>
