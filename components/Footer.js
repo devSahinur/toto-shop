@@ -11,7 +11,7 @@ function Footer() {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         />
       </Head>
-      <footer className="bg-white pt-16 pb-12 border-t border-gray-100">
+      <footer className="bg-white pt-16 pb-8 md:pb-12 border-t border-gray-100">
         <div className="container">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             {/* footer text start */}

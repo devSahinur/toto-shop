@@ -36,7 +36,7 @@ function search({ product }) {
       <MobileMenubar />
       <div className="bg-gray-100 min-h-screen overflow-x-hidden">
         {/* TODO: search input */}
-        <div className="bg-gradient-to-r from-primary via-pink-300  to-pink-700 flex items-center px-5 py-3 justify-between relative z-10">
+        <div className="bg-gradient-to-r from-primary via-pink-300  to-pink-700 flex items-center px-3 md:px-5 py-3 space-x-2 md:justify-between  relative z-10">
           <ArrowLeftIcon
             className="h-5 text-white cursor-pointer"
             onClick={() => router.back()}
@@ -44,12 +44,12 @@ function search({ product }) {
           <input
             type="text"
             placeholder="Search in TotoShop"
-            className="flex-1 mx-4 bg-transparent outline-none placeholder-gray-200 placeholder:text-sm text-white"
+            className="md:flex-1 flex-grow w-[100px] mx-2  md:mx-4 bg-transparent outline-none placeholder-gray-200 placeholder:text-sm text-white"
             value={keyword}
             onChange={inputHandler}
           />
           {/* TODO: close icon and button */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center md:space-x-2">
             <XIcon
               className="h-5 text-white cursor-pointer"
               onClick={() => setKeyword("")}
@@ -107,8 +107,6 @@ function search({ product }) {
             )}
           </div>
         </div>
-
-        <h1>hellow</h1>
       </div>
     </>
   );

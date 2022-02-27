@@ -11,7 +11,7 @@ export default async ( req, res) => {
             unit_amount: item.product.price * 100,
             product_data:{
                 name: item.product.title,
-                images: [item.product.image[0]]
+                images: [item.product.image]
             },
         }
     }));
@@ -28,7 +28,7 @@ export default async ( req, res) => {
         cancel_url: `${process.env.HOST}/cart`,
         metadata: {
             email,
-            images: JSON.stringify(items.map(item => item.product.image[0]))
+            images: JSON.stringify(items.map(item => item.product.image))
         }
         
     });

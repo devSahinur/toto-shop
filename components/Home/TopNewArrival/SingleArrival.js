@@ -2,21 +2,41 @@ import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
-import { addToWish, selectWish } from "../../../slices/wishSlice";
+import {
+  addToWish,
+  selectWish,
+  selectWishAll,
+} from "../../../slices/wishSlice";
+import { useSession } from "next-auth/react";
 
 function SingleArrival({ product }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
+  const { data: session } = useSession();
 
   const CartId = !!cartData.find(
     (item) => !!(item.product._id === product._id)
   );
 
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  const singleProduct = product;
+
   const AddToCart = () => {
     dispatch(
       addToBasket({
-        product: product,
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
         quantity: 1,
       })
     );
@@ -24,18 +44,37 @@ function SingleArrival({ product }) {
 
   const wishlistAll = useSelector(selectWish);
 
-  const findwishList = wishlistAll.find((item) => item._id === product._id);
-  const getWishList = () => {
-    if (!findwishList) {
-      dispatch(addToWish(product));
+  const findWishListItem = wishlistAll.find((item) => item === product._id);
+  const addToWishList = () => {
+    if (session) {
+      if (!findWishListItem) {
+        dispatch(addToWish(product._id));
+      }
+      if (!findWishListItem) {
+        fetch("/api/wishlist", {
+          method: "POST",
+          body: JSON.stringify({ itemID: product._id }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+      }
+    } else {
+      router.push("/login");
     }
-    // router.push("/user/wishlist");s
+  };
+
+  const buyNowHandler = () => {
+    alert("Buy Now");
   };
 
   return (
     <div className="group rounded bg-white shadow overflow-hidden">
-      <div className="relative">
-        <img src={product?.image} className="w-full h-[205px] object-contain" />
+      <div className="relative overflow-hidden">
+        <img
+          src={product?.image}
+          className="w-full h-[205px] object-contain transform  group-hover:scale-125 ease-in-out duration-700 hover:overflow-hidden"
+        />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
           <div
             onClick={() => router.push(`/product/${product._id}`)}
@@ -44,9 +83,13 @@ function SingleArrival({ product }) {
             <SearchIcon className="h-5 w-5" />
           </div>
           <div
-            onClick={getWishList}
+            onClick={
+              findWishListItem
+                ? () => router.push("/user/wishlist")
+                : addToWishList
+            }
             className={`text-white text-lg w-9 h-9 rounded-full cursor-pointer ${
-              findwishList && "cursor-not-allowed text-white bg-black"
+              findWishListItem && "text-white bg-black"
             } bg-primary hover:bg-gray-800 transition flex items-center justify-center`}
           >
             <HeartIcon className="h-5 w-5" />
@@ -89,18 +132,31 @@ function SingleArrival({ product }) {
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
         </div>
       </div>
-      {CartId ? (
-        <div className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b cursor-not-allowed bg-opacity-80">
-          Already Added
-        </div>
-      ) : (
+      {/* buy now button */}
+      <div className="flex items-center space-x-3 pb-5">
+        {CartId ? (
+          <div
+            onClick={() => router.push("/cart")}
+            className="block w-full py-1 text-center text-white font-semibold bg-green-600 border border-green-600 rounded-b cursor-pointer bg-opacity-80"
+          >
+            Go to Cart
+          </div>
+        ) : (
+          <div
+            onClick={AddToCart}
+            className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+          >
+            Add to Cart
+          </div>
+        )}
+
         <div
-          onClick={AddToCart}
-          className="block w-full py-1 text-center cursor-pointer text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+          onClick={buyNowHandler}
+          className="block w-full py-1 text-center cursor-pointer text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500"
         >
-          Add to Cart
+          Buy Now
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -1,18 +1,11 @@
+import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
-import { removeFromWish, selectWish } from "../../slices/wishSlice";
+import { removeFromWish, removeSingleWish } from "../../slices/wishSlice";
 
 function SingleWishList({ product }) {
   const dispatch = useDispatch();
-
-  const AddtoCart = () => {
-    dispatch(
-      addToBasket({
-        product: product,
-        quantity: 1,
-      })
-    );
-  };
+  const router = useRouter();
 
   const cartDataAll = useSelector(selectItems);
 
@@ -20,13 +13,45 @@ function SingleWishList({ product }) {
     (item) => item.product._id === product._id
   );
 
-  console.log();
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  const singleProduct = product;
+
+  const AddToCart = () => {
+    dispatch(
+      addToBasket({
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
+        quantity: 1,
+      })
+    );
+  };
+
+  const removeWishlistHandler = () => {
+    dispatch(removeFromWish({ _id: product?._id }));
+    dispatch(removeSingleWish(product?._id));
+
+    fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product.id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  };
 
   return (
     <>
-      {/* <!-- single wishlist --> */}
       <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
-        {/* <!-- cart image --> */}
         <div className="w-28 flex-shrink-0">
           <img
             src={
@@ -35,8 +60,6 @@ function SingleWishList({ product }) {
             className="w-full"
           />
         </div>
-        {/* <!-- cart image end --> */}
-        {/* <!-- cart content --> */}
         <div className="md:w-1/3 w-full">
           <h2 className="text-gray-800 mb-1 xl:text-base text-base font-medium uppercase">
             {product.title}
@@ -50,7 +73,6 @@ function SingleWishList({ product }) {
             )}
           </p>
         </div>
-        {/* <!-- cart content end --> */}
         <div className="">
           <p className="text-primary text-lg font-semibold">${product.price}</p>
         </div>
@@ -58,16 +80,16 @@ function SingleWishList({ product }) {
           <>
             {findCartData ? (
               <a
-                href="#"
-                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium cursor-not-allowed"
+                onClick={() => router.push("/cart")}
+                className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 transition uppercase font-roboto font-medium cursor-not-allowed"
               >
-                Already Added
+                Go to Cart
               </a>
             ) : (
               <a
                 href="#"
                 className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-                onClick={AddtoCart}
+                onClick={AddToCart}
               >
                 Add to cart
               </a>
@@ -76,20 +98,19 @@ function SingleWishList({ product }) {
         ) : (
           <a
             href="#"
-            className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded uppercase font-roboto font-medium cursor-not-allowed bg-opacity-80"
+            className="ml-auto md:ml-0 block px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded uppercase font-roboto font-medium bg-opacity-80 cursor-not-allowed"
           >
-            Out Of Stock
+            Add to cart
           </a>
         )}
 
         <div
           className="text-gray-600 hover:text-primary cursor-pointer"
-          onClick={() => dispatch(removeFromWish({ _id: product?._id }))}
+          onClick={removeWishlistHandler}
         >
           <i className="fas fa-trash"></i>
         </div>
       </div>
-      {/* <!-- single wishlist end --> */}
     </>
   );
 }

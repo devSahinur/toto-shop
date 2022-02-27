@@ -3,12 +3,21 @@ import { useRouter } from "next/router";
 import { RatingStar } from "./RatingStar";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../slices/appSlice";
+import {
+  addToWish,
+  removeFromWish,
+  removeSingleWish,
+  selectWish,
+  selectWishAll,
+} from "../../slices/wishSlice";
+import { useSession } from "next-auth/react";
 
 export const ProductContents = ({ product }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartData = useSelector(selectItems);
   const [quantity, setQuantity] = useState(1);
+  const { data: session } = useSession();
 
   const incrementQuantity = () => setQuantity(quantity + 1);
   let decrementQuantity = () => setQuantity(quantity - 1);
@@ -21,13 +30,63 @@ export const ProductContents = ({ product }) => {
     (item) => !!(item.product._id === product._id)
   );
 
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  const singleProduct = product;
+
   const AddToCart = () => {
     dispatch(
       addToBasket({
-        product: product,
-        quantity: quantity,
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
+        quantity: 1,
       })
     );
+  };
+
+  const wishlistAll = useSelector(selectWish);
+
+  const findWishListItem = wishlistAll.find((item) => item === product._id);
+  console.log(findWishListItem);
+
+  const addToWishList = () => {
+    if (session) {
+      if (!findWishListItem) {
+        dispatch(addToWish(product._id));
+
+        if (!findWishListItem) {
+          fetch("/api/wishlist", {
+            method: "POST",
+            body: JSON.stringify({ itemID: product.id }),
+            headers: {
+              "content-type": "application/json",
+            },
+          });
+        }
+      }
+    } else {
+      router.push("/login");
+    }
+  };
+
+  const removedWishList = async () => {
+    await fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product.id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    dispatch(removeSingleWish(product?._id));
   };
 
   return (
@@ -181,7 +240,6 @@ export const ProductContents = ({ product }) => {
       <div className="flex gap-3 border-b border-gray-200 pb-5 mt-6">
         {CartId ? (
           <div
-            onClick={AddToCart}
             className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
             cursor-not-allowed bg-opacity-80 text-sm flex items-center"
           >
@@ -193,7 +251,7 @@ export const ProductContents = ({ product }) => {
         ) : (
           <div
             onClick={AddToCart}
-            className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase 
+            className="bg-primary cursor-pointer border border-primary text-white px-8 py-2 font-medium rounded uppercase 
                       hover:bg-transparent hover:text-primary transition text-sm flex items-center"
           >
             <span className="mr-2">
@@ -203,15 +261,29 @@ export const ProductContents = ({ product }) => {
           </div>
         )}
 
-        <div
-          className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
-                    hover:bg-transparent hover:text-primary transition text-sm"
-        >
-          <span className="mr-2">
-            <i className="far fa-heart"></i>
-          </span>{" "}
-          Wishlist
-        </div>
+        {findWishListItem ? (
+          <div
+            onClick={removedWishList}
+            className="border cursor-pointer bg-opacity-80 border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
+                        hover:bg-transparent hover:text-primary transition text-sm"
+          >
+            <span className="mr-2">
+              <i className="far fa-heart"></i>
+            </span>{" "}
+            Wishlist Added
+          </div>
+        ) : (
+          <div
+            onClick={addToWishList}
+            className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase 
+                        hover:bg-transparent cursor-pointer hover:text-primary transition text-sm"
+          >
+            <span className="mr-2">
+              <i className="far fa-heart"></i>
+            </span>{" "}
+            Wishlist
+          </div>
+        )}
       </div>
       {/* <!-- add to cart button end --> */}
       {/* <!-- product share icons --> */}

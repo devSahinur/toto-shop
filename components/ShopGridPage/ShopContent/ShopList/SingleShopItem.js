@@ -1,7 +1,83 @@
 import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/outline";
-import { SearchIcon } from "@heroicons/react/solid";
+import { HeartIcon as HeartIconFull } from "@heroicons/react/solid";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, selectItems } from "../../../../slices/appSlice";
+import {
+  addToWish,
+  removeSingleWish,
+  selectWish,
+} from "../../../../slices/wishSlice";
 
 function SingleShopItem({ product, hot }) {
+  const cartData = useSelector(selectItems);
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  const CartId = !!cartData.find(
+    (item) => !!(item.product._id === product._id)
+  );
+
+  const dispatch = useDispatch();
+
+  const image = Array.isArray(product?.image)
+    ? product.image[0]
+    : product.image;
+
+  const singleProduct = product;
+
+  const AddToCart = () => {
+    dispatch(
+      addToBasket({
+        product: {
+          image,
+          availability: singleProduct.availability,
+          _id: singleProduct._id,
+          totalQuantity: singleProduct.totalQuantity,
+          title: singleProduct.title,
+          shortDescription: singleProduct.shortDescription,
+          price: singleProduct.price,
+        },
+        quantity: 1,
+      })
+    );
+  };
+
+  const wishlistAll = useSelector(selectWish);
+
+  const findwishList = wishlistAll.find((item) => item === product._id);
+  const getWishList = () => {
+    if (session) {
+      if (!findwishList) {
+        dispatch(addToWish(product._id));
+      }
+
+      if (!findwishList) {
+        fetch("/api/wishlist", {
+          method: "POST",
+          body: JSON.stringify({ itemID: product._id }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+      }
+    } else {
+      router.push("/login");
+    }
+  };
+
+  const removedWishList = () => {
+    fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product._id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    dispatch(removeSingleWish(product?._id));
+  };
+
   return (
     <div className="group rounded-md bg-white shadow overflow-hidden relative border hover:shadow-lg md:flex">
       <div className="relative">
@@ -64,12 +140,41 @@ function SingleShopItem({ product, hot }) {
         {/* Product button */}
 
         <div className="flex items-center space-x-5">
-          <button className="btn flex items-center space-x-2">
+          {/* <button className="btn flex items-center space-x-2">
             <ShoppingCartIcon className="h-4" /> <span>Add to Cart</span>
-          </button>
-          <button className="btn-outline flex items-center space-x-2">
-            <HeartIcon className="h-4" /> <span>Wishlist</span>
-          </button>
+          </button> */}
+
+          {CartId ? (
+            <button
+              onClick={() => router.push("/cart")}
+              className="btn bg-green-600 flex items-center space-x-2"
+            >
+              <ShoppingCartIcon className="h-4" /> <span>Go to Cart</span>
+            </button>
+          ) : (
+            <button
+              onClick={AddToCart}
+              className="btn flex items-center space-x-2"
+            >
+              <ShoppingCartIcon className="h-4" /> <span>Add to Cart</span>
+            </button>
+          )}
+
+          {findwishList ? (
+            <button
+              onClick={removedWishList}
+              className="btn-outline bg-primary flex text-white  items-center space-x-2"
+            >
+              <HeartIconFull className="h-4" /> <span>Added</span>
+            </button>
+          ) : (
+            <div
+              onClick={getWishList}
+              className="btn-outline flex items-center space-x-2"
+            >
+              <HeartIcon className="h-4" /> <span>Wishlist</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

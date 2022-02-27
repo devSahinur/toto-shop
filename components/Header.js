@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
-import { selectWish } from "../slices/wishSlice";
+import { addAllToWish, selectWish } from "../slices/wishSlice";
 
 function Header() {
   const router = useRouter();
@@ -12,6 +12,7 @@ function Header() {
   const [fetchData, setFatchData] = useState([]);
   const [filterData, setFilterData] = useState(fetchData);
   const cartData = useSelector(selectItems);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (keyword === "") return;
@@ -38,6 +39,12 @@ function Header() {
     fetch("/api/product")
       .then((res) => res.json())
       .then((data) => setFatchData(data.data))
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    fetch("/api/wishlist")
+      .then((res) => res.json())
+      .then((data) => dispatch(addAllToWish(data)))
       .catch((err) => console.log(err));
   }, []);
 
@@ -124,7 +131,7 @@ function Header() {
                   <li
                     key={item.id}
                     onClick={() => router.push(`/product/${item._id}`)}
-                    className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 py-3 rounded-md"
+                    className="grid grid-cols-4 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 transition-all ease-in-out py-3 rounded-md"
                   >
                     <div className="w-[150px]">
                       <Image
