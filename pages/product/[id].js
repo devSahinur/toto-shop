@@ -11,27 +11,11 @@ function view({ product, allData }) {
   const relatedProduct = allData.slice(0, 4);
   const router = useRouter();
 
-
-  // const wishList = async (heart) => {
-  //   if (!heart) {
-  //     await fetch("/api/wishlist", {
-  //       method: "POST",
-  //       body: JSON.stringify({ itemID: product.id, isHeart: true }),
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //     })
-  //     setShowHeart(true)
-  //   } else {
-  //     await fetch("/api/wishlist", {
-  //       method: "DELETE",
-  //       body: JSON.stringify({ itemID: product.id, isHeart: false }),
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //     })
-  //   }
-  // }
+  // todo short title
+  const shortTitle =
+    product.title.length > 75
+      ? product?.title.substring(0, 75) + "..."
+      : product.title;
 
   return (
     <>
@@ -61,7 +45,7 @@ function view({ product, allData }) {
         <span className="text-sm text-gray-400">
           <i className="fas fa-chevron-right"></i>
         </span>
-        <p className="text-gray-600 font-medium uppercase">{product.title}</p>
+        <p className="text-gray-600 font-medium uppercase">{shortTitle}</p>
       </div>
       {/* <!-- breadcrumb end --> */}
       <div className="container pt-4 pb-6 grid lg:grid-cols-2 gap-6">

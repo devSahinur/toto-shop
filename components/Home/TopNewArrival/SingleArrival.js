@@ -2,11 +2,14 @@ import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
-import {
-  addToWish,
-  selectWish,
-} from "../../../slices/wishSlice";
+import { addToWish, selectWish } from "../../../slices/wishSlice";
 import { useSession } from "next-auth/react";
+
+// TODO: for stripe
+import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.stripe_public_key);
 
 function SingleArrival({ product }) {
   const router = useRouter();
@@ -42,7 +45,7 @@ function SingleArrival({ product }) {
   };
 
   const wishlistAll = useSelector(selectWish);
-  console.log(wishlistAll)
+  console.log(wishlistAll);
 
   const findWishListItem = wishlistAll.find((item) => item === product._id);
 
@@ -65,8 +68,40 @@ function SingleArrival({ product }) {
     }
   };
 
-  const buyNowHandler = () => {
-    alert("Buy Now");
+  const createCheckoutSession = async () => {
+    const items = [
+      {
+        product: {
+          availability: product?.availability,
+          image: image,
+          price: product?.price,
+          shortDescription: product?.shortDescription,
+          title: product?.title,
+          totalQuantity: product?.totalQuantity,
+          _id: product?._id,
+        },
+        quantity: 1,
+      },
+    ];
+
+    const stripe = await stripePromise;
+
+    // Call the backend create a checkout session
+    const checkoutSession = await axios.post(
+      "/api/create-checkout-session",
+      {
+        items: items,
+        email: session.user.email,
+      },
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    // // Redirect user /customer to Stripe Checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) alert(result.error.message);
   };
 
   return (
@@ -152,7 +187,7 @@ function SingleArrival({ product }) {
         )}
 
         <div
-          onClick={buyNowHandler}
+          onClick={createCheckoutSession}
           className="block w-full py-1 text-center cursor-pointer text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500"
         >
           Buy Now
