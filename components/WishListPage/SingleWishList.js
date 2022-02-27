@@ -36,6 +36,19 @@ function SingleWishList({ product }) {
     );
   };
 
+  const removeWishlistHandler = () => {
+    dispatch(removeFromWish({ _id: product?._id }));
+    dispatch(removeSingleWish(product?._id));
+
+    fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product.id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  };
+
   return (
     <>
       <div className="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
@@ -93,18 +106,7 @@ function SingleWishList({ product }) {
 
         <div
           className="text-gray-600 hover:text-primary cursor-pointer"
-          onClick={() => {
-            dispatch(removeFromWish({ _id: product?._id }));
-            dispatch(removeSingleWish(product?._id));
-
-            fetch("/api/wishlist", {
-              method: "DELETE",
-              body: JSON.stringify({ itemID: product.id }),
-              headers: {
-                "content-type": "application/json",
-              },
-            });
-          }}
+          onClick={removeWishlistHandler}
         >
           <i className="fas fa-trash"></i>
         </div>

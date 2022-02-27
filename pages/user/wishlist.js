@@ -13,6 +13,21 @@ import {
   selectWishAll,
 } from "../../slices/wishSlice";
 
+import { css } from "@emotion/react";
+import HashLoader from "react-spinners/HashLoader";
+
+// FIXME: for show the loader
+
+import Copyright from "../../components/Copyright";
+import Footer from "../../components/Footer";
+
+// TODO loading
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 function wishlist() {
   const wishlistAll = useSelector(selectWish);
 
@@ -21,6 +36,11 @@ function wishlist() {
   const dispatch = useDispatch();
 
   const wishListAlls = useSelector(selectWishAll);
+
+  // TODO: for loading
+
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#FD3D57");
 
   const addWishL = (e) => {
     console.log(e);
@@ -33,9 +53,12 @@ function wishlist() {
   // console.log(allProduct);
 
   useEffect(async () => {
+    setLoading(true);
     const res = await fetch(`${process.env.host_url}/api/product`);
     const data = await res.json();
     setProduct(data?.data);
+
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -60,6 +83,7 @@ function wishlist() {
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
       </Head>
+
       {wishListAlls.length ? (
         <>
           <MainHeader BreadcrumbTitle="MY wish list" />
@@ -74,7 +98,30 @@ function wishlist() {
           <MainFooter />
         </>
       ) : (
-        <WishListProductNotAvailable />
+        <>
+          {loading ? (
+            <>
+              <MainHeader BreadcrumbTitle="no" />
+              <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
+                <UserSidebar />
+                <div className="col-span-9 mt-6 lg:mt-12 flex items-center justify-center">
+                  <HashLoader
+                    color={color}
+                    loading={loading}
+                    css={override}
+                    size={300}
+                  />
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <Footer />
+              </div>
+              <Copyright />
+            </>
+          ) : (
+            <WishListProductNotAvailable />
+          )}
+        </>
       )}
     </>
   );

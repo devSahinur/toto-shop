@@ -6,6 +6,7 @@ import { addToBasket, selectItems } from "../../slices/appSlice";
 import {
   addToWish,
   removeFromWish,
+  removeSingleWish,
   selectWish,
   selectWishAll,
 } from "../../slices/wishSlice";
@@ -85,18 +86,8 @@ export const ProductContents = ({ product }) => {
         "content-type": "application/json",
       },
     });
-
-    dispatch(removeFromWish({ _id: product?.id }));
+    dispatch(removeSingleWish(product?._id));
   };
-
-  // const AddToCart = () => {
-  //   dispatch(
-  //     addToBasket({
-  //       product: product,
-  //       quantity: quantity,
-  //     })
-  //   );
-  // };
 
   return (
     <div>

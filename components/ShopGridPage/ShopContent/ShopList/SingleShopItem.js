@@ -4,7 +4,11 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../../slices/appSlice";
-import { addToWish, selectWish } from "../../../../slices/wishSlice";
+import {
+  addToWish,
+  removeSingleWish,
+  selectWish,
+} from "../../../../slices/wishSlice";
 
 function SingleShopItem({ product, hot }) {
   const cartData = useSelector(selectItems);
@@ -61,6 +65,17 @@ function SingleShopItem({ product, hot }) {
     } else {
       router.push("/login");
     }
+  };
+
+  const removedWishList = () => {
+    fetch("/api/wishlist", {
+      method: "DELETE",
+      body: JSON.stringify({ itemID: product._id }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    dispatch(removeSingleWish(product?._id));
   };
 
   return (
@@ -146,7 +161,10 @@ function SingleShopItem({ product, hot }) {
           )}
 
           {findwishList ? (
-            <button className="btn-outline bg-primary flex text-white  items-center space-x-2">
+            <button
+              onClick={removedWishList}
+              className="btn-outline bg-primary flex text-white  items-center space-x-2"
+            >
               <HeartIconFull className="h-4" /> <span>Added</span>
             </button>
           ) : (

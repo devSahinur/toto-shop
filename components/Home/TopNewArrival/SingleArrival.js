@@ -48,7 +48,6 @@ function SingleArrival({ product }) {
   const addToWishList = () => {
     if (session) {
       if (!findWishListItem) {
-        // alert(product._id);
         dispatch(addToWish(product._id));
       }
       if (!findWishListItem) {
@@ -84,9 +83,13 @@ function SingleArrival({ product }) {
             <SearchIcon className="h-5 w-5" />
           </div>
           <div
-            onClick={addToWishList}
+            onClick={
+              findWishListItem
+                ? () => router.push("/user/wishlist")
+                : addToWishList
+            }
             className={`text-white text-lg w-9 h-9 rounded-full cursor-pointer ${
-              findWishListItem && "cursor-not-allowed text-white bg-black"
+              findWishListItem && "text-white bg-black"
             } bg-primary hover:bg-gray-800 transition flex items-center justify-center`}
           >
             <HeartIcon className="h-5 w-5" />
