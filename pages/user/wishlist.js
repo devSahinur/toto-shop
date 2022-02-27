@@ -43,12 +43,10 @@ function wishlist() {
   let [color, setColor] = useState("#FD3D57");
 
   const addWishL = (e) => {
-
     if (e) {
       dispatch(addSingleWish(e));
     }
   };
-
 
   useEffect(async () => {
     setLoading(true);
@@ -60,7 +58,7 @@ function wishlist() {
   }, []);
 
   useEffect(() => {
-    const mapWishList = wishlistAll?.map((item) => {
+    wishlistAll?.map((item) => {
       console.log("this is the wishlist item", item);
       const filterWishItem = allProduct.find(
         (appProduct) => appProduct._id === item
