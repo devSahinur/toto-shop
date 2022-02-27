@@ -9,7 +9,6 @@ export default async (req, res) => {
     method,
   } = req;
   // const id = req.param.id
-  console.log(id)
 
   switch (method) {
     case "GET":

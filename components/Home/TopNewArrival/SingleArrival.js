@@ -45,7 +45,6 @@ function SingleArrival({ product }) {
   };
 
   const wishlistAll = useSelector(selectWish);
-  console.log(wishlistAll);
 
   const findWishListItem = wishlistAll.find((item) => item === product._id);
 

@@ -43,14 +43,12 @@ function wishlist() {
   let [color, setColor] = useState("#FD3D57");
 
   const addWishL = (e) => {
-    console.log(e);
+
     if (e) {
       dispatch(addSingleWish(e));
     }
   };
 
-  // console.log(wishlistAll);
-  // console.log(allProduct);
 
   useEffect(async () => {
     setLoading(true);

@@ -13,8 +13,6 @@ import Order from "./../../models/order";
 function OrderHistory({ orders }) {
   const { data: session } = useSession();
 
-  console.log(orders);
-
   return (
     <>
       <MainHeader BreadcrumbTitle="My Order History" />

@@ -20,7 +20,6 @@ import UserSidebar from "../../../components/commonComponents/UserSidebar";
 import MainFooter from "../../../components/commonComponents/MainFooter";
 
 function editProduct({ product, user }) {
-  // console.log(product, user);
   const router = useRouter();
   const { data: session } = useSession();
   const {

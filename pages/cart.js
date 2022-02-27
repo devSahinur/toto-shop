@@ -11,7 +11,6 @@ import MainFooter from "../components/commonComponents/MainFooter";
 function cart() {
   const cartData = useSelector(selectItems);
 
-  console.log(cartData[0]?.product?._id);
   return (
     <>
       <Head>

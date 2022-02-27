@@ -56,7 +56,6 @@ export const ProductContents = ({ product }) => {
   const wishlistAll = useSelector(selectWish);
 
   const findWishListItem = wishlistAll.find((item) => item === product._id);
-  console.log(findWishListItem);
 
   const addToWishList = () => {
     if (session) {

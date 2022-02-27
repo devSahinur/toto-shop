@@ -17,7 +17,6 @@ function ProfileInfo() {
   } = useForm();
 
   const [user, setUser] = useState();
-  console.log(user);
 
   useEffect(async () => {
     const res = await fetch("/api/user");

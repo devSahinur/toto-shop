@@ -19,7 +19,6 @@ const OrderSummary = () => {
   const [coupon, setCoupon] = useState(false);
   const [notMatchCoupon, setNotmatchCoupon] = useState(false);
 
-  console.log(items);
 
   // TODO: calculte the parcentage
   // this is const value
