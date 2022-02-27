@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../slices/appSlice";
 import { addAllToWish, selectWish } from "../slices/wishSlice";
+import { useSession } from "next-auth/react";
 
 function Header() {
   const router = useRouter();
@@ -13,6 +14,7 @@ function Header() {
   const [filterData, setFilterData] = useState(fetchData);
   const cartData = useSelector(selectItems);
   const dispatch = useDispatch();
+  const { data: session } = useSession();
 
   useEffect(() => {
     if (keyword === "") return;
@@ -46,7 +48,7 @@ function Header() {
       .then((res) => res.json())
       .then((data) => dispatch(addAllToWish(data)))
       .catch((err) => console.log(err));
-  }, []);
+  }, [session]);
 
   return (
     <header className="py-4 shadow-sm bg-pink-100 lg:bg-white">

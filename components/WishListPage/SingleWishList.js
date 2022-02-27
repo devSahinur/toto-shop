@@ -36,11 +36,11 @@ function SingleWishList({ product }) {
     );
   };
 
-  const removeWishlistHandler = () => {
+  const removeWishlistHandler = async () => {
     dispatch(removeFromWish({ _id: product?._id }));
     dispatch(removeSingleWish(product?._id));
 
-    fetch("/api/wishlist", {
+    await fetch("/api/wishlist", {
       method: "DELETE",
       body: JSON.stringify({ itemID: product.id }),
       headers: {

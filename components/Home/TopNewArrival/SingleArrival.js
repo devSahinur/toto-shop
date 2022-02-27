@@ -187,7 +187,7 @@ function SingleArrival({ product }) {
 
         <div
           onClick={session && createCheckoutSession}
-          className="block w-full py-1 text-center cursor-pointer text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500"
+          className={`block w-full py-1 text-center cursor-pointer ${!session && 'cursor-not-allowed'} text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500`}
         >
           Buy Now
         </div>
