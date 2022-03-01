@@ -11,20 +11,12 @@ import MainHeader from "../components/commonComponents/MainHeader";
 import MainFooter from "../components/commonComponents/MainFooter";
 
 export default function Home({ products }) {
-  // const [showModal, setShowModal] = useState(false);
-  // const [products, setProducts] = useState([]);
+  const [showModal, setShowModal] = useState();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowModal(true);
-  //   }, 3000);
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch("/api/product")
-  //     .then((response) => response.json())
-  //     .then((data) => setProducts(data.data));
-  // }, []);
+  useEffect(() => {
+    const modalData = window.sessionStorage.getItem("showModal");
+    setShowModal(modalData);
+  }, []);
 
   return (
     <>
@@ -46,8 +38,8 @@ export default function Home({ products }) {
         <MiddleAds />
         <RecomendedProduct products={products} />
       </main>
-      {/* for show the modal */}
-      {/* {showModal && <Modal setShowModal={setShowModal} />} */}
+      {/* Modal Show */}
+      {!showModal && <Modal setShowModal={setShowModal} />}
       <MainFooter />
     </>
   );

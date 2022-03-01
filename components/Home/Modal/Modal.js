@@ -2,6 +2,9 @@ import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 
 function Modal({ setShowModal }) {
+  const dontShow = () => {
+    window.sessionStorage.setItem("showModal", false);
+  };
   return (
     <div
       className="fixed top-0 left-0 custom_modal flex items-center w-full h-full"
@@ -10,7 +13,7 @@ function Modal({ setShowModal }) {
       <div className="relative px-4 py-10 rounded-md max-w-[700px] mx-auto bg-white flex items-center justify-between animation">
         {/* Icon */}
         <XIcon
-          onClick={() => setShowModal(false)}
+          onClick={() => setShowModal(true)}
           className="h-6 absolute top-3 right-3 transform hover:scale-125 hover:text-primary transition-all ease-in cursor-pointer"
         />
 
@@ -42,7 +45,7 @@ function Modal({ setShowModal }) {
             <input
               type="checkbox"
               className="form-checkbox text-primary border-primary rounded-md border-2 p-2 focus-within:outline-primary outline-primary"
-              onChange={(e) => setShowModal(false)}
+              onChange={dontShow}
             />
             <span className="ml-2">Do not show this again</span>
           </label>
