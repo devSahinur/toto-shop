@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import AdminLayout from "../../components/Admin/AdminLayout";
+import AdminFeed from "../../components/Admin/Feed/AdminFeed";
 
 function index() {
   return (
-    <div>hello</div>
-  )
+    <div>
+      <AdminLayout>
+        <AdminFeed />
+      </AdminLayout>
+    </div>
+  );
 }
 
-export default index
+export default index;
