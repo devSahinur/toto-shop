@@ -6,7 +6,7 @@ function AdminSidebar({ showSidebar, setShowSidebar }) {
   const [sidebars, setSidebars] = useState([
     { id: 1, Icon: HomeIcon, active: true, text: "Dshborard" },
     { id: 2, Icon: HomeIcon, active: false, text: "Customers" },
-    { id: 3, Icon: HomeIcon, active: true, text: "Items" },
+    { id: 3, Icon: HomeIcon, active: false, text: "Items" },
     { id: 4, Icon: HomeIcon, active: false, text: "Estimates" },
     { id: 5, Icon: HomeIcon, active: false, text: "Invoices" },
     { id: 6, Icon: HomeIcon, active: false, text: "Recurring Invoices" },
@@ -32,7 +32,9 @@ function AdminSidebar({ showSidebar, setShowSidebar }) {
 
   return (
     <div
-      className={`h-screen hidden md:block ${showSidebar && "CustomCallsMenu"}`}
+      className={`max-h-screen overflow-y-scroll hidden md:block ${
+        showSidebar && "CustomCallsMenu"
+      }`}
     >
       {/* Sidebar Wrapper  */}
       <div>

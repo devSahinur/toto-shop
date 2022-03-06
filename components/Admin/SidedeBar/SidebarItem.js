@@ -11,7 +11,7 @@ function SidebarItem({ item, selectItem }) {
     >
       <Icon
         className={`h-6 ${
-          active ? "text-[#5D6CDD] " : "text-gray-500"
+          active ? "text-[#5D6CDD] " : "text-white md:text-gray-500"
         } group-hover:text-gray-800 font-bold`}
       />
       <p

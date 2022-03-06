@@ -91,7 +91,7 @@ function AdminHeader({ showSidebar, setShowSidebar }) {
 
               {/* TODO: dromdown */}
               {dropdown && (
-                <div className="absolute top-[45px] bg-white -left-[75px] px-2 py-2 rounded-md border shadow-md w-[250px] animationFadein">
+                <div className="absolute top-[45px] z-50 bg-white -left-[75px] px-2 py-2 rounded-md border shadow-md w-[250px] animationFadein">
                   <p className="text-header500 text-xs font-semibold pb-3">
                     SWITCH COMPANY
                   </p>

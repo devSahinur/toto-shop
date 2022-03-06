@@ -16,7 +16,7 @@ function AdminLayout({ children }) {
           showSidebar={showSidebar}
           setShowSidebar={setShowSidebar}
         />
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow p-6 bg-[#F1F5F9]">{children}</div>
       </div>
     </div>
   );

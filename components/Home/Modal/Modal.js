@@ -10,7 +10,7 @@ function Modal({ setShowModal }) {
       className="fixed top-0 left-0 custom_modal flex items-center w-full h-full"
       style={{ background: "rgba(0, 0, 0, 0.5)", zIndex: "70" }}
     >
-      <div className="relative px-4 py-10 rounded-md max-w-[700px] mx-auto bg-white flex items-center justify-between animation">
+      <div className="relative px-4 py-10 rounded-md max-w-[700px] mx-auto bg-white flex flex-col md:flex-row md:items-center md:justify-between animation">
         {/* Icon */}
         <XIcon
           onClick={() => setShowModal(true)}
@@ -18,10 +18,10 @@ function Modal({ setShowModal }) {
         />
 
         <div className="pt-4 flex-grow text-center space-y-5">
-          <h1 className="text-4xl uppercase font-semibold">
+          <h1 className="text-2xl md:text-4xl uppercase font-semibold">
             GET <span className="text-primary">30%</span> OFF
           </h1>
-          <p className="text-gray-700">
+          <p className="text-gray-700 text-sm md:text-base">
             Subscribe to the newsiettier to recive updates about new products
           </p>
 
@@ -29,12 +29,12 @@ function Modal({ setShowModal }) {
           <div className="flex w-full">
             <input
               type="text"
-              className="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md outline-primary focus:border-primary"
+              className="pl-5 md:pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md outline-primary focus:border-primary"
               placeholder="Your email address"
             />
             <button
               type="submit"
-              className="bg-primary border border-primary text-white px-6 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition uppercase"
+              className="bg-primary border border-primary text-white px-4 md:px-6 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition uppercase"
             >
               Subscribe
             </button>
