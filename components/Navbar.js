@@ -155,7 +155,7 @@ function Navbar() {
                     FAQ
                   </a>
                 </Link>
-                {session?.user?.email === "sayerkazipara@gmail.com" || "faysalmridha9878@gmail.com" && (
+                {session && (
                   <Link href="/admin/login">
                     <a className="text-gray-200 hover:text-white transition cursor-pointer">
                       Admin
