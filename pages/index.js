@@ -25,9 +25,23 @@ export default function Home({ products }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
         <meta
+          name="keywords"
+          content="ToToSHOP, totoshop, totoshop tech,toto, totoshop online, toto tech"
+        ></meta>
+        <meta
           name="description"
           content="Bangladesh's best online shopping store with 17+ million products at resounding discounts in dhaka, ctg & All across Bangladesh with cash on delivery (COD)"
         ></meta>
+        <meta
+          property="og:title"
+          content="ToToSHOP - Online Shopping Website"
+        ></meta>
+        <meta property="og:type" content="Home"></meta>
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/Vj9c5nh/logo.png"
+        ></meta>
+        <meta property="og:url" content="http://totoshop.tech"></meta>
       </Head>
       <MainHeader BreadcrumbTitle="no" />
       <main>

@@ -19,13 +19,24 @@ function faq() {
   return (
     <>
       <Head>
-        <title>F.A.Q -ToTo SHOP</title>
+        <title>F.A.Q - ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta name="title" content="F.A.Q -ToTo SHOP"></meta>
         <meta
           name="description"
           content="Can’t find the answer you’re looking for? We’ve shared some of your most frequently asked questions to help you out!"
         ></meta>
+        <meta
+          name="keywords"
+          content="ToToSHOP F.A.Q, totoshop F.A.Q, F.A.Q, faq totoshop"
+        ></meta>
+        <meta property="og:title" content="F.A.Q"></meta>
+        <meta property="og:type" content="Product"></meta>
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/Vj9c5nh/logo.png"
+        ></meta>
+        <meta property="og:url" content="http://totoshop.tech/faq"></meta>
       </Head>
       <MainHeader BreadcrumbTitle="FAQ" />
       <main className="max-w-[75rem] mx-auto px-4 py-6">
