@@ -1,10 +1,13 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 function SidebarItem({ item, selectItem }) {
-  const { Icon, active, text } = item;
+  const { Icon, active, text, route } = item;
+  const router = useRouter();
   return (
     <div
-      onClick={() => selectItem(item.id)}
+      // onClick={() => selectItem(item.id)}
+      onClick={() => router.push(route)}
       className={`flex items-center relative hover:bg-blue-100 space-x-4 transition-all ease-in-out group cursor-pointer px-3 py-2 ${
         active ? " bg-blue-100 borderRight" : "bg-transparent"
       }`}
