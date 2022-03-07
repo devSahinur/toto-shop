@@ -1,7 +1,7 @@
 import React from "react";
 import DashBorardTop from "./DashBorardTop";
 import Chart from "./Chart";
-import DashBoardBottom from "../../SidedeBar/DashBoardBottom";
+import DashBoardBottom from "./DashBoardBottom";
 
 function AdminFeed() {
   return (
