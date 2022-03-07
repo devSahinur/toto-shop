@@ -17,6 +17,15 @@ function Modal({ setShowModal }) {
           className="h-6 absolute top-3 right-3 transform hover:scale-125 hover:text-primary transition-all ease-in cursor-pointer"
         />
 
+        <div>
+          <Image
+            src="/popup-bg.jpg"
+            width={400}
+            height={300}
+            className="object-contain"
+          />
+        </div>
+
         <div className="pt-4 flex-grow text-center space-y-5">
           <h1 className="text-2xl md:text-4xl uppercase font-semibold">
             GET <span className="text-primary">30%</span> OFF
@@ -52,14 +61,6 @@ function Modal({ setShowModal }) {
         </div>
 
         {/* backgroundimage */}
-        <div>
-          <Image
-            src="/popup-bg.jpg"
-            width={400}
-            height={300}
-            className="object-contain"
-          />
-        </div>
       </div>
     </div>
   );
