@@ -8,10 +8,12 @@ import {
 } from "@heroicons/react/outline";
 import Image from "next/image";
 import RightDropDown from "./RightDropDown";
+import { useRouter } from "next/router";
 
 function AdminHeader({ showSidebar, setShowSidebar }) {
   const [input, setInput] = useState("");
   const [dropdown, setDropdown] = useState("");
+  const router = useRouter();
 
   return (
     <div className=" bg-gradient-to-t from-header400 to-header500 px-5 py-3">
