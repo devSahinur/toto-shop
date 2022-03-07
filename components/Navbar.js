@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import MobileMenubar from "./MobileMenubar";
-import { HeartIcon } from "@heroicons/react/outline";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -156,6 +155,13 @@ function Navbar() {
                     FAQ
                   </a>
                 </Link>
+                {session?.user?.email === "sayerkazipara@gmail.com" || "faysalmridha9878@gmail.com" && (
+                  <Link href="/admin/login">
+                    <a className="text-gray-200 hover:text-white transition cursor-pointer">
+                      Admin
+                    </a>
+                  </Link>
+                )}
               </div>
               {session ? (
                 <div className="flex items-center space-x-5">

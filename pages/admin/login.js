@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 function login() {
+  const router = useRouter();
   return (
     <>
       <div className="grid h-screen grid-cols-12 overflow-y-hidden bg-gray-100">
@@ -22,7 +24,7 @@ function login() {
               />
             </svg>
 
-            <form id="loginForm" className="mt-12 text-left">
+            <form className="mt-12 text-left">
               <div className="relative w-full text-left mb-4">
                 <label className="flex text-sm not-italic items-center font-medium text-gray-800 whitespace-nowrap justify-between">
                   <div>
@@ -30,11 +32,7 @@ function login() {
                   </div>{" "}
                 </label>
                 <div className="flex flex-col mt-1">
-                  <div
-                    className="relative rounded-md shadow-sm font-base"
-                    name="email"
-                  >
-                    {" "}
+                  <div className="relative rounded-md shadow-sm font-base">
                     <input
                       name="email"
                       type="email"
@@ -50,11 +48,7 @@ function login() {
                   </div>{" "}
                 </label>
                 <div className="flex flex-col mt-1">
-                  <div
-                    className="relative rounded-md shadow-sm font-base"
-                    name="password"
-                  >
-                    {" "}
+                  <div className="relative rounded-md shadow-sm font-base">
                     <input
                       name="password"
                       type="password"
@@ -87,20 +81,18 @@ function login() {
               </div>
               <div className="mt-5 mb-8">
                 <div className="mb-4">
-                  <a
-                    href="/forgot-password"
-                    className="text-sm text-primary-400 hover:text-gray-700"
-                  >
+                  <div className="text-sm text-primary-400 hover:text-gray-700">
                     Forgot Password?
-                  </a>
+                  </div>
                 </div>
               </div>
-              <button
-                className="inline-flex whitespace-nowrap items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 px-4 py-2 text-sm leading-5 rounded-md border-transparent shadow-sm text-white bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-primary-500"
-                type="submit"
+              <div
+                onClick={() => router.push("/admin")}
+                className="inline-flex cursor-pointer whitespace-nowrap items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 px-4 py-2 text-sm leading-5 rounded-md border-transparent shadow-sm text-white bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-primary-500"
+                // type="submit"
               >
                 Login
-              </button>
+              </div>
             </form>
             <div className="pt-24 mt-0 text-sm not-italic font-medium leading-relaxed text-left text-gray-400 md:pt-40">
               <p className="mb-3"> Copyright @ ToTo Shop. 2022</p>
