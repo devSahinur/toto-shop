@@ -16,6 +16,7 @@ export const ProductDetails = ({ product }) => {
         </div>
         {/* <!-- details table --> */}
         <table className="table-auto border-collapse w-full text-left text-gray-600 text-sm mt-6">
+        <tbody>
           <tr>
             <th className="py-2 px-4 border border-gray-300 w-40 font-medium">
               Color
@@ -40,6 +41,7 @@ export const ProductDetails = ({ product }) => {
               {product.weight} KG
             </td>
           </tr>
+          </tbody>
         </table>
         {/* <!-- details table --> */}
       </div>

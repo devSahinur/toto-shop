@@ -60,7 +60,7 @@ function ShopSidebar({ fileterbtn, setShowSidebar }) {
           )}
         </div>
         {categories.slice(0, 6).map((category) => (
-          <ShopCategory category={category} />
+          <ShopCategory key={category._id} category={category} />
         ))}
       </div>
 

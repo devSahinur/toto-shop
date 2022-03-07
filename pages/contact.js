@@ -12,11 +12,22 @@ function contact() {
       <Head>
         <title>Contact Us -ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta name="title" content="Contact Us -ToTo SHOPe"></meta>
         <meta
           name="description"
           content="Use The Form Below To Get In Touch With The Sales Team"
         ></meta>
+        <meta
+          name="keywords"
+          content="ToToSHOP Contact, totoshop Contact Us"
+        ></meta>
+        <meta property="og:title" content="Contact Us"></meta>
+        <meta property="og:type" content="Product"></meta>
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/Vj9c5nh/logo.png"
+        ></meta>
+        <meta property="og:url" content="http://totoshop.tech/contact"></meta>
       </Head>
       <MainHeader BreadcrumbTitle="no" />
       <AboutBanner

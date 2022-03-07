@@ -14,11 +14,23 @@ function about() {
       <Head>
         <title>About Us - ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
+        <meta name="title" content="About Us - ToTo SHOP"></meta>
+
         <meta
           name="description"
           content="We design and delever our customers' degital transformation by bringing together their vision with our industry knowledge and deep technologcal expertise. We design and delever our customers' degital transformmation"
         ></meta>
+        <meta
+          name="keywords"
+          content="ToToSHOP about, totoshop about us"
+        ></meta>
+        <meta property="og:title" content="About Us"></meta>
+        <meta property="og:type" content="Product"></meta>
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/Vj9c5nh/logo.png"
+        ></meta>
+        <meta property="og:url" content="http://totoshop.tech/about"></meta>
       </Head>
       <MainHeader BreadcrumbTitle="no" />
       <AboutBanner
