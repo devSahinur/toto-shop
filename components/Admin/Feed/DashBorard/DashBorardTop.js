@@ -44,7 +44,7 @@ function DashBorardTop() {
       {/* Single Dashborar top Item */}
 
       {topNav?.map(({ id, text, number, Icon, color, price }) => (
-        <div className="bg-white p-3 rounded-md flex items-center justify-between cursor-pointer shadow-md hover:shadow-lg">
+        <div key={id} className="bg-white p-3 rounded-md flex items-center justify-between cursor-pointer shadow-md hover:shadow-lg">
           {/* SIngle left  */}
           <div className="flex flex-col space-y-1">
             <h1 className="text-xl font-bold">
