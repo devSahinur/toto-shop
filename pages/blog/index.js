@@ -58,7 +58,7 @@ function index() {
         <BlogSideBar />
         <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
           {data.map((post) => (
-            <BlogPost key={post.slug} post={post} />
+            <BlogPost key={post.id} post={post} />
           ))}
         </div>
       </main>

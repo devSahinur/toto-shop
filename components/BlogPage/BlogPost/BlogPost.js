@@ -22,7 +22,7 @@ function BlogPost({ post }) {
         </div>
         {/* post image */}
         <Link href={`/blog/${post.slug}`}>
-          <div classname="mx-auto cursor-pointer flex items-center justify-center w-[500px]">
+          <div className="mx-auto cursor-pointer flex items-center justify-center w-[500px]">
             <Image
               src={post.postImage}
               width={500}
