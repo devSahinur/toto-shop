@@ -168,7 +168,7 @@ function SingleArrival({ product }) {
         </div>
       </div>
       {/* buy now button */}
-      <div className="flex items-center space-x-3 pb-5">
+      <div className="flex items-center space-x-3">
         {CartId ? (
           <div
             onClick={() => router.push("/cart")}
