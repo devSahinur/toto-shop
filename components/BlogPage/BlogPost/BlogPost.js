@@ -1,68 +1,74 @@
-import Image from "next/image";
+import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 import { ChatIcon, HeartIcon, ShareIcon } from "@heroicons/react/outline";
-function BlogPost({
-  id,
-  caption,
-  avatar,
-  username,
-  time,
-  like,
-  commment,
-  shere,
-  photo,
-}) {
-  return (
-    <div className="px-3 py-4 border shadow rounded-md">
-      {/* post caption */}
-      <div className="py-6">
-        <h3 className="text-lg">{caption}</h3>
-      </div>
-      {/* post image */}
-      <div classname="mx-auto flex items-center justify-center w-[500px]">
-        <Image
-          src={photo}
-          width={500}
-          height={400}
-          className="min-w-[600px] object-contain mx-auto"
-        />
-      </div>
-      {/* fotter */}
-      <div className="py-4 border-t">
-        {/* fotter left */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img
-              className="w-10 h-10 rounded-full object-cover"
-              src={avatar}
-              alt=""
-            />
-            <div className="flex flex-col">
-              <h4 className="text-base font-medium">{username}</h4>
-              <p className="text-sm text-gray-700">{time}</p>
-            </div>
-          </div>
-          {/* right */}
-          <div className="flex items-center space-x-4">
-            {/* like */}
-            <div className="flex items-center space-x-1">
-              <HeartIcon className="h-6 text-primary" />
-              <span>{like}</span>
-            </div>
-            {/* comment */}
-            <div className="flex items-center space-x-1">
-              <ChatIcon className="h-6 text-primary" />
-              <span>{commment}</span>
-            </div>
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { useState } from "react";
+import Link from "next/link";
 
-            {/* shere */}
-            <div className="flex items-center space-x-1">
-              <ShareIcon className="h-6 text-primary" />
-              <span>{shere}</span>
+function BlogPost({ post }) {
+  const { data: session } = useSession();
+
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [hasLiked, setHasLiked] = useState(false);
+
+  return (
+    <>
+      <div className="px-3 col-span-2 py-4 border shadow rounded-md">
+        {/* post caption */}
+        <div className="py-6">
+          <h3 className="text-lg">{post.title}</h3>
+        </div>
+        {/* post image */}
+        <Link href={`/blog/${post.slug}`}>
+          <div classname="mx-auto cursor-pointer flex items-center justify-center w-[500px]">
+            <Image
+              src={post.postImage}
+              width={500}
+              height={400}
+              className="min-w-[600px] object-contain mx-auto"
+            />
+          </div>
+        </Link>
+        {/* fotter */}
+        <div className="py-4 border-t">
+          {/* fotter left */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img
+                className="w-10 h-10 rounded-full object-cover"
+                src={post.userImage}
+                alt=""
+              />
+              <div className="flex flex-col">
+                <h4 className="text-base font-medium">{post.userName}</h4>
+                <p className="text-sm text-gray-700">about 6 hour ago</p>
+              </div>
+            </div>
+            {/* right */}
+            <div className="flex items-center space-x-4">
+              {/* like */}
+              <div className="flex cursor-pointer items-center space-x-1">
+                <HeartIcon className="h-6 text-primary" />
+                <span>55</span>
+              </div>
+              {/* comment */}
+              <div className="flex cursor-pointer items-center space-x-1">
+                <ChatIcon className="h-6 text-primary" />
+                <span>12</span>
+              </div>
+
+              {/* shere */}
+              <div className="flex cursor-pointer items-center space-x-1">
+                <ShareIcon className="h-6 text-primary" />
+                <span>5</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

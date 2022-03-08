@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function ContactForm() {
-  const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -23,18 +22,16 @@ function ContactForm() {
       <form action="#" className="space-y-6">
         <div className="grid grid-cols-2 space-x-3">
           <div className="flex flex-col">
-            <label className="cinputTi" >
+            <label className="cinputTi">
               First Name <span className="text-primary pl-2 text-xl">*</span>
             </label>
             <input
               className="cinput"
               type="text"
-              value={fname}
-              onChange={(e) => setFname(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
-            <label className="cinputTi" >
+            <label className="cinputTi">
               Last Name <span className="text-primary pl-2 text-xl">*</span>
             </label>
             <input
@@ -46,7 +43,7 @@ function ContactForm() {
           </div>
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" >
+          <label className="cinputTi">
             Email Address <span>*</span>
           </label>
           <input
@@ -57,9 +54,7 @@ function ContactForm() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" >
-            Subject
-          </label>
+          <label className="cinputTi">Subject</label>
           <input
             className="cinput"
             type="text"
@@ -68,7 +63,7 @@ function ContactForm() {
           />
         </div>
         <div className="flex flex-col">
-          <label className="cinputTi" >
+          <label className="cinputTi">
             Your message <span className="text-primary pl-2 text-xl">*</span>
           </label>
           <textarea
