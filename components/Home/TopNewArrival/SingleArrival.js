@@ -1,4 +1,4 @@
-import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
+import { HeartIcon, SearchIcon, StarIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, selectItems } from "../../../slices/appSlice";
@@ -149,19 +149,19 @@ function SingleArrival({ product }) {
         <div className="flex items-center">
           <div className="flex gap-1 text-sm text-yellow-400">
             <span>
-              <i className="fas fa-star"></i>
+              <StarIcon className="h-5 w-5" />
             </span>
             <span>
-              <i className="fas fa-star"></i>
+              <StarIcon className="h-5 w-5" />
             </span>
             <span>
-              <i className="fas fa-star"></i>
+              <StarIcon className="h-5 w-5" />
             </span>
             <span>
-              <i className="fas fa-star"></i>
+              <StarIcon className="h-5 w-5" />
             </span>
             <span>
-              <i className="fas fa-star"></i>
+              <StarIcon className="h-5 w-5" />
             </span>
           </div>
           <div className="text-xs text-gray-500 ml-3">({product.rating})</div>
@@ -187,7 +187,9 @@ function SingleArrival({ product }) {
 
         <div
           onClick={session && createCheckoutSession}
-          className={`block w-full py-1 text-center cursor-pointer ${!session && 'cursor-not-allowed'} text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500`}
+          className={`block w-full py-1 text-center cursor-pointer ${
+            !session && "cursor-not-allowed"
+          } text-white bg-indigo-500 border-2 border-indigo-500 rounded-b hover:bg-transparent hover:text-pink-600 hover:font-semibold transition rounde-md hover:border-indigo-500`}
         >
           Buy Now
         </div>

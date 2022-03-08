@@ -7,17 +7,11 @@ import {
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-function ItemSingleList({ item, setChecked }) {
+function ItemSingleList({ item, setChecked, confirmDelete }) {
   const [dropdown, setDropDown] = useState(false);
 
   const router = useRouter();
 
-  const DeleteHandler = () => {
-    const sure = prompt("Are you sure to delete ");
-    if (sure) {
-      alert("ok");
-    }
-  };
   return (
     <div className="flex items-center justify-between text-xs md:text-base text-gray-500 py-3 px-5 bg-white border border-t">
       <input
@@ -52,7 +46,7 @@ function ItemSingleList({ item, setChecked }) {
             </div>
             {/* Delete */}
             <div
-              onClick={DeleteHandler}
+              onClick={() => confirmDelete(item?._id)}
               className="flex items-center space-x-4 px-2 py-1 cursor-pointer"
             >
               <TrashIcon className="h-4" />

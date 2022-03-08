@@ -3,6 +3,7 @@ import { store } from "../app/store";
 import Router from "next/router";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
+import Head from "next/head";
 //progressBar lib
 import ProgressBar from "@badrap/bar-of-progress";
 // custom css
@@ -23,6 +24,12 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
+        <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        />
+      </Head>
         <Component {...pageProps} />
       </Provider>
     </SessionProvider>

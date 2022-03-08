@@ -55,7 +55,10 @@ export default function Home({ products }) {
         <RecomendedProduct products={products} />
       </main>
       {/* Modal Show */}
+
       {showModal && <Modal setShowModal={setShowModal} />}
+
+      {/* {!showModal && <Modal setShowModal={setShowModal} />} */}
       <MainFooter />
     </>
   );

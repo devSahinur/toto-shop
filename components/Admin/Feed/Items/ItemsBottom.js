@@ -62,7 +62,7 @@ function ItemsBottom({ products }) {
       // Router.reload() // Reload page for fetch GET item again
       // router.push("/");
       const findIndex = allproduct.findIndex((item) => item._id === id);
-      const newProducts = [...product];
+      const newProducts = [...allproduct];
       if (findIndex >= 0) {
         newProducts.splice(findIndex, 1);
       }
@@ -112,7 +112,12 @@ function ItemsBottom({ products }) {
       <div className="max-h-[53vh] overflow-y-scroll">
         {/* there we map */}
         {allproduct?.map((item) => (
-          <ItemSingleList key={item?._id} setChecked={setChecked} item={item} />
+          <ItemSingleList
+            key={item?._id}
+            confirmDelete={confirmDelete}
+            setChecked={setChecked}
+            item={item}
+          />
         ))}
       </div>
     </div>

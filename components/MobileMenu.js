@@ -17,7 +17,18 @@ function MobileMenu() {
           >
             Manage account
             <span className="absolute -left-8 top-0 text-base">
-              <i className="far fa-address-card"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </span>
           </div>
           <div
@@ -28,14 +39,7 @@ function MobileMenu() {
           >
             Profile information
           </div>
-          {/* <div
-            onClick={() => router.push("/user/manage-address")}
-            className={`hover:text-primary cursor-pointer transition ${
-              router.pathname == "/user/manage-address" && "text-primary"
-            } capitalize block`}
-          >
-            Manage address
-          </div> */}
+
           <div
             onClick={() => router.push("/user/change-password")}
             className={`hover:text-primary transition cursor-pointer ${
@@ -56,7 +60,19 @@ function MobileMenu() {
           >
             My order history
             <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-gift"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
+                  clipRule="evenodd"
+                />
+                <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" />
+              </svg>
             </span>
           </div>
           <div
@@ -91,7 +107,14 @@ function MobileMenu() {
           >
             My Product
             <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-cart-plus"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+              </svg>
             </span>
           </div>
         </div>
@@ -104,7 +127,18 @@ function MobileMenu() {
           >
             my wishlist
             <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-heart"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </span>
           </div>
         </div>
@@ -119,7 +153,19 @@ function MobileMenu() {
           >
             Payment methods
             <span className="absolute -left-8 top-0 text-base">
-              <i className="far fa-credit-card"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                <path
+                  fillRule="evenodd"
+                  d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </span>
           </div>
           <div
@@ -141,7 +187,20 @@ function MobileMenu() {
           >
             logout
             <span className="absolute -left-8 top-0 text-base">
-              <i className="fas fa-sign-out-alt"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                />
+              </svg>
             </span>
           </div>
         </div>
