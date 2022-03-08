@@ -1,10 +1,9 @@
 import Head from "next/head";
-import BlogSideBar from "../components/BlogPage/BlogSidebar/BlogSideBar";
-import BlogContent from "../components/BlogPage/BlogContent/BlogContent";
-import MainFooter from "../components/commonComponents/MainFooter";
-import MainHeader from "../components/commonComponents/MainHeader";
-
-const blog = () => {
+import BlogSideBar from "./../../components/BlogPage/BlogSidebar/BlogSideBar";
+import BlogContent from "./../../components/BlogPage/BlogContent/BlogContent";
+import MainFooter from "./../../components/commonComponents/MainFooter";
+import MainHeader from "./../../components/commonComponents/MainHeader";
+function index() {
   return (
     <>
       <Head>
@@ -27,6 +26,11 @@ const blog = () => {
       <MainFooter />
     </>
   );
-};
+}
 
-export default blog;
+export default index;
+
+
+
+
+
