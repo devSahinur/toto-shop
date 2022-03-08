@@ -14,8 +14,10 @@ export default function Home({ products }) {
   const [showModal, setShowModal] = useState();
 
   useEffect(() => {
-    const modalData = window.sessionStorage.getItem("showModal");
-    setShowModal(modalData);
+    setTimeout(() => {
+      const modalData = window.sessionStorage.getItem("showModal");
+      setShowModal(modalData);
+    }, 5000);
   }, []);
 
   return (
@@ -53,7 +55,10 @@ export default function Home({ products }) {
         <RecomendedProduct products={products} />
       </main>
       {/* Modal Show */}
-      {!showModal && <Modal setShowModal={setShowModal} />}
+
+      {showModal && <Modal setShowModal={setShowModal} />}
+
+      {/* {!showModal && <Modal setShowModal={setShowModal} />} */}
       <MainFooter />
     </>
   );
