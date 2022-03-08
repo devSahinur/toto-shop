@@ -10,18 +10,33 @@ import withAuth from "../../lib/withAuth";
 import MainHeader from "../../components/commonComponents/MainHeader";
 import UserSidebar from "../../components/commonComponents/UserSidebar";
 import MainFooter from "../../components/commonComponents/MainFooter";
+import { css } from "@emotion/react";
+import FadeLoader from "react-spinners/FadeLoader";
+
+// TODO loading
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 function myProduct() {
   const router = useRouter();
   const { data: session } = useSession();
   const [product, setProduct] = useState([]);
 
+  // todo for loading
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#FD3D57");
+
   const myData = product?.filter((p) => p?.email === session?.user?.email);
 
   useEffect(async () => {
+    setLoading(true);
     const res = await fetch(`${process.env.host_url}/api/product`);
     const data = await res.json();
     setProduct(data?.data);
+    setLoading(false);
   }, []);
 
   const confirmDelete = async (id) => {
@@ -67,7 +82,21 @@ function myProduct() {
               ))}
             </>
           ) : (
-            <NotfoundProduct />
+            <>
+              {!loading ? (
+                <h1>hello</h1>
+              ) : (
+                <div className="flex items-center justify-center">
+                  <FadeLoader
+                    color={color}
+                    loading={loading}
+                    css={override}
+                    size={300}
+                  />
+                </div>
+              )}
+            </>
+            // <>{loading ? <h1>hello</h1> : <NotfoundProduct />}</>
           )}
         </main>
       </div>

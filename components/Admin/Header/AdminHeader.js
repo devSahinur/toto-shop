@@ -16,7 +16,7 @@ function AdminHeader({ showSidebar, setShowSidebar }) {
   const router = useRouter();
 
   return (
-    <div className=" bg-gradient-to-t from-header400 to-header500 px-5 py-3">
+    <div className=" bg-gradient-to-t from-header400 to-header500 px-5 py-3 sticky top-0">
       {/* Header Wrapper */}
       <div className="flex items-center justify-between">
         {/* Site logo */}

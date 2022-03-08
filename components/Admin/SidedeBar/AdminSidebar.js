@@ -1,26 +1,32 @@
 import React, { useState } from "react";
-import { HomeIcon, XIcon } from "@heroicons/react/outline";
+import {
+  HomeIcon,
+  ShoppingCartIcon,
+  TableIcon,
+  UserIcon,
+  XIcon,
+} from "@heroicons/react/outline";
 import SidebarItem from "./SidebarItem";
 
 function AdminSidebar({ showSidebar, setShowSidebar }) {
   const [sidebars, setSidebars] = useState([
     {
       id: 1,
-      Icon: HomeIcon,
+      Icon: TableIcon,
       active: true,
       route: "/admin",
       text: "Dshborard",
     },
     {
       id: 2,
-      Icon: HomeIcon,
+      Icon: UserIcon,
       active: false,
       route: "/admin/customers",
       text: "Customers",
     },
     {
       id: 3,
-      Icon: HomeIcon,
+      Icon: ShoppingCartIcon,
       active: false,
       route: "/admin/items",
       text: "Items",
@@ -29,64 +35,8 @@ function AdminSidebar({ showSidebar, setShowSidebar }) {
       id: 4,
       Icon: HomeIcon,
       active: false,
-      route: "/admin/customers",
-      text: "Estimates",
-    },
-    {
-      id: 5,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Invoices",
-    },
-    {
-      id: 6,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Recurring Invoices",
-    },
-    {
-      id: 7,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Payments",
-    },
-    {
-      id: 8,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Expenses",
-    },
-    {
-      id: 9,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Modules",
-    },
-    {
-      id: 10,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Users",
-    },
-    {
-      id: 11,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Reports",
-    },
-    {
-      id: 12,
-      Icon: HomeIcon,
-      active: false,
-      route: "/admin/customers",
-      text: "Settings",
+      route: "/",
+      text: "Home",
     },
   ]);
 
@@ -104,13 +54,13 @@ function AdminSidebar({ showSidebar, setShowSidebar }) {
 
   return (
     <div
-      className={`max-h-screen overflow-y-scroll hidden md:block ${
+      className={`max-h-screen hidden md:block ${
         showSidebar && "CustomCallsMenu"
       }`}
     >
       {/* Sidebar Wrapper  */}
       <div>
-        <div className="space-y-1 pt-12 md:pt-8">
+        <div className="space-y-1 pt-12 md:pt-8 pr-3">
           {sidebars?.map((item) => (
             <SidebarItem
               key={item.id}

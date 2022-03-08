@@ -9,6 +9,9 @@ function FeedCommunTopHeader({ item }) {
       </p>{" "}
       <span>/</span>{" "}
       <p onClick={() => router.push(item?.route)}>{item?.text}</p>
+      {item?.nested && (
+        <p onClick={() => router.push(item?.route)}> / {item?.nested}</p>
+      )}
     </div>
   );
 }
