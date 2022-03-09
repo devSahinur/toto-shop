@@ -56,8 +56,7 @@ export default function Home({ products }) {
       </main>
       {/* Modal Show */}
 
-      {/* {showModal && <Modal setShowModal={setShowModal} />} */}
-      <Modal setShowModal={setShowModal} />
+      {showModal && <Modal setShowModal={setShowModal} />}
 
       {/* {!showModal && <Modal setShowModal={setShowModal} />} */}
       <MainFooter />
