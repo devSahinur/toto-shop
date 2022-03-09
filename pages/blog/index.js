@@ -57,6 +57,21 @@ function index() {
       <main className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <BlogSideBar />
         <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
+          <div className="px-4 cursor-pointer flex mx-auto col-span-2 py-1 border shadow rounded-md">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clipRule="evenodd"
+              />
+            </svg>{" "}
+            <h1> Add Post</h1>
+          </div>
           {data.map((post) => (
             <BlogPost key={post.id} post={post} />
           ))}

@@ -15,14 +15,14 @@ function BlogPost({ post }) {
 
   return (
     <>
-      <div className="px-3 col-span-2 py-4 border shadow rounded-md">
+      <div className="col-span-2 border shadow rounded-md">
         {/* post caption */}
         <div className="py-6">
-          <h3 className="text-lg">{post.title}</h3>
+          <h3 className="text-lg p-5">{post.title}</h3>
         </div>
         {/* post image */}
         <Link href={`/blog/${post.slug}`}>
-          <div className="mx-auto cursor-pointer flex items-center justify-center w-[500px]">
+          <div className="mx-auto cursor-pointer flex items-center justify-center ">
             <Image
               src={post.postImage}
               width={500}
@@ -34,7 +34,7 @@ function BlogPost({ post }) {
         {/* fotter */}
         <div className="py-4 border-t">
           {/* fotter left */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center px-4 justify-between">
             <div className="flex items-center space-x-3">
               <img
                 className="w-10 h-10 rounded-full object-cover"
