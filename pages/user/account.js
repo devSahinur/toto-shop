@@ -5,13 +5,14 @@ import withAuth from "../../lib/withAuth";
 import MainFooter from "../../components/commonComponents/MainFooter";
 import UserSidebar from "../../components/commonComponents/UserSidebar";
 import MainHeader from "../../components/commonComponents/MainHeader";
+import AccountInfoCard from "../../components/Account/AccountInfoCard";
 
 function account() {
   const { data: session } = useSession();
   return (
     <>
       <Head>
-        <title>{session.user.name} | ToTo SHOP</title>
+        <title>{session?.user.name} | ToTo SHOP</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="ToToSHOP - Online Shopping Website"></meta>
         <meta
@@ -22,11 +23,17 @@ function account() {
       <MainHeader BreadcrumbTitle="My account" />
       <div className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <UserSidebar />
-        <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
+        <div className="col-span-9 mt-6 lg:mt-0">
+          {/* <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0"> */}
+          {/* TODO: user card INformation */}
+          <div className="w-full">
+            <AccountInfoCard />
+          </div>
+          {/* 
           {/* <!-- single card --> */}
-          <AccuntSingleCard name="Personal profile" />
+          {/* <AccuntSingleCard name="Personal profile" />
           <AccuntSingleCard name="Shipping Address" />
-          <AccuntSingleCard name="" />
+          <AccuntSingleCard name="" /> */}
         </div>
       </div>
       <MainFooter />
@@ -34,4 +41,5 @@ function account() {
   );
 }
 
-export default withAuth(account);
+export default account;
+// export default withAuth(account);

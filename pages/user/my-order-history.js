@@ -69,6 +69,7 @@ function OrderHistory({ orders }) {
                       <div className="flex space-x-6 overflow-x-auto">
                         {images.map((image) => (
                           <img
+                            key={image}
                             src={image}
                             alt=""
                             className="h-20 object-contain sm:h-32"
