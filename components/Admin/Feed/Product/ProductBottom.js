@@ -34,7 +34,6 @@ function ProductBottom() {
         newImages.push(response.data.data.display_url);
         image = newImages;
         setImageURL(image);
-        console.log(image);
       })
       .catch((error) => {
         console.log(error);
