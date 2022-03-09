@@ -5,7 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 function MobileMenu() {
   const router = useRouter();
   return (
-    <div className="absolute top-[200px] min-w-[300px] max-w-[350px] px-2 py-4 animationSidebar drop-shadow-lg z-50 md:hidden">
+    <div className="absolute top-[200px] min-w-[300px] max-w-[350px] px-2 py-4 animationSidebar drop-shadow-lg z-50 lg:hidden">
       <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
         {/* <!-- single link --> */}
         <div className="space-y-1 pl-8">

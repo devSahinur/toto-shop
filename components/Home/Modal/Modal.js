@@ -38,12 +38,12 @@ function Modal({ setShowModal }) {
           <div className="flex w-full">
             <input
               type="text"
-              className="pl-2 md:pl-12 w-full border border-r-0 border-primary py-2 md:py-3 px-1 md:px-3 rounded-l-md outline-primary focus:border-primary"
+              className="pl-2 md:pl-12 placeholder:text-xs lg:placeholder:text-base w-full border border-r-0 border-primary py-1 md:py-3 px-1 md:px-3 rounded-l-md outline-primary focus:border-primary"
               placeholder="Your email address"
             />
             <button
               type="submit"
-              className="bg-primary border border-primary text-white px-2 md:px-6 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition uppercase"
+              className="bg-primary border border-primary text-white px-2 md:px-6 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition uppercase text-xs md:text-base"
             >
               Subscribe
             </button>
@@ -56,7 +56,7 @@ function Modal({ setShowModal }) {
               className="form-checkbox text-primary border-primary rounded-md border-2 p-2 focus-within:outline-primary outline-primary"
               onChange={dontShow}
             />
-            <span className="ml-2 text-sm md:text-base">
+            <span className="ml-2 text-xs md:text-base">
               Do not show this again
             </span>
           </label>

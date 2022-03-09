@@ -89,8 +89,8 @@ function CustomerListItem() {
         {/* there we map */}
         {customerList?.map((item) => (
           <CustomerSingleList
-            setChecked={setChecked}
             key={item.id}
+            setChecked={setChecked}
             item={item}
           />
         ))}

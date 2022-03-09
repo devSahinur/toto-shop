@@ -10,8 +10,6 @@ function ProductTop() {
     nested: router.query.name,
   };
 
-  console.log(router.query);
-
   return (
     <div>
       <h1 className="text-3xl font-semibold pb-4">Items </h1>
