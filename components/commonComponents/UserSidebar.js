@@ -12,7 +12,7 @@ function UserSidebar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   const openSidebarMenu = () => {
-    setOpenMenu(!openMenu);
+    setOpenMenu(true);
   };
 
   return (
@@ -42,14 +42,14 @@ function UserSidebar() {
             </div>
           </div>
           <div
-            className="cursor-pointer inline-flex md:hidden"
-            onClick={openSidebarMenu}
+            className="cursor-pointer inline-flex lg:hidden"
+            onClick={() => setOpenMenu(!openMenu)}
           >
             <MenuIcon className="h-6" />
           </div>
         </div>
 
-        <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600 hidden md:block">
+        <div className="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600 hidden lg:block">
           <div className="space-y-1 pl-8">
             <div
               onClick={() => router.push("/user/account")}
