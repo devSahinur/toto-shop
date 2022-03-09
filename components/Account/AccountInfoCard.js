@@ -10,20 +10,20 @@ function AccountInfoCard() {
       <div className="w-full relative">
         <img
           src="https://i.ibb.co/YDb8xrb/white-texture-cover-photo.webp"
-          className="object-contain w-full"
+          className="w-full h-[150px]"
         />
         {/* TODO: profile imagehandler */}
-        <div className="absolute -bottom-16 z-50 left-1/2 transform -translate-x-1/2">
+        <div className=" cursor-pointer absolute -bottom-16 z-50 left-1/2 transform -translate-x-1/2">
           <Image
             src={session?.user.image}
-            width={150}
-            height={150}
-            className="rounded-full object-contain"
+            width={130}
+            height={130}
+            className="rounded-full object-contain  hover:opacity-90 hover:shadow-md"
           />
         </div>
         {/* edite profile button */}
         <div className="absolute right-4 bottom-5">
-          <button className="px-3 md:px-5 md:py-3 bg-header500 ring-2 focus-within:ring-header400 rounded-md text-black py-2">
+          <button className="px-3 md:px-4 md:py-2 bg-header500 ring-2 focus-within:ring-header400 rounded-md text-black py-2">
             Edite Profile
           </button>
         </div>

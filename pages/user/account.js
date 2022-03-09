@@ -41,5 +41,5 @@ function account() {
   );
 }
 
-export default account;
-// export default withAuth(account);
+export default withAuth(account);
+// export default account;
