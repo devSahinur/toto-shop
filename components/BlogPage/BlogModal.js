@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function BlogModal({ setShowModal }) {
+  const [caption, setCaption] = useState("");
+  const [description, setDescripton] = useState("");
   const [imageURL, setImageURL] = useState("");
 
   // todo image upload handler
@@ -104,7 +106,12 @@ function BlogModal({ setShowModal }) {
             )}
           </div>
           <div className="pt-4">
-            <button className="btn" type="submit" onClick={PostUpload}>
+            <button
+              disabled={!caption}
+              className="btn"
+              type="submit"
+              onClick={PostUpload}
+            >
               Submit
             </button>
           </div>
