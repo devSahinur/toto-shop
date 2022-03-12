@@ -5,6 +5,7 @@ import { PencilIcon } from "@heroicons/react/outline";
 
 function AccountInfoCard() {
   const { data: session } = useSession();
+  
   return (
     <div>
       {/* cover card */}
@@ -24,8 +25,8 @@ function AccountInfoCard() {
         </div>
         {/* edite profile button */}
         <div className="absolute right-4 bottom-5">
-          <button className="px-3 md:px-4 md:py-2 bg-header500 ring-2 focus-within:ring-header400 rounded-md text-black py-2">
-            <p className="hidden md:block">Edite Profile</p>
+          <button className="px-3 md:px-4 md:py-2 bg-primary  rounded-md text-white py-2">
+            <p className="hidden md:block">Edit Profile</p>
             <PencilIcon className="h-5 text-white font-bold md:hidden" />
           </button>
         </div>
