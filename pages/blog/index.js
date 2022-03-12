@@ -3,6 +3,8 @@ import BlogSideBar from "./../../components/BlogPage/BlogSidebar/BlogSideBar";
 import MainFooter from "./../../components/commonComponents/MainFooter";
 import MainHeader from "./../../components/commonComponents/MainHeader";
 import BlogPost from "../../components/BlogPage/BlogPost/BlogPost";
+import BlogModal from "../../components/BlogPage/BlogModal";
+import { useState } from "react";
 
 const data = [
   {
@@ -41,6 +43,7 @@ const data = [
 ];
 
 function index() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <Head>
@@ -57,7 +60,10 @@ function index() {
       <main className="container lg:grid grid-cols-12 items-start gap-6 pt-4 pb-16">
         <BlogSideBar />
         <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
-          <div className="px-4 cursor-pointer flex mx-auto col-span-2 py-1 border shadow rounded-md">
+          <div
+            onClick={() => setShowModal(true)}
+            className="px-4 cursor-pointer flex mx-auto col-span-2 py-1 border shadow rounded-md"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -76,6 +82,9 @@ function index() {
             <BlogPost key={post.id} post={post} />
           ))}
         </div>
+
+        {/* TODO: blog modal */}
+        {showModal && <BlogModal setShowModal={setShowModal} />}
       </main>
       <MainFooter />
     </>
