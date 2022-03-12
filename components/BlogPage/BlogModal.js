@@ -73,12 +73,21 @@ function BlogModal({ setShowModal }) {
         <form className="flex flex-col space-y-3">
           <div className="space-y-2 w-full">
             <label className="labelText font-semibold">Caption </label>
-            <input type="text" className="input-box w-full border-2" />
+            <input
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+              type="text"
+              className="input-box w-full border-2"
+            />
           </div>
           {/* textarea */}
           <div className="space-y-2 w-full">
             <label className="labelText font-semibold">Description </label>
-            <textarea className="input-box w-full resize-none h-[100px] md:h-[200px] border-2"></textarea>
+            <textarea
+              value={description}
+              onChange={(e) => setDescripton(e.target.value)}
+              className="input-box w-full resize-none h-[100px] md:h-[200px] border-2"
+            ></textarea>
           </div>
           {/* TODO: uploaded image */}
           <div className="text-center flex mt-4 items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative">
