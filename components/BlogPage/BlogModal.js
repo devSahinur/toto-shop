@@ -34,7 +34,7 @@ function BlogModal({ setShowModal }) {
       className="fixed top-0 left-0 custom_modal flex items-center w-full h-full"
       style={{ background: "rgba(0, 0, 0, 0.5)", zIndex: "70" }}
     >
-      <div className="relative fadeAtTop px-3 md:px-4 py-6 md:py-10 min-w-[75%] rounded-md max-w-[75%] md:min-w-[700px] mx-auto bg-white animation shadow-md border-2">
+      <div className="relative fadeAtTop px-3 md:px-4 py-3  min-w-[75%] rounded-md max-w-[75%] md:min-w-[700px] mx-auto bg-white animation shadow-md border-2">
         {/* Icon */}
         <XIcon
           onClick={() => setShowModal(false)}
@@ -42,7 +42,7 @@ function BlogModal({ setShowModal }) {
         />
 
         {/* TOp TITLE  */}
-        <div className="text-center py-6 font-semibold font-roboto text-xl md:text-2xl text-gray-800">
+        <div className="text-center py-2 font-semibold font-roboto text-xl md:text-2xl text-gray-800">
           <h1 className="flex flex-col space-y-3 md:flex-row items-center justify-center">
             Make A post in{" "}
             <span className="md:pl-4 pt-2">
@@ -83,11 +83,11 @@ function BlogModal({ setShowModal }) {
             <textarea
               value={description}
               onChange={(e) => setDescripton(e.target.value)}
-              className="input-box w-full resize-none h-[100px] md:h-[200px] border-2"
+              className="input-box w-full resize-none h-[50px] md:h-[100px] border-2"
             ></textarea>
           </div>
           {/* TODO: uploaded image */}
-          <div className="text-center flex mt-4 items-center flex-col justify-center h-[200px] rounded-md border-dashed border-2 text-gray-500 relative">
+          <div className="text-center flex mt-4 items-center flex-col justify-center h-[120px] rounded-md border-dashed border-2 text-gray-500 relative">
             {imageURL ? (
               <>
                 <img className="object-contain w-full h-full" src={imageURL} />
