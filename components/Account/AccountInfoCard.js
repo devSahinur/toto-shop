@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import { PencilIcon } from "@heroicons/react/outline";
 
 function AccountInfoCard() {
   const { data: session } = useSession();
@@ -24,7 +25,8 @@ function AccountInfoCard() {
         {/* edite profile button */}
         <div className="absolute right-4 bottom-5">
           <button className="px-3 md:px-4 md:py-2 bg-header500 ring-2 focus-within:ring-header400 rounded-md text-black py-2">
-            Edite Profile
+            <p className="hidden md:block">Edite Profile</p>
+            <PencilIcon className="h-5 text-white font-bold md:hidden" />
           </button>
         </div>
       </div>

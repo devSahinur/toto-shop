@@ -21,7 +21,7 @@ function ProfileInfo() {
   useEffect(async () => {
     const res = await fetch("/api/user");
     const data = await res.json();
-    setUser(data.Login[0]);
+    setUser(data?.Login[0]);
   }, []);
 
   const onSubmit = async (data) => {
