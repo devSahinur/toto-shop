@@ -16,11 +16,8 @@ function BlogModal({ setShowModal }) {
     axios
       .post("https://api.imgbb.com/1/upload", imageData)
       .then((response) => {
-        let image = [];
-        let newImages = [...images];
-        newImages.push(response.data.data.display_url);
-        image = newImages;
-        setImageURL(image);
+        setImageURL(response.data.data.display_url);
+        console.log(imageURL);
       })
       .catch((error) => {
         console.log(error);
