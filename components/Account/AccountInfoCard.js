@@ -14,7 +14,7 @@ function AccountInfoCard() {
           className="w-full h-[150px]"
         />
         {/* TODO: profile imagehandler */}
-        <div className=" cursor-pointer absolute -bottom-16 z-50 left-1/2 transform -translate-x-1/2">
+        <div className=" cursor-pointer absolute -bottom-16  left-1/2 transform -translate-x-1/2">
           <Image
             src={session?.user.image}
             width={130}
