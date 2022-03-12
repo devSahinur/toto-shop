@@ -46,9 +46,9 @@ function BlogModal({ setShowModal }) {
 
         {/* TOp TITLE  */}
         <div className="text-center py-6 font-semibold font-roboto text-xl md:text-2xl text-gray-800">
-          <h1 className="flex items-center justify-center">
+          <h1 className="flex flex-col space-y-3 md:flex-row items-center justify-center">
             Make A post in{" "}
-            <span className="pl-4">
+            <span className="md:pl-4 pt-2">
               {" "}
               <svg
                 width="140"
