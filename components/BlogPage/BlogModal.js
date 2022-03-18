@@ -1,10 +1,18 @@
 import { PhotographIcon, XIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 function BlogModal({ setShowModal }) {
-  const [caption, setCaption] = useState("");
-  const [description, setDescripton] = useState("");
+  const { data: session } = useSession();
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [imageURL, setImageURL] = useState("");
 
   // todo image upload handler
@@ -24,11 +32,31 @@ function BlogModal({ setShowModal }) {
       });
   };
 
-  //   todo Post upload handler
-  const PostUpload = (e) => {
-    e.preventDefault();
-    alert("f");
+  const onSubmit = async (data) => {
+    const res = await fetch("/api/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+        postImage: imageURL,
+        userEmail: session?.user?.email,
+        userName: session?.user?.name,
+        userImage: session?.user?.image,
+        slug: data.title
+          .toLowerCase()
+          .replace(/ /g, "-")
+          .replace(/[^\w-]+/g, ""),
+      }),
+    });
+
+    if (res.ok) {
+      console.log("User Update done");
+      router.push("/blog/mypost");
+    }
   };
+
   return (
     <div
       className="fixed top-0 left-0 custom_modal flex items-center w-full h-full"
@@ -67,23 +95,26 @@ function BlogModal({ setShowModal }) {
           </h1>
         </div>
 
-        <form className="flex flex-col space-y-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col space-y-3"
+        >
           <div className="space-y-2 w-full">
             <label className="labelText font-semibold">Caption </label>
             <input
-              value={caption}
-              onChange={(e) => setCaption(e.target.value)}
-              type="text"
               className="input-box w-full border-2"
+              {...register("title", { required: true })}
+              placeholder="Enter your caption ?"
+              // defaultValue={user?.name}
             />
           </div>
           {/* textarea */}
           <div className="space-y-2 w-full">
             <label className="labelText font-semibold">Description </label>
             <textarea
-              value={description}
-              onChange={(e) => setDescripton(e.target.value)}
+              {...register("description", { required: true })}
               className="input-box w-full resize-none h-[50px] md:h-[100px] border-2"
+              placeholder="Enter your description ?"
             ></textarea>
           </div>
           {/* TODO: uploaded image */}
@@ -112,14 +143,7 @@ function BlogModal({ setShowModal }) {
             )}
           </div>
           <div className="pt-4">
-            <button
-              disabled={!caption}
-              className="btn"
-              type="submit"
-              onClick={PostUpload}
-            >
-              Submit
-            </button>
+            <input className="btn" type="submit" value="Submit" />
           </div>
         </form>
       </div>

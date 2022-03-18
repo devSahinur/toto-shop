@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import moment from 'moment';
 
 function BlogPost({ post }) {
   const { data: session } = useSession();
@@ -51,18 +52,18 @@ function BlogPost({ post }) {
               {/* like */}
               <div className="flex cursor-pointer items-center space-x-1">
                 <HeartIcon className="h-6 text-primary" />
-                <span>55</span>
+                {/* <span>{post.like.length}</span> */}
               </div>
               {/* comment */}
               <div className="flex cursor-pointer items-center space-x-1">
                 <ChatIcon className="h-6 text-primary" />
-                <span>12</span>
+                {/* <span>{post.comment.length}</span> */}
               </div>
 
               {/* shere */}
               <div className="flex cursor-pointer items-center space-x-1">
                 <ShareIcon className="h-6 text-primary" />
-                <span>5</span>
+                <span>0</span>
               </div>
             </div>
           </div>
