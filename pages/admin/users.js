@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import UserFeed from "../../components/Admin/Feed/Users/UserFeed";
 import AdminHeader from "../../components/Admin/Header/AdminHeader";
 import AdminSidebar from "../../components/Admin/SidedeBar/AdminSidebar";
 
@@ -21,7 +20,7 @@ function users() {
             setShowSidebar={setShowSidebar}
           />
           <div className="flex-grow p-6 bg-[#F1F5F9] min-h-[90vh]">
-            <UserFeed />
+            <h1>I am the user feed</h1>
           </div>
         </div>
       </div>
