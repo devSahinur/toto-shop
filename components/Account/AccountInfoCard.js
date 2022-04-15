@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { PencilIcon } from "@heroicons/react/outline";
 
-function AccountInfoCard() {
+function AccountInfoCard({user}) {
   const { data: session } = useSession();
   
   return (
@@ -35,11 +35,30 @@ function AccountInfoCard() {
       {/* bottom content */}
       <div className="text-center pt-20">
         <p className="text-xs md:text-sm text-gray-500 pb-3">
-          Dhaka, Bangladesh
+          @{user?.customName}
         </p>
         <h1 className="text-3xl font-semibold font-poppins">
           {session?.user.name}
         </h1>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Address: {user?.address}
+        </p>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Birthday: {user?.birthday}
+        </p>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Gender: {user?.gender}
+        </p>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Phone Number: {user?.phoneNumber}
+        </p>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Email Address: {user?.email}
+        </p>
+        <p className="text-xs md:text-sm text-gray-500 pb-3">
+        Shop Name: {user?.shopName}
+        </p>
+        
       </div>
     </div>
   );

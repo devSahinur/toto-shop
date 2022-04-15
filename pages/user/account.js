@@ -6,9 +6,20 @@ import MainFooter from "../../components/commonComponents/MainFooter";
 import UserSidebar from "../../components/commonComponents/UserSidebar";
 import MainHeader from "../../components/commonComponents/MainHeader";
 import AccountInfoCard from "../../components/Account/AccountInfoCard";
+import FadeLoader from "react-spinners/FadeLoader";
+import { useEffect, useState } from "react";
 
 function account() {
   const { data: session } = useSession();
+  const [user, setUser] = useState();
+  let [loading, setLoading] = useState(true);
+
+  useEffect(async () => {
+    const res = await fetch("/api/user");
+    const data = await res.json();
+    setUser(data?.Login[0]);
+    setLoading(false);
+  }, []);
   return (
     <>
       <Head>
@@ -26,14 +37,15 @@ function account() {
         <div className="col-span-9 mt-6 lg:mt-0">
           {/* <div className="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0"> */}
           {/* TODO: user card INformation */}
-          <div className="w-full">
-            <AccountInfoCard />
-          </div>
-          {/* 
-          {/* <!-- single card --> */}
-          {/* <AccuntSingleCard name="Personal profile" />
-          <AccuntSingleCard name="Shipping Address" />
-          <AccuntSingleCard name="" /> */}
+          {loading ? (
+            <div className=" flex  items-center text-center justify-center">
+              <FadeLoader color={`#FD3D57`} loading={loading} size={300} />
+            </div>
+          ) : (
+            <div className="w-full">
+              <AccountInfoCard user={user} />
+            </div>
+          )}
         </div>
       </div>
       <MainFooter />
