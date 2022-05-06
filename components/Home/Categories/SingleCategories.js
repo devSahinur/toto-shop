@@ -4,7 +4,7 @@ export const SingleCategories = ({ data }) => {
   return (
     <Link href={{ pathname: "/shop", query: { category: data.title } }}>
       <div className="group">
-        <div className="relative group rounded-sm overflow-hidden">
+        <div className="relative group rounded-sm cursor-pointer overflow-hidden">
           <img
             src={data?.image}
             className="w-full transform transition-all  ease-in-out duration-700  group-hover:scale-125"
