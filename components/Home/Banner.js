@@ -16,27 +16,6 @@ function Banner() {
         <div>
           <img
             loading="lazy"
-            src="https://raw.githubusercontent.com/devSahinur/ishop/main/src/images/3.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            loading="lazy"
-            src="https://raw.githubusercontent.com/devSahinur/ishop/main/src/images/1.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            loading="lazy"
-            src="https://raw.githubusercontent.com/devSahinur/ishop/main/src/images/2.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            loading="lazy"
             src="https://i.ibb.co/bdqZwjq/pay.jpg"
             alt=""
           />
